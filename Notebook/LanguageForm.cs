@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Notebook
 {
-    public partial class Form1 : Form
+    public partial class LanguageForm : Form
     {
-        public Form1()
+        public LanguageForm()
         {
             InitializeComponent();
         }
