@@ -19,7 +19,14 @@ namespace Notebook
 
         private void giveListName_button_Click(object sender, EventArgs e)
         {
-            
+            if (listName_textBox.Text != "")
+            {
+                
+            }
+            else
+            {
+                
+            }
         }
     }
 }

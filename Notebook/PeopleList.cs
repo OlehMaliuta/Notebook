@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
-    internal static class Storage
+    internal class PeopleList
     {
-        public static PeopleList[] lists = {};
-        public static string Text = "ERR";
+        public Element[] elements = {};
+        public string name;
     }
 }

@@ -26,18 +26,14 @@ namespace Notebook
         {
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
+            this.Hide();
         }
 
         private void addList_button_Click(object sender, EventArgs e)
         {
             ListNameForm listNameForm = new ListNameForm();
             listNameForm.Show();
-        }
-
-        private void deleteList_button_Click(object sender, EventArgs e)
-        {
-            ConfirmationForm confirmationForm = new ConfirmationForm();
-            confirmationForm.Show();
+            this.Hide();
         }
     }
 }

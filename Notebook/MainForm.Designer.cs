@@ -61,7 +61,6 @@
             resources.ApplyResources(this.deleteList_button, "deleteList_button");
             this.deleteList_button.Name = "deleteList_button";
             this.deleteList_button.UseVisualStyleBackColor = true;
-            this.deleteList_button.Click += new System.EventHandler(this.deleteList_button_Click);
             // 
             // searchList_textBox
             // 

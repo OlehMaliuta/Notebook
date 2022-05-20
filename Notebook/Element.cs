@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
-    internal static class Storage
+    internal class Element
     {
-        public static PeopleList[] lists = {};
-        public static string Text = "ERR";
+        public uint priority;
+        public string name;
+        public string phone;
     }
 }
