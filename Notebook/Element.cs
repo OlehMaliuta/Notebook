@@ -8,8 +8,9 @@ namespace Notebook
 {
     internal class Element
     {
-        public uint priority;
-        public string name;
-        public string phone;
+        public uint priority = 0;
+        public string name = "ERR";
+        public string phone = "ERR";
+        public string birthday = "ERR";
     }
 }

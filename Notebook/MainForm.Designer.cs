@@ -41,6 +41,11 @@
             this.createTxtFile_button = new System.Windows.Forms.Button();
             this.openList_button = new System.Windows.Forms.Button();
             this.renameList_button = new System.Windows.Forms.Button();
+            this.lists_dataGridView = new System.Windows.Forms.DataGridView();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MakeListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChangeListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.lists_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Lists_listBox
@@ -122,10 +127,37 @@
             this.renameList_button.Name = "renameList_button";
             this.renameList_button.UseVisualStyleBackColor = true;
             // 
+            // lists_dataGridView
+            // 
+            this.lists_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lists_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.MakeListDate,
+            this.ChangeListDate});
+            resources.ApplyResources(this.lists_dataGridView, "lists_dataGridView");
+            this.lists_dataGridView.Name = "lists_dataGridView";
+            // 
+            // name
+            // 
+            resources.ApplyResources(this.name, "name");
+            this.name.Name = "name";
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // MakeListDate
+            // 
+            resources.ApplyResources(this.MakeListDate, "MakeListDate");
+            this.MakeListDate.Name = "MakeListDate";
+            // 
+            // ChangeListDate
+            // 
+            resources.ApplyResources(this.ChangeListDate, "ChangeListDate");
+            this.ChangeListDate.Name = "ChangeListDate";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lists_dataGridView);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.settings_button);
             this.Controls.Add(this.sortingLists_comboBox);
@@ -139,6 +171,8 @@
             this.Controls.Add(this.addList_button);
             this.Controls.Add(this.Lists_listBox);
             this.Name = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.lists_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +192,10 @@
         private System.Windows.Forms.Button createTxtFile_button;
         private System.Windows.Forms.Button openList_button;
         private System.Windows.Forms.Button renameList_button;
+        private System.Windows.Forms.DataGridView lists_dataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MakeListDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChangeListDate;
     }
 }
 

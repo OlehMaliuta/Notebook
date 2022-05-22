@@ -122,7 +122,7 @@
     <value>12, 10</value>
   </data>
   <data name="Lists_listBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>628, 641</value>
+    <value>0, 4</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Lists_listBox.TabIndex" type="System.Int32, mscorlib">
@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Lists_listBox.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="addList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;addList_button.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="deleteList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -193,7 +193,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;deleteList_button.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="searchList_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>674, 439</value>
@@ -214,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;searchList_textBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="mainWindow1_label.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -244,7 +244,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mainWindow1_label.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="sortingLists_comboBox.Items" xml:space="preserve">
     <value>назвою</value>
@@ -274,7 +274,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;sortingLists_comboBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="settings_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -301,7 +301,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;settings_button.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="exit_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -328,7 +328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;exit_button.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="createDocxFile_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -355,7 +355,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createDocxFile_button.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="createTxtFile_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -382,7 +382,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createTxtFile_button.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="openList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -409,7 +409,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;openList_button.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="renameList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -436,7 +436,46 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;renameList_button.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="name.HeaderText" xml:space="preserve">
+    <value>Назва</value>
+  </data>
+  <metadata name="MakeListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="MakeListDate.HeaderText" xml:space="preserve">
+    <value>Дата створення</value>
+  </data>
+  <metadata name="ChangeListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ChangeListDate.HeaderText" xml:space="preserve">
+    <value>Дата оновлення</value>
+  </data>
+  <data name="lists_dataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 10</value>
+  </data>
+  <data name="lists_dataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>628, 641</value>
+  </data>
+  <data name="lists_dataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;lists_dataGridView.Name" xml:space="preserve">
+    <value>lists_dataGridView</value>
+  </data>
+  <data name="&gt;&gt;lists_dataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lists_dataGridView.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lists_dataGridView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -449,6 +488,24 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;name.Name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="&gt;&gt;name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MakeListDate.Name" xml:space="preserve">
+    <value>MakeListDate</value>
+  </data>
+  <data name="&gt;&gt;MakeListDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChangeListDate.Name" xml:space="preserve">
+    <value>ChangeListDate</value>
+  </data>
+  <data name="&gt;&gt;ChangeListDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
