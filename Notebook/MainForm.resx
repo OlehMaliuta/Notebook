@@ -138,71 +138,47 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Lists_listBox.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="addList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="nameForList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="addList_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>770, 108</value>
+  <data name="nameForList_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>918, 167</value>
   </data>
-  <data name="addList_button.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nameForList_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 23</value>
   </data>
-  <data name="addList_button.TabIndex" type="System.Int32, mscorlib">
+  <data name="nameForList_button.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="addList_button.Text" xml:space="preserve">
+  <data name="nameForList_button.Text" xml:space="preserve">
     <value>додати список</value>
   </data>
-  <data name="&gt;&gt;addList_button.Name" xml:space="preserve">
-    <value>addList_button</value>
+  <data name="&gt;&gt;nameForList_button.Name" xml:space="preserve">
+    <value>nameForList_button</value>
   </data>
-  <data name="&gt;&gt;addList_button.Type" xml:space="preserve">
+  <data name="&gt;&gt;nameForList_button.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;addList_button.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nameForList_button.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;addList_button.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="deleteList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="deleteList_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1024, 108</value>
-  </data>
-  <data name="deleteList_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 23</value>
-  </data>
-  <data name="deleteList_button.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="deleteList_button.Text" xml:space="preserve">
-    <value>видалити список</value>
-  </data>
-  <data name="&gt;&gt;deleteList_button.Name" xml:space="preserve">
-    <value>deleteList_button</value>
-  </data>
-  <data name="&gt;&gt;deleteList_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;deleteList_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;deleteList_button.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;nameForList_button.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="searchList_textBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>674, 439</value>
+    <value>783, 395</value>
   </data>
   <data name="searchList_textBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 20</value>
+    <value>401, 20</value>
   </data>
   <data name="searchList_textBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
+  </data>
+  <data name="searchList_textBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="&gt;&gt;searchList_textBox.Name" xml:space="preserve">
     <value>searchList_textBox</value>
@@ -223,7 +199,7 @@
     <value>NoControl</value>
   </data>
   <data name="mainWindow1_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>798, 508</value>
+    <value>827, 468</value>
   </data>
   <data name="mainWindow1_label.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 13</value>
@@ -256,7 +232,7 @@
     <value>датою оновлення</value>
   </data>
   <data name="sortingLists_comboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>939, 505</value>
+    <value>968, 465</value>
   </data>
   <data name="sortingLists_comboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 21</value>
@@ -280,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="settings_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>674, 618</value>
+    <value>783, 618</value>
   </data>
   <data name="settings_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 33</value>
@@ -307,7 +283,7 @@
     <value>NoControl</value>
   </data>
   <data name="exit_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1113, 618</value>
+    <value>1086, 618</value>
   </data>
   <data name="exit_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>98, 33</value>
@@ -334,7 +310,7 @@
     <value>NoControl</value>
   </data>
   <data name="createDocxFile_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1008, 218</value>
+    <value>1008, 282</value>
   </data>
   <data name="createDocxFile_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 23</value>
@@ -355,13 +331,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createDocxFile_button.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="createTxtFile_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="createTxtFile_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>756, 218</value>
+    <value>810, 282</value>
   </data>
   <data name="createTxtFile_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 23</value>
@@ -382,61 +358,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;createTxtFile_button.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="openList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="openList_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>773, 339</value>
-  </data>
-  <data name="openList_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 23</value>
-  </data>
-  <data name="openList_button.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="openList_button.Text" xml:space="preserve">
-    <value>відкрити список</value>
-  </data>
-  <data name="&gt;&gt;openList_button.Name" xml:space="preserve">
-    <value>openList_button</value>
-  </data>
-  <data name="&gt;&gt;openList_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openList_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;openList_button.ZOrder" xml:space="preserve">
     <value>7</value>
-  </data>
-  <data name="renameList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="renameList_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1023, 339</value>
-  </data>
-  <data name="renameList_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 23</value>
-  </data>
-  <data name="renameList_button.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="renameList_button.Text" xml:space="preserve">
-    <value>переіменувати</value>
-  </data>
-  <data name="&gt;&gt;renameList_button.Name" xml:space="preserve">
-    <value>renameList_button</value>
-  </data>
-  <data name="&gt;&gt;renameList_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;renameList_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;renameList_button.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -444,23 +366,47 @@
   <data name="name.HeaderText" xml:space="preserve">
     <value>Назва</value>
   </data>
-  <metadata name="MakeListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="creatingListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="MakeListDate.HeaderText" xml:space="preserve">
+  <data name="creatingListDate.HeaderText" xml:space="preserve">
     <value>Дата створення</value>
   </data>
-  <metadata name="ChangeListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="updatingListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="ChangeListDate.HeaderText" xml:space="preserve">
+  <data name="updatingListDate.HeaderText" xml:space="preserve">
     <value>Дата оновлення</value>
+  </data>
+  <metadata name="open.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="open.HeaderText" xml:space="preserve">
+    <value>*Відкрити*</value>
+  </data>
+  <data name="open.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
+  <metadata name="rename.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="rename.HeaderText" xml:space="preserve">
+    <value>*Переіменувати*</value>
+  </data>
+  <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="delete.HeaderText" xml:space="preserve">
+    <value>*Видалити*</value>
+  </data>
+  <data name="delete.Width" type="System.Int32, mscorlib">
+    <value>70</value>
   </data>
   <data name="lists_dataGridView.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 10</value>
   </data>
   <data name="lists_dataGridView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>628, 641</value>
+    <value>736, 641</value>
   </data>
   <data name="lists_dataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -477,6 +423,29 @@
   <data name="&gt;&gt;lists_dataGridView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="dataGridViewCellStyle4.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
+  <data name="dataGridViewImageColumn1.HeaderText" xml:space="preserve">
+    <value>*Відкрити*</value>
+  </data>
+  <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
+    <value>70</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -487,7 +456,7 @@
     <value>1240, 663</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>MainForm</value>
+    <value>Головне вікно</value>
   </data>
   <data name="&gt;&gt;name.Name" xml:space="preserve">
     <value>name</value>
@@ -495,17 +464,41 @@
   <data name="&gt;&gt;name.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MakeListDate.Name" xml:space="preserve">
-    <value>MakeListDate</value>
+  <data name="&gt;&gt;creatingListDate.Name" xml:space="preserve">
+    <value>creatingListDate</value>
   </data>
-  <data name="&gt;&gt;MakeListDate.Type" xml:space="preserve">
+  <data name="&gt;&gt;creatingListDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ChangeListDate.Name" xml:space="preserve">
-    <value>ChangeListDate</value>
+  <data name="&gt;&gt;updatingListDate.Name" xml:space="preserve">
+    <value>updatingListDate</value>
   </data>
-  <data name="&gt;&gt;ChangeListDate.Type" xml:space="preserve">
+  <data name="&gt;&gt;updatingListDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;open.Name" xml:space="preserve">
+    <value>open</value>
+  </data>
+  <data name="&gt;&gt;open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rename.Name" xml:space="preserve">
+    <value>rename</value>
+  </data>
+  <data name="&gt;&gt;rename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delete.Name" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="&gt;&gt;delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

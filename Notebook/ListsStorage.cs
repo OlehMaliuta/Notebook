@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notebook
 {
-    internal class Storage
+    internal class ListsStorage
     {
         public List<PeopleList> peopleLists = new List<PeopleList>();
     }

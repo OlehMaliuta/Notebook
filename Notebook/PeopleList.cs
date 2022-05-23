@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Notebook
 {
@@ -13,7 +15,7 @@ namespace Notebook
         public string creatingDate = "ERR";
         public string updatingDate = "ERR";
 
-        public PeopleList(string listName, string creatingDate = "ERR", string updatingDate = "ERR")
+        public PeopleList(string listName = "ERR", string creatingDate = "ERR", string updatingDate = "ERR")
         {
             this.listName = listName;
             this.creatingDate = creatingDate;

@@ -9,8 +9,15 @@ namespace Notebook
     internal class Element
     {
         public uint priority = 0;
-        public string name = "ERR";
-        public string phone = "ERR";
-        public string birthday = "ERR";
+        public string name = "-";
+        public string phone = "-";
+        public string birthday = "-";
+        public string personalData = "-";
+        public string restdentialAddress = "-";
+        public string locale = "-";
+        public string familarPeoplePosition = "-";
+        public string firstMeeting = "-";
+        public string goodSides = "-";
+        public string extraInfo = "-";
     }
 }

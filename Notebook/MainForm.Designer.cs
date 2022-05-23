@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Lists_listBox = new System.Windows.Forms.ListBox();
-            this.addList_button = new System.Windows.Forms.Button();
-            this.deleteList_button = new System.Windows.Forms.Button();
+            this.nameForList_button = new System.Windows.Forms.Button();
             this.searchList_textBox = new System.Windows.Forms.TextBox();
             this.mainWindow1_label = new System.Windows.Forms.Label();
             this.sortingLists_comboBox = new System.Windows.Forms.ComboBox();
@@ -39,12 +40,14 @@
             this.exit_button = new System.Windows.Forms.Button();
             this.createDocxFile_button = new System.Windows.Forms.Button();
             this.createTxtFile_button = new System.Windows.Forms.Button();
-            this.openList_button = new System.Windows.Forms.Button();
-            this.renameList_button = new System.Windows.Forms.Button();
             this.lists_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MakeListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ChangeListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.open = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.rename = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lists_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,18 +57,12 @@
             resources.ApplyResources(this.Lists_listBox, "Lists_listBox");
             this.Lists_listBox.Name = "Lists_listBox";
             // 
-            // addList_button
+            // nameForList_button
             // 
-            resources.ApplyResources(this.addList_button, "addList_button");
-            this.addList_button.Name = "addList_button";
-            this.addList_button.UseVisualStyleBackColor = true;
-            this.addList_button.Click += new System.EventHandler(this.addList_button_Click);
-            // 
-            // deleteList_button
-            // 
-            resources.ApplyResources(this.deleteList_button, "deleteList_button");
-            this.deleteList_button.Name = "deleteList_button";
-            this.deleteList_button.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.nameForList_button, "nameForList_button");
+            this.nameForList_button.Name = "nameForList_button";
+            this.nameForList_button.UseVisualStyleBackColor = true;
+            this.nameForList_button.Click += new System.EventHandler(this.nameForList_button_Click);
             // 
             // searchList_textBox
             // 
@@ -115,43 +112,77 @@
             this.createTxtFile_button.Name = "createTxtFile_button";
             this.createTxtFile_button.UseVisualStyleBackColor = true;
             // 
-            // openList_button
-            // 
-            resources.ApplyResources(this.openList_button, "openList_button");
-            this.openList_button.Name = "openList_button";
-            this.openList_button.UseVisualStyleBackColor = true;
-            // 
-            // renameList_button
-            // 
-            resources.ApplyResources(this.renameList_button, "renameList_button");
-            this.renameList_button.Name = "renameList_button";
-            this.renameList_button.UseVisualStyleBackColor = true;
-            // 
             // lists_dataGridView
             // 
+            this.lists_dataGridView.AllowUserToAddRows = false;
+            this.lists_dataGridView.AllowUserToDeleteRows = false;
+            this.lists_dataGridView.AllowUserToResizeColumns = false;
+            this.lists_dataGridView.AllowUserToResizeRows = false;
             this.lists_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lists_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
-            this.MakeListDate,
-            this.ChangeListDate});
+            this.creatingListDate,
+            this.updatingListDate,
+            this.open,
+            this.rename,
+            this.delete});
             resources.ApplyResources(this.lists_dataGridView, "lists_dataGridView");
             this.lists_dataGridView.Name = "lists_dataGridView";
+            this.lists_dataGridView.ReadOnly = true;
+            this.lists_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.lists_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lists_dataGridView_CellClick);
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // MakeListDate
+            // creatingListDate
             // 
-            resources.ApplyResources(this.MakeListDate, "MakeListDate");
-            this.MakeListDate.Name = "MakeListDate";
+            resources.ApplyResources(this.creatingListDate, "creatingListDate");
+            this.creatingListDate.Name = "creatingListDate";
             // 
-            // ChangeListDate
+            // updatingListDate
             // 
-            resources.ApplyResources(this.ChangeListDate, "ChangeListDate");
-            this.ChangeListDate.Name = "ChangeListDate";
+            resources.ApplyResources(this.updatingListDate, "updatingListDate");
+            this.updatingListDate.Name = "updatingListDate";
+            // 
+            // open
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.open.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.open, "open");
+            this.open.Name = "open";
+            this.open.ReadOnly = true;
+            this.open.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.open.Text = "...";
+            // 
+            // rename
+            // 
+            resources.ApplyResources(this.rename, "rename");
+            this.rename.Name = "rename";
+            this.rename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.rename.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // delete
+            // 
+            resources.ApplyResources(this.delete, "delete");
+            this.delete.Name = "delete";
+            this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // MainForm
             // 
@@ -163,12 +194,9 @@
             this.Controls.Add(this.sortingLists_comboBox);
             this.Controls.Add(this.mainWindow1_label);
             this.Controls.Add(this.searchList_textBox);
-            this.Controls.Add(this.renameList_button);
-            this.Controls.Add(this.openList_button);
             this.Controls.Add(this.createDocxFile_button);
             this.Controls.Add(this.createTxtFile_button);
-            this.Controls.Add(this.deleteList_button);
-            this.Controls.Add(this.addList_button);
+            this.Controls.Add(this.nameForList_button);
             this.Controls.Add(this.Lists_listBox);
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -181,8 +209,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox Lists_listBox;
-        private System.Windows.Forms.Button addList_button;
-        private System.Windows.Forms.Button deleteList_button;
+        private System.Windows.Forms.Button nameForList_button;
         private System.Windows.Forms.TextBox searchList_textBox;
         private System.Windows.Forms.Label mainWindow1_label;
         private System.Windows.Forms.ComboBox sortingLists_comboBox;
@@ -190,12 +217,14 @@
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button createDocxFile_button;
         private System.Windows.Forms.Button createTxtFile_button;
-        private System.Windows.Forms.Button openList_button;
-        private System.Windows.Forms.Button renameList_button;
         private System.Windows.Forms.DataGridView lists_dataGridView;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MakeListDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ChangeListDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatingListDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updatingListDate;
+        private System.Windows.Forms.DataGridViewButtonColumn open;
+        private System.Windows.Forms.DataGridViewButtonColumn rename;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }
 
