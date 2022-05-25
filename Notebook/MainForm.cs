@@ -19,8 +19,28 @@ namespace Notebook
             InitializeComponent();
         }
 
+        private void UpdateDataGridView(DataGridView dgv, ListsStorage ls)
+        {
+            while (dgv.Rows.Count > 0)
+            {
+                dgv.Rows.Remove(dgv.Rows[dgv.Rows.Count - 1]);
+            }
+
+            for (int i = 0; i < ls.peopleLists.Count; i++)
+            {
+                dgv.Rows.Add
+                    (
+                    ls.peopleLists[i].listName,
+                    ls.peopleLists[i].creatingDate,
+                    ls.peopleLists[i].updatingDate
+                    );
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
+            lists_dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
             ListsStorage storage = JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
             for (int i = 0; i < storage.peopleLists.Count; i++)
             {
@@ -28,8 +48,7 @@ namespace Notebook
                     (
                     storage.peopleLists[i].listName,
                     storage.peopleLists[i].creatingDate,
-                    storage.peopleLists[i].updatingDate,
-                    "..."
+                    storage.peopleLists[i].updatingDate
                     );
             }
 
@@ -50,16 +69,26 @@ namespace Notebook
             listNameForm.Show();
         }
 
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            ProgVarStorage progVarStorage = 
+                JsonConvert.DeserializeObject<ProgVarStorage>
+                    (File.ReadAllText("ProgVarStorageInfo.json"));
+
+            progVarStorage.prevWindow = "mainForm";
+
+            StreamWriter stream = new StreamWriter("ProgVarStorageInfo.json");
+            stream.Write(JsonConvert.SerializeObject(progVarStorage));
+            stream.Close();
+
+            this.Hide();
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
+
         private void exit_button_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void settings_button_Click(object sender, EventArgs e)
-        {
-            SettingsForm settingsForm = new SettingsForm();
-            settingsForm.Show();
-            this.Hide();
         }
 
         private void lists_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +111,8 @@ namespace Notebook
                             (File.ReadAllText("ProgVarStorageInfo.json"));
 
                         progVarStorage.listNameFormVariant = "rename";
-                        progVarStorage.index = e.RowIndex;
+                        progVarStorage.name =
+                            lists_dataGridView[0, e.RowIndex].Value.ToString();
 
                         StreamWriter stream = new StreamWriter("ProgVarStorageInfo.json");
                         stream.Write(JsonConvert.SerializeObject(progVarStorage));
@@ -111,9 +141,7 @@ namespace Notebook
                             stream.Write(JsonConvert.SerializeObject(storage));
                             stream.Close();
 
-                            this.Hide();
-                            MainForm mainForm = new MainForm();
-                            mainForm.Show();
+                            UpdateDataGridView(lists_dataGridView, storage);
                         }
                     }
                     break;

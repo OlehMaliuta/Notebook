@@ -69,7 +69,12 @@ namespace Notebook
                         JsonConvert.DeserializeObject<ProgVarStorage>
                         (File.ReadAllText("ProgVarStorageInfo.json"));
 
-                    storage.peopleLists[progVarStorage.index].listName =
+                    int index = storage.peopleLists.FindIndex
+                        (
+                        item => item.listName == progVarStorage.name
+                        );
+
+                    storage.peopleLists[index].listName = 
                         listName_textBox.Text;
 
                     StreamWriter stream = new StreamWriter("ListsStorageInfo.json");
@@ -82,11 +87,14 @@ namespace Notebook
                 }
                 else
                 {
+                    string fileDate = DateTime.Now.ToShortDateString() +
+                        "\n" + DateTime.Now.ToLongTimeString();
+
                     storage.peopleLists.Add(new PeopleList
                     (
                     listName: listName_textBox.Text,
-                    creatingDate: DateTime.Now.ToShortDateString(),
-                    updatingDate: DateTime.Now.ToShortDateString()
+                    creatingDate: fileDate,
+                    updatingDate: fileDate
                     ));
 
                     StreamWriter stream = new StreamWriter("ListsStorageInfo.json");
@@ -102,9 +110,9 @@ namespace Notebook
 
         private void goBack_button_Click(object sender, EventArgs e)
         {
+            this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
-            this.Hide();
         }
     }
 }

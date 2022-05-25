@@ -59,6 +59,7 @@
             this.goBack_button.TabIndex = 8;
             this.goBack_button.Text = "назад";
             this.goBack_button.UseVisualStyleBackColor = true;
+            this.goBack_button.Click += new System.EventHandler(this.goBack_button_Click);
             // 
             // SettingsForm
             // 

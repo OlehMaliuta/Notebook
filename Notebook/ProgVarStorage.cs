@@ -14,8 +14,9 @@ namespace Notebook
     }
     internal class ProgVarStorage
     {
-        public Language language;
-        public string listNameFormVariant;
-        public int index;
+        public Language language = Language.Ukranian;
+        public string listNameFormVariant = "ERR";
+        public string prevWindow = "ERR";
+        public string name = "ERR";
     }
 }

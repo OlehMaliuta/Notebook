@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Lists_listBox = new System.Windows.Forms.ListBox();
             this.nameForList_button = new System.Windows.Forms.Button();
             this.searchList_textBox = new System.Windows.Forms.TextBox();
@@ -41,13 +41,13 @@
             this.createDocxFile_button = new System.Windows.Forms.Button();
             this.createTxtFile_button = new System.Windows.Forms.Button();
             this.lists_dataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rename = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lists_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +118,9 @@
             this.lists_dataGridView.AllowUserToDeleteRows = false;
             this.lists_dataGridView.AllowUserToResizeColumns = false;
             this.lists_dataGridView.AllowUserToResizeRows = false;
+            this.lists_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.lists_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.lists_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lists_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.lists_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -129,25 +132,42 @@
             resources.ApplyResources(this.lists_dataGridView, "lists_dataGridView");
             this.lists_dataGridView.Name = "lists_dataGridView";
             this.lists_dataGridView.ReadOnly = true;
+            this.lists_dataGridView.RowHeadersVisible = false;
             this.lists_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.lists_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lists_dataGridView_CellClick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
+            this.name.ReadOnly = true;
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // creatingListDate
             // 
             resources.ApplyResources(this.creatingListDate, "creatingListDate");
             this.creatingListDate.Name = "creatingListDate";
+            this.creatingListDate.ReadOnly = true;
+            this.creatingListDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // updatingListDate
             // 
             resources.ApplyResources(this.updatingListDate, "updatingListDate");
             this.updatingListDate.Name = "updatingListDate";
+            this.updatingListDate.ReadOnly = true;
+            this.updatingListDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // open
             // 
@@ -164,25 +184,15 @@
             // 
             resources.ApplyResources(this.rename, "rename");
             this.rename.Name = "rename";
+            this.rename.ReadOnly = true;
             this.rename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.rename.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // delete
             // 
             resources.ApplyResources(this.delete, "delete");
             this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // MainForm
             // 

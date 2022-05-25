@@ -87,6 +87,7 @@
             this.exit_button.TabIndex = 16;
             this.exit_button.Text = "вихід";
             this.exit_button.UseVisualStyleBackColor = true;
+            this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
             // 
             // settings_button
             // 
@@ -96,6 +97,7 @@
             this.settings_button.TabIndex = 15;
             this.settings_button.Text = "налаштування";
             this.settings_button.UseVisualStyleBackColor = true;
+            this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
             // sortingElements_comboBox
             // 
@@ -157,6 +159,7 @@
             this.mainMenu_button.TabIndex = 19;
             this.mainMenu_button.Text = "головне меню";
             this.mainMenu_button.UseVisualStyleBackColor = true;
+            this.mainMenu_button.Click += new System.EventHandler(this.mainMenu_button_Click);
             // 
             // elements_dataGridView
             // 
