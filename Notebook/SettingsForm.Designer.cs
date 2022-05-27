@@ -41,6 +41,7 @@
             this.birthdaySettings_button.TabIndex = 0;
             this.birthdaySettings_button.Text = "дні народження";
             this.birthdaySettings_button.UseVisualStyleBackColor = true;
+            this.birthdaySettings_button.Click += new System.EventHandler(this.birthdaySettings_button_Click);
             // 
             // languageSettings_button
             // 
@@ -50,6 +51,7 @@
             this.languageSettings_button.TabIndex = 1;
             this.languageSettings_button.Text = "зміна мови";
             this.languageSettings_button.UseVisualStyleBackColor = true;
+            this.languageSettings_button.Click += new System.EventHandler(this.languageSettings_button_Click);
             // 
             // goBack_button
             // 

@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.able_button = new System.Windows.Forms.Button();
-            this.goBack_button = new System.Windows.Forms.Button();
+            this.changeLanguage_button = new System.Windows.Forms.Button();
+            this.settings_button = new System.Windows.Forms.Button();
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.languageWindow_label = new System.Windows.Forms.Label();
             this.language_comboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // able_button
+            // changeLanguage_button
             // 
-            this.able_button.Location = new System.Drawing.Point(373, 187);
-            this.able_button.Name = "able_button";
-            this.able_button.Size = new System.Drawing.Size(104, 33);
-            this.able_button.TabIndex = 27;
-            this.able_button.Text = "вімкнути функцію";
-            this.able_button.UseVisualStyleBackColor = true;
+            this.changeLanguage_button.Location = new System.Drawing.Point(373, 187);
+            this.changeLanguage_button.Name = "changeLanguage_button";
+            this.changeLanguage_button.Size = new System.Drawing.Size(104, 33);
+            this.changeLanguage_button.TabIndex = 27;
+            this.changeLanguage_button.Text = "прийняти зміни";
+            this.changeLanguage_button.UseVisualStyleBackColor = true;
             // 
-            // goBack_button
+            // settings_button
             // 
-            this.goBack_button.Location = new System.Drawing.Point(204, 187);
-            this.goBack_button.Name = "goBack_button";
-            this.goBack_button.Size = new System.Drawing.Size(114, 33);
-            this.goBack_button.TabIndex = 26;
-            this.goBack_button.Text = "відмінити функцію";
-            this.goBack_button.UseVisualStyleBackColor = true;
+            this.settings_button.Location = new System.Drawing.Point(201, 187);
+            this.settings_button.Name = "settings_button";
+            this.settings_button.Size = new System.Drawing.Size(125, 33);
+            this.settings_button.TabIndex = 26;
+            this.settings_button.Text = "меню налаштування";
+            this.settings_button.UseVisualStyleBackColor = true;
+            this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
             // mainMenu_button
             // 
@@ -61,11 +62,12 @@
             this.mainMenu_button.TabIndex = 25;
             this.mainMenu_button.Text = "головне меню";
             this.mainMenu_button.UseVisualStyleBackColor = true;
+            this.mainMenu_button.Click += new System.EventHandler(this.mainMenu_button_Click);
             // 
             // languageWindow_label
             // 
             this.languageWindow_label.AutoSize = true;
-            this.languageWindow_label.Location = new System.Drawing.Point(40, 95);
+            this.languageWindow_label.Location = new System.Drawing.Point(134, 92);
             this.languageWindow_label.Name = "languageWindow_label";
             this.languageWindow_label.Size = new System.Drawing.Size(80, 13);
             this.languageWindow_label.TabIndex = 28;
@@ -73,8 +75,13 @@
             // 
             // language_comboBox
             // 
+            this.language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.language_comboBox.FormattingEnabled = true;
-            this.language_comboBox.Location = new System.Drawing.Point(183, 92);
+            this.language_comboBox.Items.AddRange(new object[] {
+            "Українська",
+            "Русский",
+            "English"});
+            this.language_comboBox.Location = new System.Drawing.Point(240, 89);
             this.language_comboBox.Name = "language_comboBox";
             this.language_comboBox.Size = new System.Drawing.Size(157, 21);
             this.language_comboBox.TabIndex = 29;
@@ -86,8 +93,8 @@
             this.ClientSize = new System.Drawing.Size(524, 232);
             this.Controls.Add(this.language_comboBox);
             this.Controls.Add(this.languageWindow_label);
-            this.Controls.Add(this.able_button);
-            this.Controls.Add(this.goBack_button);
+            this.Controls.Add(this.changeLanguage_button);
+            this.Controls.Add(this.settings_button);
             this.Controls.Add(this.mainMenu_button);
             this.Name = "LanguageForm";
             this.Text = "LanguageForm";
@@ -98,8 +105,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button able_button;
-        private System.Windows.Forms.Button goBack_button;
+        private System.Windows.Forms.Button changeLanguage_button;
+        private System.Windows.Forms.Button settings_button;
         private System.Windows.Forms.Button mainMenu_button;
         private System.Windows.Forms.Label languageWindow_label;
         private System.Windows.Forms.ComboBox language_comboBox;

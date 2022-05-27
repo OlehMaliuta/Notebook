@@ -259,13 +259,13 @@
     <value>783, 618</value>
   </data>
   <data name="settings_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 33</value>
+    <value>133, 33</value>
   </data>
   <data name="settings_button.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
   <data name="settings_button.Text" xml:space="preserve">
-    <value>налаштування</value>
+    <value>меню налаштування</value>
   </data>
   <data name="&gt;&gt;settings_button.Name" xml:space="preserve">
     <value>settings_button</value>
@@ -373,7 +373,7 @@
     <value>Дата створення</value>
   </data>
   <data name="creatingListDate.Width" type="System.Int32, mscorlib">
-    <value>95</value>
+    <value>86</value>
   </data>
   <metadata name="updatingListDate.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -382,7 +382,7 @@
     <value>Дата оновлення</value>
   </data>
   <data name="updatingListDate.Width" type="System.Int32, mscorlib">
-    <value>96</value>
+    <value>87</value>
   </data>
   <metadata name="open.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -450,12 +450,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Головне вікно</value>
   </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;name.Name" xml:space="preserve">
     <value>name</value>
   </data>
@@ -490,6 +484,12 @@
     <value>delete</value>
   </data>
   <data name="&gt;&gt;delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

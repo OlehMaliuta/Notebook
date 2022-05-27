@@ -19,6 +19,20 @@ namespace Notebook
             InitializeComponent();
         }
 
+        private void birthdaySettings_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BirthdayForm birthdayForm = new BirthdayForm();
+            birthdayForm.Show();
+        }
+
+        private void languageSettings_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LanguageForm languageForm = new LanguageForm();
+            languageForm.Show();
+        }
+
         private void goBack_button_Click(object sender, EventArgs e)
         {
             ProgVarStorage progVarStorage = 

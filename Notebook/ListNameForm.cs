@@ -14,7 +14,7 @@ namespace Notebook
 {
     public partial class ListNameForm : Form
     {
-        public string variant = "";
+        private string variant = "";
 
         public ListNameForm()
         {

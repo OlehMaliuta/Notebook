@@ -41,20 +41,12 @@
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personalData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.residentionalAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstMeeting = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.goodSides = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.extraInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // addElement_button
             // 
-            this.addElement_button.Location = new System.Drawing.Point(926, 96);
+            this.addElement_button.Location = new System.Drawing.Point(951, 87);
             this.addElement_button.Name = "addElement_button";
             this.addElement_button.Size = new System.Drawing.Size(110, 23);
             this.addElement_button.TabIndex = 2;
@@ -63,7 +55,7 @@
             // 
             // deleteElement_button
             // 
-            this.deleteElement_button.Location = new System.Drawing.Point(926, 174);
+            this.deleteElement_button.Location = new System.Drawing.Point(951, 165);
             this.deleteElement_button.Name = "deleteElement_button";
             this.deleteElement_button.Size = new System.Drawing.Size(110, 23);
             this.deleteElement_button.TabIndex = 3;
@@ -72,7 +64,7 @@
             // 
             // changeInfo_button
             // 
-            this.changeInfo_button.Location = new System.Drawing.Point(926, 266);
+            this.changeInfo_button.Location = new System.Drawing.Point(951, 257);
             this.changeInfo_button.Name = "changeInfo_button";
             this.changeInfo_button.Size = new System.Drawing.Size(110, 23);
             this.changeInfo_button.TabIndex = 4;
@@ -91,7 +83,7 @@
             // 
             // settings_button
             // 
-            this.settings_button.Location = new System.Drawing.Point(738, 611);
+            this.settings_button.Location = new System.Drawing.Point(772, 611);
             this.settings_button.Name = "settings_button";
             this.settings_button.Size = new System.Drawing.Size(98, 33);
             this.settings_button.TabIndex = 15;
@@ -103,7 +95,7 @@
             // 
             this.sortingElements_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortingElements_comboBox.FormattingEnabled = true;
-            this.sortingElements_comboBox.Location = new System.Drawing.Point(939, 498);
+            this.sortingElements_comboBox.Location = new System.Drawing.Point(980, 492);
             this.sortingElements_comboBox.Name = "sortingElements_comboBox";
             this.sortingElements_comboBox.Size = new System.Drawing.Size(157, 21);
             this.sortingElements_comboBox.TabIndex = 14;
@@ -111,7 +103,7 @@
             // listWindow2_label
             // 
             this.listWindow2_label.AutoSize = true;
-            this.listWindow2_label.Location = new System.Drawing.Point(798, 501);
+            this.listWindow2_label.Location = new System.Drawing.Point(839, 495);
             this.listWindow2_label.Name = "listWindow2_label";
             this.listWindow2_label.Size = new System.Drawing.Size(84, 13);
             this.listWindow2_label.TabIndex = 13;
@@ -119,9 +111,9 @@
             // 
             // searchElement_textBox
             // 
-            this.searchElement_textBox.Location = new System.Drawing.Point(750, 368);
+            this.searchElement_textBox.Location = new System.Drawing.Point(783, 368);
             this.searchElement_textBox.Name = "searchElement_textBox";
-            this.searchElement_textBox.Size = new System.Drawing.Size(461, 20);
+            this.searchElement_textBox.Size = new System.Drawing.Size(428, 20);
             this.searchElement_textBox.TabIndex = 12;
             this.searchElement_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -137,7 +129,7 @@
             "місцем проживання",
             "місцем роботи/навчання",
             "характером знайомства"});
-            this.searchElement_comboBox.Location = new System.Drawing.Point(939, 443);
+            this.searchElement_comboBox.Location = new System.Drawing.Point(980, 437);
             this.searchElement_comboBox.Name = "searchElement_comboBox";
             this.searchElement_comboBox.Size = new System.Drawing.Size(157, 21);
             this.searchElement_comboBox.TabIndex = 18;
@@ -145,7 +137,7 @@
             // listWindow1_label
             // 
             this.listWindow1_label.AutoSize = true;
-            this.listWindow1_label.Location = new System.Drawing.Point(812, 446);
+            this.listWindow1_label.Location = new System.Drawing.Point(853, 440);
             this.listWindow1_label.Name = "listWindow1_label";
             this.listWindow1_label.Size = new System.Drawing.Size(58, 13);
             this.listWindow1_label.TabIndex = 17;
@@ -153,7 +145,7 @@
             // 
             // mainMenu_button
             // 
-            this.mainMenu_button.Location = new System.Drawing.Point(917, 611);
+            this.mainMenu_button.Location = new System.Drawing.Point(926, 611);
             this.mainMenu_button.Name = "mainMenu_button";
             this.mainMenu_button.Size = new System.Drawing.Size(119, 33);
             this.mainMenu_button.TabIndex = 19;
@@ -167,67 +159,29 @@
             this.elements_dataGridView.AllowUserToDeleteRows = false;
             this.elements_dataGridView.AllowUserToResizeColumns = false;
             this.elements_dataGridView.AllowUserToResizeRows = false;
+            this.elements_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.elements_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.elements_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.elements_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elements_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name,
-            this.phone,
-            this.birthday,
-            this.personalData,
-            this.residentionalAddress,
-            this.locale,
-            this.firstMeeting,
-            this.goodSides,
-            this.extraInfo});
-            this.elements_dataGridView.Location = new System.Drawing.Point(12, 10);
+            this.name});
+            this.elements_dataGridView.EnableHeadersVisualStyles = false;
+            this.elements_dataGridView.Location = new System.Drawing.Point(12, 12);
             this.elements_dataGridView.Name = "elements_dataGridView";
+            this.elements_dataGridView.ReadOnly = true;
+            this.elements_dataGridView.RowHeadersVisible = false;
             this.elements_dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.elements_dataGridView.Size = new System.Drawing.Size(700, 641);
-            this.elements_dataGridView.TabIndex = 20;
+            this.elements_dataGridView.Size = new System.Drawing.Size(736, 641);
+            this.elements_dataGridView.TabIndex = 21;
             // 
             // name
             // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.HeaderText = "Ім\'я";
             this.name.Name = "name";
-            // 
-            // phone
-            // 
-            this.phone.HeaderText = "Телефон";
-            this.phone.Name = "phone";
-            // 
-            // birthday
-            // 
-            this.birthday.HeaderText = "Дата народження";
-            this.birthday.Name = "birthday";
-            // 
-            // personalData
-            // 
-            this.personalData.HeaderText = "Анкетні дані";
-            this.personalData.Name = "personalData";
-            // 
-            // residentionalAddress
-            // 
-            this.residentionalAddress.HeaderText = "Місце проживання";
-            this.residentionalAddress.Name = "residentionalAddress";
-            // 
-            // locale
-            // 
-            this.locale.HeaderText = "Місце роботи/ навчання";
-            this.locale.Name = "locale";
-            // 
-            // firstMeeting
-            // 
-            this.firstMeeting.HeaderText = "Характер знайомства";
-            this.firstMeeting.Name = "firstMeeting";
-            // 
-            // goodSides
-            // 
-            this.goodSides.HeaderText = "Ділові якості";
-            this.goodSides.Name = "goodSides";
-            // 
-            // extraInfo
-            // 
-            this.extraInfo.HeaderText = "Інша інфор.";
-            this.extraInfo.Name = "extraInfo";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ListForm
             // 
@@ -248,6 +202,7 @@
             this.Controls.Add(this.addElement_button);
             this.Name = "ListForm";
             this.Text = "ListForm";
+            this.Load += new System.EventHandler(this.ListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -268,13 +223,5 @@
         private System.Windows.Forms.Button mainMenu_button;
         private System.Windows.Forms.DataGridView elements_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn personalData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn residentionalAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstMeeting;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goodSides;
-        private System.Windows.Forms.DataGridViewTextBoxColumn extraInfo;
     }
 }

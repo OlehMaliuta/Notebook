@@ -18,5 +18,6 @@ namespace Notebook
         public string listNameFormVariant = "ERR";
         public string prevWindow = "ERR";
         public string name = "ERR";
+        public int index = -1;
     }
 }

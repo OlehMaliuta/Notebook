@@ -14,9 +14,21 @@ namespace Notebook
 {
     public partial class ListForm : Form
     {
+        public int reviewListIndex = -1;
         public ListForm()
         {
             InitializeComponent();
+        }
+
+        private void ListForm_Load(object sender, EventArgs e)
+        {
+            elements_dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            ProgVarStorage progVarStorage =
+                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+
+            ListsStorage listsStorage =
+                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
         }
 
         private void settings_button_Click(object sender, EventArgs e)

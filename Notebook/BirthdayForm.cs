@@ -16,5 +16,19 @@ namespace Notebook
         {
             InitializeComponent();
         }
+
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Show();
+        }
+
+        private void mainMenu_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }
