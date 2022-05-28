@@ -138,14 +138,14 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;Lists_listBox.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="nameForList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="nameForList_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>918, 167</value>
+    <value>932, 192</value>
   </data>
   <data name="nameForList_button.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 23</value>
@@ -166,7 +166,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;nameForList_button.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>6</value>
   </data>
   <data name="searchList_textBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>783, 395</value>
@@ -305,60 +305,6 @@
   </data>
   <data name="&gt;&gt;exit_button.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="createDocxFile_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="createDocxFile_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1008, 282</value>
-  </data>
-  <data name="createDocxFile_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 23</value>
-  </data>
-  <data name="createDocxFile_button.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="createDocxFile_button.Text" xml:space="preserve">
-    <value>зберегти у форматі .docx</value>
-  </data>
-  <data name="&gt;&gt;createDocxFile_button.Name" xml:space="preserve">
-    <value>createDocxFile_button</value>
-  </data>
-  <data name="&gt;&gt;createDocxFile_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createDocxFile_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;createDocxFile_button.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="createTxtFile_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="createTxtFile_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>810, 282</value>
-  </data>
-  <data name="createTxtFile_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 23</value>
-  </data>
-  <data name="createTxtFile_button.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="createTxtFile_button.Text" xml:space="preserve">
-    <value>зберегти у форматі .txt</value>
-  </data>
-  <data name="&gt;&gt;createTxtFile_button.Name" xml:space="preserve">
-    <value>createTxtFile_button</value>
-  </data>
-  <data name="&gt;&gt;createTxtFile_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;createTxtFile_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;createTxtFile_button.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

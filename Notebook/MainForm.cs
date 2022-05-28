@@ -30,15 +30,18 @@ namespace Notebook
             this.progVarStorage = 
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
 
+            var pl =
+                listsStorage.peopleLists.OrderBy(item => item.listName);
+
             lists_dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            for (int i = 0; i < listsStorage.peopleLists.Count; i++)
+            foreach (var el in pl)
             {
                 lists_dataGridView.Rows.Add
                     (
-                    this.listsStorage.peopleLists[i].listName,
-                    this.listsStorage.peopleLists[i].creatingDate,
-                    this.listsStorage.peopleLists[i].updatingDate
+                    el.listName,
+                    el.creatingDate,
+                    el.updatingDate
                     );
             }
 
@@ -126,12 +129,12 @@ namespace Notebook
 
                             if (result == DialogResult.Yes)
                             {
-                                listsStorage.peopleLists.RemoveAt(e.RowIndex);
+                                PeopleList person = 
+                                    this.listsStorage.peopleLists.Find(
+                                        item => item.listName == lists_dataGridView[0, e.RowIndex].Value.ToString()
+                                        );
 
-                                while (lists_dataGridView.Rows.Count > 0)
-                                {
-                                    lists_dataGridView.Rows.Remove(lists_dataGridView.Rows[lists_dataGridView.Rows.Count - 1]);
-                                }
+                                this.listsStorage.peopleLists.Remove(person);
 
                                 for (int i = 0; i < listsStorage.peopleLists.Count; i++)
                                 {
@@ -146,6 +149,51 @@ namespace Notebook
                         }
                         break;
                 }
+            }
+        }
+
+        private void sortingLists_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IOrderedEnumerable<PeopleList> persons = default;
+
+            switch (sortingLists_comboBox.SelectedIndex)
+            {
+                case 0:
+                    {
+                        IOrderedEnumerable<PeopleList> pl =
+                            listsStorage.peopleLists.OrderBy(item => item.listName);
+                        persons = pl;
+                    }
+                    break;
+                case 1:
+                    {
+                        IOrderedEnumerable<PeopleList> pl =
+                            listsStorage.peopleLists.OrderBy(item => item.creatingDate);
+                        persons = pl;
+                    }
+                    break;
+                case 2:
+                    {
+                        IOrderedEnumerable<PeopleList> pl =
+                            listsStorage.peopleLists.OrderBy(item => item.updatingDate);
+                        persons = pl;
+                    }
+                    break;
+            }
+
+            while (lists_dataGridView.Rows.Count > 0)
+            {
+                lists_dataGridView.Rows.Remove(lists_dataGridView.Rows[lists_dataGridView.Rows.Count - 1]);
+            }
+
+            foreach (PeopleList el in persons)
+            {
+                lists_dataGridView.Rows.Add
+                    (
+                    el.listName,
+                    el.creatingDate,
+                    el.updatingDate
+                    );
             }
         }
 

@@ -73,6 +73,10 @@ namespace Notebook
                     this.listsStorage.peopleLists[idx].listName = 
                         listName_textBox.Text;
 
+                    this.listsStorage.peopleLists[idx].updatingDate =
+                        DateTime.Now.ToShortDateString() +
+                        "\n" + DateTime.Now.ToLongTimeString();
+
                     this.Close();
                     MainForm mainForm = new MainForm();
                     mainForm.Show();

@@ -41,6 +41,8 @@
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createDocxFile_button = new System.Windows.Forms.Button();
+            this.createTxtFile_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // 
             // deleteElement_button
             // 
-            this.deleteElement_button.Location = new System.Drawing.Point(951, 165);
+            this.deleteElement_button.Location = new System.Drawing.Point(951, 171);
             this.deleteElement_button.Name = "deleteElement_button";
             this.deleteElement_button.Size = new System.Drawing.Size(110, 23);
             this.deleteElement_button.TabIndex = 3;
@@ -183,11 +185,33 @@
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // createDocxFile_button
+            // 
+            this.createDocxFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createDocxFile_button.Location = new System.Drawing.Point(1025, 316);
+            this.createDocxFile_button.Name = "createDocxFile_button";
+            this.createDocxFile_button.Size = new System.Drawing.Size(144, 23);
+            this.createDocxFile_button.TabIndex = 23;
+            this.createDocxFile_button.Text = "зберегти у форматі .docx";
+            this.createDocxFile_button.UseVisualStyleBackColor = true;
+            // 
+            // createTxtFile_button
+            // 
+            this.createTxtFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createTxtFile_button.Location = new System.Drawing.Point(827, 316);
+            this.createTxtFile_button.Name = "createTxtFile_button";
+            this.createTxtFile_button.Size = new System.Drawing.Size(144, 23);
+            this.createTxtFile_button.TabIndex = 22;
+            this.createTxtFile_button.Text = "зберегти у форматі .txt";
+            this.createTxtFile_button.UseVisualStyleBackColor = true;
+            // 
             // ListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 663);
+            this.Controls.Add(this.createDocxFile_button);
+            this.Controls.Add(this.createTxtFile_button);
             this.Controls.Add(this.elements_dataGridView);
             this.Controls.Add(this.mainMenu_button);
             this.Controls.Add(this.searchElement_comboBox);
@@ -223,5 +247,7 @@
         private System.Windows.Forms.Button mainMenu_button;
         private System.Windows.Forms.DataGridView elements_dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.Button createDocxFile_button;
+        private System.Windows.Forms.Button createTxtFile_button;
     }
 }

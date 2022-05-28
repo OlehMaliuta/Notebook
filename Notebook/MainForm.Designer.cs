@@ -38,8 +38,6 @@
             this.sortingLists_comboBox = new System.Windows.Forms.ComboBox();
             this.settings_button = new System.Windows.Forms.Button();
             this.exit_button = new System.Windows.Forms.Button();
-            this.createDocxFile_button = new System.Windows.Forms.Button();
-            this.createTxtFile_button = new System.Windows.Forms.Button();
             this.lists_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,6 +83,7 @@
             resources.GetString("sortingLists_comboBox.Items2")});
             resources.ApplyResources(this.sortingLists_comboBox, "sortingLists_comboBox");
             this.sortingLists_comboBox.Name = "sortingLists_comboBox";
+            this.sortingLists_comboBox.SelectedIndexChanged += new System.EventHandler(this.sortingLists_comboBox_SelectedIndexChanged);
             // 
             // settings_button
             // 
@@ -99,18 +98,6 @@
             this.exit_button.Name = "exit_button";
             this.exit_button.UseVisualStyleBackColor = true;
             this.exit_button.Click += new System.EventHandler(this.exit_button_Click);
-            // 
-            // createDocxFile_button
-            // 
-            resources.ApplyResources(this.createDocxFile_button, "createDocxFile_button");
-            this.createDocxFile_button.Name = "createDocxFile_button";
-            this.createDocxFile_button.UseVisualStyleBackColor = true;
-            // 
-            // createTxtFile_button
-            // 
-            resources.ApplyResources(this.createTxtFile_button, "createTxtFile_button");
-            this.createTxtFile_button.Name = "createTxtFile_button";
-            this.createTxtFile_button.UseVisualStyleBackColor = true;
             // 
             // lists_dataGridView
             // 
@@ -205,8 +192,6 @@
             this.Controls.Add(this.sortingLists_comboBox);
             this.Controls.Add(this.mainWindow1_label);
             this.Controls.Add(this.searchList_textBox);
-            this.Controls.Add(this.createDocxFile_button);
-            this.Controls.Add(this.createTxtFile_button);
             this.Controls.Add(this.nameForList_button);
             this.Controls.Add(this.Lists_listBox);
             this.Name = "MainForm";
@@ -227,8 +212,6 @@
         private System.Windows.Forms.ComboBox sortingLists_comboBox;
         private System.Windows.Forms.Button settings_button;
         private System.Windows.Forms.Button exit_button;
-        private System.Windows.Forms.Button createDocxFile_button;
-        private System.Windows.Forms.Button createTxtFile_button;
         private System.Windows.Forms.DataGridView lists_dataGridView;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
