@@ -14,6 +14,8 @@ namespace Notebook
 {
     public partial class ListNameForm : Form
     {
+        private ListsStorage listsStorage = new ListsStorage();
+        private ProgVarStorage progVarStorage = new ProgVarStorage();
         private string variant = "";
 
         public ListNameForm()
@@ -23,13 +25,13 @@ namespace Notebook
 
         private void ListNameForm_Load(object sender, EventArgs e)
         {
-            ProgVarStorage progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>
-                    (
-                    File.ReadAllText("ProgVarStorageInfo.json"
-                    ));
+            this.listsStorage =
+                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
 
-            this.variant = progVarStorage.listNameFormVariant;
+            this.progVarStorage =
+                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+
+            this.variant = this.progVarStorage.listNameFormVariant;
 
             if (variant == "rename")
             {
@@ -40,20 +42,18 @@ namespace Notebook
 
         private void giveListName_button_Click(object sender, EventArgs e)
         {
-            ListsStorage storage = JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
-
             if (listName_textBox.Text == "")
             {
                 if (this.variant == "rename")
                 {
-                    MessageBox.Show("Список не може не мати назви.", "Попередження!");
+                    MessageBox.Show("Список повинен мати назву.", "Попередження!");
                 }
                 else
                 {
                     MessageBox.Show("Ви не можете створити список без назви.", "Попередження!");
                 }
             }
-            else if (storage.peopleLists.Find
+            else if (this.listsStorage.peopleLists.Find
                         (
                         item => item.listName == listName_textBox.Text
                         ) != null
@@ -65,23 +65,15 @@ namespace Notebook
             {
                 if (this.variant == "rename")
                 {
-                    ProgVarStorage progVarStorage =
-                        JsonConvert.DeserializeObject<ProgVarStorage>
-                        (File.ReadAllText("ProgVarStorageInfo.json"));
-
-                    int index = storage.peopleLists.FindIndex
+                    int idx = this.listsStorage.peopleLists.FindIndex
                         (
                         item => item.listName == progVarStorage.name
                         );
 
-                    storage.peopleLists[index].listName = 
+                    this.listsStorage.peopleLists[idx].listName = 
                         listName_textBox.Text;
 
-                    StreamWriter stream = new StreamWriter("ListsStorageInfo.json");
-                    stream.Write(JsonConvert.SerializeObject(storage));
-                    stream.Close();
-
-                    this.Hide();
+                    this.Close();
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                 }
@@ -90,18 +82,14 @@ namespace Notebook
                     string fileDate = DateTime.Now.ToShortDateString() +
                         "\n" + DateTime.Now.ToLongTimeString();
 
-                    storage.peopleLists.Add(new PeopleList
+                    this.listsStorage.peopleLists.Add(new PeopleList
                     (
                     listName: listName_textBox.Text,
                     creatingDate: fileDate,
                     updatingDate: fileDate
                     ));
 
-                    StreamWriter stream = new StreamWriter("ListsStorageInfo.json");
-                    stream.Write(JsonConvert.SerializeObject(storage));
-                    stream.Close();
-
-                    this.Hide();
+                    this.Close();
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
                 }
@@ -110,9 +98,16 @@ namespace Notebook
 
         private void goBack_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
+        }
+
+        private void ListNameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+
+            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

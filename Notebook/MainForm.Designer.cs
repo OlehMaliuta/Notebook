@@ -210,6 +210,7 @@
             this.Controls.Add(this.nameForList_button);
             this.Controls.Add(this.Lists_listBox);
             this.Name = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lists_dataGridView)).EndInit();
             this.ResumeLayout(false);
