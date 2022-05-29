@@ -52,9 +52,9 @@
             // 
             // giveListName_button
             // 
-            this.giveListName_button.Location = new System.Drawing.Point(381, 226);
+            this.giveListName_button.Location = new System.Drawing.Point(381, 205);
             this.giveListName_button.Name = "giveListName_button";
-            this.giveListName_button.Size = new System.Drawing.Size(117, 23);
+            this.giveListName_button.Size = new System.Drawing.Size(148, 44);
             this.giveListName_button.TabIndex = 2;
             this.giveListName_button.Text = "створити";
             this.giveListName_button.UseVisualStyleBackColor = true;
@@ -62,9 +62,9 @@
             // 
             // goBack_button
             // 
-            this.goBack_button.Location = new System.Drawing.Point(159, 226);
+            this.goBack_button.Location = new System.Drawing.Point(113, 205);
             this.goBack_button.Name = "goBack_button";
-            this.goBack_button.Size = new System.Drawing.Size(75, 23);
+            this.goBack_button.Size = new System.Drawing.Size(121, 44);
             this.goBack_button.TabIndex = 3;
             this.goBack_button.Text = "назад";
             this.goBack_button.UseVisualStyleBackColor = true;

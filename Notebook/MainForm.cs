@@ -197,6 +197,50 @@ namespace Notebook
             }
         }
 
+        private void searchList_textBox_TextChanged(object sender, EventArgs e)
+        {
+            List<PeopleList> pl = new List<PeopleList>();
+
+            IOrderedEnumerable<PeopleList> persons = default;
+
+            switch (sortingLists_comboBox.SelectedIndex)
+            {
+                case 0:
+                    persons = listsStorage.peopleLists.OrderBy(item => item.listName);
+                    break;
+                case 1:
+                    persons = listsStorage.peopleLists.OrderBy(item => item.creatingDate);
+                    break;
+                case 2:
+                    persons = listsStorage.peopleLists.OrderBy(item => item.updatingDate);
+                    break;
+            }
+
+            foreach (PeopleList el in persons)
+            {
+                pl.Add(new PeopleList(el.listName, el.creatingDate, el.updatingDate));
+            }
+
+            while (lists_dataGridView.Rows.Count > 0)
+            {
+                lists_dataGridView.Rows.Remove(lists_dataGridView.Rows[lists_dataGridView.Rows.Count - 1]);
+            }
+
+            while (pl.FindIndex(item => item.listName.Contains(searchList_textBox.Text)) != -1)
+            {
+                int idx = pl.FindIndex(item => item.listName.Contains(searchList_textBox.Text));
+
+                lists_dataGridView.Rows.Add
+                    (
+                    pl[idx].listName,
+                    pl[idx].creatingDate,
+                    pl[idx].updatingDate
+                    );
+
+                pl.RemoveAt(idx);
+            }
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
