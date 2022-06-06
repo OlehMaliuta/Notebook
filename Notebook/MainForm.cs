@@ -91,8 +91,8 @@ namespace Notebook
                 {
                     case "open":
                         {
-                            progVarStorage.index = listsStorage.peopleLists.FindIndex(
-                                item => item.listName == lists_dataGridView[0, e.RowIndex].Value.ToString());
+                            progVarStorage.reviewListName = listsStorage.peopleLists.Find(
+                                item => item.listName == lists_dataGridView[0, e.RowIndex].Value.ToString()).listName;
 
                             File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
 
@@ -154,46 +154,23 @@ namespace Notebook
 
         private void sortingLists_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IOrderedEnumerable<PeopleList> persons = default;
-
             switch (sortingLists_comboBox.SelectedIndex)
             {
                 case 0:
                     {
-                        IOrderedEnumerable<PeopleList> pl =
-                            listsStorage.peopleLists.OrderBy(item => item.listName);
-                        persons = pl;
+                        lists_dataGridView.Sort(lists_dataGridView.Columns[0], ListSortDirection.Ascending);
                     }
                     break;
                 case 1:
                     {
-                        IOrderedEnumerable<PeopleList> pl =
-                            listsStorage.peopleLists.OrderBy(item => item.creatingDate);
-                        persons = pl;
+                        lists_dataGridView.Sort(lists_dataGridView.Columns[1], ListSortDirection.Ascending);
                     }
                     break;
                 case 2:
                     {
-                        IOrderedEnumerable<PeopleList> pl =
-                            listsStorage.peopleLists.OrderBy(item => item.updatingDate);
-                        persons = pl;
+                        lists_dataGridView.Sort(lists_dataGridView.Columns[2], ListSortDirection.Ascending);
                     }
                     break;
-            }
-
-            while (lists_dataGridView.Rows.Count > 0)
-            {
-                lists_dataGridView.Rows.Remove(lists_dataGridView.Rows[lists_dataGridView.Rows.Count - 1]);
-            }
-
-            foreach (PeopleList el in persons)
-            {
-                lists_dataGridView.Rows.Add
-                    (
-                    el.listName,
-                    el.creatingDate,
-                    el.updatingDate
-                    );
             }
         }
 

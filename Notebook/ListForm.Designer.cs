@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.addElement_button = new System.Windows.Forms.Button();
-            this.deleteElement_button = new System.Windows.Forms.Button();
-            this.changeInfo_button = new System.Windows.Forms.Button();
             this.exit_button = new System.Windows.Forms.Button();
             this.settings_button = new System.Windows.Forms.Button();
             this.sortingElements_comboBox = new System.Windows.Forms.ComboBox();
@@ -41,6 +39,8 @@
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.open = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.createDocxFile_button = new System.Windows.Forms.Button();
             this.createTxtFile_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).BeginInit();
@@ -48,36 +48,19 @@
             // 
             // addElement_button
             // 
-            this.addElement_button.Location = new System.Drawing.Point(951, 87);
+            this.addElement_button.Location = new System.Drawing.Point(943, 69);
             this.addElement_button.Name = "addElement_button";
-            this.addElement_button.Size = new System.Drawing.Size(110, 23);
+            this.addElement_button.Size = new System.Drawing.Size(110, 104);
             this.addElement_button.TabIndex = 2;
             this.addElement_button.Text = "додати елемент";
             this.addElement_button.UseVisualStyleBackColor = true;
-            // 
-            // deleteElement_button
-            // 
-            this.deleteElement_button.Location = new System.Drawing.Point(951, 171);
-            this.deleteElement_button.Name = "deleteElement_button";
-            this.deleteElement_button.Size = new System.Drawing.Size(110, 23);
-            this.deleteElement_button.TabIndex = 3;
-            this.deleteElement_button.Text = "видалити елемент";
-            this.deleteElement_button.UseVisualStyleBackColor = true;
-            // 
-            // changeInfo_button
-            // 
-            this.changeInfo_button.Location = new System.Drawing.Point(951, 257);
-            this.changeInfo_button.Name = "changeInfo_button";
-            this.changeInfo_button.Size = new System.Drawing.Size(110, 23);
-            this.changeInfo_button.TabIndex = 4;
-            this.changeInfo_button.Text = "змінити дані";
-            this.changeInfo_button.UseVisualStyleBackColor = true;
+            this.addElement_button.Click += new System.EventHandler(this.addElement_button_Click);
             // 
             // exit_button
             // 
-            this.exit_button.Location = new System.Drawing.Point(1113, 611);
+            this.exit_button.Location = new System.Drawing.Point(1110, 594);
             this.exit_button.Name = "exit_button";
-            this.exit_button.Size = new System.Drawing.Size(98, 33);
+            this.exit_button.Size = new System.Drawing.Size(118, 57);
             this.exit_button.TabIndex = 16;
             this.exit_button.Text = "вихід";
             this.exit_button.UseVisualStyleBackColor = true;
@@ -85,9 +68,9 @@
             // 
             // settings_button
             // 
-            this.settings_button.Location = new System.Drawing.Point(772, 611);
+            this.settings_button.Location = new System.Drawing.Point(772, 594);
             this.settings_button.Name = "settings_button";
-            this.settings_button.Size = new System.Drawing.Size(98, 33);
+            this.settings_button.Size = new System.Drawing.Size(118, 59);
             this.settings_button.TabIndex = 15;
             this.settings_button.Text = "налаштування";
             this.settings_button.UseVisualStyleBackColor = true;
@@ -147,9 +130,9 @@
             // 
             // mainMenu_button
             // 
-            this.mainMenu_button.Location = new System.Drawing.Point(926, 611);
+            this.mainMenu_button.Location = new System.Drawing.Point(926, 594);
             this.mainMenu_button.Name = "mainMenu_button";
-            this.mainMenu_button.Size = new System.Drawing.Size(119, 33);
+            this.mainMenu_button.Size = new System.Drawing.Size(146, 57);
             this.mainMenu_button.TabIndex = 19;
             this.mainMenu_button.Text = "головне меню";
             this.mainMenu_button.UseVisualStyleBackColor = true;
@@ -166,7 +149,9 @@
             this.elements_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.elements_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.elements_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.name});
+            this.name,
+            this.open,
+            this.delete});
             this.elements_dataGridView.EnableHeadersVisualStyles = false;
             this.elements_dataGridView.Location = new System.Drawing.Point(12, 12);
             this.elements_dataGridView.Name = "elements_dataGridView";
@@ -185,24 +170,38 @@
             this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // open
+            // 
+            this.open.HeaderText = "Детальніше";
+            this.open.Name = "open";
+            this.open.ReadOnly = true;
+            this.open.Width = 73;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "Видалити";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Width = 61;
+            // 
             // createDocxFile_button
             // 
             this.createDocxFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createDocxFile_button.Location = new System.Drawing.Point(1025, 316);
+            this.createDocxFile_button.Location = new System.Drawing.Point(1036, 208);
             this.createDocxFile_button.Name = "createDocxFile_button";
-            this.createDocxFile_button.Size = new System.Drawing.Size(144, 23);
+            this.createDocxFile_button.Size = new System.Drawing.Size(144, 93);
             this.createDocxFile_button.TabIndex = 23;
-            this.createDocxFile_button.Text = "зберегти у форматі .docx";
+            this.createDocxFile_button.Text = "зберегти у список форматі .docx";
             this.createDocxFile_button.UseVisualStyleBackColor = true;
             // 
             // createTxtFile_button
             // 
             this.createTxtFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createTxtFile_button.Location = new System.Drawing.Point(827, 316);
+            this.createTxtFile_button.Location = new System.Drawing.Point(814, 208);
             this.createTxtFile_button.Name = "createTxtFile_button";
-            this.createTxtFile_button.Size = new System.Drawing.Size(144, 23);
+            this.createTxtFile_button.Size = new System.Drawing.Size(144, 93);
             this.createTxtFile_button.TabIndex = 22;
-            this.createTxtFile_button.Text = "зберегти у форматі .txt";
+            this.createTxtFile_button.Text = "зберегти список у форматі .txt";
             this.createTxtFile_button.UseVisualStyleBackColor = true;
             // 
             // ListForm
@@ -221,11 +220,10 @@
             this.Controls.Add(this.sortingElements_comboBox);
             this.Controls.Add(this.listWindow2_label);
             this.Controls.Add(this.searchElement_textBox);
-            this.Controls.Add(this.changeInfo_button);
-            this.Controls.Add(this.deleteElement_button);
             this.Controls.Add(this.addElement_button);
             this.Name = "ListForm";
             this.Text = "ListForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListForm_FormClosing);
             this.Load += new System.EventHandler(this.ListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -235,8 +233,6 @@
 
         #endregion
         private System.Windows.Forms.Button addElement_button;
-        private System.Windows.Forms.Button deleteElement_button;
-        private System.Windows.Forms.Button changeInfo_button;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button settings_button;
         private System.Windows.Forms.ComboBox sortingElements_comboBox;
@@ -246,8 +242,10 @@
         private System.Windows.Forms.Label listWindow1_label;
         private System.Windows.Forms.Button mainMenu_button;
         private System.Windows.Forms.DataGridView elements_dataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.Button createDocxFile_button;
         private System.Windows.Forms.Button createTxtFile_button;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewButtonColumn open;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }

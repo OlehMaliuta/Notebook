@@ -14,7 +14,10 @@ namespace Notebook
 {
     public partial class ListForm : Form
     {
-        public int reviewListIndex = -1;
+        private ListsStorage listsStorage = new ListsStorage();
+        private ProgVarStorage progVarStorage = new ProgVarStorage();
+        private PeopleList reviewList = new PeopleList();
+
         public ListForm()
         {
             InitializeComponent();
@@ -24,33 +27,44 @@ namespace Notebook
         {
             elements_dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            ProgVarStorage progVarStorage =
+            this.listsStorage =
+                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
+
+            this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
 
-            ListsStorage listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
+            reviewList = listsStorage.peopleLists.Single(item => item.listName == progVarStorage.reviewListName);
+
+            foreach (var el in reviewList.elements)
+            {
+                elements_dataGridView.Rows.Add
+                    (
+                    el.name
+                    );
+            }
+        }
+
+        private void addElement_button_Click(object sender, EventArgs e)
+        {
+            progVarStorage.elementFormVariant = "create";
+
+            this.Close();
+            ElementForm elementForm = new ElementForm();
+            elementForm.Show();
         }
 
         private void settings_button_Click(object sender, EventArgs e)
         {
-            ProgVarStorage progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>
-                    (File.ReadAllText("ProgVarStorageInfo.json"));
-
             progVarStorage.prevWindow = "listForm";
 
-            StreamWriter stream = new StreamWriter("ProgVarStorageInfo.json");
-            stream.Write(JsonConvert.SerializeObject(progVarStorage));
-            stream.Close();
-
-            this.Hide();
+            this.Close();
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.Show();
         }
 
         private void mainMenu_button_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
@@ -58,6 +72,13 @@ namespace Notebook
         private void exit_button_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void ListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+
+            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

@@ -36,7 +36,7 @@
             // 
             // goBack_button
             // 
-            this.goBack_button.Location = new System.Drawing.Point(233, 270);
+            this.goBack_button.Location = new System.Drawing.Point(156, 247);
             this.goBack_button.Name = "goBack_button";
             this.goBack_button.Size = new System.Drawing.Size(75, 23);
             this.goBack_button.TabIndex = 7;
@@ -45,7 +45,7 @@
             // 
             // loadFile_button
             // 
-            this.loadFile_button.Location = new System.Drawing.Point(456, 271);
+            this.loadFile_button.Location = new System.Drawing.Point(379, 248);
             this.loadFile_button.Name = "loadFile_button";
             this.loadFile_button.Size = new System.Drawing.Size(75, 23);
             this.loadFile_button.TabIndex = 6;
@@ -55,7 +55,7 @@
             // createFileWindow_label
             // 
             this.createFileWindow_label.AutoSize = true;
-            this.createFileWindow_label.Location = new System.Drawing.Point(127, 120);
+            this.createFileWindow_label.Location = new System.Drawing.Point(81, 42);
             this.createFileWindow_label.Name = "createFileWindow_label";
             this.createFileWindow_label.Size = new System.Drawing.Size(186, 13);
             this.createFileWindow_label.TabIndex = 5;
@@ -63,7 +63,7 @@
             // 
             // listFilePath_textBox
             // 
-            this.listFilePath_textBox.Location = new System.Drawing.Point(130, 150);
+            this.listFilePath_textBox.Location = new System.Drawing.Point(84, 72);
             this.listFilePath_textBox.Name = "listFilePath_textBox";
             this.listFilePath_textBox.Size = new System.Drawing.Size(524, 20);
             this.listFilePath_textBox.TabIndex = 4;
@@ -72,7 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(665, 344);
             this.Controls.Add(this.goBack_button);
             this.Controls.Add(this.loadFile_button);
             this.Controls.Add(this.createFileWindow_label);

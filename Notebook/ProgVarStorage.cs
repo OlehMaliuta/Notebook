@@ -12,12 +12,16 @@ namespace Notebook
         Russian = 1,
         English = 2
     }
+
     internal class ProgVarStorage
     {
         public Language language = Language.Ukranian;
         public string listNameFormVariant = "ERR";
+        public string elementFormVariant = "ERR";
         public string prevWindow = "ERR";
         public string name = "ERR";
+        public string reviewListName = "ERR";
+        public ulong revievElementId = 0;
         public int index = -1;
     }
 }
