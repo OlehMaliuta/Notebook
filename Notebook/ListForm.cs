@@ -74,6 +74,53 @@ namespace Notebook
             Application.Exit();
         }
 
+        private void elements_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (elements_dataGridView.Columns[e.ColumnIndex].Name)
+            {
+                case "open":
+                    {
+                        progVarStorage.elementFormVariant = "change";
+                        progVarStorage.revievElementName =
+                            elements_dataGridView[0, e.RowIndex].Value.ToString();
+
+                        this.Close();
+                        ElementForm elementForm = new ElementForm();
+                        elementForm.Show();
+                    }
+                    break;
+
+                case "delete":
+                    {
+                        DialogResult result = MessageBox.Show
+                            (
+                            "Ви впевнені, що хочите видалити елемент зі списку",
+                            "Попередження!",
+                            MessageBoxButtons.YesNo
+                            );
+
+                        if (result == DialogResult.Yes)
+                        {
+                            reviewList.elements.RemoveAt(reviewList.elements.FindIndex(item => item.name == elements_dataGridView[0, e.RowIndex].Value.ToString()));
+
+                            while (elements_dataGridView.Rows.Count > 0)
+                            {
+                                elements_dataGridView.Rows.Remove(elements_dataGridView.Rows[elements_dataGridView.Rows.Count - 1]);
+                            }
+
+                            foreach (var el in reviewList.elements)
+                            {
+                                elements_dataGridView.Rows.Add
+                                    (
+                                    el.name
+                                    );
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+
         private void ListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));

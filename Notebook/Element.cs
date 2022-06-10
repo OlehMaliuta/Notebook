@@ -8,7 +8,6 @@ namespace Notebook
 {
     internal class Element
     {
-        public ulong id = 0;
         public string name = "-";
         public string phone = "-";
         public string birthday = "-";

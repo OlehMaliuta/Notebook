@@ -16,6 +16,7 @@ namespace Notebook
     {
         ListsStorage listsStorage = new ListsStorage();
         ProgVarStorage progVarStorage = new ProgVarStorage();
+        PeopleList reviewList = new PeopleList();
         Element reviewElement = new Element();
 
         public ElementForm()
@@ -31,12 +32,13 @@ namespace Notebook
             this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
 
+            this.reviewList = listsStorage.peopleLists.Single(
+                        item => item.listName == progVarStorage.reviewListName);
+
             if (progVarStorage.elementFormVariant == "change")
             {
                 reviewElement = 
-                    listsStorage.peopleLists.Single(
-                        item => item.listName == progVarStorage.reviewListName)
-                    .elements.Single(item => item.id == progVarStorage.revievElementId);
+                    reviewList.elements.Single(item => item.name == progVarStorage.revievElementName);
 
                 changeElement_button.Text = "Змінити";
             }
@@ -51,6 +53,12 @@ namespace Notebook
         {
             if (progVarStorage.elementFormVariant == "create")
             {
+                if (reviewList.elements.Find(item => item.name == info_textBox.Text) != null)
+                {
+                    MessageBox.Show("Елемент із даним ім'ям вже існує в списку.", "Попередження!");
+                    return;
+                }
+
                 listsStorage.peopleLists.Single(
                     item => item.listName == progVarStorage.reviewListName)
                     .elements.Add(reviewElement);

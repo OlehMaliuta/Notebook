@@ -136,6 +136,11 @@ namespace Notebook
 
                                 this.listsStorage.peopleLists.Remove(person);
 
+                                while (lists_dataGridView.Rows.Count > 0)
+                                {
+                                    lists_dataGridView.Rows.Remove(lists_dataGridView.Rows[lists_dataGridView.Rows.Count - 1]);
+                                }
+
                                 for (int i = 0; i < listsStorage.peopleLists.Count; i++)
                                 {
                                     lists_dataGridView.Rows.Add
@@ -144,6 +149,25 @@ namespace Notebook
                                         listsStorage.peopleLists[i].creatingDate,
                                         listsStorage.peopleLists[i].updatingDate
                                         );
+                                }
+
+                                switch (sortingLists_comboBox.SelectedIndex)
+                                {
+                                    case 0:
+                                        {
+                                            lists_dataGridView.Sort(lists_dataGridView.Columns[0], ListSortDirection.Ascending);
+                                        }
+                                        break;
+                                    case 1:
+                                        {
+                                            lists_dataGridView.Sort(lists_dataGridView.Columns[1], ListSortDirection.Ascending);
+                                        }
+                                        break;
+                                    case 2:
+                                        {
+                                            lists_dataGridView.Sort(lists_dataGridView.Columns[2], ListSortDirection.Ascending);
+                                        }
+                                        break;
                                 }
                             }
                         }
