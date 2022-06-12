@@ -51,14 +51,20 @@ namespace Notebook
 
         private void changeElement_button_Click(object sender, EventArgs e)
         {
+            if (reviewList.elements.Find(item => item.name == info_textBox.Text) != null)
+            {
+                MessageBox.Show("Елемент із даним ім'ям вже існує в списку.", "Попередження!");
+                return;
+            }
+
+            if (reviewElement.name == "")
+            {
+                MessageBox.Show("Елемент повинен мати ім'я.", "Попередження!");
+                return;
+            }
+
             if (progVarStorage.elementFormVariant == "create")
             {
-                if (reviewList.elements.Find(item => item.name == info_textBox.Text) != null)
-                {
-                    MessageBox.Show("Елемент із даним ім'ям вже існує в списку.", "Попередження!");
-                    return;
-                }
-
                 listsStorage.peopleLists.Single(
                     item => item.listName == progVarStorage.reviewListName)
                     .elements.Add(reviewElement);

@@ -42,6 +42,8 @@ namespace Notebook
                     el.name
                     );
             }
+
+            this.Text = reviewList.listName;
         }
 
         private void addElement_button_Click(object sender, EventArgs e)
@@ -118,6 +120,58 @@ namespace Notebook
                         }
                     }
                     break;
+            }
+        }
+
+        private void createTxtFile_button_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Filter = "txt files (*.txt)|*.txt";
+            fileDialog.DefaultExt = ".txt";
+            fileDialog.InitialDirectory = "C:\\Users\\User\\Downloads";
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                List<Element> people = reviewList.elements;
+                string listData = "";
+                int count1 = 1;
+                int count2 = 0;
+                listData = "\"" + reviewList.listName + "\"\n";
+                while (count1 <= people.Count)
+                {
+                    count2 = 0;
+                    listData += $"\n{count1}. {people[count1 - 1].name}\n";
+                    List<string> fields = new List<string>();
+                    fields.Add("День народження: " + 
+                        people[count1 - 1].birthday);
+                    fields.Add("Номера телефонів: " +
+                        people[count1 - 1].phone);
+                    fields.Add("Анкетні дані: " +
+                        people[count1 - 1].personalData);
+                    fields.Add("Місце проживання: " +
+                        people[count1 - 1].restdentialAddress);
+                    fields.Add("Посада знайомих: " +
+                        people[count1 - 1].locale);
+                    fields.Add("Місце праці або навчання: " +
+                        people[count1 - 1].familarPeoplePosition);
+                    fields.Add("Характер знайомства: " +
+                        people[count1 - 1].firstMeeting);
+                    fields.Add("Ділові якості: " +
+                        people[count1 - 1].goodSides);
+                    fields.Add("Додаткова інформація: " +
+                        people[count1 - 1].extraInfo);
+
+                    while (count2 < fields.Count)
+                    {
+                        listData += "\n" + fields[count2] + "\n";
+                        count2++;
+                    }
+                    listData += "\n";
+                    count1++;
+                }
+
+                string path = fileDialog.FileName;
+                File.WriteAllText(path, listData);
             }
         }
 

@@ -38,12 +38,12 @@
             this.listWindow1_label = new System.Windows.Forms.Label();
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
-            this.createDocxFile_button = new System.Windows.Forms.Button();
-            this.createTxtFile_button = new System.Windows.Forms.Button();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.createDocxFile_button = new System.Windows.Forms.Button();
+            this.createTxtFile_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,6 +164,36 @@
             this.elements_dataGridView.TabIndex = 21;
             this.elements_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elements_dataGridView_CellClick);
             // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.HeaderText = "Ім\'я";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // birthday
+            // 
+            this.birthday.HeaderText = "дата народження";
+            this.birthday.Name = "birthday";
+            this.birthday.ReadOnly = true;
+            this.birthday.Width = 110;
+            // 
+            // open
+            // 
+            this.open.HeaderText = "*Детальніше*";
+            this.open.Name = "open";
+            this.open.ReadOnly = true;
+            this.open.Width = 81;
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "*Видалити*";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Width = 69;
+            // 
             // createDocxFile_button
             // 
             this.createDocxFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -183,36 +213,7 @@
             this.createTxtFile_button.TabIndex = 22;
             this.createTxtFile_button.Text = "зберегти список у форматі .txt";
             this.createTxtFile_button.UseVisualStyleBackColor = true;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.HeaderText = "Ім\'я";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // birthday
-            // 
-            this.birthday.HeaderText = "дата народження";
-            this.birthday.Name = "birthday";
-            this.birthday.ReadOnly = true;
-            this.birthday.Width = 110;
-            // 
-            // open
-            // 
-            this.open.HeaderText = "Детальніше";
-            this.open.Name = "open";
-            this.open.ReadOnly = true;
-            this.open.Width = 73;
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "Видалити";
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Width = 61;
+            this.createTxtFile_button.Click += new System.EventHandler(this.createTxtFile_button_Click);
             // 
             // ListForm
             // 
