@@ -15,7 +15,10 @@ namespace Notebook
         public string creatingDate = "ERR";
         public string updatingDate = "ERR";
 
-        public PeopleList(string listName = "ERR", string creatingDate = "ERR", string updatingDate = "ERR")
+        public PeopleList(
+            string listName = "ERR",
+            string creatingDate = "ERR",
+            string updatingDate = "ERR")
         {
             this.listName = listName;
             this.creatingDate = creatingDate;

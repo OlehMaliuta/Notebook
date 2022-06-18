@@ -141,169 +141,169 @@
     <value>7</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="nameForList_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="nameForListButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="nameForList_button.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="nameForListButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>928, 157</value>
   </data>
-  <data name="nameForList_button.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="nameForListButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 87</value>
   </data>
-  <data name="nameForList_button.TabIndex" type="System.Int32, mscorlib">
+  <data name="nameForListButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="nameForList_button.Text" xml:space="preserve">
+  <data name="nameForListButton.Text" xml:space="preserve">
     <value>додати список</value>
   </data>
-  <data name="&gt;&gt;nameForList_button.Name" xml:space="preserve">
-    <value>nameForList_button</value>
+  <data name="&gt;&gt;nameForListButton.Name" xml:space="preserve">
+    <value>nameForListButton</value>
   </data>
-  <data name="&gt;&gt;nameForList_button.Type" xml:space="preserve">
+  <data name="&gt;&gt;nameForListButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nameForList_button.Parent" xml:space="preserve">
+  <data name="&gt;&gt;nameForListButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;nameForList_button.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;nameForListButton.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="searchList_textBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="searchListTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>783, 395</value>
   </data>
-  <data name="searchList_textBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="searchListTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>401, 20</value>
   </data>
-  <data name="searchList_textBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="searchListTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="searchList_textBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+  <data name="searchListTextBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
   </data>
-  <data name="&gt;&gt;searchList_textBox.Name" xml:space="preserve">
-    <value>searchList_textBox</value>
+  <data name="&gt;&gt;searchListTextBox.Name" xml:space="preserve">
+    <value>searchListTextBox</value>
   </data>
-  <data name="&gt;&gt;searchList_textBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;searchListTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;searchList_textBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;searchListTextBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;searchList_textBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;searchListTextBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="mainWindow1_label.AutoSize" type="System.Boolean, mscorlib">
+  <data name="sortLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="mainWindow1_label.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="sortLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="mainWindow1_label.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="sortLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>827, 468</value>
   </data>
-  <data name="mainWindow1_label.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="sortLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 13</value>
   </data>
-  <data name="mainWindow1_label.TabIndex" type="System.Int32, mscorlib">
+  <data name="sortLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="mainWindow1_label.Text" xml:space="preserve">
+  <data name="sortLabel.Text" xml:space="preserve">
     <value>Сортування за:</value>
   </data>
-  <data name="&gt;&gt;mainWindow1_label.Name" xml:space="preserve">
-    <value>mainWindow1_label</value>
+  <data name="&gt;&gt;sortLabel.Name" xml:space="preserve">
+    <value>sortLabel</value>
   </data>
-  <data name="&gt;&gt;mainWindow1_label.Type" xml:space="preserve">
+  <data name="&gt;&gt;sortLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mainWindow1_label.Parent" xml:space="preserve">
+  <data name="&gt;&gt;sortLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;mainWindow1_label.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;sortLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="sortingLists_comboBox.Items" xml:space="preserve">
+  <data name="sortingListsComboBox.Items" xml:space="preserve">
     <value>назвою</value>
   </data>
-  <data name="sortingLists_comboBox.Items1" xml:space="preserve">
+  <data name="sortingListsComboBox.Items1" xml:space="preserve">
     <value>датою створення</value>
   </data>
-  <data name="sortingLists_comboBox.Items2" xml:space="preserve">
+  <data name="sortingListsComboBox.Items2" xml:space="preserve">
     <value>датою оновлення</value>
   </data>
-  <data name="sortingLists_comboBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="sortingListsComboBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>968, 465</value>
   </data>
-  <data name="sortingLists_comboBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="sortingListsComboBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 21</value>
   </data>
-  <data name="sortingLists_comboBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="sortingListsComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;sortingLists_comboBox.Name" xml:space="preserve">
-    <value>sortingLists_comboBox</value>
+  <data name="&gt;&gt;sortingListsComboBox.Name" xml:space="preserve">
+    <value>sortingListsComboBox</value>
   </data>
-  <data name="&gt;&gt;sortingLists_comboBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;sortingListsComboBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;sortingLists_comboBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;sortingListsComboBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;sortingLists_comboBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;sortingListsComboBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="settings_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="settingsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="settings_button.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="settingsButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>773, 598</value>
   </data>
-  <data name="settings_button.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="settingsButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 53</value>
   </data>
-  <data name="settings_button.TabIndex" type="System.Int32, mscorlib">
+  <data name="settingsButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="settings_button.Text" xml:space="preserve">
+  <data name="settingsButton.Text" xml:space="preserve">
     <value>меню налаштування</value>
   </data>
-  <data name="&gt;&gt;settings_button.Name" xml:space="preserve">
-    <value>settings_button</value>
+  <data name="&gt;&gt;settingsButton.Name" xml:space="preserve">
+    <value>settingsButton</value>
   </data>
-  <data name="&gt;&gt;settings_button.Type" xml:space="preserve">
+  <data name="&gt;&gt;settingsButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;settings_button.Parent" xml:space="preserve">
+  <data name="&gt;&gt;settingsButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;settings_button.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;settingsButton.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="exit_button.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="exitButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="exit_button.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>1080, 598</value>
   </data>
-  <data name="exit_button.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 53</value>
   </data>
-  <data name="exit_button.TabIndex" type="System.Int32, mscorlib">
+  <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="exit_button.Text" xml:space="preserve">
+  <data name="exitButton.Text" xml:space="preserve">
     <value>вихід</value>
   </data>
-  <data name="&gt;&gt;exit_button.Name" xml:space="preserve">
-    <value>exit_button</value>
+  <data name="&gt;&gt;exitButton.Name" xml:space="preserve">
+    <value>exitButton</value>
   </data>
-  <data name="&gt;&gt;exit_button.Type" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;exit_button.Parent" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;exit_button.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;exitButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -357,25 +357,25 @@
   <data name="delete.Width" type="System.Int32, mscorlib">
     <value>69</value>
   </data>
-  <data name="lists_dataGridView.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="listDataGridView.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 10</value>
   </data>
-  <data name="lists_dataGridView.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="listDataGridView.Size" type="System.Drawing.Size, System.Drawing">
     <value>736, 641</value>
   </data>
-  <data name="lists_dataGridView.TabIndex" type="System.Int32, mscorlib">
+  <data name="listDataGridView.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="&gt;&gt;lists_dataGridView.Name" xml:space="preserve">
-    <value>lists_dataGridView</value>
+  <data name="&gt;&gt;listDataGridView.Name" xml:space="preserve">
+    <value>listDataGridView</value>
   </data>
-  <data name="&gt;&gt;lists_dataGridView.Type" xml:space="preserve">
+  <data name="&gt;&gt;listDataGridView.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lists_dataGridView.Parent" xml:space="preserve">
+  <data name="&gt;&gt;listDataGridView.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lists_dataGridView.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;listDataGridView.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="dataGridViewImageColumn1.HeaderText" xml:space="preserve">
@@ -395,6 +395,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Головне вікно</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;name.Name" xml:space="preserve">
     <value>name</value>
@@ -430,12 +436,6 @@
     <value>delete</value>
   </data>
   <data name="&gt;&gt;delete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

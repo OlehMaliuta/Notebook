@@ -14,10 +14,11 @@ namespace Notebook
 {
     public partial class ElementForm : Form
     {
-        ListsStorage listsStorage = new ListsStorage();
-        ProgVarStorage progVarStorage = new ProgVarStorage();
-        PeopleList reviewList = new PeopleList();
-        Element reviewElement = new Element();
+        private ListsStorage listsStorage = new ListsStorage();
+        private ProgVarStorage progVarStorage = new ProgVarStorage();
+        private PeopleList reviewList = new PeopleList();
+        private Element reviewElement = new Element();
+        private Element newElement = new Element();
 
         public ElementForm()
         {
@@ -37,27 +38,39 @@ namespace Notebook
 
             if (progVarStorage.elementFormVariant == "change")
             {
-                reviewElement = 
-                    reviewList.elements.Single(item => item.name == progVarStorage.revievElementName);
+                reviewElement = reviewList.elements.Single(
+                    p => p.name == progVarStorage.revievElementName);
+
+                newElement.Copy(reviewElement);
 
                 changeElement_button.Text = "Змінити";
             }
 
             infoFieldType_comboBox.SelectedIndex = 0;
-            infoFieldType_comboBox.Text = "ім'я";
             fieldName_label.Text = infoFieldType_comboBox.Text;
-            info_textBox.Text = reviewElement.name;
+            info_textBox.Text = newElement.name;
+
+            day_numericUpDown.Maximum = uint.MaxValue;
+            day_numericUpDown.Maximum = uint.MinValue;
+
+            month_numericUpDown.Maximum = uint.MaxValue;
+            month_numericUpDown.Maximum = uint.MinValue;
+
+            year_numericUpDown.Maximum = uint.MaxValue;
+            year_numericUpDown.Maximum = uint.MinValue;
+
+            date_panel.Visible = false;
         }
 
         private void changeElement_button_Click(object sender, EventArgs e)
         {
-            if (reviewList.elements.Find(item => item.name == info_textBox.Text) != null)
+            if (reviewList.elements.FindIndex(item => item.name == info_textBox.Text) != -1)
             {
                 MessageBox.Show("Елемент із даним ім'ям вже існує в списку.", "Попередження!");
                 return;
             }
 
-            if (reviewElement.name == "")
+            if (newElement.name == "")
             {
                 MessageBox.Show("Елемент повинен мати ім'я.", "Попередження!");
                 return;
@@ -65,9 +78,34 @@ namespace Notebook
 
             if (progVarStorage.elementFormVariant == "create")
             {
-                listsStorage.peopleLists.Single(
-                    item => item.listName == progVarStorage.reviewListName)
-                    .elements.Add(reviewElement);
+                newElement.creatingDate =
+                    DateTime.Now.ToShortDateString() +
+                    "\n" + DateTime.Now.ToLongTimeString();
+
+                newElement.updatingDate =
+                    DateTime.Now.ToShortDateString() +
+                    "\n" + DateTime.Now.ToLongTimeString();
+
+                reviewList.updatingDate =
+                    DateTime.Now.ToShortDateString() +
+                    "\n" + DateTime.Now.ToLongTimeString();
+
+                reviewList.elements.Add(newElement);
+            }
+            else if (progVarStorage.elementFormVariant == "change")
+            {
+                if (newElement != reviewElement)
+                {
+                    newElement.updatingDate =
+                    DateTime.Now.ToShortDateString() +
+                    "\n" + DateTime.Now.ToLongTimeString();
+
+                    reviewList.updatingDate =
+                    DateTime.Now.ToShortDateString() +
+                    "\n" + DateTime.Now.ToLongTimeString();
+
+                    reviewElement.Copy(newElement);
+                }
             }
 
             this.Close();
@@ -87,43 +125,53 @@ namespace Notebook
             switch (infoFieldType_comboBox.SelectedIndex)
             {
                 case 0:
-                    reviewElement.name = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.name = info_textBox.Text;
                     break;
 
                 case 1:
-                    reviewElement.birthday = info_textBox.Text;
+                    info_textBox.Visible = false;
+                    date_panel.Visible = true;
                     break;
 
                 case 2:
-                    reviewElement.phone = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.phone = info_textBox.Text;
                     break;
 
                 case 3:
-                    reviewElement.personalData = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.personalData = info_textBox.Text;
                     break;
 
                 case 4:
-                    reviewElement.restdentialAddress = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.restdentialAddress = info_textBox.Text;
                     break;
 
                 case 5:
-                    reviewElement.locale = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.locale = info_textBox.Text;
                     break;
 
                 case 6:
-                    reviewElement.firstMeeting = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.firstMeeting = info_textBox.Text;
                     break;
 
                 case 7:
-                    reviewElement.familarPeoplePosition = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.familarPeoplePosition = info_textBox.Text;
                     break;
 
                 case 8:
-                    reviewElement.goodSides = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.goodSides = info_textBox.Text;
                     break;
 
                 case 9:
-                    reviewElement.extraInfo = info_textBox.Text;
+                    info_textBox.Visible = true;
+                    newElement.extraInfo = info_textBox.Text;
                     break;
             }
         }
@@ -135,43 +183,43 @@ namespace Notebook
             switch (infoFieldType_comboBox.SelectedIndex)
             {
                 case 0:
-                    info_textBox.Text = reviewElement.name;
+                    info_textBox.Text = newElement.name;
                     break;
 
                 case 1:
-                    info_textBox.Text = reviewElement.birthday;
+                    info_textBox.Text = newElement.birthday;
                     break;
 
                 case 2:
-                    info_textBox.Text = reviewElement.phone;
+                    info_textBox.Text = newElement.phone;
                     break;
 
                 case 3:
-                    info_textBox.Text = reviewElement.personalData;
+                    info_textBox.Text = newElement.personalData;
                     break;
 
                 case 4:
-                    info_textBox.Text = reviewElement.restdentialAddress;
+                    info_textBox.Text = newElement.restdentialAddress;
                     break;
 
                 case 5:
-                    info_textBox.Text = reviewElement.locale;
+                    info_textBox.Text = newElement.locale;
                     break;
 
                 case 6:
-                    info_textBox.Text = reviewElement.firstMeeting;
+                    info_textBox.Text = newElement.firstMeeting;
                     break;
 
                 case 7:
-                    info_textBox.Text = reviewElement.familarPeoplePosition;
+                    info_textBox.Text = newElement.familarPeoplePosition;
                     break;
 
                 case 8:
-                    info_textBox.Text = reviewElement.goodSides;
+                    info_textBox.Text = newElement.goodSides;
                     break;
 
                 case 9:
-                    info_textBox.Text = reviewElement.extraInfo;
+                    info_textBox.Text = newElement.extraInfo;
                     break;
             }
         }

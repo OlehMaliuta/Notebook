@@ -40,6 +40,8 @@
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.creatingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.createDocxFile_button = new System.Windows.Forms.Button();
@@ -81,10 +83,16 @@
             // 
             this.sortingElements_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortingElements_comboBox.FormattingEnabled = true;
+            this.sortingElements_comboBox.Items.AddRange(new object[] {
+            "ім\'ям",
+            "датою народження",
+            "датою створення ел.",
+            "датою оновлення ел."});
             this.sortingElements_comboBox.Location = new System.Drawing.Point(980, 492);
             this.sortingElements_comboBox.Name = "sortingElements_comboBox";
             this.sortingElements_comboBox.Size = new System.Drawing.Size(157, 21);
             this.sortingElements_comboBox.TabIndex = 14;
+            this.sortingElements_comboBox.SelectedIndexChanged += new System.EventHandler(this.sortingElements_comboBox_SelectedIndexChanged);
             // 
             // listWindow2_label
             // 
@@ -102,6 +110,7 @@
             this.searchElement_textBox.Size = new System.Drawing.Size(428, 20);
             this.searchElement_textBox.TabIndex = 12;
             this.searchElement_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.searchElement_textBox.TextChanged += new System.EventHandler(this.searchElement_textBox_TextChanged);
             // 
             // searchElement_comboBox
             // 
@@ -152,6 +161,8 @@
             this.elements_dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.birthday,
+            this.creatingDate,
+            this.updatingDate,
             this.open,
             this.delete});
             this.elements_dataGridView.EnableHeadersVisualStyles = false;
@@ -178,7 +189,24 @@
             this.birthday.HeaderText = "дата народження";
             this.birthday.Name = "birthday";
             this.birthday.ReadOnly = true;
-            this.birthday.Width = 110;
+            this.birthday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.birthday.Width = 91;
+            // 
+            // creatingDate
+            // 
+            this.creatingDate.HeaderText = "дата створення ел.";
+            this.creatingDate.Name = "creatingDate";
+            this.creatingDate.ReadOnly = true;
+            this.creatingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.creatingDate.Width = 86;
+            // 
+            // updatingDate
+            // 
+            this.updatingDate.HeaderText = "дата оновлення ел.";
+            this.updatingDate.Name = "updatingDate";
+            this.updatingDate.ReadOnly = true;
+            this.updatingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.updatingDate.Width = 87;
             // 
             // open
             // 
@@ -203,6 +231,7 @@
             this.createDocxFile_button.TabIndex = 23;
             this.createDocxFile_button.Text = "зберегти у список форматі .docx";
             this.createDocxFile_button.UseVisualStyleBackColor = true;
+            this.createDocxFile_button.Click += new System.EventHandler(this.createDocxFile_button_Click);
             // 
             // createTxtFile_button
             // 
@@ -257,6 +286,8 @@
         private System.Windows.Forms.Button createTxtFile_button;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatingDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updatingDate;
         private System.Windows.Forms.DataGridViewButtonColumn open;
         private System.Windows.Forms.DataGridViewImageColumn delete;
     }
