@@ -73,8 +73,8 @@
             this.infoFieldType_comboBox.FormattingEnabled = true;
             this.infoFieldType_comboBox.Items.AddRange(new object[] {
             "ім\'я",
-            "телефон",
             "дата народження",
+            "телефон",
             "анкетні дані",
             "місце проживання",
             "місце роботи/навчання",
@@ -140,7 +140,7 @@
             // 
             // year_numericUpDown
             // 
-            this.year_numericUpDown.Location = new System.Drawing.Point(76, 102);
+            this.year_numericUpDown.Location = new System.Drawing.Point(76, 97);
             this.year_numericUpDown.Name = "year_numericUpDown";
             this.year_numericUpDown.Size = new System.Drawing.Size(81, 20);
             this.year_numericUpDown.TabIndex = 10;
@@ -148,7 +148,7 @@
             // year_label
             // 
             this.year_label.AutoSize = true;
-            this.year_label.Location = new System.Drawing.Point(12, 104);
+            this.year_label.Location = new System.Drawing.Point(12, 99);
             this.year_label.Name = "year_label";
             this.year_label.Size = new System.Drawing.Size(27, 13);
             this.year_label.TabIndex = 9;

@@ -11,7 +11,7 @@ namespace Notebook
     {
         public string name = "";
         public string phone = "-";
-        public string birthday = "-";
+        public string birthday = "-.-.-";
         public string personalData = "-";
         public string restdentialAddress = "-";
         public string locale = "-";
@@ -22,7 +22,7 @@ namespace Notebook
         public string creatingDate = "ERR";
         public string updatingDate = "ERR";
 
-        public void Copy(Element original)
+        public void CopyElement(Element original)
         {
             this.creatingDate = original.creatingDate;
             this.updatingDate = original.updatingDate;

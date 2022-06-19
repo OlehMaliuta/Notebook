@@ -384,6 +384,18 @@ namespace Notebook
                 case 6:
                     spl = pl.FindAll(item => item.firstMeeting.Contains(searchElement_textBox.Text));
                     break;
+
+                case 7:
+                    spl = pl.FindAll(item => item.familarPeoplePosition.Contains(searchElement_textBox.Text));
+                    break;
+
+                case 8:
+                    spl = pl.FindAll(item => item.goodSides.Contains(searchElement_textBox.Text));
+                    break;
+
+                case 9:
+                    spl = pl.FindAll(item => item.extraInfo.Contains(searchElement_textBox.Text));
+                    break;
             }
 
             foreach (Element el in spl)

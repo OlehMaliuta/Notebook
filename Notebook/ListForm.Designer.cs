@@ -123,7 +123,10 @@
             "анкетними даними",
             "місцем проживання",
             "місцем роботи/навчання",
-            "характером знайомства"});
+            "характером знайомства",
+            "посадою знайомих",
+            "діловими якостями",
+            "додатковими даними"});
             this.searchElement_comboBox.Location = new System.Drawing.Point(980, 437);
             this.searchElement_comboBox.Name = "searchElement_comboBox";
             this.searchElement_comboBox.Size = new System.Drawing.Size(157, 21);

@@ -22,6 +22,22 @@ namespace Notebook
             InitializeComponent();
         }
 
+        private void SetWindowLang(Language language)
+        {
+            switch (language)
+            {
+                case Language.Ukranian:
+
+                    break;
+
+                case Language.Russian:
+                    break;
+
+                case Language.English:
+                    break;
+            }
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             listDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
