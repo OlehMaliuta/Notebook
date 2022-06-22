@@ -17,10 +17,89 @@ namespace Notebook
         private ListsStorage listsStorage = new ListsStorage();
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private string variant = "";
+        private string[] messageText = new string[3];
 
         public ListNameForm()
         {
             InitializeComponent();
+        }
+
+        private void SetWindowLanguage(Language language, string variant)
+        {
+            switch (language)
+            {
+                case Language.Ukranian:
+                    if (variant == "create")
+                    {
+                        this.Text = "Новий список";
+                        listNameWindow_label.Text = "Введіть ім'я списку:";
+                        giveListName_button.Text = "створити";
+                    }
+                    else if (variant == "rename")
+                    {
+                        this.Text = "Переіменувати список";
+                        listNameWindow_label.Text = "Нова ім'я списку:";
+                        giveListName_button.Text = "переіменувати";
+                    }
+
+                    goBack_button.Text = "назад";
+
+                    messageText = new string[] 
+                    {
+                        "Попередження!",
+                        "Список повинен мати назву.",
+                        "Список із даною назвою вже існує."
+                    };
+                    break;
+
+                case Language.Russian:
+                    if (variant == "create")
+                    {
+                        this.Text = "Новый список";
+                        listNameWindow_label.Text = "Введите имя списка:";
+                        giveListName_button.Text = "создать";
+                    }
+                    else if (variant == "rename")
+                    {
+                        this.Text = "Переименовать список";
+                        listNameWindow_label.Text = "новое имя списка:";
+                        giveListName_button.Text = "переименовать";
+                    }
+
+                    goBack_button.Text = "назад";
+
+                    messageText = new string[] 
+                    {
+                        "Предупреждение!",
+                        "У списка должно быть название.",
+                        "Список с этим наванием уже есть."
+                    };
+                    break;
+
+                case Language.English:
+                    if (variant == "create")
+                    {
+                        this.Text = "New list";
+                        listNameWindow_label.Text = "Enter a list name:";
+                        giveListName_button.Text = "create";
+                    }
+                    else if (variant == "rename")
+                    {
+                        this.Text = "Rename the list";
+                        listNameWindow_label.Text = "Enter a new list name:";
+                        giveListName_button.Text = "rename";
+                    }
+
+                    goBack_button.Text = "back";
+
+                    messageText = new string[] 
+                    {
+                        "Warning!",
+                        "A list must have a name.",
+                        "A list with the same name already exists."
+                    };
+                    break;
+            }
         }
 
         private void ListNameForm_Load(object sender, EventArgs e)
@@ -33,25 +112,14 @@ namespace Notebook
 
             this.variant = this.progVarStorage.listNameFormVariant;
 
-            if (variant == "rename")
-            {
-                listNameWindow_label.Text = "Інша назва списку:";
-                giveListName_button.Text = "Переіменувати";
-            }
+            SetWindowLanguage(progVarStorage.language, variant);
         }
 
         private void giveListName_button_Click(object sender, EventArgs e)
         {
             if (listName_textBox.Text == "")
             {
-                if (this.variant == "rename")
-                {
-                    MessageBox.Show("Список повинен мати назву.", "Попередження!");
-                }
-                else
-                {
-                    MessageBox.Show("Ви не можете створити список без назви.", "Попередження!");
-                }
+                MessageBox.Show(messageText[1], messageText[0]);
             }
             else if (this.listsStorage.peopleLists.Find
                         (
@@ -59,7 +127,7 @@ namespace Notebook
                         ) != null
                     )
             {
-                MessageBox.Show("Список із даною назвою вже існує.", "Попередження!");
+                MessageBox.Show(messageText[2], messageText[0]);
             }
             else
             {

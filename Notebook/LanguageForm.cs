@@ -26,15 +26,27 @@ namespace Notebook
             switch (language)
             {
                 case Language.Ukranian:
+                    this.Text = "Налаштування";
                     languageWindow_label.Text = "Вибрати мову:";
+                    goBack_button.Text = "назад";
+                    mainMenu_button.Text = "головне меню";
+                    changeLanguage_button.Text = "прийняти зміни";
                     break;
 
                 case Language.Russian:
+                    this.Text = "Настройки";
                     languageWindow_label.Text = "Выбрать язык:";
+                    goBack_button.Text = "назад";
+                    mainMenu_button.Text = "главное меню";
+                    changeLanguage_button.Text = "принять измнинения";
                     break;
 
                 case Language.English:
+                    this.Text = "Settings";
                     languageWindow_label.Text = "Choose language:";
+                    goBack_button.Text = "back";
+                    mainMenu_button.Text = "main menu";
+                    changeLanguage_button.Text = "apply";
                     break;
             }
         }
@@ -44,9 +56,9 @@ namespace Notebook
             this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
 
-            language_comboBox.SelectedIndex = (int)progVarStorage.language;
-
             SetWindowLang(progVarStorage.language);
+
+            language_comboBox.SelectedIndex = (int)progVarStorage.language;
         }
 
         private void mainMenu_button_Click(object sender, EventArgs e)

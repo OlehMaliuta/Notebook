@@ -16,6 +16,7 @@ namespace Notebook
     {
         private ListsStorage listsStorage = new ListsStorage();
         private ProgVarStorage progVarStorage = new ProgVarStorage();
+        private string[] messageText = new string[2];
 
         public MainForm()
         {
@@ -27,13 +28,83 @@ namespace Notebook
             switch (language)
             {
                 case Language.Ukranian:
+                    this.Text = "Головне меню";
 
+                    listDataGridView.Columns[0].HeaderText = "Назва списку";
+                    listDataGridView.Columns[1].HeaderText = "Дата створення";
+                    listDataGridView.Columns[2].HeaderText = "Дата оновлення";
+                    listDataGridView.Columns[3].HeaderText = "*Відкрити*";
+                    listDataGridView.Columns[4].HeaderText = "*Переіменувати*";
+                    listDataGridView.Columns[5].HeaderText = "*Видалити*";
+
+                    createListButton.Text = "додати список";
+
+                    sortLabel.Text = "Сортування за:";
+
+                    sortingListsComboBox.Items.Add("назвою");
+                    sortingListsComboBox.Items.Add("датою створення");
+                    sortingListsComboBox.Items.Add("датою оновлення");
+
+                    settingsButton.Text = "меню налаштування";
+
+                    exitButton.Text = "вихід";
+
+                    messageText[0] = "Попередження!";
+                    messageText[1] = "Ви впевнені, що хочите видалити список?";
                     break;
 
                 case Language.Russian:
+                    this.Text = "Главное меню";
+
+                    listDataGridView.Columns[0].HeaderText = "Название списка";
+                    listDataGridView.Columns[1].HeaderText = "Дата создания";
+                    listDataGridView.Columns[2].HeaderText = "Дата обновления";
+                    listDataGridView.Columns[3].HeaderText = "*Открыть*";
+                    listDataGridView.Columns[4].HeaderText = "*Переименовать*";
+                    listDataGridView.Columns[5].HeaderText = "*Удалить*";
+
+                    createListButton.Text = "добавить список";
+
+                    sortLabel.Text = "Сортировка по:";
+
+                    sortingListsComboBox.Items.Add("названию");
+                    sortingListsComboBox.Items.Add("дате создания");
+                    sortingListsComboBox.Items.Add("дате обновления");
+
+                    settingsButton.Text = "меню настроек";
+
+                    exitButton.Text = "выход";
+
+                    messageText[0] = "Предупреждение!";
+                    messageText[1] = "Вы уверены, что хотите удалить список?";
                     break;
 
                 case Language.English:
+                    this.Text = "Main menu";
+
+                    listDataGridView.Columns[0].HeaderText = "List name";
+                    listDataGridView.Columns[1].HeaderText = "Creation date";
+                    listDataGridView.Columns[2].HeaderText = "Update date";
+                    listDataGridView.Columns[3].HeaderText = "*Open*";
+                    listDataGridView.Columns[4].HeaderText = "*Rename*";
+                    listDataGridView.Columns[5].HeaderText = "*Delete*";
+
+                    createListButton.Text = "add list";
+
+                    sortLabel.Text = "Sort by:";
+
+                    sortingListsComboBox.Items.Add("name");
+                    sortingListsComboBox.Items.Add("creation date");
+                    sortingListsComboBox.Items.Add("update date");
+
+                    settingsButton.Text = "settings";
+
+                    exitButton.Text = "exit";
+
+                    messageText[0] = 
+                        "Warning!";
+                    messageText[1] = 
+                        "Are you sure you want to remove the list?";
                     break;
             }
         }
@@ -47,6 +118,8 @@ namespace Notebook
 
             this.progVarStorage = 
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+
+            SetWindowLang(progVarStorage.language);
 
             var pl =
                 listsStorage.peopleLists.OrderBy(item => item.listName);
@@ -64,7 +137,7 @@ namespace Notebook
             sortingListsComboBox.SelectedIndex = 0;
         }
 
-        private void nameForListButton_Click(object sender, EventArgs e)
+        private void CreateListButton_Click(object sender, EventArgs e)
         {
             progVarStorage.listNameFormVariant = "create";
 
@@ -138,8 +211,8 @@ namespace Notebook
                         {
                             DialogResult result = MessageBox.Show
                             (
-                            "Ви впевнені, що хочите видалити список",
-                            "Попередження!",
+                            messageText[1],
+                            messageText[0],
                             MessageBoxButtons.YesNo
                             );
 
@@ -243,9 +316,13 @@ namespace Notebook
                 listDataGridView.Rows.Remove(listDataGridView.Rows[listDataGridView.Rows.Count - 1]);
             }
 
-            while (pl.FindIndex(item => item.listName.Contains(searchListTextBox.Text)) != -1)
+            while (pl.FindIndex(item => 
+                item.listName.ToLower().Contains(
+                    searchListTextBox.Text.ToLower())) != -1)
             {
-                int idx = pl.FindIndex(item => item.listName.Contains(searchListTextBox.Text));
+                int idx = pl.FindIndex(item =>
+                    item.listName.ToLower().Contains(
+                        searchListTextBox.Text.ToLower()));
 
                 listDataGridView.Rows.Add
                     (

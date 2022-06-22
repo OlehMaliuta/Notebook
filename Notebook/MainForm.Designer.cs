@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Lists_listBox = new System.Windows.Forms.ListBox();
-            this.nameForListButton = new System.Windows.Forms.Button();
+            this.createListButton = new System.Windows.Forms.Button();
             this.searchListTextBox = new System.Windows.Forms.TextBox();
             this.sortLabel = new System.Windows.Forms.Label();
             this.sortingListsComboBox = new System.Windows.Forms.ComboBox();
             this.settingsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.listDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rename = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,12 +55,12 @@
             resources.ApplyResources(this.Lists_listBox, "Lists_listBox");
             this.Lists_listBox.Name = "Lists_listBox";
             // 
-            // nameForListButton
+            // createListButton
             // 
-            resources.ApplyResources(this.nameForListButton, "nameForListButton");
-            this.nameForListButton.Name = "nameForListButton";
-            this.nameForListButton.UseVisualStyleBackColor = true;
-            this.nameForListButton.Click += new System.EventHandler(this.nameForListButton_Click);
+            resources.ApplyResources(this.createListButton, "createListButton");
+            this.createListButton.Name = "createListButton";
+            this.createListButton.UseVisualStyleBackColor = true;
+            this.createListButton.Click += new System.EventHandler(this.CreateListButton_Click);
             // 
             // searchListTextBox
             // 
@@ -78,10 +78,6 @@
             this.sortingListsComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sortingListsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortingListsComboBox.FormattingEnabled = true;
-            this.sortingListsComboBox.Items.AddRange(new object[] {
-            resources.GetString("sortingListsComboBox.Items"),
-            resources.GetString("sortingListsComboBox.Items1"),
-            resources.GetString("sortingListsComboBox.Items2")});
             resources.ApplyResources(this.sortingListsComboBox, "sortingListsComboBox");
             this.sortingListsComboBox.Name = "sortingListsComboBox";
             this.sortingListsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingListsComboBox_SelectedIndexChanged);
@@ -124,16 +120,6 @@
             this.listDataGridView.RowHeadersVisible = false;
             this.listDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listDataGridView_CellClick);
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // name
             // 
@@ -183,6 +169,16 @@
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -193,7 +189,7 @@
             this.Controls.Add(this.sortingListsComboBox);
             this.Controls.Add(this.sortLabel);
             this.Controls.Add(this.searchListTextBox);
-            this.Controls.Add(this.nameForListButton);
+            this.Controls.Add(this.createListButton);
             this.Controls.Add(this.Lists_listBox);
             this.Name = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -207,7 +203,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox Lists_listBox;
-        private System.Windows.Forms.Button nameForListButton;
+        private System.Windows.Forms.Button createListButton;
         private System.Windows.Forms.TextBox searchListTextBox;
         private System.Windows.Forms.Label sortLabel;
         private System.Windows.Forms.ComboBox sortingListsComboBox;

@@ -49,7 +49,7 @@
             // 
             // changeElement_button
             // 
-            this.changeElement_button.Location = new System.Drawing.Point(551, 367);
+            this.changeElement_button.Location = new System.Drawing.Point(549, 395);
             this.changeElement_button.Name = "changeElement_button";
             this.changeElement_button.Size = new System.Drawing.Size(75, 23);
             this.changeElement_button.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             // goBack_button
             // 
-            this.goBack_button.Location = new System.Drawing.Point(420, 367);
+            this.goBack_button.Location = new System.Drawing.Point(418, 395);
             this.goBack_button.Name = "goBack_button";
             this.goBack_button.Size = new System.Drawing.Size(75, 23);
             this.goBack_button.TabIndex = 1;
@@ -71,18 +71,7 @@
             // 
             this.infoFieldType_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.infoFieldType_comboBox.FormattingEnabled = true;
-            this.infoFieldType_comboBox.Items.AddRange(new object[] {
-            "ім\'я",
-            "дата народження",
-            "телефон",
-            "анкетні дані",
-            "місце проживання",
-            "місце роботи/навчання",
-            "характер знайомства",
-            "посада знайомих",
-            "ділові якості",
-            "додаткова інформація"});
-            this.infoFieldType_comboBox.Location = new System.Drawing.Point(501, 232);
+            this.infoFieldType_comboBox.Location = new System.Drawing.Point(499, 260);
             this.infoFieldType_comboBox.Name = "infoFieldType_comboBox";
             this.infoFieldType_comboBox.Size = new System.Drawing.Size(121, 21);
             this.infoFieldType_comboBox.TabIndex = 2;
@@ -157,11 +146,11 @@
             // fieldType_label
             // 
             this.fieldType_label.AutoSize = true;
-            this.fieldType_label.Location = new System.Drawing.Point(417, 235);
+            this.fieldType_label.Location = new System.Drawing.Point(415, 263);
             this.fieldType_label.Name = "fieldType_label";
-            this.fieldType_label.Size = new System.Drawing.Size(35, 13);
+            this.fieldType_label.Size = new System.Drawing.Size(31, 13);
             this.fieldType_label.TabIndex = 11;
-            this.fieldType_label.Text = "label1";
+            this.fieldType_label.Text = "поле";
             // 
             // date_panel
             // 
@@ -171,7 +160,7 @@
             this.date_panel.Controls.Add(this.month_label);
             this.date_panel.Controls.Add(this.year_label);
             this.date_panel.Controls.Add(this.month_numericUpDown);
-            this.date_panel.Location = new System.Drawing.Point(106, 150);
+            this.date_panel.Location = new System.Drawing.Point(98, 219);
             this.date_panel.Name = "date_panel";
             this.date_panel.Size = new System.Drawing.Size(175, 139);
             this.date_panel.TabIndex = 12;

@@ -20,10 +20,146 @@ namespace Notebook
         private ListsStorage listsStorage = new ListsStorage();
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private PeopleList reviewList = new PeopleList();
+        private string[] messageText;
 
         public ListForm()
         {
             InitializeComponent();
+        }
+
+        private void SetWindowLang(Language language)
+        {
+            switch (language)
+            {
+                case Language.Ukranian:
+                    addElement_button.Text = "додати елемент";
+                    createTxtFile_button.Text = "зберегти список у файлі .txt";
+                    createDocxFile_button.Text = "зберегти список у файлі .docx";
+
+                    elements_dataGridView.Columns[0].HeaderText = "Ім'я";
+                    elements_dataGridView.Columns[1].HeaderText = "Дата народження";
+                    elements_dataGridView.Columns[2].HeaderText = "Дата створення ел.";
+                    elements_dataGridView.Columns[3].HeaderText = "Дата оновлення ел.";
+                    elements_dataGridView.Columns[4].HeaderText = "*Детальніше*";
+                    elements_dataGridView.Columns[5].HeaderText = "*Видалити*";
+
+                    search_label.Text = "Пошук за:";
+                    sort_label.Text = "Сортування за:";
+                    
+                    searchElement_comboBox.Items.Add("ім'ям");
+                    searchElement_comboBox.Items.Add("телефоном");
+                    searchElement_comboBox.Items.Add("датою народження");
+                    searchElement_comboBox.Items.Add("анкетними даними");
+                    searchElement_comboBox.Items.Add("місцем проживання");
+                    searchElement_comboBox.Items.Add("місцем роботи/навчання");
+                    searchElement_comboBox.Items.Add("характером знайомства");
+                    searchElement_comboBox.Items.Add("посадою знайомих");
+                    searchElement_comboBox.Items.Add("діловими якостями");
+                    searchElement_comboBox.Items.Add("додатковими даними");
+
+                    sortingElements_comboBox.Items.Add("ім'ям");
+                    sortingElements_comboBox.Items.Add("датою народження");
+                    sortingElements_comboBox.Items.Add("датою створення ел.");
+                    sortingElements_comboBox.Items.Add("датою оновлення ел.");
+
+                    settings_button.Text = "меню налаштування";
+                    mainMenu_button.Text = "головне меню";
+                    exit_button.Text = "вихід";
+
+                    messageText = new string[]
+                    {
+                        "Попередження!",
+                        "Ви впевнені, що хочите видалити елемент зі списку",
+                        "Ви не можете використовувати для іменування файлу даний символ: \".\"."
+                    };
+                    break;
+
+                case Language.Russian:
+                    addElement_button.Text = "добавить элемент";
+                    createTxtFile_button.Text = "сохранить список в файле .txt";
+                    createDocxFile_button.Text = "сохранить список в файле .docx";
+
+                    elements_dataGridView.Columns[0].HeaderText = "Имя";
+                    elements_dataGridView.Columns[1].HeaderText = "Дата рождения";
+                    elements_dataGridView.Columns[2].HeaderText = "Дата создания эл.";
+                    elements_dataGridView.Columns[3].HeaderText = "Дата обновления эл.";
+                    elements_dataGridView.Columns[4].HeaderText = "*Подробнее*";
+                    elements_dataGridView.Columns[5].HeaderText = "*Удалить*";
+
+                    search_label.Text = "Поиск по:";
+                    sort_label.Text = "Сортировка по:";
+
+                    searchElement_comboBox.Items.Add("имени");
+                    searchElement_comboBox.Items.Add("телефону");
+                    searchElement_comboBox.Items.Add("датой рождения");
+                    searchElement_comboBox.Items.Add("анкетными данними");
+                    searchElement_comboBox.Items.Add("местом проживания");
+                    searchElement_comboBox.Items.Add("местом работы/учёбы");
+                    searchElement_comboBox.Items.Add("характером знакомства");
+                    searchElement_comboBox.Items.Add("положением знакомых");
+                    searchElement_comboBox.Items.Add("деловыми качествами");
+                    searchElement_comboBox.Items.Add("дополнительными данными");
+
+                    sortingElements_comboBox.Items.Add("имени");
+                    sortingElements_comboBox.Items.Add("датой рождения");
+                    sortingElements_comboBox.Items.Add("датой создания ел.");
+                    sortingElements_comboBox.Items.Add("датой обновления ел.");
+
+                    settings_button.Text = "меню настроек";
+                    mainMenu_button.Text = "главное меню";
+                    exit_button.Text = "выход";
+
+                    messageText = new string[]
+                    {
+                        "Предупреждение!",
+                        "Вы уверены, что хотите удалить элемент из списка?",
+                        "Вы не можете использовать для именования файла даный символ: \".\"."
+                    };
+                    break;
+
+                case Language.English:
+                    addElement_button.Text = "add element";
+                    createTxtFile_button.Text = "save the list at .txt file";
+                    createDocxFile_button.Text = "save the list at .docx file";
+
+                    elements_dataGridView.Columns[0].HeaderText = "Name";
+                    elements_dataGridView.Columns[1].HeaderText = "Birth date";
+                    elements_dataGridView.Columns[2].HeaderText = "Creation el. date";
+                    elements_dataGridView.Columns[3].HeaderText = "Update el. date";
+                    elements_dataGridView.Columns[4].HeaderText = "*More*";
+                    elements_dataGridView.Columns[5].HeaderText = "*Delete*";
+
+                    search_label.Text = "Search by:";
+                    sort_label.Text = "Sort by:";
+
+                    searchElement_comboBox.Items.Add("name");
+                    searchElement_comboBox.Items.Add("phone");
+                    searchElement_comboBox.Items.Add("birth date");
+                    searchElement_comboBox.Items.Add("personal data");
+                    searchElement_comboBox.Items.Add("residentional address");
+                    searchElement_comboBox.Items.Add("locale");
+                    searchElement_comboBox.Items.Add("first meeting");
+                    searchElement_comboBox.Items.Add("familar people position");
+                    searchElement_comboBox.Items.Add("good sides");
+                    searchElement_comboBox.Items.Add("extra info");
+
+                    sortingElements_comboBox.Items.Add("name");
+                    sortingElements_comboBox.Items.Add("birth date");
+                    sortingElements_comboBox.Items.Add("creation el. date");
+                    sortingElements_comboBox.Items.Add("update el. date");
+
+                    settings_button.Text = "settings";
+                    mainMenu_button.Text = "main menu";
+                    exit_button.Text = "exit";
+
+                    messageText = new string[]
+                    {
+                        "Warning!",
+                        "Are you sure you want to remove the element from the list?",
+                        "You cannot use this character for naming a file: \".\"."
+                    };
+                    break;
+            }
         }
 
         private void ListForm_Load(object sender, EventArgs e)
@@ -35,6 +171,8 @@ namespace Notebook
 
             this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+
+            SetWindowLang(progVarStorage.language);
 
             reviewList = listsStorage.peopleLists.Single(item => item.listName == progVarStorage.reviewListName);
 
@@ -111,8 +249,8 @@ namespace Notebook
                         {
                             DialogResult result = MessageBox.Show
                                 (
-                                "Ви впевнені, що хочите видалити елемент зі списку",
-                                "Попередження!",
+                                messageText[1],
+                                messageText[0],
                                 MessageBoxButtons.YesNo
                                 );
 
@@ -173,10 +311,7 @@ namespace Notebook
             {
                 if (fileDialog.FileName.Contains('.'))
                 {
-                    string text = "Ви не можете використовувати " +
-                        "для іменування файлу даний символ: \".\".";
-
-                    MessageBox.Show(text, "Попередження!");
+                    MessageBox.Show(messageText[2], messageText[0]);
                     goto p_a;
                 }
 
@@ -234,10 +369,7 @@ namespace Notebook
             {
                 if (fileDialog.FileName.Contains('.'))
                 {
-                    string text = "Ви не можете використовувати " +
-                        "для іменування файлу даний символ: \".\".";
-
-                    MessageBox.Show(text, "Попередження!");
+                    MessageBox.Show(messageText[2], messageText[0]);
                     goto p_b;
                 }
 
@@ -358,43 +490,43 @@ namespace Notebook
             switch (searchElement_comboBox.SelectedIndex)
             {
                 case 0:
-                    spl = pl.FindAll(item => item.name.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.name.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 1:
-                    spl = pl.FindAll(item => item.phone.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.phone.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 2:
-                    spl = pl.FindAll(item => item.birthday.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.birthday.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 3:
-                    spl = pl.FindAll(item => item.personalData.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.personalData.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 4:
-                    spl = pl.FindAll(item => item.restdentialAddress.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.restdentialAddress.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 5:
-                    spl = pl.FindAll(item => item.locale.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.locale.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 6:
-                    spl = pl.FindAll(item => item.firstMeeting.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.firstMeeting.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 7:
-                    spl = pl.FindAll(item => item.familarPeoplePosition.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.familarPeoplePosition.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 8:
-                    spl = pl.FindAll(item => item.goodSides.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.goodSides.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
 
                 case 9:
-                    spl = pl.FindAll(item => item.extraInfo.Contains(searchElement_textBox.Text));
+                    spl = pl.FindAll(item => item.extraInfo.ToLower().Contains(searchElement_textBox.Text.ToLower()));
                     break;
             }
 

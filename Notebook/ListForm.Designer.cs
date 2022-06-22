@@ -32,10 +32,10 @@
             this.exit_button = new System.Windows.Forms.Button();
             this.settings_button = new System.Windows.Forms.Button();
             this.sortingElements_comboBox = new System.Windows.Forms.ComboBox();
-            this.listWindow2_label = new System.Windows.Forms.Label();
+            this.sort_label = new System.Windows.Forms.Label();
             this.searchElement_textBox = new System.Windows.Forms.TextBox();
             this.searchElement_comboBox = new System.Windows.Forms.ComboBox();
-            this.listWindow1_label = new System.Windows.Forms.Label();
+            this.search_label = new System.Windows.Forms.Label();
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,7 +75,7 @@
             this.settings_button.Name = "settings_button";
             this.settings_button.Size = new System.Drawing.Size(118, 59);
             this.settings_button.TabIndex = 15;
-            this.settings_button.Text = "налаштування";
+            this.settings_button.Text = "меню налаштування";
             this.settings_button.UseVisualStyleBackColor = true;
             this.settings_button.Click += new System.EventHandler(this.settings_button_Click);
             // 
@@ -83,25 +83,20 @@
             // 
             this.sortingElements_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortingElements_comboBox.FormattingEnabled = true;
-            this.sortingElements_comboBox.Items.AddRange(new object[] {
-            "ім\'ям",
-            "датою народження",
-            "датою створення ел.",
-            "датою оновлення ел."});
             this.sortingElements_comboBox.Location = new System.Drawing.Point(980, 492);
             this.sortingElements_comboBox.Name = "sortingElements_comboBox";
             this.sortingElements_comboBox.Size = new System.Drawing.Size(157, 21);
             this.sortingElements_comboBox.TabIndex = 14;
             this.sortingElements_comboBox.SelectedIndexChanged += new System.EventHandler(this.sortingElements_comboBox_SelectedIndexChanged);
             // 
-            // listWindow2_label
+            // sort_label
             // 
-            this.listWindow2_label.AutoSize = true;
-            this.listWindow2_label.Location = new System.Drawing.Point(839, 495);
-            this.listWindow2_label.Name = "listWindow2_label";
-            this.listWindow2_label.Size = new System.Drawing.Size(84, 13);
-            this.listWindow2_label.TabIndex = 13;
-            this.listWindow2_label.Text = "Сортування за:";
+            this.sort_label.AutoSize = true;
+            this.sort_label.Location = new System.Drawing.Point(839, 495);
+            this.sort_label.Name = "sort_label";
+            this.sort_label.Size = new System.Drawing.Size(84, 13);
+            this.sort_label.TabIndex = 13;
+            this.sort_label.Text = "Сортування за:";
             // 
             // searchElement_textBox
             // 
@@ -116,30 +111,19 @@
             // 
             this.searchElement_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchElement_comboBox.FormattingEnabled = true;
-            this.searchElement_comboBox.Items.AddRange(new object[] {
-            "ім\'ям",
-            "телефоном",
-            "датою народження",
-            "анкетними даними",
-            "місцем проживання",
-            "місцем роботи/навчання",
-            "характером знайомства",
-            "посадою знайомих",
-            "діловими якостями",
-            "додатковими даними"});
             this.searchElement_comboBox.Location = new System.Drawing.Point(980, 437);
             this.searchElement_comboBox.Name = "searchElement_comboBox";
             this.searchElement_comboBox.Size = new System.Drawing.Size(157, 21);
             this.searchElement_comboBox.TabIndex = 18;
             // 
-            // listWindow1_label
+            // search_label
             // 
-            this.listWindow1_label.AutoSize = true;
-            this.listWindow1_label.Location = new System.Drawing.Point(853, 440);
-            this.listWindow1_label.Name = "listWindow1_label";
-            this.listWindow1_label.Size = new System.Drawing.Size(58, 13);
-            this.listWindow1_label.TabIndex = 17;
-            this.listWindow1_label.Text = "Пошук за:";
+            this.search_label.AutoSize = true;
+            this.search_label.Location = new System.Drawing.Point(853, 440);
+            this.search_label.Name = "search_label";
+            this.search_label.Size = new System.Drawing.Size(58, 13);
+            this.search_label.TabIndex = 17;
+            this.search_label.Text = "Пошук за:";
             // 
             // mainMenu_button
             // 
@@ -189,27 +173,27 @@
             // 
             // birthday
             // 
-            this.birthday.HeaderText = "дата народження";
+            this.birthday.HeaderText = "Дата народження";
             this.birthday.Name = "birthday";
             this.birthday.ReadOnly = true;
             this.birthday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.birthday.Width = 91;
+            this.birthday.Width = 94;
             // 
             // creatingDate
             // 
-            this.creatingDate.HeaderText = "дата створення ел.";
+            this.creatingDate.HeaderText = "Дата створення ел.";
             this.creatingDate.Name = "creatingDate";
             this.creatingDate.ReadOnly = true;
             this.creatingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.creatingDate.Width = 86;
+            this.creatingDate.Width = 88;
             // 
             // updatingDate
             // 
-            this.updatingDate.HeaderText = "дата оновлення ел.";
+            this.updatingDate.HeaderText = "Дата оновлення ел.";
             this.updatingDate.Name = "updatingDate";
             this.updatingDate.ReadOnly = true;
             this.updatingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.updatingDate.Width = 87;
+            this.updatingDate.Width = 89;
             // 
             // open
             // 
@@ -243,7 +227,7 @@
             this.createTxtFile_button.Name = "createTxtFile_button";
             this.createTxtFile_button.Size = new System.Drawing.Size(144, 93);
             this.createTxtFile_button.TabIndex = 22;
-            this.createTxtFile_button.Text = "зберегти список у форматі .txt";
+            this.createTxtFile_button.Text = "зберегти список у файлі .txt";
             this.createTxtFile_button.UseVisualStyleBackColor = true;
             this.createTxtFile_button.Click += new System.EventHandler(this.createTxtFile_button_Click);
             // 
@@ -257,11 +241,11 @@
             this.Controls.Add(this.elements_dataGridView);
             this.Controls.Add(this.mainMenu_button);
             this.Controls.Add(this.searchElement_comboBox);
-            this.Controls.Add(this.listWindow1_label);
+            this.Controls.Add(this.search_label);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.settings_button);
             this.Controls.Add(this.sortingElements_comboBox);
-            this.Controls.Add(this.listWindow2_label);
+            this.Controls.Add(this.sort_label);
             this.Controls.Add(this.searchElement_textBox);
             this.Controls.Add(this.addElement_button);
             this.Name = "ListForm";
@@ -279,10 +263,10 @@
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.Button settings_button;
         private System.Windows.Forms.ComboBox sortingElements_comboBox;
-        private System.Windows.Forms.Label listWindow2_label;
+        private System.Windows.Forms.Label sort_label;
         private System.Windows.Forms.TextBox searchElement_textBox;
         private System.Windows.Forms.ComboBox searchElement_comboBox;
-        private System.Windows.Forms.Label listWindow1_label;
+        private System.Windows.Forms.Label search_label;
         private System.Windows.Forms.Button mainMenu_button;
         private System.Windows.Forms.DataGridView elements_dataGridView;
         private System.Windows.Forms.Button createDocxFile_button;
