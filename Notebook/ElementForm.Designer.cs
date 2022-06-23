@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementForm));
             this.changeElement_button = new System.Windows.Forms.Button();
             this.goBack_button = new System.Windows.Forms.Button();
             this.infoFieldType_comboBox = new System.Windows.Forms.ComboBox();
@@ -49,9 +50,10 @@
             // 
             // changeElement_button
             // 
-            this.changeElement_button.Location = new System.Drawing.Point(549, 395);
+            this.changeElement_button.Location = new System.Drawing.Point(602, 393);
+            this.changeElement_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.changeElement_button.Name = "changeElement_button";
-            this.changeElement_button.Size = new System.Drawing.Size(75, 23);
+            this.changeElement_button.Size = new System.Drawing.Size(88, 23);
             this.changeElement_button.TabIndex = 0;
             this.changeElement_button.Text = "створити";
             this.changeElement_button.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // 
             // goBack_button
             // 
-            this.goBack_button.Location = new System.Drawing.Point(418, 395);
+            this.goBack_button.Location = new System.Drawing.Point(450, 393);
+            this.goBack_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.goBack_button.Name = "goBack_button";
-            this.goBack_button.Size = new System.Drawing.Size(75, 23);
+            this.goBack_button.Size = new System.Drawing.Size(88, 23);
             this.goBack_button.TabIndex = 1;
             this.goBack_button.Text = "назад";
             this.goBack_button.UseVisualStyleBackColor = true;
@@ -71,84 +74,94 @@
             // 
             this.infoFieldType_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.infoFieldType_comboBox.FormattingEnabled = true;
-            this.infoFieldType_comboBox.Location = new System.Drawing.Point(499, 260);
+            this.infoFieldType_comboBox.Location = new System.Drawing.Point(521, 258);
+            this.infoFieldType_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.infoFieldType_comboBox.Name = "infoFieldType_comboBox";
-            this.infoFieldType_comboBox.Size = new System.Drawing.Size(121, 21);
+            this.infoFieldType_comboBox.Size = new System.Drawing.Size(163, 21);
             this.infoFieldType_comboBox.TabIndex = 2;
             this.infoFieldType_comboBox.SelectedIndexChanged += new System.EventHandler(this.infoFieldType_comboBox_SelectedIndexChanged);
             // 
             // info_textBox
             // 
-            this.info_textBox.Location = new System.Drawing.Point(33, 82);
+            this.info_textBox.Location = new System.Drawing.Point(38, 82);
+            this.info_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.info_textBox.Multiline = true;
             this.info_textBox.Name = "info_textBox";
-            this.info_textBox.Size = new System.Drawing.Size(324, 337);
+            this.info_textBox.Size = new System.Drawing.Size(377, 337);
             this.info_textBox.TabIndex = 3;
             this.info_textBox.TextChanged += new System.EventHandler(this.info_textBox_TextChanged);
             // 
             // fieldName_label
             // 
             this.fieldName_label.AutoSize = true;
-            this.fieldName_label.Location = new System.Drawing.Point(174, 35);
+            this.fieldName_label.Location = new System.Drawing.Point(203, 35);
+            this.fieldName_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fieldName_label.Name = "fieldName_label";
-            this.fieldName_label.Size = new System.Drawing.Size(35, 13);
+            this.fieldName_label.Size = new System.Drawing.Size(41, 13);
             this.fieldName_label.TabIndex = 4;
             this.fieldName_label.Text = "label1";
             // 
             // day_label
             // 
             this.day_label.AutoSize = true;
-            this.day_label.Location = new System.Drawing.Point(12, 20);
+            this.day_label.Location = new System.Drawing.Point(14, 20);
+            this.day_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.day_label.Name = "day_label";
-            this.day_label.Size = new System.Drawing.Size(24, 13);
+            this.day_label.Size = new System.Drawing.Size(27, 13);
             this.day_label.TabIndex = 5;
             this.day_label.Text = "day";
             // 
             // day_numericUpDown
             // 
-            this.day_numericUpDown.Location = new System.Drawing.Point(76, 18);
+            this.day_numericUpDown.Location = new System.Drawing.Point(89, 18);
+            this.day_numericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.day_numericUpDown.Name = "day_numericUpDown";
-            this.day_numericUpDown.Size = new System.Drawing.Size(81, 20);
+            this.day_numericUpDown.Size = new System.Drawing.Size(94, 20);
             this.day_numericUpDown.TabIndex = 6;
             // 
             // month_numericUpDown
             // 
-            this.month_numericUpDown.Location = new System.Drawing.Point(76, 57);
+            this.month_numericUpDown.Location = new System.Drawing.Point(89, 57);
+            this.month_numericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.month_numericUpDown.Name = "month_numericUpDown";
-            this.month_numericUpDown.Size = new System.Drawing.Size(81, 20);
+            this.month_numericUpDown.Size = new System.Drawing.Size(94, 20);
             this.month_numericUpDown.TabIndex = 8;
             // 
             // month_label
             // 
             this.month_label.AutoSize = true;
-            this.month_label.Location = new System.Drawing.Point(12, 59);
+            this.month_label.Location = new System.Drawing.Point(14, 59);
+            this.month_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.month_label.Name = "month_label";
-            this.month_label.Size = new System.Drawing.Size(36, 13);
+            this.month_label.Size = new System.Drawing.Size(41, 13);
             this.month_label.TabIndex = 7;
             this.month_label.Text = "month";
             // 
             // year_numericUpDown
             // 
-            this.year_numericUpDown.Location = new System.Drawing.Point(76, 97);
+            this.year_numericUpDown.Location = new System.Drawing.Point(89, 97);
+            this.year_numericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.year_numericUpDown.Name = "year_numericUpDown";
-            this.year_numericUpDown.Size = new System.Drawing.Size(81, 20);
+            this.year_numericUpDown.Size = new System.Drawing.Size(94, 20);
             this.year_numericUpDown.TabIndex = 10;
             // 
             // year_label
             // 
             this.year_label.AutoSize = true;
-            this.year_label.Location = new System.Drawing.Point(12, 99);
+            this.year_label.Location = new System.Drawing.Point(14, 99);
+            this.year_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.year_label.Name = "year_label";
-            this.year_label.Size = new System.Drawing.Size(27, 13);
+            this.year_label.Size = new System.Drawing.Size(31, 13);
             this.year_label.TabIndex = 9;
             this.year_label.Text = "year";
             // 
             // fieldType_label
             // 
             this.fieldType_label.AutoSize = true;
-            this.fieldType_label.Location = new System.Drawing.Point(415, 263);
+            this.fieldType_label.Location = new System.Drawing.Point(462, 261);
+            this.fieldType_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fieldType_label.Name = "fieldType_label";
-            this.fieldType_label.Size = new System.Drawing.Size(31, 13);
+            this.fieldType_label.Size = new System.Drawing.Size(35, 13);
             this.fieldType_label.TabIndex = 11;
             this.fieldType_label.Text = "поле";
             // 
@@ -160,16 +173,17 @@
             this.date_panel.Controls.Add(this.month_label);
             this.date_panel.Controls.Add(this.year_label);
             this.date_panel.Controls.Add(this.month_numericUpDown);
-            this.date_panel.Location = new System.Drawing.Point(98, 219);
+            this.date_panel.Location = new System.Drawing.Point(114, 219);
+            this.date_panel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.date_panel.Name = "date_panel";
-            this.date_panel.Size = new System.Drawing.Size(175, 139);
+            this.date_panel.Size = new System.Drawing.Size(204, 139);
             this.date_panel.TabIndex = 12;
             // 
             // ElementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 450);
+            this.ClientSize = new System.Drawing.Size(721, 450);
             this.Controls.Add(this.date_panel);
             this.Controls.Add(this.fieldType_label);
             this.Controls.Add(this.fieldName_label);
@@ -177,6 +191,9 @@
             this.Controls.Add(this.infoFieldType_comboBox);
             this.Controls.Add(this.goBack_button);
             this.Controls.Add(this.changeElement_button);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ElementForm";
             this.Text = "ElementForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ElementForm_FormClosing);

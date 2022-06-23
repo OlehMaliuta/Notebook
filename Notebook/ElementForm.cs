@@ -193,7 +193,10 @@ namespace Notebook
         {
             string err = "";
 
-            if (reviewList.elements.FindIndex(item => item.name == info_textBox.Text) != -1)
+            if (
+                progVarStorage.elementFormVariant == "create" &&
+                reviewList.elements.FindIndex(item => item.name == info_textBox.Text) != -1
+                )
                 err += "\n" + messageText[1];
 
             if (newElement.name == "")
@@ -211,8 +214,25 @@ namespace Notebook
                 return;
             }
 
+            string day, month, year;
+
+            if (day_numericUpDown.Value == 0)
+                day = "-";
+            else
+                day = day_numericUpDown.Value.ToString();
+
+            if (month_numericUpDown.Value == 0)
+                month = "-";
+            else
+                month = month_numericUpDown.Value.ToString();
+
+            if (year_numericUpDown.Value == 0)
+                year = "-";
+            else
+                year = year_numericUpDown.Value.ToString();
+
             newElement.birthday =
-                    $"{day_numericUpDown.Value}.{month_numericUpDown.Value}.{year_numericUpDown.Value}";
+                    $"{day}.{month}.{year}";
 
             if (progVarStorage.elementFormVariant == "create")
             {
@@ -315,7 +335,22 @@ namespace Notebook
                 case 1:
                     info_textBox.Visible = false;
                     date_panel.Visible = true;
-                    info_textBox.Text = newElement.birthday;
+                    string[] nums = newElement.birthday.Split('.');
+                    
+                    if (nums[0] == "-")
+                        day_numericUpDown.Value = 0;
+                    else
+                        day_numericUpDown.Value = Convert.ToDecimal(nums[0]);
+
+                    if (nums[1] == "-")
+                        month_numericUpDown.Value = 0;
+                    else
+                        month_numericUpDown.Value = Convert.ToDecimal(nums[1]);
+
+                    if (nums[2] == "-")
+                        year_numericUpDown.Value = 0;
+                    else
+                        year_numericUpDown.Value = Convert.ToDecimal(nums[2]);
                     break;
 
                 case 2:

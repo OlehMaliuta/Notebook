@@ -21,6 +21,7 @@ namespace Notebook
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private PeopleList reviewList = new PeopleList();
         private string[] messageText;
+        private string[] fieldNames;
 
         public ListForm()
         {
@@ -70,7 +71,22 @@ namespace Notebook
                     {
                         "Попередження!",
                         "Ви впевнені, що хочите видалити елемент зі списку",
-                        "Ви не можете використовувати для іменування файлу даний символ: \".\"."
+                        "Ви не можете використовувати для іменування файлу даний символ: \".\".",
+                        "Документ був успішно створений.",
+                        "Повідомлення!"
+                    };
+
+                    fieldNames = new string[]
+                    {
+                        "День народження: ",
+                        "Номера телефонів: ",
+                        "Анкетні дані: ",
+                        "Місце проживання: ",
+                        "Посада знайомих: ",
+                        "Місце праці або навчання: ",
+                        "Характер знайомства: ",
+                        "Ділові якості: ",
+                        "Додаткова інформація: "
                     };
                     break;
 
@@ -113,7 +129,22 @@ namespace Notebook
                     {
                         "Предупреждение!",
                         "Вы уверены, что хотите удалить элемент из списка?",
-                        "Вы не можете использовать для именования файла даный символ: \".\"."
+                        "Вы не можете использовать для именования файла даный символ: \".\".",
+                        "Документ был успешно создан.",
+                        "Сообщение!"
+                    };
+
+                    fieldNames = new string[]
+                    {
+                        "День роджения: ",
+                        "Номера телефонов: ",
+                        "Анкетные данные: ",
+                        "Место проживания: ",
+                        "Положение знакомых: ",
+                        "Место работы или учёбы: ",
+                        "Характер знакомства: ",
+                        "Деловые качества: ",
+                        "Дополнительная информация: "
                     };
                     break;
 
@@ -156,7 +187,22 @@ namespace Notebook
                     {
                         "Warning!",
                         "Are you sure you want to remove the element from the list?",
-                        "You cannot use this character for naming a file: \".\"."
+                        "You cannot use this character for naming a file: \".\".",
+                        "Document has created successfully.",
+                        "Message!"
+                    };
+
+                    fieldNames = new string[]
+                    {
+                        "Birth date: ",
+                        "Phone numbers: ",
+                        "Personal data: ",
+                        "Residentional address: ",
+                        "Familiar people position: ",
+                        "Locale: ",
+                        "First meeting: ",
+                        "Good sides: ",
+                        "Extra information: "
                     };
                     break;
             }
@@ -195,6 +241,26 @@ namespace Notebook
             searchElement_comboBox.SelectedIndex = 0;
 
             this.Text = $"\"{reviewList.listName}\"";
+        }
+
+        private void addElementTool_Click(object sender, EventArgs e)
+        {
+            addElement_button_Click(sender, e);
+        }
+
+        private void createTxtTool_Click(object sender, EventArgs e)
+        {
+            createTxtFile_button_Click(sender, e);
+        }
+
+        private void createDocxTool_Click(object sender, EventArgs e)
+        {
+            createDocxFile_button_Click(sender, e);
+        }
+
+        private void exitTool_Click(object sender, EventArgs e)
+        {
+            exit_button_Click(sender, e);
         }
 
         private void addElement_button_Click(object sender, EventArgs e)
@@ -315,33 +381,39 @@ namespace Notebook
                     goto p_a;
                 }
 
-                List<Element> people = reviewList.elements;
+                List<Element> people = new List<Element>();
+
+                for (int i = 0; i < elements_dataGridView.Rows.Count; i++)
+                {
+                    people.Add(reviewList.elements.Single(p => p.name == elements_dataGridView[0, i].Value.ToString()));
+                }
+
                 string listData = "";
                 int count1 = 1;
                 int count2 = 0;
-                listData = "\"" + reviewList.listName + "\"\n";
+                listData = "\"" + reviewList.listName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
                     listData += $"\n{count1}. {people[count1 - 1].name}\n";
                     List<string> fields = new List<string>();
-                    fields.Add("День народження: " + 
+                    fields.Add(fieldNames[0] + 
                         people[count1 - 1].birthday);
-                    fields.Add("Номера телефонів: " +
+                    fields.Add(fieldNames[1] +
                         people[count1 - 1].phone);
-                    fields.Add("Анкетні дані: " +
+                    fields.Add(fieldNames[2] +
                         people[count1 - 1].personalData);
-                    fields.Add("Місце проживання: " +
+                    fields.Add(fieldNames[3] +
                         people[count1 - 1].restdentialAddress);
-                    fields.Add("Посада знайомих: " +
+                    fields.Add(fieldNames[4] +
                         people[count1 - 1].locale);
-                    fields.Add("Місце праці або навчання: " +
+                    fields.Add(fieldNames[5] +
                         people[count1 - 1].familarPeoplePosition);
-                    fields.Add("Характер знайомства: " +
+                    fields.Add(fieldNames[6] +
                         people[count1 - 1].firstMeeting);
-                    fields.Add("Ділові якості: " +
+                    fields.Add(fieldNames[7] +
                         people[count1 - 1].goodSides);
-                    fields.Add("Додаткова інформація: " +
+                    fields.Add(fieldNames[8] +
                         people[count1 - 1].extraInfo);
 
                     while (count2 < fields.Count)
@@ -353,6 +425,7 @@ namespace Notebook
                     count1++;
                 }
                 File.WriteAllText(fileDialog.FileName + ".txt", listData);
+                MessageBox.Show(messageText[3], messageText[4]);
             }
         }
 
@@ -362,7 +435,6 @@ namespace Notebook
 
             SaveFileDialog fileDialog = new SaveFileDialog();
             fileDialog.Filter = "All files (*.*)|*.*";
-            fileDialog.DefaultExt = ".docx";
             fileDialog.InitialDirectory = @"C:\Users\User\Downloads";
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
@@ -377,32 +449,38 @@ namespace Notebook
                 Document docx = app.Documents.Add(Visible: false);
                 Range r = docx.Range();
 
-                List<Element> people = reviewList.elements;
+                List<Element> people = new List<Element>();
+
+                for (int i = 0; i < elements_dataGridView.Rows.Count; i++)
+                {
+                    people.Add(reviewList.elements.Single(p => p.name == elements_dataGridView[0, i].Value.ToString()));
+                }
+
                 int count1 = 1;
                 int count2 = 0;
-                r.Text = "\"" + reviewList.listName + "\"\n";
+                r.Text = "\"" + reviewList.listName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
                     r.Text += $"\n{count1}. {people[count1 - 1].name}\n";
                     List<string> fields = new List<string>();
-                    fields.Add("День народження: " +
+                    fields.Add(fieldNames[0] +
                         people[count1 - 1].birthday);
-                    fields.Add("Номера телефонів: " +
+                    fields.Add(fieldNames[1] +
                         people[count1 - 1].phone);
-                    fields.Add("Анкетні дані: " +
+                    fields.Add(fieldNames[2] +
                         people[count1 - 1].personalData);
-                    fields.Add("Місце проживання: " +
+                    fields.Add(fieldNames[3] +
                         people[count1 - 1].restdentialAddress);
-                    fields.Add("Посада знайомих: " +
+                    fields.Add(fieldNames[4] +
                         people[count1 - 1].locale);
-                    fields.Add("Місце праці або навчання: " +
+                    fields.Add(fieldNames[5] +
                         people[count1 - 1].familarPeoplePosition);
-                    fields.Add("Характер знайомства: " +
+                    fields.Add(fieldNames[6] +
                         people[count1 - 1].firstMeeting);
-                    fields.Add("Ділові якості: " +
+                    fields.Add(fieldNames[7] +
                         people[count1 - 1].goodSides);
-                    fields.Add("Додаткова інформація: " +
+                    fields.Add(fieldNames[8] +
                         people[count1 - 1].extraInfo);
 
                     while (count2 < fields.Count)
@@ -414,9 +492,10 @@ namespace Notebook
                     count1++;
                 }
 
-                docx.SaveAs(fileDialog.FileName);
+                docx.SaveAs(fileDialog.FileName + ".docx");
                 docx.Close();
                 app.Quit();
+                MessageBox.Show(messageText[3], messageText[4]);
             }
         }
 

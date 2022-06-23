@@ -137,6 +137,16 @@ namespace Notebook
             sortingListsComboBox.SelectedIndex = 0;
         }
 
+        private void openListTool_Click(object sender, EventArgs e)
+        {
+            CreateListButton_Click(sender, e);
+        }
+
+        private void exitTool_Click(object sender, EventArgs e)
+        {
+            exitButton_Click(sender, e);
+        }
+
         private void CreateListButton_Click(object sender, EventArgs e)
         {
             progVarStorage.listNameFormVariant = "create";

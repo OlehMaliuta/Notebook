@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Lists_listBox = new System.Windows.Forms.ListBox();
             this.createListButton = new System.Windows.Forms.Button();
             this.searchListTextBox = new System.Windows.Forms.TextBox();
@@ -39,14 +39,19 @@
             this.settingsButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.listDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileMenuSection = new System.Windows.Forms.ToolStripMenuItem();
+            this.openListTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitTool = new System.Windows.Forms.ToolStripMenuItem();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatingListDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.rename = new System.Windows.Forms.DataGridViewButtonColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listDataGridView)).BeginInit();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lists_listBox
@@ -121,6 +126,46 @@
             this.listDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listDataGridView_CellClick);
             // 
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            resources.ApplyResources(this.menuStrip, "menuStrip");
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuSection});
+            this.menuStrip.Name = "menuStrip";
+            // 
+            // fileMenuSection
+            // 
+            this.fileMenuSection.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openListTool,
+            this.exitTool});
+            this.fileMenuSection.Name = "fileMenuSection";
+            resources.ApplyResources(this.fileMenuSection, "fileMenuSection");
+            // 
+            // openListTool
+            // 
+            this.openListTool.Image = global::Notebook.Properties.Resources.plus;
+            this.openListTool.Name = "openListTool";
+            resources.ApplyResources(this.openListTool, "openListTool");
+            this.openListTool.Click += new System.EventHandler(this.openListTool_Click);
+            // 
+            // exitTool
+            // 
+            this.exitTool.Image = global::Notebook.Properties.Resources.exit;
+            this.exitTool.Name = "exitTool";
+            resources.ApplyResources(this.exitTool, "exitTool");
+            this.exitTool.Click += new System.EventHandler(this.exitTool_Click);
+            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -165,19 +210,10 @@
             // delete
             // 
             resources.ApplyResources(this.delete, "delete");
+            this.delete.Image = global::Notebook.Properties.Resources.remove;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // MainForm
             // 
@@ -191,10 +227,14 @@
             this.Controls.Add(this.searchListTextBox);
             this.Controls.Add(this.createListButton);
             this.Controls.Add(this.Lists_listBox);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listDataGridView)).EndInit();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +251,10 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridView listDataGridView;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuSection;
+        private System.Windows.Forms.ToolStripMenuItem openListTool;
+        private System.Windows.Forms.ToolStripMenuItem exitTool;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn creatingListDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatingListDate;
