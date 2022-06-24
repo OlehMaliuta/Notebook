@@ -39,20 +39,20 @@
             this.search_label = new System.Windows.Forms.Label();
             this.mainMenu_button = new System.Windows.Forms.Button();
             this.elements_dataGridView = new System.Windows.Forms.DataGridView();
+            this.createDocxFile_button = new System.Windows.Forms.Button();
+            this.createTxtFile_button = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileMenuSection = new System.Windows.Forms.ToolStripMenuItem();
+            this.addElementTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.createTxtTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDocxTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitTool = new System.Windows.Forms.ToolStripMenuItem();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.creatingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.updatingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.open = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.open = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.createDocxFile_button = new System.Windows.Forms.Button();
-            this.createTxtFile_button = new System.Windows.Forms.Button();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createDocxTool = new System.Windows.Forms.ToolStripMenuItem();
-            this.addElementTool = new System.Windows.Forms.ToolStripMenuItem();
-            this.createTxtTool = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitTool = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.elements_dataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,7 @@
             // 
             // exit_button
             // 
+            this.exit_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.exit_button.Location = new System.Drawing.Point(1126, 594);
             this.exit_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exit_button.Name = "exit_button";
@@ -82,6 +83,7 @@
             // 
             // settings_button
             // 
+            this.settings_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.settings_button.Location = new System.Drawing.Point(788, 593);
             this.settings_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.settings_button.Name = "settings_button";
@@ -94,30 +96,33 @@
             // sortingElements_comboBox
             // 
             this.sortingElements_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sortingElements_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sortingElements_comboBox.FormattingEnabled = true;
-            this.sortingElements_comboBox.Location = new System.Drawing.Point(1019, 492);
+            this.sortingElements_comboBox.Location = new System.Drawing.Point(997, 492);
             this.sortingElements_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.sortingElements_comboBox.Name = "sortingElements_comboBox";
-            this.sortingElements_comboBox.Size = new System.Drawing.Size(182, 21);
+            this.sortingElements_comboBox.Size = new System.Drawing.Size(182, 24);
             this.sortingElements_comboBox.TabIndex = 14;
             this.sortingElements_comboBox.SelectedIndexChanged += new System.EventHandler(this.sortingElements_comboBox_SelectedIndexChanged);
             // 
             // sort_label
             // 
-            this.sort_label.AutoSize = true;
-            this.sort_label.Location = new System.Drawing.Point(854, 495);
+            this.sort_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.sort_label.Location = new System.Drawing.Point(824, 493);
             this.sort_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sort_label.Name = "sort_label";
-            this.sort_label.Size = new System.Drawing.Size(98, 13);
+            this.sort_label.Size = new System.Drawing.Size(136, 21);
             this.sort_label.TabIndex = 13;
             this.sort_label.Text = "Сортування за:";
+            this.sort_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // searchElement_textBox
             // 
+            this.searchElement_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchElement_textBox.Location = new System.Drawing.Point(810, 368);
             this.searchElement_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchElement_textBox.Name = "searchElement_textBox";
-            this.searchElement_textBox.Size = new System.Drawing.Size(431, 20);
+            this.searchElement_textBox.Size = new System.Drawing.Size(431, 22);
             this.searchElement_textBox.TabIndex = 12;
             this.searchElement_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchElement_textBox.TextChanged += new System.EventHandler(this.searchElement_textBox_TextChanged);
@@ -125,25 +130,28 @@
             // searchElement_comboBox
             // 
             this.searchElement_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchElement_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.searchElement_comboBox.FormattingEnabled = true;
-            this.searchElement_comboBox.Location = new System.Drawing.Point(1019, 437);
+            this.searchElement_comboBox.Location = new System.Drawing.Point(997, 437);
             this.searchElement_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchElement_comboBox.Name = "searchElement_comboBox";
-            this.searchElement_comboBox.Size = new System.Drawing.Size(182, 21);
+            this.searchElement_comboBox.Size = new System.Drawing.Size(182, 24);
             this.searchElement_comboBox.TabIndex = 18;
             // 
             // search_label
             // 
-            this.search_label.AutoSize = true;
-            this.search_label.Location = new System.Drawing.Point(871, 440);
+            this.search_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.search_label.Location = new System.Drawing.Point(827, 439);
             this.search_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.search_label.Name = "search_label";
-            this.search_label.Size = new System.Drawing.Size(67, 13);
+            this.search_label.Size = new System.Drawing.Size(133, 18);
             this.search_label.TabIndex = 17;
             this.search_label.Text = "Пошук за:";
+            this.search_label.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // mainMenu_button
             // 
+            this.mainMenu_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mainMenu_button.Location = new System.Drawing.Point(958, 593);
             this.mainMenu_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mainMenu_button.Name = "mainMenu_button";
@@ -159,7 +167,7 @@
             this.elements_dataGridView.AllowUserToDeleteRows = false;
             this.elements_dataGridView.AllowUserToResizeColumns = false;
             this.elements_dataGridView.AllowUserToResizeRows = false;
-            this.elements_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.elements_dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.elements_dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.elements_dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.elements_dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -181,6 +189,88 @@
             this.elements_dataGridView.TabIndex = 21;
             this.elements_dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elements_dataGridView_CellClick);
             // 
+            // createDocxFile_button
+            // 
+            this.createDocxFile_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.createDocxFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createDocxFile_button.Location = new System.Drawing.Point(1083, 208);
+            this.createDocxFile_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.createDocxFile_button.Name = "createDocxFile_button";
+            this.createDocxFile_button.Size = new System.Drawing.Size(136, 93);
+            this.createDocxFile_button.TabIndex = 23;
+            this.createDocxFile_button.Text = "зберегти у список форматі .docx";
+            this.createDocxFile_button.UseVisualStyleBackColor = true;
+            this.createDocxFile_button.Click += new System.EventHandler(this.createDocxFile_button_Click);
+            // 
+            // createTxtFile_button
+            // 
+            this.createTxtFile_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.createTxtFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.createTxtFile_button.Location = new System.Drawing.Point(824, 208);
+            this.createTxtFile_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.createTxtFile_button.Name = "createTxtFile_button";
+            this.createTxtFile_button.Size = new System.Drawing.Size(136, 93);
+            this.createTxtFile_button.TabIndex = 22;
+            this.createTxtFile_button.Text = "зберегти список у файлі .txt";
+            this.createTxtFile_button.UseVisualStyleBackColor = true;
+            this.createTxtFile_button.Click += new System.EventHandler(this.createTxtFile_button_Click);
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.BackColor = System.Drawing.Color.SkyBlue;
+            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuSection});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip.Size = new System.Drawing.Size(1260, 24);
+            this.menuStrip.TabIndex = 24;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // fileMenuSection
+            // 
+            this.fileMenuSection.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addElementTool,
+            this.createTxtTool,
+            this.createDocxTool,
+            this.exitTool});
+            this.fileMenuSection.Name = "fileMenuSection";
+            this.fileMenuSection.Size = new System.Drawing.Size(50, 20);
+            this.fileMenuSection.Text = "Файл";
+            // 
+            // addElementTool
+            // 
+            this.addElementTool.Image = global::Notebook.Properties.Resources.plus;
+            this.addElementTool.Name = "addElementTool";
+            this.addElementTool.Size = new System.Drawing.Size(249, 22);
+            this.addElementTool.Text = "Додати елемент";
+            this.addElementTool.Click += new System.EventHandler(this.addElementTool_Click);
+            // 
+            // createTxtTool
+            // 
+            this.createTxtTool.Image = global::Notebook.Properties.Resources.TXT;
+            this.createTxtTool.Name = "createTxtTool";
+            this.createTxtTool.Size = new System.Drawing.Size(249, 22);
+            this.createTxtTool.Text = "Зберегти список у файлі .txt";
+            this.createTxtTool.Click += new System.EventHandler(this.createTxtTool_Click);
+            // 
+            // createDocxTool
+            // 
+            this.createDocxTool.Image = global::Notebook.Properties.Resources.DOCX;
+            this.createDocxTool.Name = "createDocxTool";
+            this.createDocxTool.Size = new System.Drawing.Size(249, 22);
+            this.createDocxTool.Text = "Зберегти список у файлі .docx";
+            this.createDocxTool.Click += new System.EventHandler(this.createDocxTool_Click);
+            // 
+            // exitTool
+            // 
+            this.exitTool.Image = global::Notebook.Properties.Resources.exit;
+            this.exitTool.Name = "exitTool";
+            this.exitTool.Size = new System.Drawing.Size(249, 22);
+            this.exitTool.Text = "Вихід";
+            this.exitTool.Click += new System.EventHandler(this.exitTool_Click);
+            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -195,6 +285,7 @@
             this.birthday.HeaderText = "Дата народження";
             this.birthday.Name = "birthday";
             this.birthday.ReadOnly = true;
+            this.birthday.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.birthday.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.birthday.Width = 107;
             // 
@@ -217,96 +308,19 @@
             // open
             // 
             this.open.HeaderText = "*Детальніше*";
+            this.open.Image = global::Notebook.Properties.Resources.note;
             this.open.Name = "open";
             this.open.ReadOnly = true;
+            this.open.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.open.Width = 93;
             // 
             // delete
             // 
             this.delete.HeaderText = "*Видалити*";
+            this.delete.Image = global::Notebook.Properties.Resources.remove;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Width = 79;
-            // 
-            // createDocxFile_button
-            // 
-            this.createDocxFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createDocxFile_button.Location = new System.Drawing.Point(1083, 208);
-            this.createDocxFile_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.createDocxFile_button.Name = "createDocxFile_button";
-            this.createDocxFile_button.Size = new System.Drawing.Size(136, 93);
-            this.createDocxFile_button.TabIndex = 23;
-            this.createDocxFile_button.Text = "зберегти у список форматі .docx";
-            this.createDocxFile_button.UseVisualStyleBackColor = true;
-            this.createDocxFile_button.Click += new System.EventHandler(this.createDocxFile_button_Click);
-            // 
-            // createTxtFile_button
-            // 
-            this.createTxtFile_button.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.createTxtFile_button.Location = new System.Drawing.Point(824, 208);
-            this.createTxtFile_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.createTxtFile_button.Name = "createTxtFile_button";
-            this.createTxtFile_button.Size = new System.Drawing.Size(136, 93);
-            this.createTxtFile_button.TabIndex = 22;
-            this.createTxtFile_button.Text = "зберегти список у файлі .txt";
-            this.createTxtFile_button.UseVisualStyleBackColor = true;
-            this.createTxtFile_button.Click += new System.EventHandler(this.createTxtFile_button_Click);
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.BackColor = System.Drawing.Color.Thistle;
-            this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(1260, 24);
-            this.menuStrip.TabIndex = 24;
-            this.menuStrip.Text = "menuStrip1";
-            // 
-            // файлToolStripMenuItem
-            // 
-            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addElementTool,
-            this.createTxtTool,
-            this.createDocxTool,
-            this.exitTool});
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.файлToolStripMenuItem.Text = "Файл";
-            // 
-            // createDocxTool
-            // 
-            this.createDocxTool.Image = global::Notebook.Properties.Resources.DOCX;
-            this.createDocxTool.Name = "createDocxTool";
-            this.createDocxTool.Size = new System.Drawing.Size(248, 22);
-            this.createDocxTool.Text = "зберегти список у файлі .docx";
-            this.createDocxTool.Click += new System.EventHandler(this.createDocxTool_Click);
-            // 
-            // addElementTool
-            // 
-            this.addElementTool.Image = global::Notebook.Properties.Resources.plus;
-            this.addElementTool.Name = "addElementTool";
-            this.addElementTool.Size = new System.Drawing.Size(248, 22);
-            this.addElementTool.Text = "Додати елемент";
-            this.addElementTool.Click += new System.EventHandler(this.addElementTool_Click);
-            // 
-            // createTxtTool
-            // 
-            this.createTxtTool.Image = global::Notebook.Properties.Resources.TXT;
-            this.createTxtTool.Name = "createTxtTool";
-            this.createTxtTool.Size = new System.Drawing.Size(248, 22);
-            this.createTxtTool.Text = "зберегти список у файлі .txt";
-            this.createTxtTool.Click += new System.EventHandler(this.createTxtTool_Click);
-            // 
-            // exitTool
-            // 
-            this.exitTool.Image = global::Notebook.Properties.Resources.exit;
-            this.exitTool.Name = "exitTool";
-            this.exitTool.Size = new System.Drawing.Size(248, 22);
-            this.exitTool.Text = "Вихід";
-            this.exitTool.Click += new System.EventHandler(this.exitTool_Click);
             // 
             // ListForm
             // 
@@ -354,17 +368,17 @@
         private System.Windows.Forms.DataGridView elements_dataGridView;
         private System.Windows.Forms.Button createDocxFile_button;
         private System.Windows.Forms.Button createTxtFile_button;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn creatingDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn updatingDate;
-        private System.Windows.Forms.DataGridViewButtonColumn open;
-        private System.Windows.Forms.DataGridViewImageColumn delete;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuSection;
         private System.Windows.Forms.ToolStripMenuItem addElementTool;
         private System.Windows.Forms.ToolStripMenuItem createTxtTool;
         private System.Windows.Forms.ToolStripMenuItem createDocxTool;
         private System.Windows.Forms.ToolStripMenuItem exitTool;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn creatingDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn updatingDate;
+        private System.Windows.Forms.DataGridViewImageColumn open;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }

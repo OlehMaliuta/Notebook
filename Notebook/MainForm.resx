@@ -177,6 +177,9 @@
   <data name="&gt;&gt;createListButton.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="searchListTextBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
   <data name="searchListTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>828, 396</value>
   </data>
@@ -207,20 +210,20 @@
   <data name="&gt;&gt;searchListTextBox.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="sortLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="sortLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="sortLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="sortLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>865, 470</value>
+    <value>825, 466</value>
   </data>
   <data name="sortLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="sortLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 13</value>
+    <value>150, 18</value>
   </data>
   <data name="sortLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -243,14 +246,17 @@
   <data name="&gt;&gt;sortLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="sortingListsComboBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
+  </data>
   <data name="sortingListsComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>971, 467</value>
+    <value>983, 466</value>
   </data>
   <data name="sortingListsComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="sortingListsComboBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 21</value>
+    <value>151, 24</value>
   </data>
   <data name="sortingListsComboBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -266,6 +272,9 @@
   </data>
   <data name="&gt;&gt;sortingListsComboBox.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="settingsButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="settingsButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -296,6 +305,9 @@
   </data>
   <data name="&gt;&gt;settingsButton.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="exitButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="exitButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -354,6 +366,23 @@
   <metadata name="open.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="dataGridViewCellStyle1.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
   <data name="open.HeaderText" xml:space="preserve">
     <value>*Відкрити*</value>
   </data>
@@ -414,20 +443,23 @@
   <data name="menuStrip.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
-  <data name="openListTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+  <data name="addListTool.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="openListTool.Text" xml:space="preserve">
+  <data name="addListTool.Text" xml:space="preserve">
     <value>Додати список</value>
   </data>
   <data name="exitTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="exitTool.Text" xml:space="preserve">
     <value>Вихід</value>
   </data>
+  <data name="fileMenuSection.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
   <data name="fileMenuSection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
+    <value>54, 21</value>
   </data>
   <data name="fileMenuSection.Text" xml:space="preserve">
     <value>Файл</value>
@@ -436,7 +468,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1183, 24</value>
+    <value>1183, 25</value>
   </data>
   <data name="menuStrip.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -672,30 +704,6 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Головне вікно</value>
   </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileMenuSection.Name" xml:space="preserve">
-    <value>fileMenuSection</value>
-  </data>
-  <data name="&gt;&gt;fileMenuSection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;openListTool.Name" xml:space="preserve">
-    <value>openListTool</value>
-  </data>
-  <data name="&gt;&gt;openListTool.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;exitTool.Name" xml:space="preserve">
-    <value>exitTool</value>
-  </data>
-  <data name="&gt;&gt;exitTool.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;name.Name" xml:space="preserve">
     <value>name</value>
   </data>
@@ -718,19 +726,43 @@
     <value>open</value>
   </data>
   <data name="&gt;&gt;open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rename.Name" xml:space="preserve">
     <value>rename</value>
   </data>
   <data name="&gt;&gt;rename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;delete.Name" xml:space="preserve">
     <value>delete</value>
   </data>
   <data name="&gt;&gt;delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileMenuSection.Name" xml:space="preserve">
+    <value>fileMenuSection</value>
+  </data>
+  <data name="&gt;&gt;fileMenuSection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addListTool.Name" xml:space="preserve">
+    <value>addListTool</value>
+  </data>
+  <data name="&gt;&gt;addListTool.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitTool.Name" xml:space="preserve">
+    <value>exitTool</value>
+  </data>
+  <data name="&gt;&gt;exitTool.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

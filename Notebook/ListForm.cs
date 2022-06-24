@@ -67,6 +67,12 @@ namespace Notebook
                     mainMenu_button.Text = "головне меню";
                     exit_button.Text = "вихід";
 
+                    fileMenuSection.Text = "Файл";
+                    addElementTool.Text = "Додати елемент";
+                    createTxtTool.Text = "Зберегти список у файлі .txt";
+                    createDocxTool.Text = "Зберегти список у файлі .docx";
+                    exitTool.Text = "Вихід";
+
                     messageText = new string[]
                     {
                         "Попередження!",
@@ -125,6 +131,12 @@ namespace Notebook
                     mainMenu_button.Text = "главное меню";
                     exit_button.Text = "выход";
 
+                    fileMenuSection.Text = "Файл";
+                    addElementTool.Text = "Добавить элемент";
+                    createTxtTool.Text = "Сохранить список в файле .txt";
+                    createDocxTool.Text = "Сохранить список в файле .docx";
+                    exitTool.Text = "Выход";
+
                     messageText = new string[]
                     {
                         "Предупреждение!",
@@ -154,7 +166,7 @@ namespace Notebook
                     createDocxFile_button.Text = "save the list at .docx file";
 
                     elements_dataGridView.Columns[0].HeaderText = "Name";
-                    elements_dataGridView.Columns[1].HeaderText = "Birth date";
+                    elements_dataGridView.Columns[1].HeaderText = "Birthday";
                     elements_dataGridView.Columns[2].HeaderText = "Creation el. date";
                     elements_dataGridView.Columns[3].HeaderText = "Update el. date";
                     elements_dataGridView.Columns[4].HeaderText = "*More*";
@@ -165,7 +177,7 @@ namespace Notebook
 
                     searchElement_comboBox.Items.Add("name");
                     searchElement_comboBox.Items.Add("phone");
-                    searchElement_comboBox.Items.Add("birth date");
+                    searchElement_comboBox.Items.Add("birthday");
                     searchElement_comboBox.Items.Add("personal data");
                     searchElement_comboBox.Items.Add("residentional address");
                     searchElement_comboBox.Items.Add("locale");
@@ -182,6 +194,12 @@ namespace Notebook
                     settings_button.Text = "settings";
                     mainMenu_button.Text = "main menu";
                     exit_button.Text = "exit";
+
+                    fileMenuSection.Text = "File";
+                    addElementTool.Text = "Add element";
+                    createTxtTool.Text = "Save the list at .txt file";
+                    createDocxTool.Text = "Save the list at .docx file";
+                    exitTool.Text = "Exit";
 
                     messageText = new string[]
                     {

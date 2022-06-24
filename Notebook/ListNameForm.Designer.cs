@@ -37,24 +37,27 @@
             // 
             // listName_textBox
             // 
+            this.listName_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listName_textBox.Location = new System.Drawing.Point(33, 68);
             this.listName_textBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listName_textBox.Name = "listName_textBox";
-            this.listName_textBox.Size = new System.Drawing.Size(444, 20);
+            this.listName_textBox.Size = new System.Drawing.Size(444, 22);
             this.listName_textBox.TabIndex = 0;
             // 
             // listNameWindow_label
             // 
             this.listNameWindow_label.AutoSize = true;
+            this.listNameWindow_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listNameWindow_label.Location = new System.Drawing.Point(30, 38);
             this.listNameWindow_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.listNameWindow_label.Name = "listNameWindow_label";
-            this.listNameWindow_label.Size = new System.Drawing.Size(139, 13);
+            this.listNameWindow_label.Size = new System.Drawing.Size(172, 16);
             this.listNameWindow_label.TabIndex = 1;
             this.listNameWindow_label.Text = "Введіть назву списку:";
             // 
             // giveListName_button
             // 
+            this.giveListName_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.giveListName_button.Location = new System.Drawing.Point(347, 136);
             this.giveListName_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.giveListName_button.Name = "giveListName_button";
@@ -66,6 +69,7 @@
             // 
             // goBack_button
             // 
+            this.goBack_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.goBack_button.Location = new System.Drawing.Point(33, 136);
             this.goBack_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.goBack_button.Name = "goBack_button";

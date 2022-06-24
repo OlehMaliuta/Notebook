@@ -51,6 +51,10 @@ namespace Notebook
 
                     messageText[0] = "Попередження!";
                     messageText[1] = "Ви впевнені, що хочите видалити список?";
+
+                    fileMenuSection.Text = "Файл";
+                    addListTool.Text = "Додати список";
+                    exitTool.Text = "Вихід";
                     break;
 
                 case Language.Russian:
@@ -77,6 +81,10 @@ namespace Notebook
 
                     messageText[0] = "Предупреждение!";
                     messageText[1] = "Вы уверены, что хотите удалить список?";
+
+                    fileMenuSection.Text = "Файл";
+                    addListTool.Text = "Добавить список";
+                    exitTool.Text = "Выход";
                     break;
 
                 case Language.English:
@@ -105,6 +113,10 @@ namespace Notebook
                         "Warning!";
                     messageText[1] = 
                         "Are you sure you want to remove the list?";
+
+                    fileMenuSection.Text = "File";
+                    addListTool.Text = "Add list";
+                    exitTool.Text = "Exit";
                     break;
             }
         }
@@ -137,7 +149,7 @@ namespace Notebook
             sortingListsComboBox.SelectedIndex = 0;
         }
 
-        private void openListTool_Click(object sender, EventArgs e)
+        private void addListTool_Click(object sender, EventArgs e)
         {
             CreateListButton_Click(sender, e);
         }

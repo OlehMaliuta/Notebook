@@ -38,6 +38,7 @@
             // 
             // changeLanguage_button
             // 
+            this.changeLanguage_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.changeLanguage_button.Location = new System.Drawing.Point(363, 179);
             this.changeLanguage_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.changeLanguage_button.Name = "changeLanguage_button";
@@ -49,6 +50,7 @@
             // 
             // mainMenu_button
             // 
+            this.mainMenu_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.mainMenu_button.Location = new System.Drawing.Point(192, 179);
             this.mainMenu_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mainMenu_button.Name = "mainMenu_button";
@@ -60,17 +62,19 @@
             // 
             // languageWindow_label
             // 
-            this.languageWindow_label.AutoSize = true;
-            this.languageWindow_label.Location = new System.Drawing.Point(110, 92);
+            this.languageWindow_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.languageWindow_label.Location = new System.Drawing.Point(54, 92);
             this.languageWindow_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.languageWindow_label.Name = "languageWindow_label";
-            this.languageWindow_label.Size = new System.Drawing.Size(93, 13);
+            this.languageWindow_label.Size = new System.Drawing.Size(149, 18);
             this.languageWindow_label.TabIndex = 28;
             this.languageWindow_label.Text = "Вибрати мову:";
+            this.languageWindow_label.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // language_comboBox
             // 
             this.language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.language_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.language_comboBox.FormattingEnabled = true;
             this.language_comboBox.Items.AddRange(new object[] {
             "Українська",
@@ -79,11 +83,12 @@
             this.language_comboBox.Location = new System.Drawing.Point(234, 89);
             this.language_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.language_comboBox.Name = "language_comboBox";
-            this.language_comboBox.Size = new System.Drawing.Size(182, 21);
+            this.language_comboBox.Size = new System.Drawing.Size(182, 24);
             this.language_comboBox.TabIndex = 29;
             // 
             // goBack_button
             // 
+            this.goBack_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.goBack_button.Location = new System.Drawing.Point(25, 179);
             this.goBack_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.goBack_button.Name = "goBack_button";
@@ -111,7 +116,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LanguageForm_FormClosing);
             this.Load += new System.EventHandler(this.LanguageForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
