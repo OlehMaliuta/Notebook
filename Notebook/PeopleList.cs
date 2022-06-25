@@ -10,19 +10,19 @@ namespace Notebook
 {
     internal class PeopleList
     {
-        public List<Element> elements = new List<Element>();
-        public string listName = "ERR";
-        public string creatingDate = "ERR";
-        public string updatingDate = "ERR";
+        public List<Element> Elements = new List<Element>();
+        public string ListName = "ERR";
+        public string CreatingDate = "ERR";
+        public string UpdatingDate = "ERR";
 
         public PeopleList(
             string listName = "ERR",
             string creatingDate = "ERR",
             string updatingDate = "ERR")
         {
-            this.listName = listName;
-            this.creatingDate = creatingDate;
-            this.updatingDate = updatingDate;
+            this.ListName = listName;
+            this.CreatingDate = creatingDate;
+            this.UpdatingDate = updatingDate;
         }
     }
 }

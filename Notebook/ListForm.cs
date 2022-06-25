@@ -33,39 +33,49 @@ namespace Notebook
             switch (language)
             {
                 case Language.Ukranian:
-                    addElement_button.Text = "додати елемент";
-                    createTxtFile_button.Text = "зберегти список у файлі .txt";
-                    createDocxFile_button.Text = "зберегти список у файлі .docx";
+                    addElementButton.Text = "додати елемент";
 
-                    elements_dataGridView.Columns[0].HeaderText = "Ім'я";
-                    elements_dataGridView.Columns[1].HeaderText = "Дата народження";
-                    elements_dataGridView.Columns[2].HeaderText = "Дата створення ел.";
-                    elements_dataGridView.Columns[3].HeaderText = "Дата оновлення ел.";
-                    elements_dataGridView.Columns[4].HeaderText = "*Детальніше*";
-                    elements_dataGridView.Columns[5].HeaderText = "*Видалити*";
+                    createTxtFileButton.Text = 
+                        "зберегти список у файлі .txt";
 
-                    search_label.Text = "Пошук за:";
-                    sort_label.Text = "Сортування за:";
+                    createDocxFileButton.Text = 
+                        "зберегти список у файлі .docx";
+
+                    elementDataGridView.Columns[0].HeaderText = 
+                        "Ім'я";
+                    elementDataGridView.Columns[1].HeaderText = 
+                        "Дата народження";
+                    elementDataGridView.Columns[2].HeaderText = 
+                        "Дата створення ел.";
+                    elementDataGridView.Columns[3].HeaderText = 
+                        "Дата оновлення ел.";
+                    elementDataGridView.Columns[4].HeaderText = 
+                        "*Детальніше*";
+                    elementDataGridView.Columns[5].HeaderText = 
+                        "*Видалити*";
+
+                    searchLabel.Text = "Пошук за:";
+                    sortLabel.Text = "Сортування за:";
                     
-                    searchElement_comboBox.Items.Add("ім'ям");
-                    searchElement_comboBox.Items.Add("телефоном");
-                    searchElement_comboBox.Items.Add("датою народження");
-                    searchElement_comboBox.Items.Add("анкетними даними");
-                    searchElement_comboBox.Items.Add("місцем проживання");
-                    searchElement_comboBox.Items.Add("місцем роботи/навчання");
-                    searchElement_comboBox.Items.Add("характером знайомства");
-                    searchElement_comboBox.Items.Add("посадою знайомих");
-                    searchElement_comboBox.Items.Add("діловими якостями");
-                    searchElement_comboBox.Items.Add("додатковими даними");
+                    searchElementComboBox.Items.Add("ім'ям");
+                    searchElementComboBox.Items.Add("телефоном");
+                    searchElementComboBox.Items.Add("датою народження");
+                    searchElementComboBox.Items.Add("анкетними даними");
+                    searchElementComboBox.Items.Add("місцем проживання");
+                    searchElementComboBox.Items.Add("місцем роботи/навчання");
+                    searchElementComboBox.Items.Add("характером знайомства");
+                    searchElementComboBox.Items.Add("посадою знайомих");
+                    searchElementComboBox.Items.Add("діловими якостями");
+                    searchElementComboBox.Items.Add("додатковими даними");
 
-                    sortingElements_comboBox.Items.Add("ім'ям");
-                    sortingElements_comboBox.Items.Add("датою народження");
-                    sortingElements_comboBox.Items.Add("датою створення ел.");
-                    sortingElements_comboBox.Items.Add("датою оновлення ел.");
+                    sortingElementsComboBox.Items.Add("ім'ям");
+                    sortingElementsComboBox.Items.Add("датою народження");
+                    sortingElementsComboBox.Items.Add("датою створення ел.");
+                    sortingElementsComboBox.Items.Add("датою оновлення ел.");
 
-                    settings_button.Text = "меню налаштування";
-                    mainMenu_button.Text = "головне меню";
-                    exit_button.Text = "вихід";
+                    settingsButton.Text = "меню налаштування";
+                    mainMenuButton.Text = "головне меню";
+                    exitButton.Text = "вихід";
 
                     fileMenuSection.Text = "Файл";
                     addElementTool.Text = "Додати елемент";
@@ -76,9 +86,14 @@ namespace Notebook
                     messageText = new string[]
                     {
                         "Попередження!",
+
                         "Ви впевнені, що хочите видалити елемент зі списку",
-                        "Ви не можете використовувати для іменування файлу даний символ: \".\".",
+
+                        "Ви не можете використовувати для " +
+                        "іменування файлу даний символ: \".\".",
+
                         "Документ був успішно створений.",
+
                         "Повідомлення!"
                     };
 
@@ -97,39 +112,47 @@ namespace Notebook
                     break;
 
                 case Language.Russian:
-                    addElement_button.Text = "добавить элемент";
-                    createTxtFile_button.Text = "сохранить список в файле .txt";
-                    createDocxFile_button.Text = "сохранить список в файле .docx";
+                    addElementButton.Text = "добавить элемент";
+                    createTxtFileButton.Text = 
+                        "сохранить список в файле .txt";
+                    createDocxFileButton.Text = 
+                        "сохранить список в файле .docx";
 
-                    elements_dataGridView.Columns[0].HeaderText = "Имя";
-                    elements_dataGridView.Columns[1].HeaderText = "Дата рождения";
-                    elements_dataGridView.Columns[2].HeaderText = "Дата создания эл.";
-                    elements_dataGridView.Columns[3].HeaderText = "Дата обновления эл.";
-                    elements_dataGridView.Columns[4].HeaderText = "*Подробнее*";
-                    elements_dataGridView.Columns[5].HeaderText = "*Удалить*";
+                    elementDataGridView.Columns[0].HeaderText = 
+                        "Имя";
+                    elementDataGridView.Columns[1].HeaderText = 
+                        "Дата рождения";
+                    elementDataGridView.Columns[2].HeaderText = 
+                        "Дата создания эл.";
+                    elementDataGridView.Columns[3].HeaderText = 
+                        "Дата обновления эл.";
+                    elementDataGridView.Columns[4].HeaderText = 
+                        "*Подробнее*";
+                    elementDataGridView.Columns[5].HeaderText = 
+                        "*Удалить*";
 
-                    search_label.Text = "Поиск по:";
-                    sort_label.Text = "Сортировка по:";
+                    searchLabel.Text = "Поиск по:";
+                    sortLabel.Text = "Сортировка по:";
 
-                    searchElement_comboBox.Items.Add("имени");
-                    searchElement_comboBox.Items.Add("телефону");
-                    searchElement_comboBox.Items.Add("датой рождения");
-                    searchElement_comboBox.Items.Add("анкетными данними");
-                    searchElement_comboBox.Items.Add("местом проживания");
-                    searchElement_comboBox.Items.Add("местом работы/учёбы");
-                    searchElement_comboBox.Items.Add("характером знакомства");
-                    searchElement_comboBox.Items.Add("положением знакомых");
-                    searchElement_comboBox.Items.Add("деловыми качествами");
-                    searchElement_comboBox.Items.Add("дополнительными данными");
+                    searchElementComboBox.Items.Add("имени");
+                    searchElementComboBox.Items.Add("телефону");
+                    searchElementComboBox.Items.Add("датой рождения");
+                    searchElementComboBox.Items.Add("анкетными данними");
+                    searchElementComboBox.Items.Add("местом проживания");
+                    searchElementComboBox.Items.Add("местом работы/учёбы");
+                    searchElementComboBox.Items.Add("характером знакомства");
+                    searchElementComboBox.Items.Add("положением знакомых");
+                    searchElementComboBox.Items.Add("деловыми качествами");
+                    searchElementComboBox.Items.Add("дополнительными данными");
 
-                    sortingElements_comboBox.Items.Add("имени");
-                    sortingElements_comboBox.Items.Add("датой рождения");
-                    sortingElements_comboBox.Items.Add("датой создания ел.");
-                    sortingElements_comboBox.Items.Add("датой обновления ел.");
+                    sortingElementsComboBox.Items.Add("имени");
+                    sortingElementsComboBox.Items.Add("датой рождения");
+                    sortingElementsComboBox.Items.Add("датой создания ел.");
+                    sortingElementsComboBox.Items.Add("датой обновления ел.");
 
-                    settings_button.Text = "меню настроек";
-                    mainMenu_button.Text = "главное меню";
-                    exit_button.Text = "выход";
+                    settingsButton.Text = "меню настроек";
+                    mainMenuButton.Text = "главное меню";
+                    exitButton.Text = "выход";
 
                     fileMenuSection.Text = "Файл";
                     addElementTool.Text = "Добавить элемент";
@@ -140,9 +163,14 @@ namespace Notebook
                     messageText = new string[]
                     {
                         "Предупреждение!",
+
                         "Вы уверены, что хотите удалить элемент из списка?",
-                        "Вы не можете использовать для именования файла даный символ: \".\".",
+
+                        "Вы не можете использовать для " +
+                        "именования файла даный символ: \".\".",
+
                         "Документ был успешно создан.",
+
                         "Сообщение!"
                     };
 
@@ -161,39 +189,45 @@ namespace Notebook
                     break;
 
                 case Language.English:
-                    addElement_button.Text = "add element";
-                    createTxtFile_button.Text = "save the list at .txt file";
-                    createDocxFile_button.Text = "save the list at .docx file";
+                    addElementButton.Text = "add element";
+                    createTxtFileButton.Text = "save the list at .txt file";
+                    createDocxFileButton.Text = "save the list at .docx file";
 
-                    elements_dataGridView.Columns[0].HeaderText = "Name";
-                    elements_dataGridView.Columns[1].HeaderText = "Birthday";
-                    elements_dataGridView.Columns[2].HeaderText = "Creation el. date";
-                    elements_dataGridView.Columns[3].HeaderText = "Update el. date";
-                    elements_dataGridView.Columns[4].HeaderText = "*More*";
-                    elements_dataGridView.Columns[5].HeaderText = "*Delete*";
+                    elementDataGridView.Columns[0].HeaderText = 
+                        "Name";
+                    elementDataGridView.Columns[1].HeaderText = 
+                        "Birthday";
+                    elementDataGridView.Columns[2].HeaderText = 
+                        "Creation el. date";
+                    elementDataGridView.Columns[3].HeaderText = 
+                        "Update el. date";
+                    elementDataGridView.Columns[4].HeaderText = 
+                        "*More*";
+                    elementDataGridView.Columns[5].HeaderText = 
+                        "*Delete*";
 
-                    search_label.Text = "Search by:";
-                    sort_label.Text = "Sort by:";
+                    searchLabel.Text = "Search by:";
+                    sortLabel.Text = "Sort by:";
 
-                    searchElement_comboBox.Items.Add("name");
-                    searchElement_comboBox.Items.Add("phone");
-                    searchElement_comboBox.Items.Add("birthday");
-                    searchElement_comboBox.Items.Add("personal data");
-                    searchElement_comboBox.Items.Add("residentional address");
-                    searchElement_comboBox.Items.Add("locale");
-                    searchElement_comboBox.Items.Add("first meeting");
-                    searchElement_comboBox.Items.Add("familar people position");
-                    searchElement_comboBox.Items.Add("good sides");
-                    searchElement_comboBox.Items.Add("extra info");
+                    searchElementComboBox.Items.Add("name");
+                    searchElementComboBox.Items.Add("phone");
+                    searchElementComboBox.Items.Add("birthday");
+                    searchElementComboBox.Items.Add("personal data");
+                    searchElementComboBox.Items.Add("residentional address");
+                    searchElementComboBox.Items.Add("locale");
+                    searchElementComboBox.Items.Add("first meeting");
+                    searchElementComboBox.Items.Add("familar people position");
+                    searchElementComboBox.Items.Add("good sides");
+                    searchElementComboBox.Items.Add("extra info");
 
-                    sortingElements_comboBox.Items.Add("name");
-                    sortingElements_comboBox.Items.Add("birth date");
-                    sortingElements_comboBox.Items.Add("creation el. date");
-                    sortingElements_comboBox.Items.Add("update el. date");
+                    sortingElementsComboBox.Items.Add("name");
+                    sortingElementsComboBox.Items.Add("birth date");
+                    sortingElementsComboBox.Items.Add("creation el. date");
+                    sortingElementsComboBox.Items.Add("update el. date");
 
-                    settings_button.Text = "settings";
-                    mainMenu_button.Text = "main menu";
-                    exit_button.Text = "exit";
+                    settingsButton.Text = "settings";
+                    mainMenuButton.Text = "main menu";
+                    exitButton.Text = "exit";
 
                     fileMenuSection.Text = "File";
                     addElementTool.Text = "Add element";
@@ -204,9 +238,15 @@ namespace Notebook
                     messageText = new string[]
                     {
                         "Warning!",
-                        "Are you sure you want to remove the element from the list?",
-                        "You cannot use this character for naming a file: \".\".",
+
+                        "Are you sure you want to " +
+                        "remove the element from the list?",
+
+                        "You cannot use this character " +
+                        "for naming a file: \".\".",
+
                         "Document has created successfully.",
+
                         "Message!"
                     };
 
@@ -226,102 +266,108 @@ namespace Notebook
             }
         }
 
-        private void ListForm_Load(object sender, EventArgs e)
+        private void ListFormLoad(object sender, EventArgs e)
         {
-            elements_dataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            elementDataGridView.DefaultCellStyle.WrapMode = 
+                DataGridViewTriState.True;
 
-            this.listsStorage = JsonConvert.DeserializeObject<ListsStorage>(
-                File.ReadAllText("ListsStorageInfo.json"));
+            this.listsStorage = 
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
 
             this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+                JsonConvert.DeserializeObject<ProgVarStorage>(
+                    File.ReadAllText("ProgVarStorageInfo.json"));
 
-            SetWindowLang(progVarStorage.language);
+            SetWindowLang(progVarStorage.AppLanguage);
 
-            reviewList = listsStorage.peopleLists.Single(item => item.listName == progVarStorage.reviewListName);
+            reviewList = listsStorage.PeopleLists.Single(
+                item => item.ListName == progVarStorage.ReviewListName);
 
             var pl =
-                reviewList.elements.OrderBy(item => item.name);
+                reviewList.Elements.OrderBy(item => item.Name);
 
             foreach (Element el in pl)
             {
-                elements_dataGridView.Rows.Add
+                elementDataGridView.Rows.Add
                     (
-                    el.name,
-                    el.birthday,
-                    el.creatingDate,
-                    el.updatingDate
+                    el.Name,
+                    el.Birthday,
+                    el.CreatingDate,
+                    el.UpdatingDate
                     );
             }
 
-            sortingElements_comboBox.SelectedIndex = 0;
+            sortingElementsComboBox.SelectedIndex = 0;
 
-            searchElement_comboBox.SelectedIndex = 0;
+            searchElementComboBox.SelectedIndex = 0;
 
-            this.Text = $"\"{reviewList.listName}\"";
+            this.Text = $"\"{reviewList.ListName}\"";
         }
 
-        private void addElementTool_Click(object sender, EventArgs e)
+        private void addElementToolClick(object sender, EventArgs e)
         {
-            addElement_button_Click(sender, e);
+            addElementButtonClick(sender, e);
         }
 
-        private void createTxtTool_Click(object sender, EventArgs e)
+        private void createTxtToolClick(object sender, EventArgs e)
         {
-            createTxtFile_button_Click(sender, e);
+            createTxtFileButtonClick(sender, e);
         }
 
-        private void createDocxTool_Click(object sender, EventArgs e)
+        private void createDocxToolClick(object sender, EventArgs e)
         {
-            createDocxFile_button_Click(sender, e);
+            createDocxFileButtonClick(sender, e);
         }
 
-        private void exitTool_Click(object sender, EventArgs e)
+        private void exitToolClick(object sender, EventArgs e)
         {
-            exit_button_Click(sender, e);
+            exitButtonClick(sender, e);
         }
 
-        private void addElement_button_Click(object sender, EventArgs e)
+        private void addElementButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.elementFormVariant = "create";
+            progVarStorage.ElementFormVariant = "create";
 
             this.Close();
             ElementForm elementForm = new ElementForm();
             elementForm.Show();
         }
 
-        private void settings_button_Click(object sender, EventArgs e)
+        private void settingsButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.prevWindow = "listForm";
+            progVarStorage.PrevWindow = "listForm";
 
             this.Close();
             LanguageForm languageForm = new LanguageForm();
             languageForm.Show();
         }
 
-        private void mainMenu_button_Click(object sender, EventArgs e)
+        private void mainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
 
-        private void exit_button_Click(object sender, EventArgs e)
+        private void exitButtonClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void elements_dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void elementDataGridViewCellClick(
+            object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
-                switch (elements_dataGridView.Columns[e.ColumnIndex].Name)
+                switch (elementDataGridView.Columns[e.ColumnIndex].Name)
                 {
                     case "open":
                         {
-                            progVarStorage.elementFormVariant = "change";
-                            progVarStorage.revievElementName =
-                                elements_dataGridView[0, e.RowIndex].Value.ToString();
+                            progVarStorage.ElementFormVariant = "change";
+                            progVarStorage.RevievElementName =
+                                elementDataGridView[0, e.RowIndex]
+                                    .Value.ToString();
 
                             this.Close();
                             ElementForm elementForm = new ElementForm();
@@ -340,40 +386,56 @@ namespace Notebook
 
                             if (result == DialogResult.Yes)
                             {
-                                reviewList.elements.RemoveAt(reviewList.elements.FindIndex(item => item.name == elements_dataGridView[0, e.RowIndex].Value.ToString()));
+                                reviewList.Elements.RemoveAt(
+                                    reviewList.Elements.FindIndex(
+                                        item => 
+                                            item.Name == 
+                                            elementDataGridView[0, e.RowIndex]
+                                            .Value.ToString()));
 
-                                while (elements_dataGridView.Rows.Count > 0)
+                                while (elementDataGridView.Rows.Count > 0)
                                 {
-                                    elements_dataGridView.Rows.Remove(elements_dataGridView.Rows[elements_dataGridView.Rows.Count - 1]);
+                                    elementDataGridView.Rows.Remove(
+                                        elementDataGridView.Rows[
+                                            elementDataGridView.
+                                               Rows.Count - 1]);
                                 }
 
-                                foreach (Element el in reviewList.elements)
+                                foreach (Element el in reviewList.Elements)
                                 {
-                                    elements_dataGridView.Rows.Add
+                                    elementDataGridView.Rows.Add
                                         (
-                                        el.name,
-                                        el.birthday,
-                                        el.creatingDate,
-                                        el.updatingDate
+                                        el.Name,
+                                        el.Birthday,
+                                        el.CreatingDate,
+                                        el.UpdatingDate
                                         );
                                 }
 
-                                switch (sortingElements_comboBox.SelectedIndex)
+                                switch (sortingElementsComboBox.SelectedIndex)
                                 {
                                     case 0:
-                                        elements_dataGridView.Sort(elements_dataGridView.Columns[0], ListSortDirection.Ascending);
+                                        elementDataGridView.Sort(
+                                            elementDataGridView.Columns[0],
+                                            ListSortDirection.Ascending);
                                         break;
 
                                     case 1:
-                                        elements_dataGridView.Sort(elements_dataGridView.Columns[1], ListSortDirection.Ascending);
+                                        elementDataGridView.Sort(
+                                            elementDataGridView.Columns[1],
+                                            ListSortDirection.Ascending);
                                         break;
 
                                     case 2:
-                                        elements_dataGridView.Sort(elements_dataGridView.Columns[2], ListSortDirection.Ascending);
+                                        elementDataGridView.Sort(
+                                            elementDataGridView.Columns[2],
+                                            ListSortDirection.Ascending);
                                         break;
 
                                     case 3:
-                                        elements_dataGridView.Sort(elements_dataGridView.Columns[3], ListSortDirection.Ascending);
+                                        elementDataGridView.Sort(
+                                            elementDataGridView.Columns[3],
+                                            ListSortDirection.Ascending);
                                         break;
                                 }
                             }
@@ -383,7 +445,7 @@ namespace Notebook
             }
         }
 
-        private void createTxtFile_button_Click(object sender, EventArgs e)
+        private void createTxtFileButtonClick(object sender, EventArgs e)
         {
             p_a:
 
@@ -401,38 +463,40 @@ namespace Notebook
 
                 List<Element> people = new List<Element>();
 
-                for (int i = 0; i < elements_dataGridView.Rows.Count; i++)
+                for (int i = 0; i < elementDataGridView.Rows.Count; i++)
                 {
-                    people.Add(reviewList.elements.Single(p => p.name == elements_dataGridView[0, i].Value.ToString()));
+                    people.Add(reviewList.Elements.Single(
+                        p => p.Name == elementDataGridView[0, i].
+                            Value.ToString()));
                 }
 
                 string listData = "";
                 int count1 = 1;
                 int count2 = 0;
-                listData = "\"" + reviewList.listName + "\"\n\n";
+                listData = "\"" + reviewList.ListName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
-                    listData += $"\n{count1}. {people[count1 - 1].name}\n";
+                    listData += $"\n{count1}. {people[count1 - 1].Name}\n";
                     List<string> fields = new List<string>();
                     fields.Add(fieldNames[0] + 
-                        people[count1 - 1].birthday);
+                        people[count1 - 1].Birthday);
                     fields.Add(fieldNames[1] +
-                        people[count1 - 1].phone);
+                        people[count1 - 1].Phone);
                     fields.Add(fieldNames[2] +
-                        people[count1 - 1].personalData);
+                        people[count1 - 1].PersonalData);
                     fields.Add(fieldNames[3] +
-                        people[count1 - 1].restdentialAddress);
+                        people[count1 - 1].RestdentialAddress);
                     fields.Add(fieldNames[4] +
-                        people[count1 - 1].locale);
+                        people[count1 - 1].Locale);
                     fields.Add(fieldNames[5] +
-                        people[count1 - 1].familarPeoplePosition);
+                        people[count1 - 1].FamilarPeoplePosition);
                     fields.Add(fieldNames[6] +
-                        people[count1 - 1].firstMeeting);
+                        people[count1 - 1].FirstMeeting);
                     fields.Add(fieldNames[7] +
-                        people[count1 - 1].goodSides);
+                        people[count1 - 1].GoodSides);
                     fields.Add(fieldNames[8] +
-                        people[count1 - 1].extraInfo);
+                        people[count1 - 1].ExtraInfo);
 
                     while (count2 < fields.Count)
                     {
@@ -447,7 +511,7 @@ namespace Notebook
             }
         }
 
-        private void createDocxFile_button_Click(object sender, EventArgs e)
+        private void createDocxFileButtonClick(object sender, EventArgs e)
         {
             p_b:
 
@@ -469,37 +533,39 @@ namespace Notebook
 
                 List<Element> people = new List<Element>();
 
-                for (int i = 0; i < elements_dataGridView.Rows.Count; i++)
+                for (int i = 0; i < elementDataGridView.Rows.Count; i++)
                 {
-                    people.Add(reviewList.elements.Single(p => p.name == elements_dataGridView[0, i].Value.ToString()));
+                    people.Add(reviewList.Elements.Single(
+                        p => p.Name == elementDataGridView[0, i]
+                            .Value.ToString()));
                 }
 
                 int count1 = 1;
                 int count2 = 0;
-                r.Text = "\"" + reviewList.listName + "\"\n\n";
+                r.Text = "\"" + reviewList.ListName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
-                    r.Text += $"\n{count1}. {people[count1 - 1].name}\n";
+                    r.Text += $"\n{count1}. {people[count1 - 1].Name}\n";
                     List<string> fields = new List<string>();
                     fields.Add(fieldNames[0] +
-                        people[count1 - 1].birthday);
+                        people[count1 - 1].Birthday);
                     fields.Add(fieldNames[1] +
-                        people[count1 - 1].phone);
+                        people[count1 - 1].Phone);
                     fields.Add(fieldNames[2] +
-                        people[count1 - 1].personalData);
+                        people[count1 - 1].PersonalData);
                     fields.Add(fieldNames[3] +
-                        people[count1 - 1].restdentialAddress);
+                        people[count1 - 1].RestdentialAddress);
                     fields.Add(fieldNames[4] +
-                        people[count1 - 1].locale);
+                        people[count1 - 1].Locale);
                     fields.Add(fieldNames[5] +
-                        people[count1 - 1].familarPeoplePosition);
+                        people[count1 - 1].FamilarPeoplePosition);
                     fields.Add(fieldNames[6] +
-                        people[count1 - 1].firstMeeting);
+                        people[count1 - 1].FirstMeeting);
                     fields.Add(fieldNames[7] +
-                        people[count1 - 1].goodSides);
+                        people[count1 - 1].GoodSides);
                     fields.Add(fieldNames[8] +
-                        people[count1 - 1].extraInfo);
+                        people[count1 - 1].ExtraInfo);
 
                     while (count2 < fields.Count)
                     {
@@ -517,58 +583,70 @@ namespace Notebook
             }
         }
 
-        private void sortingElements_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void sortingElementsComboBoxSelectedIndexChanged(
+            object sender, EventArgs e)
         {
-            switch (sortingElements_comboBox.SelectedIndex)
+            switch (sortingElementsComboBox.SelectedIndex)
             {
                 case 0:
                     {
-                        elements_dataGridView.Sort(elements_dataGridView.Columns[0], ListSortDirection.Ascending);
+                        elementDataGridView.Sort(
+                            elementDataGridView.Columns[0],
+                            ListSortDirection.Ascending);
                     }
                     break;
 
                 case 1:
                     {
-                        elements_dataGridView.Sort(elements_dataGridView.Columns[1], ListSortDirection.Ascending);
+                        elementDataGridView.Sort(
+                            elementDataGridView.Columns[1],
+                            ListSortDirection.Ascending);
                     }
                     break;
 
                 case 2:
                     {
-                        elements_dataGridView.Sort(elements_dataGridView.Columns[2], ListSortDirection.Ascending);
+                        elementDataGridView.Sort(
+                            elementDataGridView.Columns[2],
+                            ListSortDirection.Ascending);
                     }
                     break;
 
                 case 3:
                     {
-                        elements_dataGridView.Sort(elements_dataGridView.Columns[3], ListSortDirection.Ascending);
+                        elementDataGridView.Sort(
+                            elementDataGridView.Columns[3],
+                            ListSortDirection.Ascending);
                     }
                     break;
             }
         }
 
-        private void searchElement_textBox_TextChanged(object sender, EventArgs e)
+        private void searchElementTextBoxTextChanged(
+            object sender, EventArgs e)
         {
             List<Element> pl = new List<Element>();
 
             IOrderedEnumerable<Element> persons = default;
 
-            switch (sortingElements_comboBox.SelectedIndex)
+            switch (sortingElementsComboBox.SelectedIndex)
             {
                 case 0:
-                    persons = reviewList.elements.OrderBy(p => p.name);
+                    persons = reviewList.Elements.OrderBy(p => p.Name);
                     break;
 
                 case 1:
-                    persons = reviewList.elements.OrderBy(p => p.birthday);
+                    persons = reviewList.Elements.OrderBy(p => p.Birthday);
                     break;
 
                 case 2:
-                    persons = reviewList.elements.OrderBy(p => p.creatingDate);
+                    persons = reviewList.Elements.OrderBy(
+                        p => p.CreatingDate);
                     break;
 
                 case 3:
-                    persons = reviewList.elements.OrderBy(p => p.updatingDate);
+                    persons = reviewList.Elements.OrderBy(
+                        p => p.UpdatingDate);
                     break;
             }
 
@@ -577,73 +655,100 @@ namespace Notebook
                 pl.Add(el);
             }
 
-            while (elements_dataGridView.Rows.Count > 0)
+            while (elementDataGridView.Rows.Count > 0)
             {
-                elements_dataGridView.Rows.Remove(elements_dataGridView.Rows[elements_dataGridView.Rows.Count - 1]);
+                elementDataGridView.Rows.Remove(
+                    elementDataGridView.Rows[
+                        elementDataGridView.Rows.Count - 1]);
             }
 
             List<Element> spl = new List<Element>();
 
-            switch (searchElement_comboBox.SelectedIndex)
+            switch (searchElementComboBox.SelectedIndex)
             {
                 case 0:
-                    spl = pl.FindAll(item => item.name.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.Name.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 1:
-                    spl = pl.FindAll(item => item.phone.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.Phone.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 2:
-                    spl = pl.FindAll(item => item.birthday.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.Birthday.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 3:
-                    spl = pl.FindAll(item => item.personalData.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.PersonalData.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 4:
-                    spl = pl.FindAll(item => item.restdentialAddress.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.RestdentialAddress.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 5:
-                    spl = pl.FindAll(item => item.locale.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.Locale.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 6:
-                    spl = pl.FindAll(item => item.firstMeeting.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.FirstMeeting.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 7:
-                    spl = pl.FindAll(item => item.familarPeoplePosition.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.FamilarPeoplePosition.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 8:
-                    spl = pl.FindAll(item => item.goodSides.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.GoodSides.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
 
                 case 9:
-                    spl = pl.FindAll(item => item.extraInfo.ToLower().Contains(searchElement_textBox.Text.ToLower()));
+                    spl = pl.FindAll(
+                        item => item.ExtraInfo.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
                     break;
             }
 
             foreach (Element el in spl)
             {
-                elements_dataGridView.Rows.Add
+                elementDataGridView.Rows.Add
                     (
-                    el.name,
-                    el.birthday,
-                    el.creatingDate,
-                    el.updatingDate
+                    el.Name,
+                    el.Birthday,
+                    el.CreatingDate,
+                    el.UpdatingDate
                     );
             }
         }
 
-        private void ListForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ListFormFormClosing(
+            object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

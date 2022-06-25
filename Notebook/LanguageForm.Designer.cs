@@ -29,102 +29,102 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageForm));
-            this.changeLanguage_button = new System.Windows.Forms.Button();
-            this.mainMenu_button = new System.Windows.Forms.Button();
-            this.languageWindow_label = new System.Windows.Forms.Label();
-            this.language_comboBox = new System.Windows.Forms.ComboBox();
-            this.goBack_button = new System.Windows.Forms.Button();
+            this.changeLanguageButton = new System.Windows.Forms.Button();
+            this.mainMenuButton = new System.Windows.Forms.Button();
+            this.languageWindowLabel = new System.Windows.Forms.Label();
+            this.languageComboBox = new System.Windows.Forms.ComboBox();
+            this.goBackButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // changeLanguage_button
+            // changeLanguageButton
             // 
-            this.changeLanguage_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changeLanguage_button.Location = new System.Drawing.Point(363, 179);
-            this.changeLanguage_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.changeLanguage_button.Name = "changeLanguage_button";
-            this.changeLanguage_button.Size = new System.Drawing.Size(134, 41);
-            this.changeLanguage_button.TabIndex = 27;
-            this.changeLanguage_button.Text = "прийняти зміни";
-            this.changeLanguage_button.UseVisualStyleBackColor = true;
-            this.changeLanguage_button.Click += new System.EventHandler(this.changeLanguage_button_Click);
+            this.changeLanguageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.changeLanguageButton.Location = new System.Drawing.Point(363, 179);
+            this.changeLanguageButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.changeLanguageButton.Name = "changeLanguageButton";
+            this.changeLanguageButton.Size = new System.Drawing.Size(134, 41);
+            this.changeLanguageButton.TabIndex = 27;
+            this.changeLanguageButton.Text = "прийняти зміни";
+            this.changeLanguageButton.UseVisualStyleBackColor = true;
+            this.changeLanguageButton.Click += new System.EventHandler(this.changeLanguageButtonClick);
             // 
-            // mainMenu_button
+            // mainMenuButton
             // 
-            this.mainMenu_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mainMenu_button.Location = new System.Drawing.Point(192, 179);
-            this.mainMenu_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.mainMenu_button.Name = "mainMenu_button";
-            this.mainMenu_button.Size = new System.Drawing.Size(133, 41);
-            this.mainMenu_button.TabIndex = 25;
-            this.mainMenu_button.Text = "головне меню";
-            this.mainMenu_button.UseVisualStyleBackColor = true;
-            this.mainMenu_button.Click += new System.EventHandler(this.mainMenu_button_Click);
+            this.mainMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mainMenuButton.Location = new System.Drawing.Point(192, 179);
+            this.mainMenuButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.mainMenuButton.Name = "mainMenuButton";
+            this.mainMenuButton.Size = new System.Drawing.Size(133, 41);
+            this.mainMenuButton.TabIndex = 25;
+            this.mainMenuButton.Text = "головне меню";
+            this.mainMenuButton.UseVisualStyleBackColor = true;
+            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButtonClick);
             // 
-            // languageWindow_label
+            // languageWindowLabel
             // 
-            this.languageWindow_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.languageWindow_label.Location = new System.Drawing.Point(54, 92);
-            this.languageWindow_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.languageWindow_label.Name = "languageWindow_label";
-            this.languageWindow_label.Size = new System.Drawing.Size(149, 18);
-            this.languageWindow_label.TabIndex = 28;
-            this.languageWindow_label.Text = "Вибрати мову:";
-            this.languageWindow_label.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.languageWindowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.languageWindowLabel.Location = new System.Drawing.Point(54, 92);
+            this.languageWindowLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.languageWindowLabel.Name = "languageWindowLabel";
+            this.languageWindowLabel.Size = new System.Drawing.Size(149, 18);
+            this.languageWindowLabel.TabIndex = 28;
+            this.languageWindowLabel.Text = "Вибрати мову:";
+            this.languageWindowLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // language_comboBox
+            // languageComboBox
             // 
-            this.language_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.language_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.language_comboBox.FormattingEnabled = true;
-            this.language_comboBox.Items.AddRange(new object[] {
+            this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.languageComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Items.AddRange(new object[] {
             "Українська",
             "Русский",
             "English"});
-            this.language_comboBox.Location = new System.Drawing.Point(234, 89);
-            this.language_comboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.language_comboBox.Name = "language_comboBox";
-            this.language_comboBox.Size = new System.Drawing.Size(182, 24);
-            this.language_comboBox.TabIndex = 29;
+            this.languageComboBox.Location = new System.Drawing.Point(234, 89);
+            this.languageComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.languageComboBox.Name = "languageComboBox";
+            this.languageComboBox.Size = new System.Drawing.Size(182, 24);
+            this.languageComboBox.TabIndex = 29;
             // 
-            // goBack_button
+            // goBackButton
             // 
-            this.goBack_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.goBack_button.Location = new System.Drawing.Point(25, 179);
-            this.goBack_button.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.goBack_button.Name = "goBack_button";
-            this.goBack_button.Size = new System.Drawing.Size(135, 41);
-            this.goBack_button.TabIndex = 30;
-            this.goBack_button.Text = "назад";
-            this.goBack_button.UseVisualStyleBackColor = true;
-            this.goBack_button.Click += new System.EventHandler(this.goBack_button_Click);
+            this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.goBackButton.Location = new System.Drawing.Point(25, 179);
+            this.goBackButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.goBackButton.Name = "goBackButton";
+            this.goBackButton.Size = new System.Drawing.Size(135, 41);
+            this.goBackButton.TabIndex = 30;
+            this.goBackButton.Text = "назад";
+            this.goBackButton.UseVisualStyleBackColor = true;
+            this.goBackButton.Click += new System.EventHandler(this.goBackButtonClick);
             // 
             // LanguageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 232);
-            this.Controls.Add(this.goBack_button);
-            this.Controls.Add(this.language_comboBox);
-            this.Controls.Add(this.languageWindow_label);
-            this.Controls.Add(this.changeLanguage_button);
-            this.Controls.Add(this.mainMenu_button);
+            this.Controls.Add(this.goBackButton);
+            this.Controls.Add(this.languageComboBox);
+            this.Controls.Add(this.languageWindowLabel);
+            this.Controls.Add(this.changeLanguageButton);
+            this.Controls.Add(this.mainMenuButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "LanguageForm";
             this.Text = "LanguageForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LanguageForm_FormClosing);
-            this.Load += new System.EventHandler(this.LanguageForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LanguageFormFormClosing);
+            this.Load += new System.EventHandler(this.LanguageFormLoad);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button changeLanguage_button;
-        private System.Windows.Forms.Button mainMenu_button;
-        private System.Windows.Forms.Label languageWindow_label;
-        private System.Windows.Forms.ComboBox language_comboBox;
-        private System.Windows.Forms.Button goBack_button;
+        private System.Windows.Forms.Button changeLanguageButton;
+        private System.Windows.Forms.Button mainMenuButton;
+        private System.Windows.Forms.Label languageWindowLabel;
+        private System.Windows.Forms.ComboBox languageComboBox;
+        private System.Windows.Forms.Button goBackButton;
     }
 }

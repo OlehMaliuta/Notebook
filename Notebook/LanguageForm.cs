@@ -27,50 +27,51 @@ namespace Notebook
             {
                 case Language.Ukranian:
                     this.Text = "Налаштування";
-                    languageWindow_label.Text = "Вибрати мову:";
-                    goBack_button.Text = "назад";
-                    mainMenu_button.Text = "головне меню";
-                    changeLanguage_button.Text = "прийняти зміни";
+                    languageWindowLabel.Text = "Вибрати мову:";
+                    goBackButton.Text = "назад";
+                    mainMenuButton.Text = "головне меню";
+                    changeLanguageButton.Text = "прийняти зміни";
                     break;
 
                 case Language.Russian:
                     this.Text = "Настройки";
-                    languageWindow_label.Text = "Выбрать язык:";
-                    goBack_button.Text = "назад";
-                    mainMenu_button.Text = "главное меню";
-                    changeLanguage_button.Text = "принять измнинения";
+                    languageWindowLabel.Text = "Выбрать язык:";
+                    goBackButton.Text = "назад";
+                    mainMenuButton.Text = "главное меню";
+                    changeLanguageButton.Text = "принять измнинения";
                     break;
 
                 case Language.English:
                     this.Text = "Settings";
-                    languageWindow_label.Text = "Choose language:";
-                    goBack_button.Text = "back";
-                    mainMenu_button.Text = "main menu";
-                    changeLanguage_button.Text = "apply";
+                    languageWindowLabel.Text = "Choose language:";
+                    goBackButton.Text = "back";
+                    mainMenuButton.Text = "main menu";
+                    changeLanguageButton.Text = "apply";
                     break;
             }
         }
 
-        private void LanguageForm_Load(object sender, EventArgs e)
+        private void LanguageFormLoad(object sender, EventArgs e)
         {
             this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+                JsonConvert.DeserializeObject<ProgVarStorage>(
+                    File.ReadAllText("ProgVarStorageInfo.json"));
 
-            SetWindowLang(progVarStorage.language);
+            SetWindowLang(progVarStorage.AppLanguage);
 
-            language_comboBox.SelectedIndex = (int)progVarStorage.language;
+            languageComboBox.SelectedIndex = (int)progVarStorage.AppLanguage;
         }
 
-        private void mainMenu_button_Click(object sender, EventArgs e)
+        private void mainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
 
-        private void goBack_button_Click(object sender, EventArgs e)
+        private void goBackButtonClick(object sender, EventArgs e)
         {
-            string backoToWindow = progVarStorage.prevWindow;
+            string backoToWindow = progVarStorage.PrevWindow;
 
             switch (backoToWindow)
             {
@@ -91,20 +92,20 @@ namespace Notebook
             }
         }
 
-        private void changeLanguage_button_Click(object sender, EventArgs e)
+        private void changeLanguageButtonClick(object sender, EventArgs e)
         {
-            switch (language_comboBox.SelectedIndex)
+            switch (languageComboBox.SelectedIndex)
             {
                 case 0:
-                    progVarStorage.language = Language.Ukranian;
+                    progVarStorage.AppLanguage = Language.Ukranian;
                     break;
 
                 case 1:
-                    progVarStorage.language = Language.Russian;
+                    progVarStorage.AppLanguage = Language.Russian;
                     break;
 
                 case 2:
-                    progVarStorage.language = Language.English;
+                    progVarStorage.AppLanguage = Language.English;
                     break;
             }
 
@@ -113,9 +114,12 @@ namespace Notebook
             languageForm.Show();
         }
 
-        private void LanguageForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void LanguageFormFormClosing(
+            object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

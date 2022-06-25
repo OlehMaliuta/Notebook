@@ -217,7 +217,7 @@
     <value>NoControl</value>
   </data>
   <data name="sortLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>825, 466</value>
+    <value>825, 468</value>
   </data>
   <data name="sortLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>

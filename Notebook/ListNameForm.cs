@@ -32,17 +32,17 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "Новий список";
-                        listNameWindow_label.Text = "Введіть ім'я списку:";
-                        giveListName_button.Text = "створити";
+                        listNameWindowLabel.Text = "Введіть ім'я списку:";
+                        giveListNameButton.Text = "створити";
                     }
                     else if (variant == "rename")
                     {
                         this.Text = "Переіменувати список";
-                        listNameWindow_label.Text = "Нова ім'я списку:";
-                        giveListName_button.Text = "переіменувати";
+                        listNameWindowLabel.Text = "Нова ім'я списку:";
+                        giveListNameButton.Text = "переіменувати";
                     }
 
-                    goBack_button.Text = "назад";
+                    goBackButton.Text = "назад";
 
                     messageText = new string[] 
                     {
@@ -56,17 +56,17 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "Новый список";
-                        listNameWindow_label.Text = "Введите имя списка:";
-                        giveListName_button.Text = "создать";
+                        listNameWindowLabel.Text = "Введите имя списка:";
+                        giveListNameButton.Text = "создать";
                     }
                     else if (variant == "rename")
                     {
                         this.Text = "Переименовать список";
-                        listNameWindow_label.Text = "новое имя списка:";
-                        giveListName_button.Text = "переименовать";
+                        listNameWindowLabel.Text = "новое имя списка:";
+                        giveListNameButton.Text = "переименовать";
                     }
 
-                    goBack_button.Text = "назад";
+                    goBackButton.Text = "назад";
 
                     messageText = new string[] 
                     {
@@ -80,17 +80,17 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "New list";
-                        listNameWindow_label.Text = "Enter a list name:";
-                        giveListName_button.Text = "create";
+                        listNameWindowLabel.Text = "Enter a list name:";
+                        giveListNameButton.Text = "create";
                     }
                     else if (variant == "rename")
                     {
                         this.Text = "Rename the list";
-                        listNameWindow_label.Text = "Enter a new list name:";
-                        giveListName_button.Text = "rename";
+                        listNameWindowLabel.Text = "Enter a new list name:";
+                        giveListNameButton.Text = "rename";
                     }
 
-                    goBack_button.Text = "back";
+                    goBackButton.Text = "back";
 
                     messageText = new string[] 
                     {
@@ -102,28 +102,30 @@ namespace Notebook
             }
         }
 
-        private void ListNameForm_Load(object sender, EventArgs e)
+        private void ListNameFormLoad(object sender, EventArgs e)
         {
             this.listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
 
             this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+                JsonConvert.DeserializeObject<ProgVarStorage>(
+                    File.ReadAllText("ProgVarStorageInfo.json"));
 
-            this.variant = this.progVarStorage.listNameFormVariant;
+            this.variant = this.progVarStorage.ListNameFormVariant;
 
-            SetWindowLanguage(progVarStorage.language, variant);
+            SetWindowLanguage(progVarStorage.AppLanguage, variant);
         }
 
-        private void giveListName_button_Click(object sender, EventArgs e)
+        private void giveListNameButtonClick(object sender, EventArgs e)
         {
-            if (listName_textBox.Text == "")
+            if (listNameTextBox.Text == "")
             {
                 MessageBox.Show(messageText[1], messageText[0]);
             }
-            else if (this.listsStorage.peopleLists.Find
+            else if (this.listsStorage.PeopleLists.Find
                         (
-                        item => item.listName == listName_textBox.Text
+                        item => item.ListName == listNameTextBox.Text
                         ) != null
                     )
             {
@@ -133,15 +135,15 @@ namespace Notebook
             {
                 if (this.variant == "rename")
                 {
-                    int idx = this.listsStorage.peopleLists.FindIndex
+                    int idx = this.listsStorage.PeopleLists.FindIndex
                         (
-                        item => item.listName == progVarStorage.name
+                        item => item.ListName == progVarStorage.Name
                         );
 
-                    this.listsStorage.peopleLists[idx].listName = 
-                        listName_textBox.Text;
+                    this.listsStorage.PeopleLists[idx].ListName = 
+                        listNameTextBox.Text;
 
-                    this.listsStorage.peopleLists[idx].updatingDate =
+                    this.listsStorage.PeopleLists[idx].UpdatingDate =
                         DateTime.Now.ToShortDateString() +
                         "\n" + DateTime.Now.ToLongTimeString();
 
@@ -154,9 +156,9 @@ namespace Notebook
                     string fileDate = DateTime.Now.ToShortDateString() +
                         "\n" + DateTime.Now.ToLongTimeString();
 
-                    this.listsStorage.peopleLists.Add(new PeopleList
+                    this.listsStorage.PeopleLists.Add(new PeopleList
                     (
-                    listName: listName_textBox.Text,
+                    listName: listNameTextBox.Text,
                     creatingDate: fileDate,
                     updatingDate: fileDate
                     ));
@@ -168,18 +170,23 @@ namespace Notebook
             }
         }
 
-        private void goBack_button_Click(object sender, EventArgs e)
+        private void goBackButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
 
-        private void ListNameForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ListNameFormFormClosing(
+            object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Lists_listBox = new System.Windows.Forms.ListBox();
             this.createListButton = new System.Windows.Forms.Button();
             this.searchListTextBox = new System.Windows.Forms.TextBox();
@@ -66,13 +65,13 @@
             resources.ApplyResources(this.createListButton, "createListButton");
             this.createListButton.Name = "createListButton";
             this.createListButton.UseVisualStyleBackColor = true;
-            this.createListButton.Click += new System.EventHandler(this.CreateListButton_Click);
+            this.createListButton.Click += new System.EventHandler(this.CreateListButtonClick);
             // 
             // searchListTextBox
             // 
             resources.ApplyResources(this.searchListTextBox, "searchListTextBox");
             this.searchListTextBox.Name = "searchListTextBox";
-            this.searchListTextBox.TextChanged += new System.EventHandler(this.searchListTextBox_TextChanged);
+            this.searchListTextBox.TextChanged += new System.EventHandler(this.searchListTextBoxTextChanged);
             // 
             // sortLabel
             // 
@@ -86,21 +85,21 @@
             resources.ApplyResources(this.sortingListsComboBox, "sortingListsComboBox");
             this.sortingListsComboBox.FormattingEnabled = true;
             this.sortingListsComboBox.Name = "sortingListsComboBox";
-            this.sortingListsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingListsComboBox_SelectedIndexChanged);
+            this.sortingListsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingListsComboBoxSelectedIndexChanged);
             // 
             // settingsButton
             // 
             resources.ApplyResources(this.settingsButton, "settingsButton");
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            this.settingsButton.Click += new System.EventHandler(this.settingsButtonClick);
             // 
             // exitButton
             // 
             resources.ApplyResources(this.exitButton, "exitButton");
             this.exitButton.Name = "exitButton";
             this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            this.exitButton.Click += new System.EventHandler(this.exitButtonClick);
             // 
             // listDataGridView
             // 
@@ -119,21 +118,13 @@
             this.open,
             this.rename,
             this.delete});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.listDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.listDataGridView.EnableHeadersVisualStyles = false;
             resources.ApplyResources(this.listDataGridView, "listDataGridView");
             this.listDataGridView.Name = "listDataGridView";
             this.listDataGridView.ReadOnly = true;
             this.listDataGridView.RowHeadersVisible = false;
             this.listDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listDataGridView_CellClick);
+            this.listDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listDataGridViewCellClick);
             // 
             // name
             // 
@@ -188,10 +179,10 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -217,14 +208,14 @@
             this.addListTool.Image = global::Notebook.Properties.Resources.plus;
             this.addListTool.Name = "addListTool";
             resources.ApplyResources(this.addListTool, "addListTool");
-            this.addListTool.Click += new System.EventHandler(this.addListTool_Click);
+            this.addListTool.Click += new System.EventHandler(this.addListToolClick);
             // 
             // exitTool
             // 
             this.exitTool.Image = global::Notebook.Properties.Resources.exit;
             this.exitTool.Name = "exitTool";
             resources.ApplyResources(this.exitTool, "exitTool");
-            this.exitTool.Click += new System.EventHandler(this.exitTool_Click);
+            this.exitTool.Click += new System.EventHandler(this.exitToolClick);
             // 
             // MainForm
             // 
@@ -241,8 +232,8 @@
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainFormFormClosing);
+            this.Load += new System.EventHandler(this.MainFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.listDataGridView)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();

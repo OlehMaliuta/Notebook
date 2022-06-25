@@ -34,39 +34,43 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "Новий елемент";
-                        changeElement_button.Text = "створити";
+                        changeElementButton.Text = "створити";
                     }
                     else if (variant == "change")
                     {
                         this.Text = "Перегляд елементу";
-                        changeElement_button.Text = "змінити";
+                        changeElementButton.Text = "змінити";
                     }
 
-                    day_label.Text = "День:";
-                    month_label.Text = "Місяць:";
-                    year_label.Text = "Рік:";
+                    dayLabel.Text = "День:";
+                    monthLabel.Text = "Місяць:";
+                    yearLabel.Text = "Рік:";
 
-                    goBack_button.Text = "назад";
+                    goBackButton.Text = "назад";
 
-                    fieldType_label.Text = "Поля:";
+                    fieldTypeLabel.Text = "Поля:";
 
-                    infoFieldType_comboBox.Items.Add("ім'я");
-                    infoFieldType_comboBox.Items.Add("дата народження");
-                    infoFieldType_comboBox.Items.Add("телефон");
-                    infoFieldType_comboBox.Items.Add("анкетні дані");
-                    infoFieldType_comboBox.Items.Add("місце проживання");
-                    infoFieldType_comboBox.Items.Add("місце роботи/навчання");
-                    infoFieldType_comboBox.Items.Add("характер знайомства");
-                    infoFieldType_comboBox.Items.Add("посада знайомих");
-                    infoFieldType_comboBox.Items.Add("ділові якості");
-                    infoFieldType_comboBox.Items.Add("додаткові дані");
+                    infoFieldTypeComboBox.Items.Add("ім'я");
+                    infoFieldTypeComboBox.Items.Add("дата народження");
+                    infoFieldTypeComboBox.Items.Add("телефон");
+                    infoFieldTypeComboBox.Items.Add("анкетні дані");
+                    infoFieldTypeComboBox.Items.Add("місце проживання");
+                    infoFieldTypeComboBox.Items.Add("місце роботи/навчання");
+                    infoFieldTypeComboBox.Items.Add("характер знайомства");
+                    infoFieldTypeComboBox.Items.Add("посада знайомих");
+                    infoFieldTypeComboBox.Items.Add("ділові якості");
+                    infoFieldTypeComboBox.Items.Add("додаткові дані");
 
                     messageText = new string[]
                     {
                         "Попередження!",
+
                         "Елемент із даним ім'ям вже існує в списку.",
+
                         "Елемент повинен мати ім'я.",
-                        "Поля для дати народження не можуть мати від'ємні значення."
+
+                        "Поля для дати народження не можуть " +
+                        "мати від'ємні значення."
                     };
                     break;
 
@@ -74,39 +78,43 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "Новый элемент";
-                        changeElement_button.Text = "создать";
+                        changeElementButton.Text = "создать";
                     }
                     else if (variant == "change")
                     {
                         this.Text = "Просмотр элемента";
-                        changeElement_button.Text = "изменить";
+                        changeElementButton.Text = "изменить";
                     }
 
-                    day_label.Text = "День:";
-                    month_label.Text = "Месяц:";
-                    year_label.Text = "Год:";
+                    dayLabel.Text = "День:";
+                    monthLabel.Text = "Месяц:";
+                    yearLabel.Text = "Год:";
 
-                    goBack_button.Text = "назад";
+                    goBackButton.Text = "назад";
 
-                    fieldType_label.Text = "Поля:";
+                    fieldTypeLabel.Text = "Поля:";
 
-                    infoFieldType_comboBox.Items.Add("имя");
-                    infoFieldType_comboBox.Items.Add("дата рождения");
-                    infoFieldType_comboBox.Items.Add("телефон");
-                    infoFieldType_comboBox.Items.Add("анкетные даные");
-                    infoFieldType_comboBox.Items.Add("место проживания");
-                    infoFieldType_comboBox.Items.Add("место работи/учёбы");
-                    infoFieldType_comboBox.Items.Add("характер знакомства");
-                    infoFieldType_comboBox.Items.Add("положение знакомых");
-                    infoFieldType_comboBox.Items.Add("деловые качества");
-                    infoFieldType_comboBox.Items.Add("дополнительные данные");
+                    infoFieldTypeComboBox.Items.Add("имя");
+                    infoFieldTypeComboBox.Items.Add("дата рождения");
+                    infoFieldTypeComboBox.Items.Add("телефон");
+                    infoFieldTypeComboBox.Items.Add("анкетные даные");
+                    infoFieldTypeComboBox.Items.Add("место проживания");
+                    infoFieldTypeComboBox.Items.Add("место работи/учёбы");
+                    infoFieldTypeComboBox.Items.Add("характер знакомства");
+                    infoFieldTypeComboBox.Items.Add("положение знакомых");
+                    infoFieldTypeComboBox.Items.Add("деловые качества");
+                    infoFieldTypeComboBox.Items.Add("дополнительные данные");
 
                     messageText = new string[]
                     {
                         "Предупреждения!",
+
                         "Элемент с данным именем уже есть в списке.",
+
                         "У элемента должно быть имя.",
-                        "Поля для даты рождения не принимают отрицательных значений."
+
+                        "Поля для даты рождения не принимают " +
+                        "отрицательных значений."
                     };
                     break;
 
@@ -114,98 +122,108 @@ namespace Notebook
                     if (variant == "create")
                     {
                         this.Text = "New element";
-                        changeElement_button.Text = "create";
+                        changeElementButton.Text = "create";
                     }
                     else if (variant == "change")
                     {
                         this.Text = "Element review";
-                        changeElement_button.Text = "change";
+                        changeElementButton.Text = "change";
                     }
 
-                    day_label.Text = "Day:";
-                    month_label.Text = "Month:";
-                    year_label.Text = "Year:";
+                    dayLabel.Text = "Day:";
+                    monthLabel.Text = "Month:";
+                    yearLabel.Text = "Year:";
 
-                    goBack_button.Text = "back";
+                    goBackButton.Text = "back";
 
-                    fieldType_label.Text = "Field:";
+                    fieldTypeLabel.Text = "Field:";
 
-                    infoFieldType_comboBox.Items.Add("name");
-                    infoFieldType_comboBox.Items.Add("birth date");
-                    infoFieldType_comboBox.Items.Add("phone");
-                    infoFieldType_comboBox.Items.Add("personal data");
-                    infoFieldType_comboBox.Items.Add("residentional address");
-                    infoFieldType_comboBox.Items.Add("locale");
-                    infoFieldType_comboBox.Items.Add("first meeting");
-                    infoFieldType_comboBox.Items.Add("familar people position");
-                    infoFieldType_comboBox.Items.Add("good sides");
-                    infoFieldType_comboBox.Items.Add("extra info");
+                    infoFieldTypeComboBox.Items.Add("name");
+                    infoFieldTypeComboBox.Items.Add("birth date");
+                    infoFieldTypeComboBox.Items.Add("phone");
+                    infoFieldTypeComboBox.Items.Add("personal data");
+                    infoFieldTypeComboBox.Items.Add("residentional address");
+                    infoFieldTypeComboBox.Items.Add("locale");
+                    infoFieldTypeComboBox.Items.Add("first meeting");
+                    infoFieldTypeComboBox.Items.Add("familar people position");
+                    infoFieldTypeComboBox.Items.Add("good sides");
+                    infoFieldTypeComboBox.Items.Add("extra info");
 
                     messageText = new string[]
                     {
                         "Warning!",
-                        "Element with the same name already exists in the list.",
+
+                        "Element with the same name already " +
+                        "exists in the list.",
+
                         "An element must have a name",
+
                         "Birth date fields do not take negative values."
                     };
                     break;
             }
         }
 
-        private void ElementForm_Load(object sender, EventArgs e)
+        private void ElementFormLoad(object sender, EventArgs e)
         {
             this.listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
 
             this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+                JsonConvert.DeserializeObject<ProgVarStorage>(
+                    File.ReadAllText("ProgVarStorageInfo.json"));
 
-            this.reviewList = listsStorage.peopleLists.Single(
-                        item => item.listName == progVarStorage.reviewListName);
+            this.reviewList = listsStorage.PeopleLists.Single(
+                        item => 
+                        item.ListName == progVarStorage.ReviewListName);
 
-            SetWindowLang(progVarStorage.language, progVarStorage.elementFormVariant);
+            SetWindowLang(
+                progVarStorage.AppLanguage,
+                progVarStorage.ElementFormVariant);
 
-            if (progVarStorage.elementFormVariant == "change")
+            if (progVarStorage.ElementFormVariant == "change")
             {
-                reviewElement = reviewList.elements.Single(
-                    p => p.name == progVarStorage.revievElementName);
+                reviewElement = reviewList.Elements.Single(
+                    p => p.Name == progVarStorage.RevievElementName);
 
                 newElement.CopyElement(reviewElement);
             }
 
-            infoFieldType_comboBox.SelectedIndex = 0;
-            fieldName_label.Text = infoFieldType_comboBox.Text;
-            info_textBox.Text = newElement.name;
+            infoFieldTypeComboBox.SelectedIndex = 0;
+            fieldNameLabel.Text = infoFieldTypeComboBox.Text;
+            infoTextBox.Text = newElement.Name;
 
-            day_numericUpDown.Maximum = int.MaxValue;
-            day_numericUpDown.Minimum = int.MinValue;
+            dayNumericUpDown.Maximum = int.MaxValue;
+            dayNumericUpDown.Minimum = int.MinValue;
 
-            month_numericUpDown.Maximum = int.MaxValue;
-            month_numericUpDown.Minimum = int.MinValue;
+            monthNumericUpDown.Maximum = int.MaxValue;
+            monthNumericUpDown.Minimum = int.MinValue;
 
-            year_numericUpDown.Maximum = int.MaxValue;
-            year_numericUpDown.Minimum = int.MinValue;
+            yearNumericUpDown.Maximum = int.MaxValue;
+            yearNumericUpDown.Minimum = int.MinValue;
 
-            date_panel.Visible = false;
+            datePanel.Visible = false;
         }
 
-        private void changeElement_button_Click(object sender, EventArgs e)
+        private void changeElementButtonClick(object sender, EventArgs e)
         {
             string err = "";
 
             if (
-                progVarStorage.elementFormVariant == "create" &&
-                reviewList.elements.FindIndex(item => item.name == info_textBox.Text) != -1
+                progVarStorage.ElementFormVariant == "create" &&
+                reviewList.Elements.FindIndex(
+                    item => item.Name == infoTextBox.Text) != -1
                 )
                 err += "\n" + messageText[1];
 
-            if (newElement.name == "")
+            if (newElement.Name == "")
                 err += "\n" + messageText[2];
 
             if (
-                day_numericUpDown.Value < 0 ||
-                month_numericUpDown.Value < 0 ||
-                year_numericUpDown.Value < 0)
+                dayNumericUpDown.Value < 0 ||
+                monthNumericUpDown.Value < 0 ||
+                yearNumericUpDown.Value < 0)
                 err += "\n" + messageText[3];
 
             if (err != "")
@@ -216,49 +234,49 @@ namespace Notebook
 
             string day, month, year;
 
-            if (day_numericUpDown.Value == 0)
+            if (dayNumericUpDown.Value == 0)
                 day = "-";
             else
-                day = day_numericUpDown.Value.ToString();
+                day = dayNumericUpDown.Value.ToString();
 
-            if (month_numericUpDown.Value == 0)
+            if (monthNumericUpDown.Value == 0)
                 month = "-";
             else
-                month = month_numericUpDown.Value.ToString();
+                month = monthNumericUpDown.Value.ToString();
 
-            if (year_numericUpDown.Value == 0)
+            if (yearNumericUpDown.Value == 0)
                 year = "-";
             else
-                year = year_numericUpDown.Value.ToString();
+                year = yearNumericUpDown.Value.ToString();
 
-            newElement.birthday =
+            newElement.Birthday =
                     $"{day}.{month}.{year}";
 
-            if (progVarStorage.elementFormVariant == "create")
+            if (progVarStorage.ElementFormVariant == "create")
             {
-                newElement.creatingDate =
+                newElement.CreatingDate =
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
-                newElement.updatingDate =
+                newElement.UpdatingDate =
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
-                reviewList.updatingDate =
+                reviewList.UpdatingDate =
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
-                reviewList.elements.Add(newElement);
+                reviewList.Elements.Add(newElement);
             }
-            else if (progVarStorage.elementFormVariant == "change")
+            else if (progVarStorage.ElementFormVariant == "change")
             {
                 if (newElement != reviewElement)
                 {
-                    newElement.updatingDate =
+                    newElement.UpdatingDate =
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
-                    reviewList.updatingDate =
+                    reviewList.UpdatingDate =
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
@@ -271,143 +289,149 @@ namespace Notebook
             listForm.Show();
         }
 
-        private void goBack_button_Click(object sender, EventArgs e)
+        private void goBackButtonClick(object sender, EventArgs e)
         {
             this.Close();
             ListForm listForm = new ListForm();
             listForm.Show();
         }
 
-        private void info_textBox_TextChanged(object sender, EventArgs e)
+        private void infoTextBoxTextChanged(object sender, EventArgs e)
         {
-            switch (infoFieldType_comboBox.SelectedIndex)
+            switch (infoFieldTypeComboBox.SelectedIndex)
             {
                 case 0:
-                    newElement.name = info_textBox.Text;
+                    newElement.Name = infoTextBox.Text;
                     break;
 
                 case 2:
-                    newElement.phone = info_textBox.Text;
+                    newElement.Phone = infoTextBox.Text;
                     break;
 
                 case 3:
-                    newElement.personalData = info_textBox.Text;
+                    newElement.PersonalData = infoTextBox.Text;
                     break;
 
                 case 4:
-                    newElement.restdentialAddress = info_textBox.Text;
+                    newElement.RestdentialAddress = infoTextBox.Text;
                     break;
 
                 case 5:
-                    newElement.locale = info_textBox.Text;
+                    newElement.Locale = infoTextBox.Text;
                     break;
 
                 case 6:
-                    newElement.firstMeeting = info_textBox.Text;
+                    newElement.FirstMeeting = infoTextBox.Text;
                     break;
 
                 case 7:
-                    newElement.familarPeoplePosition = info_textBox.Text;
+                    newElement.FamilarPeoplePosition = infoTextBox.Text;
                     break;
 
                 case 8:
-                    newElement.goodSides = info_textBox.Text;
+                    newElement.GoodSides = infoTextBox.Text;
                     break;
 
                 case 9:
-                    newElement.extraInfo = info_textBox.Text;
+                    newElement.ExtraInfo = infoTextBox.Text;
                     break;
             }
         }
 
-        private void infoFieldType_comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void infoFieldTypeComboBoxSelectedIndexChanged(
+            object sender, EventArgs e)
         {
-            fieldName_label.Text = infoFieldType_comboBox.Text;
+            fieldNameLabel.Text = infoFieldTypeComboBox.Text;
 
-            switch (infoFieldType_comboBox.SelectedIndex)
+            switch (infoFieldTypeComboBox.SelectedIndex)
             {
                 case 0:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.name;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.Name;
                     break;
 
                 case 1:
-                    info_textBox.Visible = false;
-                    date_panel.Visible = true;
-                    string[] nums = newElement.birthday.Split('.');
+                    infoTextBox.Visible = false;
+                    datePanel.Visible = true;
+                    string[] nums = newElement.Birthday.Split('.');
                     
                     if (nums[0] == "-")
-                        day_numericUpDown.Value = 0;
+                        dayNumericUpDown.Value = 0;
                     else
-                        day_numericUpDown.Value = Convert.ToDecimal(nums[0]);
+                        dayNumericUpDown.Value = Convert.ToDecimal(nums[0]);
 
                     if (nums[1] == "-")
-                        month_numericUpDown.Value = 0;
+                        monthNumericUpDown.Value = 0;
                     else
-                        month_numericUpDown.Value = Convert.ToDecimal(nums[1]);
+                        monthNumericUpDown.Value = Convert.ToDecimal(nums[1]);
 
                     if (nums[2] == "-")
-                        year_numericUpDown.Value = 0;
+                        yearNumericUpDown.Value = 0;
                     else
-                        year_numericUpDown.Value = Convert.ToDecimal(nums[2]);
+                        yearNumericUpDown.Value = Convert.ToDecimal(nums[2]);
                     break;
 
                 case 2:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.phone;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.Phone;
                     break;
 
                 case 3:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.personalData;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.PersonalData;
                     break;
 
                 case 4:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.restdentialAddress;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.RestdentialAddress;
                     break;
 
                 case 5:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.locale;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.Locale;
                     break;
 
                 case 6:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.firstMeeting;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.FirstMeeting;
                     break;
 
                 case 7:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.familarPeoplePosition;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.FamilarPeoplePosition;
                     break;
 
                 case 8:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.goodSides;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.GoodSides;
                     break;
 
                 case 9:
-                    info_textBox.Visible = true;
-                    date_panel.Visible = false;
-                    info_textBox.Text = newElement.extraInfo;
+                    infoTextBox.Visible = true;
+                    datePanel.Visible = false;
+                    infoTextBox.Text = newElement.ExtraInfo;
                     break;
             }
         }
 
-        private void ElementForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ElementFormFormClosing(
+            object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }

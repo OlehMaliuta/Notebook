@@ -15,13 +15,13 @@ namespace Notebook
 
     internal class ProgVarStorage
     {
-        public Language language = Language.Ukranian;
-        public string listNameFormVariant = "ERR";
-        public string elementFormVariant = "ERR";
-        public string prevWindow = "ERR";
-        public string name = "ERR";
-        public string reviewListName = "ERR";
-        public string revievElementName = "ERR";
-        public int index = -1;
+        public Language AppLanguage = Language.Ukranian;
+        public string ListNameFormVariant = "ERR";
+        public string ElementFormVariant = "ERR";
+        public string PrevWindow = "ERR";
+        public string Name = "ERR";
+        public string ReviewListName = "ERR";
+        public string RevievElementName = "ERR";
+        public int Index = -1;
     }
 }

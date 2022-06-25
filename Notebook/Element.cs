@@ -9,48 +9,48 @@ namespace Notebook
 {
     internal class Element
     {
-        public string name = "";
-        public string phone = "-";
-        public string birthday = "-.-.-";
-        public string personalData = "-";
-        public string restdentialAddress = "-";
-        public string locale = "-";
-        public string familarPeoplePosition = "-";
-        public string firstMeeting = "-";
-        public string goodSides = "-";
-        public string extraInfo = "-";
-        public string creatingDate = "ERR";
-        public string updatingDate = "ERR";
+        public string Name = "";
+        public string Phone = "-";
+        public string Birthday = "-.-.-";
+        public string PersonalData = "-";
+        public string RestdentialAddress = "-";
+        public string Locale = "-";
+        public string FamilarPeoplePosition = "-";
+        public string FirstMeeting = "-";
+        public string GoodSides = "-";
+        public string ExtraInfo = "-";
+        public string CreatingDate = "ERR";
+        public string UpdatingDate = "ERR";
 
         public void CopyElement(Element original)
         {
-            this.creatingDate = original.creatingDate;
-            this.updatingDate = original.updatingDate;
-            this.name = original.name;
-            this.phone = original.phone;
-            this.birthday = original.birthday;
-            this.personalData = original.personalData;
-            this.restdentialAddress = original.restdentialAddress;
-            this.locale = original.locale;
-            this.familarPeoplePosition = original.familarPeoplePosition;
-            this.firstMeeting = original.firstMeeting;
-            this.goodSides = original.goodSides;
-            this.extraInfo = original.extraInfo;
+            this.CreatingDate = original.CreatingDate;
+            this.UpdatingDate = original.UpdatingDate;
+            this.Name = original.Name;
+            this.Phone = original.Phone;
+            this.Birthday = original.Birthday;
+            this.PersonalData = original.PersonalData;
+            this.RestdentialAddress = original.RestdentialAddress;
+            this.Locale = original.Locale;
+            this.FamilarPeoplePosition = original.FamilarPeoplePosition;
+            this.FirstMeeting = original.FirstMeeting;
+            this.GoodSides = original.GoodSides;
+            this.ExtraInfo = original.ExtraInfo;
         }
 
         public static bool operator == (Element e1, Element e2)
         {
             return
-                (e1.name == e2.name &&
-                e1.phone == e2.phone &&
-                e1.birthday == e2.birthday &&
-                e1.personalData == e2.personalData &&
-                e1.restdentialAddress == e2.restdentialAddress &&
-                e1.locale == e2.locale &&
-                e1.familarPeoplePosition == e2.familarPeoplePosition &&
-                e1.firstMeeting == e2.firstMeeting &&
-                e1.goodSides == e2.goodSides &&
-                e1.extraInfo == e2.extraInfo);
+                (e1.Name == e2.Name &&
+                e1.Phone == e2.Phone &&
+                e1.Birthday == e2.Birthday &&
+                e1.PersonalData == e2.PersonalData &&
+                e1.RestdentialAddress == e2.RestdentialAddress &&
+                e1.Locale == e2.Locale &&
+                e1.FamilarPeoplePosition == e2.FamilarPeoplePosition &&
+                e1.FirstMeeting == e2.FirstMeeting &&
+                e1.GoodSides == e2.GoodSides &&
+                e1.ExtraInfo == e2.ExtraInfo);
         }
 
         public static bool operator != (Element e1, Element e2)

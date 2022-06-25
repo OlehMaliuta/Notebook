@@ -121,80 +121,96 @@ namespace Notebook
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainFormLoad(object sender, EventArgs e)
         {
-            listDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            listDataGridView.DefaultCellStyle.WrapMode = 
+                DataGridViewTriState.True;
 
             this.listsStorage = 
-                JsonConvert.DeserializeObject<ListsStorage>(File.ReadAllText("ListsStorageInfo.json"));
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
 
             this.progVarStorage = 
-                JsonConvert.DeserializeObject<ProgVarStorage>(File.ReadAllText("ProgVarStorageInfo.json"));
+                JsonConvert.DeserializeObject<ProgVarStorage>(
+                    File.ReadAllText("ProgVarStorageInfo.json"));
 
-            SetWindowLang(progVarStorage.language);
+            SetWindowLang(progVarStorage.AppLanguage);
 
             var pl =
-                listsStorage.peopleLists.OrderBy(item => item.listName);
+                listsStorage.PeopleLists.OrderBy(item => item.ListName);
 
             foreach (PeopleList el in pl)
             {
                 listDataGridView.Rows.Add
                     (
-                    el.listName,
-                    el.creatingDate,
-                    el.updatingDate
+                    el.ListName,
+                    el.CreatingDate,
+                    el.UpdatingDate
                     );
             }
 
             sortingListsComboBox.SelectedIndex = 0;
         }
 
-        private void addListTool_Click(object sender, EventArgs e)
+        private void addListToolClick(object sender, EventArgs e)
         {
-            CreateListButton_Click(sender, e);
+            CreateListButtonClick(sender, e);
         }
 
-        private void exitTool_Click(object sender, EventArgs e)
+        private void exitToolClick(object sender, EventArgs e)
         {
-            exitButton_Click(sender, e);
+            exitButtonClick(sender, e);
         }
 
-        private void CreateListButton_Click(object sender, EventArgs e)
+        private void CreateListButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.listNameFormVariant = "create";
+            progVarStorage.ListNameFormVariant = "create";
 
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
 
             this.Hide();
             ListNameForm listNameForm = new ListNameForm();
             listNameForm.Show();
         }
 
-        private void settingsButton_Click(object sender, EventArgs e)
+        private void settingsButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.prevWindow = "mainForm";
+            progVarStorage.PrevWindow = "mainForm";
 
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
 
             this.Hide();
             LanguageForm languageForm = new LanguageForm();
             languageForm.Show();
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void exitButtonClick(object sender, EventArgs e)
         {
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
 
             Application.Exit();
         }
 
-        private void listDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void listDataGridViewCellClick(
+            object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
@@ -202,12 +218,20 @@ namespace Notebook
                 {
                     case "open":
                         {
-                            progVarStorage.reviewListName = listsStorage.peopleLists.Find(
-                                item => item.listName == listDataGridView[0, e.RowIndex].Value.ToString()).listName;
+                            progVarStorage.ReviewListName = 
+                                listsStorage.PeopleLists.Find(
+                                item => item.ListName == listDataGridView[
+                                    0, e.RowIndex].Value.ToString()).ListName;
 
-                            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+                            File.WriteAllText(
+                                "ListsStorageInfo.json",
+                                JsonConvert.SerializeObject(
+                                    this.listsStorage));
 
-                            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+                            File.WriteAllText(
+                                "ProgVarStorageInfo.json",
+                                JsonConvert.SerializeObject(
+                                    this.progVarStorage));
 
                             this.Hide();
                             ListForm listForm = new ListForm();
@@ -216,13 +240,20 @@ namespace Notebook
                         break;
                     case "rename":
                         {
-                            progVarStorage.listNameFormVariant = "rename";
-                            progVarStorage.name =
-                                listDataGridView[0, e.RowIndex].Value.ToString();
+                            progVarStorage.ListNameFormVariant = "rename";
+                            progVarStorage.Name =
+                                listDataGridView[0, e.RowIndex]
+                                   .Value.ToString();
 
-                            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+                            File.WriteAllText(
+                                "ListsStorageInfo.json",
+                                JsonConvert.SerializeObject(
+                                    this.listsStorage));
 
-                            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+                            File.WriteAllText(
+                                "ProgVarStorageInfo.json",
+                                JsonConvert.SerializeObject(
+                                    this.progVarStorage));
 
                             this.Hide();
                             ListNameForm listNameForm = new ListNameForm();
@@ -241,24 +272,34 @@ namespace Notebook
                             if (result == DialogResult.Yes)
                             {
                                 PeopleList person = 
-                                    this.listsStorage.peopleLists.Find(
-                                        item => item.listName == listDataGridView[0, e.RowIndex].Value.ToString()
+                                    this.listsStorage.PeopleLists.Find(
+                                        item => item.ListName == 
+                                        listDataGridView[0, e.RowIndex]
+                                           .Value.ToString()
                                         );
 
-                                this.listsStorage.peopleLists.Remove(person);
+                                this.listsStorage.PeopleLists.Remove(person);
 
                                 while (listDataGridView.Rows.Count > 0)
                                 {
-                                    listDataGridView.Rows.Remove(listDataGridView.Rows[listDataGridView.Rows.Count - 1]);
+                                    listDataGridView.Rows.Remove(
+                                        listDataGridView.Rows[
+                                            listDataGridView.Rows.Count - 1]);
                                 }
 
-                                for (int i = 0; i < listsStorage.peopleLists.Count; i++)
+                                for (
+                                    int i = 0;
+                                    i < listsStorage.PeopleLists.Count;
+                                    i++)
                                 {
                                     listDataGridView.Rows.Add
                                         (
-                                        listsStorage.peopleLists[i].listName,
-                                        listsStorage.peopleLists[i].creatingDate,
-                                        listsStorage.peopleLists[i].updatingDate
+                                        listsStorage.PeopleLists[i]
+                                            .ListName,
+                                        listsStorage.PeopleLists[i]
+                                            .CreatingDate,
+                                        listsStorage.PeopleLists[i]
+                                            .UpdatingDate
                                         );
                                 }
 
@@ -266,17 +307,23 @@ namespace Notebook
                                 {
                                     case 0:
                                         {
-                                            listDataGridView.Sort(listDataGridView.Columns[0], ListSortDirection.Ascending);
+                                            listDataGridView.Sort(
+                                                listDataGridView.Columns[0],
+                                                ListSortDirection.Ascending);
                                         }
                                         break;
                                     case 1:
                                         {
-                                            listDataGridView.Sort(listDataGridView.Columns[1], ListSortDirection.Ascending);
+                                            listDataGridView.Sort(
+                                                listDataGridView.Columns[1],
+                                                ListSortDirection.Ascending);
                                         }
                                         break;
                                     case 2:
                                         {
-                                            listDataGridView.Sort(listDataGridView.Columns[2], ListSortDirection.Ascending);
+                                            listDataGridView.Sort(
+                                                listDataGridView.Columns[2],
+                                                ListSortDirection.Ascending);
                                         }
                                         break;
                                 }
@@ -287,29 +334,36 @@ namespace Notebook
             }
         }
 
-        private void sortingListsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void sortingListsComboBoxSelectedIndexChanged(
+            object sender, EventArgs e)
         {
             switch (sortingListsComboBox.SelectedIndex)
             {
                 case 0:
                     {
-                        listDataGridView.Sort(listDataGridView.Columns[0], ListSortDirection.Ascending);
+                        listDataGridView.Sort(
+                            listDataGridView.Columns[0],
+                            ListSortDirection.Ascending);
                     }
                     break;
                 case 1:
                     {
-                        listDataGridView.Sort(listDataGridView.Columns[1], ListSortDirection.Ascending);
+                        listDataGridView.Sort(
+                            listDataGridView.Columns[1],
+                            ListSortDirection.Ascending);
                     }
                     break;
                 case 2:
                     {
-                        listDataGridView.Sort(listDataGridView.Columns[2], ListSortDirection.Ascending);
+                        listDataGridView.Sort(
+                            listDataGridView.Columns[2],
+                            ListSortDirection.Ascending);
                     }
                     break;
             }
         }
 
-        private void searchListTextBox_TextChanged(object sender, EventArgs e)
+        private void searchListTextBoxTextChanged(object sender, EventArgs e)
         {
             List<PeopleList> pl = new List<PeopleList>();
 
@@ -318,50 +372,62 @@ namespace Notebook
             switch (sortingListsComboBox.SelectedIndex)
             {
                 case 0:
-                    persons = listsStorage.peopleLists.OrderBy(item => item.listName);
+                    persons = listsStorage.PeopleLists.OrderBy(
+                        item => item.ListName);
                     break;
                 case 1:
-                    persons = listsStorage.peopleLists.OrderBy(item => item.creatingDate);
+                    persons = listsStorage.PeopleLists.OrderBy(
+                        item => item.CreatingDate);
                     break;
                 case 2:
-                    persons = listsStorage.peopleLists.OrderBy(item => item.updatingDate);
+                    persons = listsStorage.PeopleLists.OrderBy(
+                        item => item.UpdatingDate);
                     break;
             }
 
             foreach (PeopleList el in persons)
             {
-                pl.Add(new PeopleList(el.listName, el.creatingDate, el.updatingDate));
+                pl.Add(new PeopleList(
+                    el.ListName,
+                    el.CreatingDate,
+                    el.UpdatingDate));
             }
 
             while (listDataGridView.Rows.Count > 0)
             {
-                listDataGridView.Rows.Remove(listDataGridView.Rows[listDataGridView.Rows.Count - 1]);
+                listDataGridView.Rows.Remove(
+                    listDataGridView.Rows[listDataGridView.Rows.Count - 1]);
             }
 
             while (pl.FindIndex(item => 
-                item.listName.ToLower().Contains(
+                item.ListName.ToLower().Contains(
                     searchListTextBox.Text.ToLower())) != -1)
             {
                 int idx = pl.FindIndex(item =>
-                    item.listName.ToLower().Contains(
+                    item.ListName.ToLower().Contains(
                         searchListTextBox.Text.ToLower()));
 
                 listDataGridView.Rows.Add
                     (
-                    pl[idx].listName,
-                    pl[idx].creatingDate,
-                    pl[idx].updatingDate
+                    pl[idx].ListName,
+                    pl[idx].CreatingDate,
+                    pl[idx].UpdatingDate
                     );
 
                 pl.RemoveAt(idx);
             }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void MainFormFormClosing(
+            object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText("ListsStorageInfo.json", JsonConvert.SerializeObject(this.listsStorage));
+            File.WriteAllText(
+                "ListsStorageInfo.json",
+                JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText("ProgVarStorageInfo.json", JsonConvert.SerializeObject(this.progVarStorage));
+            File.WriteAllText(
+                "ProgVarStorageInfo.json",
+                JsonConvert.SerializeObject(this.progVarStorage));
         }
     }
 }
