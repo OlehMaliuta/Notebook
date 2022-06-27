@@ -62,14 +62,14 @@ namespace Notebook
             languageComboBox.SelectedIndex = (int)progVarStorage.AppLanguage;
         }
 
-        private void mainMenuButtonClick(object sender, EventArgs e)
+        private void MainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
 
-        private void goBackButtonClick(object sender, EventArgs e)
+        private void GoBackButtonClick(object sender, EventArgs e)
         {
             string backoToWindow = progVarStorage.PrevWindow;
 
@@ -92,7 +92,7 @@ namespace Notebook
             }
         }
 
-        private void changeLanguageButtonClick(object sender, EventArgs e)
+        private void ChangeLanguageButtonClick(object sender, EventArgs e)
         {
             switch (languageComboBox.SelectedIndex)
             {

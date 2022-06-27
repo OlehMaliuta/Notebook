@@ -117,7 +117,7 @@ namespace Notebook
             SetWindowLanguage(progVarStorage.AppLanguage, variant);
         }
 
-        private void giveListNameButtonClick(object sender, EventArgs e)
+        private void GiveListNameButtonClick(object sender, EventArgs e)
         {
             if (listNameTextBox.Text == "")
             {
@@ -170,7 +170,7 @@ namespace Notebook
             }
         }
 
-        private void goBackButtonClick(object sender, EventArgs e)
+        private void GoBackButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();

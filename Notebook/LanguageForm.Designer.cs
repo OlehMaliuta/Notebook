@@ -46,7 +46,7 @@
             this.changeLanguageButton.TabIndex = 27;
             this.changeLanguageButton.Text = "прийняти зміни";
             this.changeLanguageButton.UseVisualStyleBackColor = true;
-            this.changeLanguageButton.Click += new System.EventHandler(this.changeLanguageButtonClick);
+            this.changeLanguageButton.Click += new System.EventHandler(this.ChangeLanguageButtonClick);
             // 
             // mainMenuButton
             // 
@@ -58,7 +58,7 @@
             this.mainMenuButton.TabIndex = 25;
             this.mainMenuButton.Text = "головне меню";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButtonClick);
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenuButtonClick);
             // 
             // languageWindowLabel
             // 
@@ -96,7 +96,7 @@
             this.goBackButton.TabIndex = 30;
             this.goBackButton.Text = "назад";
             this.goBackButton.UseVisualStyleBackColor = true;
-            this.goBackButton.Click += new System.EventHandler(this.goBackButtonClick);
+            this.goBackButton.Click += new System.EventHandler(this.GoBackButtonClick);
             // 
             // LanguageForm
             // 

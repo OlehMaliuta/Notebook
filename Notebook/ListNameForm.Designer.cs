@@ -65,7 +65,7 @@
             this.giveListNameButton.TabIndex = 2;
             this.giveListNameButton.Text = "створити";
             this.giveListNameButton.UseVisualStyleBackColor = true;
-            this.giveListNameButton.Click += new System.EventHandler(this.giveListNameButtonClick);
+            this.giveListNameButton.Click += new System.EventHandler(this.GiveListNameButtonClick);
             // 
             // goBackButton
             // 
@@ -77,7 +77,7 @@
             this.goBackButton.TabIndex = 3;
             this.goBackButton.Text = "назад";
             this.goBackButton.UseVisualStyleBackColor = true;
-            this.goBackButton.Click += new System.EventHandler(this.goBackButtonClick);
+            this.goBackButton.Click += new System.EventHandler(this.GoBackButtonClick);
             // 
             // ListNameForm
             // 

@@ -54,6 +54,7 @@ namespace Notebook
 
                     fileMenuSection.Text = "Файл";
                     addListTool.Text = "Додати список";
+                    settingsTool.Text = "Налаштування";
                     exitTool.Text = "Вихід";
                     break;
 
@@ -84,6 +85,7 @@ namespace Notebook
 
                     fileMenuSection.Text = "Файл";
                     addListTool.Text = "Добавить список";
+                    settingsTool.Text = "Настройки";
                     exitTool.Text = "Выход";
                     break;
 
@@ -116,6 +118,7 @@ namespace Notebook
 
                     fileMenuSection.Text = "File";
                     addListTool.Text = "Add list";
+                    settingsTool.Text = "Settings";
                     exitTool.Text = "Exit";
                     break;
             }
@@ -152,14 +155,19 @@ namespace Notebook
             sortingListsComboBox.SelectedIndex = 0;
         }
 
-        private void addListToolClick(object sender, EventArgs e)
+        private void AddListToolClick(object sender, EventArgs e)
         {
             CreateListButtonClick(sender, e);
         }
 
-        private void exitToolClick(object sender, EventArgs e)
+        private void SettingsToolClick(object sender, EventArgs e)
         {
-            exitButtonClick(sender, e);
+            SettingsButtonClick(sender, e);
+        }
+
+        private void ExitToolClick(object sender, EventArgs e)
+        {
+            ExitButtonClick(sender, e);
         }
 
         private void CreateListButtonClick(object sender, EventArgs e)
@@ -179,7 +187,7 @@ namespace Notebook
             listNameForm.Show();
         }
 
-        private void settingsButtonClick(object sender, EventArgs e)
+        private void SettingsButtonClick(object sender, EventArgs e)
         {
             progVarStorage.PrevWindow = "mainForm";
 
@@ -196,7 +204,7 @@ namespace Notebook
             languageForm.Show();
         }
 
-        private void exitButtonClick(object sender, EventArgs e)
+        private void ExitButtonClick(object sender, EventArgs e)
         {
             File.WriteAllText(
                 "ListsStorageInfo.json",
@@ -209,7 +217,7 @@ namespace Notebook
             Application.Exit();
         }
 
-        private void listDataGridViewCellClick(
+        private void ListDataGridViewCellClick(
             object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -334,7 +342,7 @@ namespace Notebook
             }
         }
 
-        private void sortingListsComboBoxSelectedIndexChanged(
+        private void SortingListsComboBoxSelectedIndexChanged(
             object sender, EventArgs e)
         {
             switch (sortingListsComboBox.SelectedIndex)
@@ -363,7 +371,7 @@ namespace Notebook
             }
         }
 
-        private void searchListTextBoxTextChanged(object sender, EventArgs e)
+        private void SearchListTextBoxTextChanged(object sender, EventArgs e)
         {
             List<PeopleList> pl = new List<PeopleList>();
 

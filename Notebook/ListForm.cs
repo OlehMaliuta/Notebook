@@ -81,6 +81,7 @@ namespace Notebook
                     addElementTool.Text = "Додати елемент";
                     createTxtTool.Text = "Зберегти список у файлі .txt";
                     createDocxTool.Text = "Зберегти список у файлі .docx";
+                    settingsTool.Text = "Налаштування";
                     exitTool.Text = "Вихід";
 
                     messageText = new string[]
@@ -158,6 +159,7 @@ namespace Notebook
                     addElementTool.Text = "Добавить элемент";
                     createTxtTool.Text = "Сохранить список в файле .txt";
                     createDocxTool.Text = "Сохранить список в файле .docx";
+                    settingsTool.Text = "Настройки";
                     exitTool.Text = "Выход";
 
                     messageText = new string[]
@@ -233,6 +235,7 @@ namespace Notebook
                     addElementTool.Text = "Add element";
                     createTxtTool.Text = "Save the list at .txt file";
                     createDocxTool.Text = "Save the list at .docx file";
+                    settingsTool.Text = "Settings";
                     exitTool.Text = "Exit";
 
                     messageText = new string[]
@@ -305,27 +308,32 @@ namespace Notebook
             this.Text = $"\"{reviewList.ListName}\"";
         }
 
-        private void addElementToolClick(object sender, EventArgs e)
+        private void AddElementToolClick(object sender, EventArgs e)
         {
-            addElementButtonClick(sender, e);
+            AddElementButtonClick(sender, e);
         }
 
-        private void createTxtToolClick(object sender, EventArgs e)
+        private void CreateTxtToolClick(object sender, EventArgs e)
         {
-            createTxtFileButtonClick(sender, e);
+            CreateTxtFileButtonClick(sender, e);
         }
 
-        private void createDocxToolClick(object sender, EventArgs e)
+        private void CreateDocxToolClick(object sender, EventArgs e)
         {
-            createDocxFileButtonClick(sender, e);
+            CreateDocxFileButtonClick(sender, e);
         }
 
-        private void exitToolClick(object sender, EventArgs e)
+        private void SettingsToolClick(object sender, EventArgs e)
         {
-            exitButtonClick(sender, e);
+            SettingsButtonClick(sender, e);
         }
 
-        private void addElementButtonClick(object sender, EventArgs e)
+        private void ExitToolClick(object sender, EventArgs e)
+        {
+            ExitButtonClick(sender, e);
+        }
+
+        private void AddElementButtonClick(object sender, EventArgs e)
         {
             progVarStorage.ElementFormVariant = "create";
 
@@ -334,7 +342,7 @@ namespace Notebook
             elementForm.Show();
         }
 
-        private void settingsButtonClick(object sender, EventArgs e)
+        private void SettingsButtonClick(object sender, EventArgs e)
         {
             progVarStorage.PrevWindow = "listForm";
 
@@ -343,19 +351,19 @@ namespace Notebook
             languageForm.Show();
         }
 
-        private void mainMenuButtonClick(object sender, EventArgs e)
+        private void MainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
 
-        private void exitButtonClick(object sender, EventArgs e)
+        private void ExitButtonClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void elementDataGridViewCellClick(
+        private void ElementDataGridViewCellClick(
             object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -445,7 +453,7 @@ namespace Notebook
             }
         }
 
-        private void createTxtFileButtonClick(object sender, EventArgs e)
+        private void CreateTxtFileButtonClick(object sender, EventArgs e)
         {
             p_a:
 
@@ -511,7 +519,7 @@ namespace Notebook
             }
         }
 
-        private void createDocxFileButtonClick(object sender, EventArgs e)
+        private void CreateDocxFileButtonClick(object sender, EventArgs e)
         {
             p_b:
 
@@ -583,7 +591,7 @@ namespace Notebook
             }
         }
 
-        private void sortingElementsComboBoxSelectedIndexChanged(
+        private void SortingElementsComboBoxSelectedIndexChanged(
             object sender, EventArgs e)
         {
             switch (sortingElementsComboBox.SelectedIndex)
@@ -622,7 +630,7 @@ namespace Notebook
             }
         }
 
-        private void searchElementTextBoxTextChanged(
+        private void SearchElementTextBoxTextChanged(
             object sender, EventArgs e)
         {
             List<Element> pl = new List<Element>();

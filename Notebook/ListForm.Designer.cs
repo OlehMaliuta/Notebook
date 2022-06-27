@@ -52,7 +52,10 @@
             this.addElementTool = new System.Windows.Forms.ToolStripMenuItem();
             this.createTxtTool = new System.Windows.Forms.ToolStripMenuItem();
             this.createDocxTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsTool = new System.Windows.Forms.ToolStripMenuItem();
             this.exitTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +70,7 @@
             this.addElementButton.TabIndex = 2;
             this.addElementButton.Text = "додати елемент";
             this.addElementButton.UseVisualStyleBackColor = true;
-            this.addElementButton.Click += new System.EventHandler(this.addElementButtonClick);
+            this.addElementButton.Click += new System.EventHandler(this.AddElementButtonClick);
             // 
             // exitButton
             // 
@@ -79,7 +82,7 @@
             this.exitButton.TabIndex = 16;
             this.exitButton.Text = "вихід";
             this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButtonClick);
+            this.exitButton.Click += new System.EventHandler(this.ExitButtonClick);
             // 
             // settingsButton
             // 
@@ -91,7 +94,7 @@
             this.settingsButton.TabIndex = 15;
             this.settingsButton.Text = "меню налаштування";
             this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButtonClick);
+            this.settingsButton.Click += new System.EventHandler(this.SettingsButtonClick);
             // 
             // sortingElementsComboBox
             // 
@@ -103,7 +106,7 @@
             this.sortingElementsComboBox.Name = "sortingElementsComboBox";
             this.sortingElementsComboBox.Size = new System.Drawing.Size(182, 24);
             this.sortingElementsComboBox.TabIndex = 14;
-            this.sortingElementsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortingElementsComboBoxSelectedIndexChanged);
+            this.sortingElementsComboBox.SelectedIndexChanged += new System.EventHandler(this.SortingElementsComboBoxSelectedIndexChanged);
             // 
             // sortLabel
             // 
@@ -125,7 +128,7 @@
             this.searchElementTextBox.Size = new System.Drawing.Size(431, 22);
             this.searchElementTextBox.TabIndex = 12;
             this.searchElementTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.searchElementTextBox.TextChanged += new System.EventHandler(this.searchElementTextBoxTextChanged);
+            this.searchElementTextBox.TextChanged += new System.EventHandler(this.SearchElementTextBoxTextChanged);
             // 
             // searchElementComboBox
             // 
@@ -159,7 +162,7 @@
             this.mainMenuButton.TabIndex = 19;
             this.mainMenuButton.Text = "головне меню";
             this.mainMenuButton.UseVisualStyleBackColor = true;
-            this.mainMenuButton.Click += new System.EventHandler(this.mainMenuButtonClick);
+            this.mainMenuButton.Click += new System.EventHandler(this.MainMenuButtonClick);
             // 
             // elementDataGridView
             // 
@@ -187,7 +190,7 @@
             this.elementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.elementDataGridView.Size = new System.Drawing.Size(766, 584);
             this.elementDataGridView.TabIndex = 21;
-            this.elementDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.elementDataGridViewCellClick);
+            this.elementDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElementDataGridViewCellClick);
             // 
             // name
             // 
@@ -251,7 +254,7 @@
             this.createDocxFileButton.TabIndex = 23;
             this.createDocxFileButton.Text = "зберегти у список форматі .docx";
             this.createDocxFileButton.UseVisualStyleBackColor = true;
-            this.createDocxFileButton.Click += new System.EventHandler(this.createDocxFileButtonClick);
+            this.createDocxFileButton.Click += new System.EventHandler(this.CreateDocxFileButtonClick);
             // 
             // createTxtFileButton
             // 
@@ -264,7 +267,7 @@
             this.createTxtFileButton.TabIndex = 22;
             this.createTxtFileButton.Text = "зберегти список у файлі .txt";
             this.createTxtFileButton.UseVisualStyleBackColor = true;
-            this.createTxtFileButton.Click += new System.EventHandler(this.createTxtFileButtonClick);
+            this.createTxtFileButton.Click += new System.EventHandler(this.CreateTxtFileButtonClick);
             // 
             // menuStrip
             // 
@@ -285,6 +288,7 @@
             this.addElementTool,
             this.createTxtTool,
             this.createDocxTool,
+            this.settingsTool,
             this.exitTool});
             this.fileMenuSection.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fileMenuSection.Name = "fileMenuSection";
@@ -297,7 +301,7 @@
             this.addElementTool.Name = "addElementTool";
             this.addElementTool.Size = new System.Drawing.Size(268, 22);
             this.addElementTool.Text = "Додати елемент";
-            this.addElementTool.Click += new System.EventHandler(this.addElementToolClick);
+            this.addElementTool.Click += new System.EventHandler(this.AddElementToolClick);
             // 
             // createTxtTool
             // 
@@ -305,7 +309,7 @@
             this.createTxtTool.Name = "createTxtTool";
             this.createTxtTool.Size = new System.Drawing.Size(268, 22);
             this.createTxtTool.Text = "Зберегти список у файлі .txt";
-            this.createTxtTool.Click += new System.EventHandler(this.createTxtToolClick);
+            this.createTxtTool.Click += new System.EventHandler(this.CreateTxtToolClick);
             // 
             // createDocxTool
             // 
@@ -313,7 +317,15 @@
             this.createDocxTool.Name = "createDocxTool";
             this.createDocxTool.Size = new System.Drawing.Size(268, 22);
             this.createDocxTool.Text = "Зберегти список у файлі .docx";
-            this.createDocxTool.Click += new System.EventHandler(this.createDocxToolClick);
+            this.createDocxTool.Click += new System.EventHandler(this.CreateDocxToolClick);
+            // 
+            // settingsTool
+            // 
+            this.settingsTool.Image = global::Notebook.Properties.Resources.settings;
+            this.settingsTool.Name = "settingsTool";
+            this.settingsTool.Size = new System.Drawing.Size(268, 22);
+            this.settingsTool.Text = "Налаштування";
+            this.settingsTool.Click += new System.EventHandler(this.SettingsToolClick);
             // 
             // exitTool
             // 
@@ -321,7 +333,22 @@
             this.exitTool.Name = "exitTool";
             this.exitTool.Size = new System.Drawing.Size(268, 22);
             this.exitTool.Text = "Вихід";
-            this.exitTool.Click += new System.EventHandler(this.exitToolClick);
+            this.exitTool.Click += new System.EventHandler(this.ExitToolClick);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "*Детальніше*";
+            this.dataGridViewImageColumn1.Image = global::Notebook.Properties.Resources.note;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.Width = 81;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "*Видалити*";
+            this.dataGridViewImageColumn2.Image = global::Notebook.Properties.Resources.remove;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 69;
             // 
             // ListForm
             // 
@@ -374,12 +401,15 @@
         private System.Windows.Forms.ToolStripMenuItem addElementTool;
         private System.Windows.Forms.ToolStripMenuItem createTxtTool;
         private System.Windows.Forms.ToolStripMenuItem createDocxTool;
-        private System.Windows.Forms.ToolStripMenuItem exitTool;
+        private System.Windows.Forms.ToolStripMenuItem settingsTool;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
         private System.Windows.Forms.DataGridViewTextBoxColumn creatingDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn updatingDate;
         private System.Windows.Forms.DataGridViewImageColumn open;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private System.Windows.Forms.ToolStripMenuItem exitTool;
     }
 }

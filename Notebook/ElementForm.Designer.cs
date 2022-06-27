@@ -58,7 +58,7 @@
             this.changeElementButton.TabIndex = 0;
             this.changeElementButton.Text = "створити";
             this.changeElementButton.UseVisualStyleBackColor = true;
-            this.changeElementButton.Click += new System.EventHandler(this.changeElementButtonClick);
+            this.changeElementButton.Click += new System.EventHandler(this.ChangeElementButtonClick);
             // 
             // goBackButton
             // 
@@ -70,7 +70,7 @@
             this.goBackButton.TabIndex = 1;
             this.goBackButton.Text = "назад";
             this.goBackButton.UseVisualStyleBackColor = true;
-            this.goBackButton.Click += new System.EventHandler(this.goBackButtonClick);
+            this.goBackButton.Click += new System.EventHandler(this.GoBackButtonClick);
             // 
             // infoFieldTypeComboBox
             // 
@@ -82,7 +82,7 @@
             this.infoFieldTypeComboBox.Name = "infoFieldTypeComboBox";
             this.infoFieldTypeComboBox.Size = new System.Drawing.Size(163, 24);
             this.infoFieldTypeComboBox.TabIndex = 2;
-            this.infoFieldTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.infoFieldTypeComboBoxSelectedIndexChanged);
+            this.infoFieldTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.InfoFieldTypeComboBoxSelectedIndexChanged);
             // 
             // infoTextBox
             // 
@@ -93,7 +93,7 @@
             this.infoTextBox.Name = "infoTextBox";
             this.infoTextBox.Size = new System.Drawing.Size(377, 337);
             this.infoTextBox.TabIndex = 3;
-            this.infoTextBox.TextChanged += new System.EventHandler(this.infoTextBoxTextChanged);
+            this.infoTextBox.TextChanged += new System.EventHandler(this.InfoTextBoxTextChanged);
             // 
             // fieldNameLabel
             // 

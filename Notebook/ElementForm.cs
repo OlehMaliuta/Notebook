@@ -206,7 +206,7 @@ namespace Notebook
             datePanel.Visible = false;
         }
 
-        private void changeElementButtonClick(object sender, EventArgs e)
+        private void ChangeElementButtonClick(object sender, EventArgs e)
         {
             string err = "";
 
@@ -289,14 +289,14 @@ namespace Notebook
             listForm.Show();
         }
 
-        private void goBackButtonClick(object sender, EventArgs e)
+        private void GoBackButtonClick(object sender, EventArgs e)
         {
             this.Close();
             ListForm listForm = new ListForm();
             listForm.Show();
         }
 
-        private void infoTextBoxTextChanged(object sender, EventArgs e)
+        private void InfoTextBoxTextChanged(object sender, EventArgs e)
         {
             switch (infoFieldTypeComboBox.SelectedIndex)
             {
@@ -338,7 +338,7 @@ namespace Notebook
             }
         }
 
-        private void infoFieldTypeComboBoxSelectedIndexChanged(
+        private void InfoFieldTypeComboBoxSelectedIndexChanged(
             object sender, EventArgs e)
         {
             fieldNameLabel.Text = infoFieldTypeComboBox.Text;
