@@ -494,7 +494,7 @@ namespace Notebook
                     fields.Add(fieldNames[2] +
                         people[count1 - 1].PersonalData);
                     fields.Add(fieldNames[3] +
-                        people[count1 - 1].RestdentialAddress);
+                        people[count1 - 1].ResidentialAddress);
                     fields.Add(fieldNames[4] +
                         people[count1 - 1].Locale);
                     fields.Add(fieldNames[5] +
@@ -563,7 +563,7 @@ namespace Notebook
                     fields.Add(fieldNames[2] +
                         people[count1 - 1].PersonalData);
                     fields.Add(fieldNames[3] +
-                        people[count1 - 1].RestdentialAddress);
+                        people[count1 - 1].ResidentialAddress);
                     fields.Add(fieldNames[4] +
                         people[count1 - 1].Locale);
                     fields.Add(fieldNames[5] +
@@ -700,7 +700,7 @@ namespace Notebook
 
                 case 4:
                     spl = pl.FindAll(
-                        item => item.RestdentialAddress.ToLower().Contains(
+                        item => item.ResidentialAddress.ToLower().Contains(
                             searchElementTextBox.Text.ToLower()));
                     break;
 

@@ -13,7 +13,7 @@ namespace Notebook
         public string Phone = "-";
         public string Birthday = "-.-.-";
         public string PersonalData = "-";
-        public string RestdentialAddress = "-";
+        public string ResidentialAddress = "-";
         public string Locale = "-";
         public string FamilarPeoplePosition = "-";
         public string FirstMeeting = "-";
@@ -30,7 +30,7 @@ namespace Notebook
             this.Phone = original.Phone;
             this.Birthday = original.Birthday;
             this.PersonalData = original.PersonalData;
-            this.RestdentialAddress = original.RestdentialAddress;
+            this.ResidentialAddress = original.ResidentialAddress;
             this.Locale = original.Locale;
             this.FamilarPeoplePosition = original.FamilarPeoplePosition;
             this.FirstMeeting = original.FirstMeeting;
@@ -45,7 +45,7 @@ namespace Notebook
                 e1.Phone == e2.Phone &&
                 e1.Birthday == e2.Birthday &&
                 e1.PersonalData == e2.PersonalData &&
-                e1.RestdentialAddress == e2.RestdentialAddress &&
+                e1.ResidentialAddress == e2.ResidentialAddress &&
                 e1.Locale == e2.Locale &&
                 e1.FamilarPeoplePosition == e2.FamilarPeoplePosition &&
                 e1.FirstMeeting == e2.FirstMeeting &&

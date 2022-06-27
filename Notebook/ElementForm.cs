@@ -313,7 +313,7 @@ namespace Notebook
                     break;
 
                 case 4:
-                    newElement.RestdentialAddress = infoTextBox.Text;
+                    newElement.ResidentialAddress = infoTextBox.Text;
                     break;
 
                 case 5:
@@ -387,7 +387,7 @@ namespace Notebook
                 case 4:
                     infoTextBox.Visible = true;
                     datePanel.Visible = false;
-                    infoTextBox.Text = newElement.RestdentialAddress;
+                    infoTextBox.Text = newElement.ResidentialAddress;
                     break;
 
                 case 5:
