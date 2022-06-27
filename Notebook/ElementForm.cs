@@ -329,7 +329,7 @@ namespace Notebook
                     break;
 
                 case 8:
-                    newElement.GoodSides = infoTextBox.Text;
+                    newElement.Skills = infoTextBox.Text;
                     break;
 
                 case 9:
@@ -411,7 +411,7 @@ namespace Notebook
                 case 8:
                     infoTextBox.Visible = true;
                     datePanel.Visible = false;
-                    infoTextBox.Text = newElement.GoodSides;
+                    infoTextBox.Text = newElement.Skills;
                     break;
 
                 case 9:

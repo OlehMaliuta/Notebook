@@ -17,7 +17,7 @@ namespace Notebook
         public string Locale = "-";
         public string FamilarPeoplePosition = "-";
         public string FirstMeeting = "-";
-        public string GoodSides = "-";
+        public string Skills = "-";
         public string ExtraInfo = "-";
         public string CreatingDate = "ERR";
         public string UpdatingDate = "ERR";
@@ -34,7 +34,7 @@ namespace Notebook
             this.Locale = original.Locale;
             this.FamilarPeoplePosition = original.FamilarPeoplePosition;
             this.FirstMeeting = original.FirstMeeting;
-            this.GoodSides = original.GoodSides;
+            this.Skills = original.Skills;
             this.ExtraInfo = original.ExtraInfo;
         }
 
@@ -49,7 +49,7 @@ namespace Notebook
                 e1.Locale == e2.Locale &&
                 e1.FamilarPeoplePosition == e2.FamilarPeoplePosition &&
                 e1.FirstMeeting == e2.FirstMeeting &&
-                e1.GoodSides == e2.GoodSides &&
+                e1.Skills == e2.Skills &&
                 e1.ExtraInfo == e2.ExtraInfo);
         }
 

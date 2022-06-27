@@ -502,7 +502,7 @@ namespace Notebook
                     fields.Add(fieldNames[6] +
                         people[count1 - 1].FirstMeeting);
                     fields.Add(fieldNames[7] +
-                        people[count1 - 1].GoodSides);
+                        people[count1 - 1].Skills);
                     fields.Add(fieldNames[8] +
                         people[count1 - 1].ExtraInfo);
 
@@ -571,7 +571,7 @@ namespace Notebook
                     fields.Add(fieldNames[6] +
                         people[count1 - 1].FirstMeeting);
                     fields.Add(fieldNames[7] +
-                        people[count1 - 1].GoodSides);
+                        people[count1 - 1].Skills);
                     fields.Add(fieldNames[8] +
                         people[count1 - 1].ExtraInfo);
 
@@ -724,7 +724,7 @@ namespace Notebook
 
                 case 8:
                     spl = pl.FindAll(
-                        item => item.GoodSides.ToLower().Contains(
+                        item => item.Skills.ToLower().Contains(
                             searchElementTextBox.Text.ToLower()));
                     break;
 
