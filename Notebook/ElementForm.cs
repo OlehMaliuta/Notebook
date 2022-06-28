@@ -185,7 +185,7 @@ namespace Notebook
             if (progVarStorage.ElementFormVariant == "change")
             {
                 reviewElement = reviewList.Elements.Single(
-                    p => p.Name == progVarStorage.RevievElementName);
+                    p => p.Name == progVarStorage.ReviewElementName);
 
                 newElement.CopyElement(reviewElement);
             }

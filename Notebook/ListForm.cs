@@ -373,7 +373,7 @@ namespace Notebook
                     case "open":
                         {
                             progVarStorage.ElementFormVariant = "change";
-                            progVarStorage.RevievElementName =
+                            progVarStorage.ReviewElementName =
                                 elementDataGridView[0, e.RowIndex]
                                     .Value.ToString();
 

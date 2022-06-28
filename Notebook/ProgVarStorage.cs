@@ -21,7 +21,6 @@ namespace Notebook
         public string PrevWindow = "ERR";
         public string Name = "ERR";
         public string ReviewListName = "ERR";
-        public string RevievElementName = "ERR";
-        public int Index = -1;
+        public string ReviewElementName = "ERR";
     }
 }
