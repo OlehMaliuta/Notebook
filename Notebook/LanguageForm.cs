@@ -25,7 +25,7 @@ namespace Notebook
         {
             switch (language)
             {
-                case Language.Ukranian:
+                case Language.Ukraіnian:
                     this.Text = "Налаштування";
                     languageWindowLabel.Text = "Вибрати мову:";
                     goBackButton.Text = "назад";
@@ -97,7 +97,7 @@ namespace Notebook
             switch (languageComboBox.SelectedIndex)
             {
                 case 0:
-                    progVarStorage.AppLanguage = Language.Ukranian;
+                    progVarStorage.AppLanguage = Language.Ukraіnian;
                     break;
 
                 case 1:

@@ -32,7 +32,7 @@ namespace Notebook
         {
             switch (language)
             {
-                case Language.Ukranian:
+                case Language.Ukraіnian:
                     addElementButton.Text = "додати елемент";
 
                     createTxtFileButton.Text = 

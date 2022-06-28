@@ -8,14 +8,14 @@ namespace Notebook
 {
     enum Language
     {
-        Ukranian = 0,
+        Ukraіnian = 0,
         Russian = 1,
         English = 2
     }
 
     internal class ProgVarStorage
     {
-        public Language AppLanguage = Language.Ukranian;
+        public Language AppLanguage = Language.Ukraіnian;
         public string ListNameFormVariant = "ERR";
         public string ElementFormVariant = "ERR";
         public string PrevWindow = "ERR";

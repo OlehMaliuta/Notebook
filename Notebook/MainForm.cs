@@ -27,7 +27,7 @@ namespace Notebook
         {
             switch (language)
             {
-                case Language.Ukranian:
+                case Language.Ukraіnian:
                     this.Text = "Головне меню";
 
                     listDataGridView.Columns[0].HeaderText = "Назва списку";

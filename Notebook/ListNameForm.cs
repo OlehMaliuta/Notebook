@@ -28,7 +28,7 @@ namespace Notebook
         {
             switch (language)
             {
-                case Language.Ukranian:
+                case Language.Ukraіnian:
                     if (variant == "create")
                     {
                         this.Text = "Новий список";
