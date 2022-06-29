@@ -21,6 +21,7 @@ namespace Notebook
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private PeopleList reviewList = new PeopleList();
         private string nextWindow = "";
+        private bool isClosing = false;
         private string[] messageText;
         private string[] fieldNames;
 
@@ -355,7 +356,8 @@ namespace Notebook
 
         private void ExitButtonClick(object sender, EventArgs e)
         {
-            Application.ExitThread();
+            isClosing = true;
+            this.Close();
         }
 
         private void ElementDataGridViewCellClick(
@@ -751,6 +753,9 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            if (isClosing)
+                Environment.Exit(0);
 
             switch (nextWindow)
             {
