@@ -112,6 +112,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "LanguageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanguageForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LanguageFormFormClosing);
             this.Load += new System.EventHandler(this.LanguageFormLoad);

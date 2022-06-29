@@ -37,9 +37,9 @@ namespace Notebook
                     }
                     else if (variant == "rename")
                     {
-                        this.Text = "Переіменувати список";
+                        this.Text = "Перейменувати список";
                         listNameWindowLabel.Text = "Нова ім'я списку:";
-                        giveListNameButton.Text = "переіменувати";
+                        giveListNameButton.Text = "перейменувати";
                     }
 
                     goBackButton.Text = "назад";
@@ -148,8 +148,6 @@ namespace Notebook
                         "\n" + DateTime.Now.ToLongTimeString();
 
                     this.Close();
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
                 }
                 else
                 {
@@ -164,8 +162,6 @@ namespace Notebook
                     ));
 
                     this.Close();
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
                 }
             }
         }
@@ -173,8 +169,6 @@ namespace Notebook
         private void GoBackButtonClick(object sender, EventArgs e)
         {
             this.Close();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
         }
 
         private void ListNameFormFormClosing(
@@ -187,6 +181,9 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }

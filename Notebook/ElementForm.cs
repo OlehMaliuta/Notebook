@@ -19,6 +19,7 @@ namespace Notebook
         private PeopleList reviewList = new PeopleList();
         private Element reviewElement = new Element();
         private Element newElement = new Element();
+        private string nextWindow = "";
         private string[] messageText;
 
         public ElementForm()
@@ -284,16 +285,14 @@ namespace Notebook
                 }
             }
 
+            nextWindow = "ListForm";
             this.Close();
-            ListForm listForm = new ListForm();
-            listForm.Show();
         }
 
         private void GoBackButtonClick(object sender, EventArgs e)
         {
+            nextWindow = "ListForm";
             this.Close();
-            ListForm listForm = new ListForm();
-            listForm.Show();
         }
 
         private void InfoTextBoxTextChanged(object sender, EventArgs e)
@@ -432,6 +431,25 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            switch (nextWindow)
+            {
+                case "ListForm":
+                    ListForm listForm1 = new ListForm();
+                    listForm1.Show();
+                    break;
+
+                case "":
+                    ListForm listForm2 = new ListForm();
+                    listForm2.Show();
+                    break;
+
+                default:
+                    MainForm defForm = new MainForm();
+                    defForm.Show();
+                    MessageBox.Show("ERROR");
+                    break;
+            }
         }
     }
 }

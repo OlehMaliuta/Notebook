@@ -20,6 +20,7 @@ namespace Notebook
         private ListsStorage listsStorage = new ListsStorage();
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private PeopleList reviewList = new PeopleList();
+        private string nextWindow = "";
         private string[] messageText;
         private string[] fieldNames;
 
@@ -336,31 +337,25 @@ namespace Notebook
         private void AddElementButtonClick(object sender, EventArgs e)
         {
             progVarStorage.ElementFormVariant = "create";
-
+            nextWindow = "ElementForm";
             this.Close();
-            ElementForm elementForm = new ElementForm();
-            elementForm.Show();
         }
 
         private void SettingsButtonClick(object sender, EventArgs e)
         {
             progVarStorage.PrevWindow = "listForm";
-
+            nextWindow = "LanguageForm";
             this.Close();
-            LanguageForm languageForm = new LanguageForm();
-            languageForm.Show();
         }
 
         private void MainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
         }
 
         private void ExitButtonClick(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
         }
 
         private void ElementDataGridViewCellClick(
@@ -377,9 +372,8 @@ namespace Notebook
                                 elementDataGridView[0, e.RowIndex]
                                     .Value.ToString();
 
+                            nextWindow = "ElementForm";
                             this.Close();
-                            ElementForm elementForm = new ElementForm();
-                            elementForm.Show();
                         }
                         break;
 
@@ -757,6 +751,30 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            switch (nextWindow)
+            {
+                case "ElementForm":
+                    ElementForm elementForm = new ElementForm();
+                    elementForm.Show();
+                    break;
+
+                case "LanguageForm":
+                    LanguageForm languageForm = new LanguageForm();
+                    languageForm.Show();
+                    break;
+
+                case "":
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                    break;
+
+                default:
+                    MainForm defForm = new MainForm();
+                    defForm.Show();
+                    MessageBox.Show("ERROR");
+                    break;
+            }
         }
     }
 }

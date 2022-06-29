@@ -34,7 +34,7 @@ namespace Notebook
                     listDataGridView.Columns[1].HeaderText = "Дата створення";
                     listDataGridView.Columns[2].HeaderText = "Дата оновлення";
                     listDataGridView.Columns[3].HeaderText = "*Відкрити*";
-                    listDataGridView.Columns[4].HeaderText = "*Переіменувати*";
+                    listDataGridView.Columns[4].HeaderText = "*Перейменувати*";
                     listDataGridView.Columns[5].HeaderText = "*Видалити*";
 
                     createListButton.Text = "додати список";
@@ -206,15 +206,7 @@ namespace Notebook
 
         private void ExitButtonClick(object sender, EventArgs e)
         {
-            File.WriteAllText(
-                "ListsStorageInfo.json",
-                JsonConvert.SerializeObject(this.listsStorage));
-
-            File.WriteAllText(
-                "ProgVarStorageInfo.json",
-                JsonConvert.SerializeObject(this.progVarStorage));
-
-            Application.Exit();
+            this.Close();
         }
 
         private void ListDataGridViewCellClick(
@@ -436,6 +428,8 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            Environment.Exit(0);
         }
     }
 }

@@ -205,6 +205,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ElementForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ElementForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ElementFormFormClosing);
             this.Load += new System.EventHandler(this.ElementFormLoad);

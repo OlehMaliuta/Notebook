@@ -15,6 +15,7 @@ namespace Notebook
     public partial class LanguageForm : Form
     {
         private ProgVarStorage progVarStorage = new ProgVarStorage();
+        private string nextWindow = "ListForm";
 
         public LanguageForm()
         {
@@ -60,33 +61,29 @@ namespace Notebook
             SetWindowLang(progVarStorage.AppLanguage);
 
             languageComboBox.SelectedIndex = (int)progVarStorage.AppLanguage;
+
+            
         }
 
         private void MainMenuButtonClick(object sender, EventArgs e)
         {
             this.Close();
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
         }
 
         private void GoBackButtonClick(object sender, EventArgs e)
         {
-            string backoToWindow = progVarStorage.PrevWindow;
-
-            switch (backoToWindow)
+            switch (progVarStorage.PrevWindow)
             {
                 case "mainForm":
                     {
+                        nextWindow = "";
                         this.Close();
-                        MainForm mainForm = new MainForm();
-                        mainForm.Show();
                     }
                     break;
                 case "listForm":
                     {
+                        nextWindow = "ListForm";
                         this.Close();
-                        ListForm listForm = new ListForm();
-                        listForm.Show();
                     }
                     break;
             }
@@ -109,9 +106,8 @@ namespace Notebook
                     break;
             }
 
+            nextWindow = "LanguageForm";
             this.Close();
-            LanguageForm languageForm = new LanguageForm();
-            languageForm.Show();
         }
 
         private void LanguageFormFormClosing(
@@ -120,6 +116,30 @@ namespace Notebook
             File.WriteAllText(
                 "ProgVarStorageInfo.json",
                 JsonConvert.SerializeObject(this.progVarStorage));
+
+            switch (nextWindow)
+            {
+                case "LanguageForm":
+                    LanguageForm languageForm = new LanguageForm();
+                    languageForm.Show();
+                    break;
+
+                case "ListForm":
+                    ListForm listForm = new ListForm();
+                    listForm.Show();
+                    break;
+
+                case "":
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                    break;
+
+                default:
+                    MainForm defForm = new MainForm();
+                    defForm.Show();
+                    MessageBox.Show("ERROR");
+                    break;
+            }
         }
     }
 }
