@@ -15,7 +15,7 @@ namespace Notebook
     public partial class LanguageForm : Form
     {
         private ProgVarStorage progVarStorage = new ProgVarStorage();
-        private string nextWindow = "ListForm";
+        private string nextWindow = "";
 
         public LanguageForm()
         {
@@ -62,7 +62,19 @@ namespace Notebook
 
             languageComboBox.SelectedIndex = (int)progVarStorage.AppLanguage;
 
-            
+            switch (progVarStorage.PrevWindow)
+            {
+                case "mainForm":
+                    {
+                        nextWindow = "";
+                    }
+                    break;
+                case "listForm":
+                    {
+                        nextWindow = "ListForm";
+                    }
+                    break;
+            }
         }
 
         private void MainMenuButtonClick(object sender, EventArgs e)
@@ -72,21 +84,7 @@ namespace Notebook
 
         private void GoBackButtonClick(object sender, EventArgs e)
         {
-            switch (progVarStorage.PrevWindow)
-            {
-                case "mainForm":
-                    {
-                        nextWindow = "";
-                        this.Close();
-                    }
-                    break;
-                case "listForm":
-                    {
-                        nextWindow = "ListForm";
-                        this.Close();
-                    }
-                    break;
-            }
+            this.Close();
         }
 
         private void ChangeLanguageButtonClick(object sender, EventArgs e)
