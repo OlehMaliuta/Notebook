@@ -38,7 +38,7 @@ namespace Notebook
                     else if (variant == "rename")
                     {
                         this.Text = "Перейменувати список";
-                        listNameWindowLabel.Text = "Нова ім'я списку:";
+                        listNameWindowLabel.Text = "Нове ім'я списку:";
                         giveListNameButton.Text = "перейменувати";
                     }
 
@@ -62,7 +62,7 @@ namespace Notebook
                     else if (variant == "rename")
                     {
                         this.Text = "Переименовать список";
-                        listNameWindowLabel.Text = "новое имя списка:";
+                        listNameWindowLabel.Text = "Новое имя списка:";
                         giveListNameButton.Text = "переименовать";
                     }
 
