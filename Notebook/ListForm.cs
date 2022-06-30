@@ -194,8 +194,8 @@ namespace Notebook
 
                 case Language.English:
                     addElementButton.Text = "add element";
-                    createTxtFileButton.Text = "save the list at .txt file";
-                    createDocxFileButton.Text = "save the list at .docx file";
+                    createTxtFileButton.Text = "save the list as .txt file";
+                    createDocxFileButton.Text = "save the list as .docx file";
 
                     elementDataGridView.Columns[0].HeaderText = 
                         "Name";
@@ -235,8 +235,8 @@ namespace Notebook
 
                     fileMenuSection.Text = "File";
                     addElementTool.Text = "Add element";
-                    createTxtTool.Text = "Save the list at .txt file";
-                    createDocxTool.Text = "Save the list at .docx file";
+                    createTxtTool.Text = "Save the list as .txt file";
+                    createDocxTool.Text = "Save the list as .docx file";
                     settingsTool.Text = "Settings";
                     exitTool.Text = "Exit";
 

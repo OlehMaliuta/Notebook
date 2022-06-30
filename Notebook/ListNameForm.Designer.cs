@@ -58,10 +58,10 @@
             // giveListNameButton
             // 
             this.giveListNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.giveListNameButton.Location = new System.Drawing.Point(347, 136);
+            this.giveListNameButton.Location = new System.Drawing.Point(336, 136);
             this.giveListNameButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.giveListNameButton.Name = "giveListNameButton";
-            this.giveListNameButton.Size = new System.Drawing.Size(130, 44);
+            this.giveListNameButton.Size = new System.Drawing.Size(141, 44);
             this.giveListNameButton.TabIndex = 2;
             this.giveListNameButton.Text = "створити";
             this.giveListNameButton.UseVisualStyleBackColor = true;
