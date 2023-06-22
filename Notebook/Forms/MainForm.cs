@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
@@ -28,7 +25,7 @@ namespace Notebook
             switch (language)
             {
                 case Language.Ukraіnian:
-                    this.Text = "Головне меню";
+                    this.Text = "Notebook - Головне меню";
 
                     listDataGridView.Columns[0].HeaderText = "Назва списку";
                     listDataGridView.Columns[1].HeaderText = "Дата створення";
@@ -59,7 +56,7 @@ namespace Notebook
                     break;
 
                 case Language.Russian:
-                    this.Text = "Главное меню";
+                    this.Text = "Notebook - Главное меню";
 
                     listDataGridView.Columns[0].HeaderText = "Название списка";
                     listDataGridView.Columns[1].HeaderText = "Дата создания";
@@ -90,11 +87,11 @@ namespace Notebook
                     break;
 
                 case Language.English:
-                    this.Text = "Main menu";
+                    this.Text = "Notebook - Main menu";
 
                     listDataGridView.Columns[0].HeaderText = "List name";
                     listDataGridView.Columns[1].HeaderText = "Creation date";
-                    listDataGridView.Columns[2].HeaderText = "Update date";
+                    listDataGridView.Columns[2].HeaderText = "Updating date";
                     listDataGridView.Columns[3].HeaderText = "*Open*";
                     listDataGridView.Columns[4].HeaderText = "*Rename*";
                     listDataGridView.Columns[5].HeaderText = "*Delete*";
@@ -105,7 +102,7 @@ namespace Notebook
 
                     sortingListsComboBox.Items.Add("name");
                     sortingListsComboBox.Items.Add("creation date");
-                    sortingListsComboBox.Items.Add("update date");
+                    sortingListsComboBox.Items.Add("updating date");
 
                     settingsButton.Text = "settings";
 

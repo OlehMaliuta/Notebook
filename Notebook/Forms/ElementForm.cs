@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
@@ -34,12 +28,12 @@ namespace Notebook
                 case Language.Ukraіnian:
                     if (variant == "create")
                     {
-                        this.Text = "Новий елемент";
+                        this.Text = "Notebook - Новий елемент";
                         changeElementButton.Text = "створити";
                     }
                     else if (variant == "change")
                     {
-                        this.Text = "Перегляд елементу";
+                        this.Text = "Notebook - Перегляд елементу";
                         changeElementButton.Text = "змінити";
                     }
 
@@ -78,12 +72,12 @@ namespace Notebook
                 case Language.Russian:
                     if (variant == "create")
                     {
-                        this.Text = "Новый элемент";
+                        this.Text = "Notebook - Новый элемент";
                         changeElementButton.Text = "создать";
                     }
                     else if (variant == "change")
                     {
-                        this.Text = "Просмотр элемента";
+                        this.Text = "Notebook - Просмотр элемента";
                         changeElementButton.Text = "изменить";
                     }
 
@@ -122,12 +116,12 @@ namespace Notebook
                 case Language.English:
                     if (variant == "create")
                     {
-                        this.Text = "New element";
+                        this.Text = "Notebook - New element";
                         changeElementButton.Text = "create";
                     }
                     else if (variant == "change")
                     {
-                        this.Text = "Element review";
+                        this.Text = "Notebook - Element review";
                         changeElementButton.Text = "change";
                     }
 

@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
-using Application = System.Windows.Forms.Application;
 using Word = Microsoft.Office.Interop.Word.Application;
 
 namespace Notebook
@@ -307,7 +303,7 @@ namespace Notebook
 
             searchElementComboBox.SelectedIndex = 0;
 
-            this.Text = $"\"{reviewList.ListName}\"";
+            this.Text = $"Notebook - \"{reviewList.ListName}\"";
         }
 
         private void AddElementToolClick(object sender, EventArgs e)

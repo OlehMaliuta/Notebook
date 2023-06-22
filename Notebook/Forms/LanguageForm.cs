@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
@@ -27,7 +20,7 @@ namespace Notebook
             switch (language)
             {
                 case Language.Ukraіnian:
-                    this.Text = "Налаштування";
+                    this.Text = "Notebook - Налаштування";
                     languageWindowLabel.Text = "Вибрати мову:";
                     goBackButton.Text = "назад";
                     mainMenuButton.Text = "головне меню";
@@ -35,7 +28,7 @@ namespace Notebook
                     break;
 
                 case Language.Russian:
-                    this.Text = "Настройки";
+                    this.Text = "Notebook - Настройки";
                     languageWindowLabel.Text = "Выбрать язык:";
                     goBackButton.Text = "назад";
                     mainMenuButton.Text = "главное меню";
@@ -43,7 +36,7 @@ namespace Notebook
                     break;
 
                 case Language.English:
-                    this.Text = "Settings";
+                    this.Text = "Notebook - Settings";
                     languageWindowLabel.Text = "Choose language:";
                     goBackButton.Text = "back";
                     mainMenuButton.Text = "main menu";

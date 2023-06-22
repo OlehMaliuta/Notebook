@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
@@ -31,13 +24,13 @@ namespace Notebook
                 case Language.Ukraіnian:
                     if (variant == "create")
                     {
-                        this.Text = "Новий список";
+                        this.Text = "Notebook - Новий список";
                         listNameWindowLabel.Text = "Введіть ім'я списку:";
                         giveListNameButton.Text = "створити";
                     }
                     else if (variant == "rename")
                     {
-                        this.Text = "Перейменувати список";
+                        this.Text = "Notebook - Перейменувати список";
                         listNameWindowLabel.Text = "Нове ім'я списку:";
                         giveListNameButton.Text = "перейменувати";
                     }
@@ -55,13 +48,13 @@ namespace Notebook
                 case Language.Russian:
                     if (variant == "create")
                     {
-                        this.Text = "Новый список";
+                        this.Text = "Notebook - Новый список";
                         listNameWindowLabel.Text = "Введите имя списка:";
                         giveListNameButton.Text = "создать";
                     }
                     else if (variant == "rename")
                     {
-                        this.Text = "Переименовать список";
+                        this.Text = "Notebook - Переименовать список";
                         listNameWindowLabel.Text = "Новое имя списка:";
                         giveListNameButton.Text = "переименовать";
                     }
@@ -79,13 +72,13 @@ namespace Notebook
                 case Language.English:
                     if (variant == "create")
                     {
-                        this.Text = "New list";
+                        this.Text = "Notebook - New list";
                         listNameWindowLabel.Text = "Enter a list name:";
                         giveListNameButton.Text = "create";
                     }
                     else if (variant == "rename")
                     {
-                        this.Text = "Rename the list";
+                        this.Text = "Notebook - Rename the list";
                         listNameWindowLabel.Text = "Enter a new list name:";
                         giveListNameButton.Text = "rename";
                     }
