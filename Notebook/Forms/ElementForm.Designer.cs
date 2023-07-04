@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementForm));
-            this.changeElementButton = new System.Windows.Forms.Button();
+            this.editElementButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
             this.infoFieldTypeComboBox = new System.Windows.Forms.ComboBox();
             this.infoTextBox = new System.Windows.Forms.TextBox();
@@ -50,15 +50,15 @@
             // 
             // changeElementButton
             // 
-            this.changeElementButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.changeElementButton.Location = new System.Drawing.Point(591, 385);
-            this.changeElementButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.changeElementButton.Name = "changeElementButton";
-            this.changeElementButton.Size = new System.Drawing.Size(99, 34);
-            this.changeElementButton.TabIndex = 0;
-            this.changeElementButton.Text = "створити";
-            this.changeElementButton.UseVisualStyleBackColor = true;
-            this.changeElementButton.Click += new System.EventHandler(this.ChangeElementButtonClick);
+            this.editElementButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editElementButton.Location = new System.Drawing.Point(591, 385);
+            this.editElementButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.editElementButton.Name = "changeElementButton";
+            this.editElementButton.Size = new System.Drawing.Size(99, 34);
+            this.editElementButton.TabIndex = 0;
+            this.editElementButton.Text = "створити";
+            this.editElementButton.UseVisualStyleBackColor = true;
+            this.editElementButton.Click += new System.EventHandler(this.ChangeElementButtonClick);
             // 
             // goBackButton
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.infoTextBox);
             this.Controls.Add(this.infoFieldTypeComboBox);
             this.Controls.Add(this.goBackButton);
-            this.Controls.Add(this.changeElementButton);
+            this.Controls.Add(this.editElementButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -220,7 +220,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button changeElementButton;
+        private System.Windows.Forms.Button editElementButton;
         private System.Windows.Forms.Button goBackButton;
         private System.Windows.Forms.ComboBox infoFieldTypeComboBox;
         private System.Windows.Forms.TextBox infoTextBox;

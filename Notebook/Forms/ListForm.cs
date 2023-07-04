@@ -8,6 +8,7 @@ using System.IO;
 using Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
 using Word = Microsoft.Office.Interop.Word.Application;
+using Notebook.Classes;
 
 namespace Notebook
 {
@@ -18,257 +19,16 @@ namespace Notebook
         private PeopleList reviewList = new PeopleList();
         private string nextWindow = "";
         private bool isClosing = false;
-        private string[] messageText;
-        private string[] fieldNames;
 
         public ListForm()
         {
             InitializeComponent();
         }
 
-        private void SetWindowLang(Language language)
-        {
-            switch (language)
-            {
-                case Language.Ukraіnian:
-                    addElementButton.Text = "додати елемент";
-
-                    createTxtFileButton.Text = 
-                        "зберегти список у файлі .txt";
-
-                    createDocxFileButton.Text = 
-                        "зберегти список у файлі .docx";
-
-                    elementDataGridView.Columns[0].HeaderText = 
-                        "Ім'я";
-                    elementDataGridView.Columns[1].HeaderText = 
-                        "Дата народження";
-                    elementDataGridView.Columns[2].HeaderText = 
-                        "Дата створення ел.";
-                    elementDataGridView.Columns[3].HeaderText = 
-                        "Дата оновлення ел.";
-                    elementDataGridView.Columns[4].HeaderText = 
-                        "*Детальніше*";
-                    elementDataGridView.Columns[5].HeaderText = 
-                        "*Видалити*";
-
-                    searchLabel.Text = "Пошук за:";
-                    sortLabel.Text = "Сортування за:";
-                    
-                    searchElementComboBox.Items.Add("ім'ям");
-                    searchElementComboBox.Items.Add("телефоном");
-                    searchElementComboBox.Items.Add("датою народження");
-                    searchElementComboBox.Items.Add("анкетними даними");
-                    searchElementComboBox.Items.Add("місцем проживання");
-                    searchElementComboBox.Items.Add("місцем роботи/навчання");
-                    searchElementComboBox.Items.Add("характером знайомства");
-                    searchElementComboBox.Items.Add("посадою знайомих");
-                    searchElementComboBox.Items.Add("діловими якостями");
-                    searchElementComboBox.Items.Add("додатковими даними");
-
-                    sortingElementsComboBox.Items.Add("ім'ям");
-                    sortingElementsComboBox.Items.Add("датою народження");
-                    sortingElementsComboBox.Items.Add("датою створення ел.");
-                    sortingElementsComboBox.Items.Add("датою оновлення ел.");
-
-                    settingsButton.Text = "меню налаштування";
-                    mainMenuButton.Text = "головне меню";
-                    exitButton.Text = "вихід";
-
-                    fileMenuSection.Text = "Файл";
-                    addElementTool.Text = "Додати елемент";
-                    createTxtTool.Text = "Зберегти список у файлі .txt";
-                    createDocxTool.Text = "Зберегти список у файлі .docx";
-                    settingsTool.Text = "Налаштування";
-                    exitTool.Text = "Вихід";
-
-                    messageText = new string[]
-                    {
-                        "Попередження!",
-
-                        "Ви впевнені, що хочите видалити елемент зі списку",
-
-                        "Ви не можете використовувати для " +
-                        "іменування файлу даний символ: \".\".",
-
-                        "Документ був успішно створений.",
-
-                        "Повідомлення!"
-                    };
-
-                    fieldNames = new string[]
-                    {
-                        "День народження: ",
-                        "Номера телефонів: ",
-                        "Анкетні дані: ",
-                        "Місце проживання: ",
-                        "Посада знайомих: ",
-                        "Місце праці або навчання: ",
-                        "Характер знайомства: ",
-                        "Ділові якості: ",
-                        "Додаткова інформація: "
-                    };
-                    break;
-
-                case Language.Russian:
-                    addElementButton.Text = "добавить элемент";
-                    createTxtFileButton.Text = 
-                        "сохранить список в файле .txt";
-                    createDocxFileButton.Text = 
-                        "сохранить список в файле .docx";
-
-                    elementDataGridView.Columns[0].HeaderText = 
-                        "Имя";
-                    elementDataGridView.Columns[1].HeaderText = 
-                        "Дата рождения";
-                    elementDataGridView.Columns[2].HeaderText = 
-                        "Дата создания эл.";
-                    elementDataGridView.Columns[3].HeaderText = 
-                        "Дата обновления эл.";
-                    elementDataGridView.Columns[4].HeaderText = 
-                        "*Подробнее*";
-                    elementDataGridView.Columns[5].HeaderText = 
-                        "*Удалить*";
-
-                    searchLabel.Text = "Поиск по:";
-                    sortLabel.Text = "Сортировка по:";
-
-                    searchElementComboBox.Items.Add("имени");
-                    searchElementComboBox.Items.Add("телефону");
-                    searchElementComboBox.Items.Add("датой рождения");
-                    searchElementComboBox.Items.Add("анкетными данними");
-                    searchElementComboBox.Items.Add("местом проживания");
-                    searchElementComboBox.Items.Add("местом работы/учёбы");
-                    searchElementComboBox.Items.Add("характером знакомства");
-                    searchElementComboBox.Items.Add("положением знакомых");
-                    searchElementComboBox.Items.Add("деловыми качествами");
-                    searchElementComboBox.Items.Add("дополнительными данными");
-
-                    sortingElementsComboBox.Items.Add("имени");
-                    sortingElementsComboBox.Items.Add("датой рождения");
-                    sortingElementsComboBox.Items.Add("датой создания ел.");
-                    sortingElementsComboBox.Items.Add("датой обновления ел.");
-
-                    settingsButton.Text = "меню настроек";
-                    mainMenuButton.Text = "главное меню";
-                    exitButton.Text = "выход";
-
-                    fileMenuSection.Text = "Файл";
-                    addElementTool.Text = "Добавить элемент";
-                    createTxtTool.Text = "Сохранить список в файле .txt";
-                    createDocxTool.Text = "Сохранить список в файле .docx";
-                    settingsTool.Text = "Настройки";
-                    exitTool.Text = "Выход";
-
-                    messageText = new string[]
-                    {
-                        "Предупреждение!",
-
-                        "Вы уверены, что хотите удалить элемент из списка?",
-
-                        "Вы не можете использовать для " +
-                        "именования файла даный символ: \".\".",
-
-                        "Документ был успешно создан.",
-
-                        "Сообщение!"
-                    };
-
-                    fieldNames = new string[]
-                    {
-                        "День роджения: ",
-                        "Номера телефонов: ",
-                        "Анкетные данные: ",
-                        "Место проживания: ",
-                        "Положение знакомых: ",
-                        "Место работы или учёбы: ",
-                        "Характер знакомства: ",
-                        "Деловые качества: ",
-                        "Дополнительная информация: "
-                    };
-                    break;
-
-                case Language.English:
-                    addElementButton.Text = "add element";
-                    createTxtFileButton.Text = "save the list as .txt file";
-                    createDocxFileButton.Text = "save the list as .docx file";
-
-                    elementDataGridView.Columns[0].HeaderText = 
-                        "Name";
-                    elementDataGridView.Columns[1].HeaderText = 
-                        "Birthday";
-                    elementDataGridView.Columns[2].HeaderText = 
-                        "Creation el. date";
-                    elementDataGridView.Columns[3].HeaderText = 
-                        "Update el. date";
-                    elementDataGridView.Columns[4].HeaderText = 
-                        "*More*";
-                    elementDataGridView.Columns[5].HeaderText = 
-                        "*Delete*";
-
-                    searchLabel.Text = "Search by:";
-                    sortLabel.Text = "Sort by:";
-
-                    searchElementComboBox.Items.Add("name");
-                    searchElementComboBox.Items.Add("phone");
-                    searchElementComboBox.Items.Add("birthday");
-                    searchElementComboBox.Items.Add("personal data");
-                    searchElementComboBox.Items.Add("residentional address");
-                    searchElementComboBox.Items.Add("locale");
-                    searchElementComboBox.Items.Add("first meeting");
-                    searchElementComboBox.Items.Add("familar people position");
-                    searchElementComboBox.Items.Add("good sides");
-                    searchElementComboBox.Items.Add("extra info");
-
-                    sortingElementsComboBox.Items.Add("name");
-                    sortingElementsComboBox.Items.Add("birth date");
-                    sortingElementsComboBox.Items.Add("creation el. date");
-                    sortingElementsComboBox.Items.Add("update el. date");
-
-                    settingsButton.Text = "settings";
-                    mainMenuButton.Text = "main menu";
-                    exitButton.Text = "exit";
-
-                    fileMenuSection.Text = "File";
-                    addElementTool.Text = "Add element";
-                    createTxtTool.Text = "Save the list as .txt file";
-                    createDocxTool.Text = "Save the list as .docx file";
-                    settingsTool.Text = "Settings";
-                    exitTool.Text = "Exit";
-
-                    messageText = new string[]
-                    {
-                        "Warning!",
-
-                        "Are you sure you want to " +
-                        "remove the element from the list?",
-
-                        "You cannot use this character " +
-                        "for naming a file: \".\".",
-
-                        "Document has created successfully.",
-
-                        "Message!"
-                    };
-
-                    fieldNames = new string[]
-                    {
-                        "Birth date: ",
-                        "Phone numbers: ",
-                        "Personal data: ",
-                        "Residentional address: ",
-                        "Familiar people position: ",
-                        "Locale: ",
-                        "First meeting: ",
-                        "Good sides: ",
-                        "Extra information: "
-                    };
-                    break;
-            }
-        }
-
         private void ListFormLoad(object sender, EventArgs e)
         {
+            // form settings
+
             elementDataGridView.DefaultCellStyle.WrapMode = 
                 DataGridViewTriState.True;
 
@@ -279,8 +39,6 @@ namespace Notebook
             this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(
                     File.ReadAllText("ProgVarStorageInfo.json"));
-
-            SetWindowLang(progVarStorage.AppLanguage);
 
             reviewList = listsStorage.PeopleLists.Single(
                 item => item.ListName == progVarStorage.ReviewListName);
@@ -299,11 +57,40 @@ namespace Notebook
                     );
             }
 
+            // localization
+
+            this.Text = $"{Locale.Get("general.app-name")} - \"{reviewList.ListName}\"";
+
+            addElementButton.Text = Locale.Get("list-form.add-element-option");
+            createTxtFileButton.Text = Locale.Get("list-form.save-txt-option");
+            createDocxFileButton.Text = Locale.Get("list-form.save-docx-option");
+
+            elementDataGridView.Columns[0].HeaderText = Locale.Get("list-form.column-header-1");
+            elementDataGridView.Columns[1].HeaderText = Locale.Get("list-form.column-header-2");
+            elementDataGridView.Columns[2].HeaderText = Locale.Get("list-form.column-header-3");
+            elementDataGridView.Columns[3].HeaderText = Locale.Get("list-form.column-header-4");
+            elementDataGridView.Columns[4].HeaderText = Locale.Get("list-form.column-header-5");
+            elementDataGridView.Columns[5].HeaderText = Locale.Get("list-form.column-header-6");
+
+            sortLabel.Text = Locale.Get("list-form.sorting-option-title");
+
+            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-1"));
+            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-2"));
+            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-3"));
+            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-4"));
+
+            settingsButton.Text = Locale.Get("list-form.settings-option");
+            mainMenuButton.Text = Locale.Get("list-form.main-menu-option");
+            exitButton.Text = Locale.Get("list-form.exit-option");
+
+            fileMenuSection.Text = Locale.Get("list-form.top-menu-option-file");
+            addElementTool.Text = Locale.Get("list-form.add-element-option");
+            createTxtTool.Text = Locale.Get("list-form.save-txt-option");
+            createDocxTool.Text = Locale.Get("list-form.save-docx-option");
+            settingsTool.Text = Locale.Get("list-form.settings-option");
+            exitTool.Text = Locale.Get("list-form.exit-option");
+
             sortingElementsComboBox.SelectedIndex = 0;
-
-            searchElementComboBox.SelectedIndex = 0;
-
-            this.Text = $"Notebook - \"{reviewList.ListName}\"";
         }
 
         private void AddElementToolClick(object sender, EventArgs e)
@@ -377,12 +164,10 @@ namespace Notebook
 
                     case "delete":
                         {
-                            DialogResult result = MessageBox.Show
-                                (
-                                messageText[1],
-                                messageText[0],
-                                MessageBoxButtons.YesNo
-                                );
+                            DialogResult result = MessageBox.Show(
+                                Locale.Get("list-form.remove-element-message"),
+                                Locale.Get("general.warning-message-title"),
+                                MessageBoxButtons.YesNo);
 
                             if (result == DialogResult.Yes)
                             {
@@ -457,7 +242,9 @@ namespace Notebook
             {
                 if (fileDialog.FileName.Contains('.'))
                 {
-                    MessageBox.Show(messageText[2], messageText[0]);
+                    MessageBox.Show(
+                        Locale.Get("list-form.illegal-chars-message"), 
+                        Locale.Get("general.warning-message-title"));
                     goto p_a;
                 }
 
@@ -478,25 +265,27 @@ namespace Notebook
                 {
                     count2 = 0;
                     listData += $"\n{count1}. {people[count1 - 1].Name}\n";
-                    List<string> fields = new List<string>();
-                    fields.Add(fieldNames[0] + 
-                        people[count1 - 1].Birthday);
-                    fields.Add(fieldNames[1] +
-                        people[count1 - 1].Phone);
-                    fields.Add(fieldNames[2] +
-                        people[count1 - 1].PersonalData);
-                    fields.Add(fieldNames[3] +
-                        people[count1 - 1].ResidentialAddress);
-                    fields.Add(fieldNames[4] +
-                        people[count1 - 1].Locale);
-                    fields.Add(fieldNames[5] +
-                        people[count1 - 1].FamilarPeoplePosition);
-                    fields.Add(fieldNames[6] +
-                        people[count1 - 1].FirstMeeting);
-                    fields.Add(fieldNames[7] +
-                        people[count1 - 1].Skills);
-                    fields.Add(fieldNames[8] +
-                        people[count1 - 1].ExtraInfo);
+                    List<string> fields = new List<string>
+                    {
+                        Locale.Get("list-form.fields-for-documents-1") +
+                        people[count1 - 1].Birthday,
+                        Locale.Get("list-form.fields-for-documents-2") +
+                        people[count1 - 1].Phone,
+                        Locale.Get("list-form.fields-for-documents-3") +
+                        people[count1 - 1].PersonalData,
+                        Locale.Get("list-form.fields-for-documents-4") +
+                        people[count1 - 1].ResidentialAddress,
+                        Locale.Get("list-form.fields-for-documents-5") +
+                        people[count1 - 1].Locale,
+                        Locale.Get("list-form.fields-for-documents-6") +
+                        people[count1 - 1].FamilarPeoplePosition,
+                        Locale.Get("list-form.fields-for-documents-7") +
+                        people[count1 - 1].FirstMeeting,
+                        Locale.Get("list-form.fields-for-documents-8") +
+                        people[count1 - 1].Skills,
+                        Locale.Get("list-form.fields-for-documents-9") +
+                        people[count1 - 1].ExtraInfo
+                    };
 
                     while (count2 < fields.Count)
                     {
@@ -506,8 +295,12 @@ namespace Notebook
                     listData += "\n";
                     count1++;
                 }
+
                 File.WriteAllText(fileDialog.FileName + ".txt", listData);
-                MessageBox.Show(messageText[3], messageText[4]);
+
+                MessageBox.Show(
+                    Locale.Get("list-form.document-created-message"), 
+                    Locale.Get("general.normal-message-title"));
             }
         }
 
@@ -523,7 +316,9 @@ namespace Notebook
             {
                 if (fileDialog.FileName.Contains('.'))
                 {
-                    MessageBox.Show(messageText[2], messageText[0]);
+                    MessageBox.Show(
+                        Locale.Get("list-form.illegal-chars-message"),
+                        Locale.Get("general.warning-message-title"));
                     goto p_b;
                 }
 
@@ -547,25 +342,27 @@ namespace Notebook
                 {
                     count2 = 0;
                     r.Text += $"\n{count1}. {people[count1 - 1].Name}\n";
-                    List<string> fields = new List<string>();
-                    fields.Add(fieldNames[0] +
-                        people[count1 - 1].Birthday);
-                    fields.Add(fieldNames[1] +
-                        people[count1 - 1].Phone);
-                    fields.Add(fieldNames[2] +
-                        people[count1 - 1].PersonalData);
-                    fields.Add(fieldNames[3] +
-                        people[count1 - 1].ResidentialAddress);
-                    fields.Add(fieldNames[4] +
-                        people[count1 - 1].Locale);
-                    fields.Add(fieldNames[5] +
-                        people[count1 - 1].FamilarPeoplePosition);
-                    fields.Add(fieldNames[6] +
-                        people[count1 - 1].FirstMeeting);
-                    fields.Add(fieldNames[7] +
-                        people[count1 - 1].Skills);
-                    fields.Add(fieldNames[8] +
-                        people[count1 - 1].ExtraInfo);
+                    List<string> fields = new List<string>
+                    {
+                        Locale.Get("list-form.fields-for-documents-1") +
+                        people[count1 - 1].Birthday,
+                        Locale.Get("list-form.fields-for-documents-2") +
+                        people[count1 - 1].Phone,
+                        Locale.Get("list-form.fields-for-documents-3") +
+                        people[count1 - 1].PersonalData,
+                        Locale.Get("list-form.fields-for-documents-4") +
+                        people[count1 - 1].ResidentialAddress,
+                        Locale.Get("list-form.fields-for-documents-5") +
+                        people[count1 - 1].Locale,
+                        Locale.Get("list-form.fields-for-documents-6") +
+                        people[count1 - 1].FamilarPeoplePosition,
+                        Locale.Get("list-form.fields-for-documents-7") +
+                        people[count1 - 1].FirstMeeting,
+                        Locale.Get("list-form.fields-for-documents-8") +
+                        people[count1 - 1].Skills,
+                        Locale.Get("list-form.fields-for-documents-9") +
+                        people[count1 - 1].ExtraInfo
+                    };
 
                     while (count2 < fields.Count)
                     {
@@ -579,7 +376,10 @@ namespace Notebook
                 docx.SaveAs(fileDialog.FileName + ".docx");
                 docx.Close();
                 app.Quit();
-                MessageBox.Show(messageText[3], messageText[4]);
+
+                MessageBox.Show(
+                    Locale.Get("list-form.document-created-message"),
+                    Locale.Get("general.normal-message-title"));
             }
         }
 
@@ -664,68 +464,9 @@ namespace Notebook
 
             List<Element> spl = new List<Element>();
 
-            switch (searchElementComboBox.SelectedIndex)
-            {
-                case 0:
-                    spl = pl.FindAll(
+            spl = pl.FindAll(
                         item => item.Name.ToLower().Contains(
                             searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 1:
-                    spl = pl.FindAll(
-                        item => item.Phone.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 2:
-                    spl = pl.FindAll(
-                        item => item.Birthday.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 3:
-                    spl = pl.FindAll(
-                        item => item.PersonalData.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 4:
-                    spl = pl.FindAll(
-                        item => item.ResidentialAddress.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 5:
-                    spl = pl.FindAll(
-                        item => item.Locale.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 6:
-                    spl = pl.FindAll(
-                        item => item.FirstMeeting.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 7:
-                    spl = pl.FindAll(
-                        item => item.FamilarPeoplePosition.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 8:
-                    spl = pl.FindAll(
-                        item => item.Skills.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-
-                case 9:
-                    spl = pl.FindAll(
-                        item => item.ExtraInfo.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-                    break;
-            }
 
             foreach (Element el in spl)
             {

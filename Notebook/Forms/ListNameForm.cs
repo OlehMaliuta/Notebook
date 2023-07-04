@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using Notebook.Classes;
 
 namespace Notebook
 {
@@ -10,93 +11,16 @@ namespace Notebook
         private ListsStorage listsStorage = new ListsStorage();
         private ProgVarStorage progVarStorage = new ProgVarStorage();
         private string variant = "";
-        private string[] messageText = new string[3];
 
         public ListNameForm()
         {
             InitializeComponent();
         }
 
-        private void SetWindowLanguage(Language language, string variant)
-        {
-            switch (language)
-            {
-                case Language.Ukraіnian:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - Новий список";
-                        listNameWindowLabel.Text = "Введіть ім'я списку:";
-                        giveListNameButton.Text = "створити";
-                    }
-                    else if (variant == "rename")
-                    {
-                        this.Text = "Notebook - Перейменувати список";
-                        listNameWindowLabel.Text = "Нове ім'я списку:";
-                        giveListNameButton.Text = "перейменувати";
-                    }
-
-                    goBackButton.Text = "назад";
-
-                    messageText = new string[] 
-                    {
-                        "Попередження!",
-                        "Список повинен мати назву.",
-                        "Список із даною назвою вже існує."
-                    };
-                    break;
-
-                case Language.Russian:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - Новый список";
-                        listNameWindowLabel.Text = "Введите имя списка:";
-                        giveListNameButton.Text = "создать";
-                    }
-                    else if (variant == "rename")
-                    {
-                        this.Text = "Notebook - Переименовать список";
-                        listNameWindowLabel.Text = "Новое имя списка:";
-                        giveListNameButton.Text = "переименовать";
-                    }
-
-                    goBackButton.Text = "назад";
-
-                    messageText = new string[] 
-                    {
-                        "Предупреждение!",
-                        "У списка должно быть название.",
-                        "Список с этим наванием уже есть."
-                    };
-                    break;
-
-                case Language.English:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - New list";
-                        listNameWindowLabel.Text = "Enter a list name:";
-                        giveListNameButton.Text = "create";
-                    }
-                    else if (variant == "rename")
-                    {
-                        this.Text = "Notebook - Rename the list";
-                        listNameWindowLabel.Text = "Enter a new list name:";
-                        giveListNameButton.Text = "rename";
-                    }
-
-                    goBackButton.Text = "back";
-
-                    messageText = new string[] 
-                    {
-                        "Warning!",
-                        "A list must have a name.",
-                        "A list with the same name already exists."
-                    };
-                    break;
-            }
-        }
-
         private void ListNameFormLoad(object sender, EventArgs e)
         {
+            // form settings
+
             this.listsStorage =
                 JsonConvert.DeserializeObject<ListsStorage>(
                     File.ReadAllText("ListsStorageInfo.json"));
@@ -107,14 +31,30 @@ namespace Notebook
 
             this.variant = this.progVarStorage.ListNameFormVariant;
 
-            SetWindowLanguage(progVarStorage.AppLanguage, variant);
+            // localization
+
+            this.Text = variant == "create"
+                    ? $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-create")}"
+                    : $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-rename")}";
+
+            listNameWindowLabel.Text = variant == "create"
+                ? Locale.Get("list-name-form.name-input-option-title-create")
+                : Locale.Get("list-name-form.name-input-option-title-rename");
+
+            giveListNameButton.Text = variant == "create"
+                ? Locale.Get("list-name-form.create-button")
+                : Locale.Get("list-name-form.rename-button");
+
+            cancelButton.Text = Locale.Get("list-name-form.cancel-button");
         }
 
         private void GiveListNameButtonClick(object sender, EventArgs e)
         {
             if (listNameTextBox.Text == "")
             {
-                MessageBox.Show(messageText[1], messageText[0]);
+                MessageBox.Show(
+                    Locale.Get("list-name-form.list-must-have-name-message"), 
+                    Locale.Get("general.warning-message-title"));
             }
             else if (this.listsStorage.PeopleLists.Find
                         (
@@ -122,7 +62,9 @@ namespace Notebook
                         ) != null
                     )
             {
-                MessageBox.Show(messageText[2], messageText[0]);
+                MessageBox.Show(
+                    Locale.Get("list-name-form.same-name-message"), 
+                    Locale.Get("general.warning-message-title"));
             }
             else
             {

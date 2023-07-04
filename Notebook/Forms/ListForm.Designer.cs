@@ -35,8 +35,6 @@
             this.sortingElementsComboBox = new System.Windows.Forms.ComboBox();
             this.sortLabel = new System.Windows.Forms.Label();
             this.searchElementTextBox = new System.Windows.Forms.TextBox();
-            this.searchElementComboBox = new System.Windows.Forms.ComboBox();
-            this.searchLabel = new System.Windows.Forms.Label();
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,7 +99,7 @@
             this.sortingElementsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sortingElementsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.sortingElementsComboBox.FormattingEnabled = true;
-            this.sortingElementsComboBox.Location = new System.Drawing.Point(997, 492);
+            this.sortingElementsComboBox.Location = new System.Drawing.Point(1021, 479);
             this.sortingElementsComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.sortingElementsComboBox.Name = "sortingElementsComboBox";
             this.sortingElementsComboBox.Size = new System.Drawing.Size(182, 24);
@@ -111,7 +109,7 @@
             // sortLabel
             // 
             this.sortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sortLabel.Location = new System.Drawing.Point(824, 493);
+            this.sortLabel.Location = new System.Drawing.Point(848, 480);
             this.sortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sortLabel.Name = "sortLabel";
             this.sortLabel.Size = new System.Drawing.Size(136, 21);
@@ -122,35 +120,13 @@
             // searchElementTextBox
             // 
             this.searchElementTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchElementTextBox.Location = new System.Drawing.Point(810, 368);
+            this.searchElementTextBox.Location = new System.Drawing.Point(816, 396);
             this.searchElementTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.searchElementTextBox.Name = "searchElementTextBox";
             this.searchElementTextBox.Size = new System.Drawing.Size(431, 22);
             this.searchElementTextBox.TabIndex = 12;
             this.searchElementTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchElementTextBox.TextChanged += new System.EventHandler(this.SearchElementTextBoxTextChanged);
-            // 
-            // searchElementComboBox
-            // 
-            this.searchElementComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchElementComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchElementComboBox.FormattingEnabled = true;
-            this.searchElementComboBox.Location = new System.Drawing.Point(997, 437);
-            this.searchElementComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.searchElementComboBox.Name = "searchElementComboBox";
-            this.searchElementComboBox.Size = new System.Drawing.Size(182, 24);
-            this.searchElementComboBox.TabIndex = 18;
-            // 
-            // searchLabel
-            // 
-            this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchLabel.Location = new System.Drawing.Point(827, 439);
-            this.searchLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(133, 18);
-            this.searchLabel.TabIndex = 17;
-            this.searchLabel.Text = "Пошук за:";
-            this.searchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // mainMenuButton
             // 
@@ -271,7 +247,7 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.SkyBlue;
+            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.menuStrip.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuSection});
@@ -360,8 +336,6 @@
             this.Controls.Add(this.createTxtFileButton);
             this.Controls.Add(this.elementDataGridView);
             this.Controls.Add(this.mainMenuButton);
-            this.Controls.Add(this.searchElementComboBox);
-            this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.sortingElementsComboBox);
@@ -391,8 +365,6 @@
         private System.Windows.Forms.ComboBox sortingElementsComboBox;
         private System.Windows.Forms.Label sortLabel;
         private System.Windows.Forms.TextBox searchElementTextBox;
-        private System.Windows.Forms.ComboBox searchElementComboBox;
-        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.DataGridView elementDataGridView;
         private System.Windows.Forms.Button createDocxFileButton;

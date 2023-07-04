@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using Notebook.Classes;
 
 namespace Notebook
 {
@@ -14,153 +15,16 @@ namespace Notebook
         private Element reviewElement = new Element();
         private Element newElement = new Element();
         private string nextWindow = "";
-        private string[] messageText;
 
         public ElementForm()
         {
             InitializeComponent();
         }
 
-        private void SetWindowLang(Language language, string variant)
-        {
-            switch (language)
-            {
-                case Language.Ukraіnian:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - Новий елемент";
-                        changeElementButton.Text = "створити";
-                    }
-                    else if (variant == "change")
-                    {
-                        this.Text = "Notebook - Перегляд елементу";
-                        changeElementButton.Text = "змінити";
-                    }
-
-                    dayLabel.Text = "День:";
-                    monthLabel.Text = "Місяць:";
-                    yearLabel.Text = "Рік:";
-
-                    goBackButton.Text = "назад";
-
-                    fieldTypeLabel.Text = "Поля:";
-
-                    infoFieldTypeComboBox.Items.Add("ім'я");
-                    infoFieldTypeComboBox.Items.Add("дата народження");
-                    infoFieldTypeComboBox.Items.Add("телефон");
-                    infoFieldTypeComboBox.Items.Add("анкетні дані");
-                    infoFieldTypeComboBox.Items.Add("місце проживання");
-                    infoFieldTypeComboBox.Items.Add("місце роботи/навчання");
-                    infoFieldTypeComboBox.Items.Add("характер знайомства");
-                    infoFieldTypeComboBox.Items.Add("посада знайомих");
-                    infoFieldTypeComboBox.Items.Add("ділові якості");
-                    infoFieldTypeComboBox.Items.Add("додаткові дані");
-
-                    messageText = new string[]
-                    {
-                        "Попередження!",
-
-                        "Елемент із даним ім'ям вже існує в списку.",
-
-                        "Елемент повинен мати ім'я.",
-
-                        "Поля для дати народження не можуть " +
-                        "мати від'ємні значення."
-                    };
-                    break;
-
-                case Language.Russian:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - Новый элемент";
-                        changeElementButton.Text = "создать";
-                    }
-                    else if (variant == "change")
-                    {
-                        this.Text = "Notebook - Просмотр элемента";
-                        changeElementButton.Text = "изменить";
-                    }
-
-                    dayLabel.Text = "День:";
-                    monthLabel.Text = "Месяц:";
-                    yearLabel.Text = "Год:";
-
-                    goBackButton.Text = "назад";
-
-                    fieldTypeLabel.Text = "Поля:";
-
-                    infoFieldTypeComboBox.Items.Add("имя");
-                    infoFieldTypeComboBox.Items.Add("дата рождения");
-                    infoFieldTypeComboBox.Items.Add("телефон");
-                    infoFieldTypeComboBox.Items.Add("анкетные даные");
-                    infoFieldTypeComboBox.Items.Add("место проживания");
-                    infoFieldTypeComboBox.Items.Add("место работи/учёбы");
-                    infoFieldTypeComboBox.Items.Add("характер знакомства");
-                    infoFieldTypeComboBox.Items.Add("положение знакомых");
-                    infoFieldTypeComboBox.Items.Add("деловые качества");
-                    infoFieldTypeComboBox.Items.Add("дополнительные данные");
-
-                    messageText = new string[]
-                    {
-                        "Предупреждения!",
-
-                        "Элемент с данным именем уже есть в списке.",
-
-                        "У элемента должно быть имя.",
-
-                        "Поля для даты рождения не принимают " +
-                        "отрицательных значений."
-                    };
-                    break;
-
-                case Language.English:
-                    if (variant == "create")
-                    {
-                        this.Text = "Notebook - New element";
-                        changeElementButton.Text = "create";
-                    }
-                    else if (variant == "change")
-                    {
-                        this.Text = "Notebook - Element review";
-                        changeElementButton.Text = "change";
-                    }
-
-                    dayLabel.Text = "Day:";
-                    monthLabel.Text = "Month:";
-                    yearLabel.Text = "Year:";
-
-                    goBackButton.Text = "back";
-
-                    fieldTypeLabel.Text = "Field:";
-
-                    infoFieldTypeComboBox.Items.Add("name");
-                    infoFieldTypeComboBox.Items.Add("birth date");
-                    infoFieldTypeComboBox.Items.Add("phone");
-                    infoFieldTypeComboBox.Items.Add("personal data");
-                    infoFieldTypeComboBox.Items.Add("residentional address");
-                    infoFieldTypeComboBox.Items.Add("locale");
-                    infoFieldTypeComboBox.Items.Add("first meeting");
-                    infoFieldTypeComboBox.Items.Add("familar people position");
-                    infoFieldTypeComboBox.Items.Add("good sides");
-                    infoFieldTypeComboBox.Items.Add("extra info");
-
-                    messageText = new string[]
-                    {
-                        "Warning!",
-
-                        "Element with the same name already " +
-                        "exists in the list.",
-
-                        "An element must have a name",
-
-                        "Birth date fields do not take negative values."
-                    };
-                    break;
-            }
-        }
-
         private void ElementFormLoad(object sender, EventArgs e)
         {
+            // form settings
+
             this.listsStorage =
                 JsonConvert.DeserializeObject<ListsStorage>(
                     File.ReadAllText("ListsStorageInfo.json"));
@@ -173,10 +37,6 @@ namespace Notebook
                         item => 
                         item.ListName == progVarStorage.ReviewListName);
 
-            SetWindowLang(
-                progVarStorage.AppLanguage,
-                progVarStorage.ElementFormVariant);
-
             if (progVarStorage.ElementFormVariant == "change")
             {
                 reviewElement = reviewList.Elements.Single(
@@ -185,7 +45,6 @@ namespace Notebook
                 newElement.CopyElement(reviewElement);
             }
 
-            infoFieldTypeComboBox.SelectedIndex = 0;
             fieldNameLabel.Text = infoFieldTypeComboBox.Text;
             infoTextBox.Text = newElement.Name;
 
@@ -199,6 +58,37 @@ namespace Notebook
             yearNumericUpDown.Minimum = int.MinValue;
 
             datePanel.Visible = false;
+
+            // localization
+
+            this.Text = progVarStorage.ElementFormVariant == "create"
+                ? $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-create")}"
+                : $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-review")}";
+
+            editElementButton.Text = progVarStorage.ElementFormVariant == "create"
+                ? Locale.Get("element-form.create-element-button")
+                : Locale.Get("element-form.edit-element-button");
+
+            dayLabel.Text = Locale.Get("element-form.day-label");
+            monthLabel.Text = Locale.Get("element-form.month-label");
+            yearLabel.Text = Locale.Get("element-form.year-label");
+
+            goBackButton.Text = Locale.Get("element-form.go-back-button");
+
+            fieldTypeLabel.Text = Locale.Get("element-form.field-title");
+
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-1"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-2"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-3"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-4"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-5"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-6"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-7"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-8"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-9"));
+            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-10"));
+
+            infoFieldTypeComboBox.SelectedIndex = 0;
         }
 
         private void ChangeElementButtonClick(object sender, EventArgs e)
@@ -210,20 +100,20 @@ namespace Notebook
                 reviewList.Elements.FindIndex(
                     item => item.Name == infoTextBox.Text) != -1
                 )
-                err += "\n" + messageText[1];
+                err += "\n" + Locale.Get("element-form.same-name-message");
 
             if (newElement.Name == "")
-                err += "\n" + messageText[2];
+                err += "\n" + Locale.Get("element-form.must-have-name-message");
 
             if (
                 dayNumericUpDown.Value < 0 ||
                 monthNumericUpDown.Value < 0 ||
                 yearNumericUpDown.Value < 0)
-                err += "\n" + messageText[3];
+                err += "\n" + Locale.Get("element-form.positive-values-only-message");
 
             if (err != "")
             {
-                MessageBox.Show(err, messageText[0]);
+                MessageBox.Show(err, Locale.Get("general.warning-message-title"));
                 return;
             }
 
@@ -347,22 +237,22 @@ namespace Notebook
                 case 1:
                     infoTextBox.Visible = false;
                     datePanel.Visible = true;
-                    string[] nums = newElement.Birthday.Split('.');
+                    string[] date = newElement.Birthday.Split('.');
                     
-                    if (nums[0] == "-")
+                    if (date[0] == "-")
                         dayNumericUpDown.Value = 0;
                     else
-                        dayNumericUpDown.Value = Convert.ToDecimal(nums[0]);
+                        dayNumericUpDown.Value = Convert.ToDecimal(date[0]);
 
-                    if (nums[1] == "-")
+                    if (date[1] == "-")
                         monthNumericUpDown.Value = 0;
                     else
-                        monthNumericUpDown.Value = Convert.ToDecimal(nums[1]);
+                        monthNumericUpDown.Value = Convert.ToDecimal(date[1]);
 
-                    if (nums[2] == "-")
+                    if (date[2] == "-")
                         yearNumericUpDown.Value = 0;
                     else
-                        yearNumericUpDown.Value = Convert.ToDecimal(nums[2]);
+                        yearNumericUpDown.Value = Convert.ToDecimal(date[2]);
                     break;
 
                 case 2:

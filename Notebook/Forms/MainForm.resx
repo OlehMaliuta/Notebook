@@ -286,7 +286,7 @@
     <value>4, 3, 4, 3</value>
   </data>
   <data name="settingsButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 53</value>
+    <value>127, 53</value>
   </data>
   <data name="settingsButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -313,13 +313,13 @@
     <value>NoControl</value>
   </data>
   <data name="exitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1035, 598</value>
+    <value>1021, 598</value>
   </data>
   <data name="exitButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
   </data>
   <data name="exitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 53</value>
+    <value>135, 53</value>
   </data>
   <data name="exitButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>

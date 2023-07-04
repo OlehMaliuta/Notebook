@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
+using Notebook.Classes;
 
 namespace Notebook
 {
@@ -15,45 +16,38 @@ namespace Notebook
             InitializeComponent();
         }
 
-        private void SetWindowLang(Language language)
-        {
-            switch (language)
-            {
-                case Language.Ukraіnian:
-                    this.Text = "Notebook - Налаштування";
-                    languageWindowLabel.Text = "Вибрати мову:";
-                    goBackButton.Text = "назад";
-                    mainMenuButton.Text = "головне меню";
-                    changeLanguageButton.Text = "прийняти зміни";
-                    break;
-
-                case Language.Russian:
-                    this.Text = "Notebook - Настройки";
-                    languageWindowLabel.Text = "Выбрать язык:";
-                    goBackButton.Text = "назад";
-                    mainMenuButton.Text = "главное меню";
-                    changeLanguageButton.Text = "принять измнинения";
-                    break;
-
-                case Language.English:
-                    this.Text = "Notebook - Settings";
-                    languageWindowLabel.Text = "Choose language:";
-                    goBackButton.Text = "back";
-                    mainMenuButton.Text = "main menu";
-                    changeLanguageButton.Text = "apply";
-                    break;
-            }
-        }
-
         private void LanguageFormLoad(object sender, EventArgs e)
         {
+            // localization
+
+            this.Text = $"{Locale.Get("general.app-name")} - {Locale.Get("language-form.form-name")}";
+            languageWindowLabel.Text = Locale.Get("language-form.app-language-setting-title");
+            changeLanguageButton.Text = Locale.Get("language-form.apply-button");
+            mainMenuButton.Text = Locale.Get("language-form.main-menu-button");
+            goBackButton.Text = Locale.Get("language-form.go-back-button");
+
+            languageComboBox.Items.Add(Locale.Get("language-form.language-option-en"));
+            languageComboBox.Items.Add(Locale.Get("language-form.language-option-ua"));
+            languageComboBox.Items.Add(Locale.Get("language-form.language-option-ru"));
+
+            // form settings
+
             this.progVarStorage =
                 JsonConvert.DeserializeObject<ProgVarStorage>(
                     File.ReadAllText("ProgVarStorageInfo.json"));
 
-            SetWindowLang(progVarStorage.AppLanguage);
-
-            languageComboBox.SelectedIndex = (int)progVarStorage.AppLanguage;
+            switch (Locale.CurrentLang)
+            {
+                case "en":
+                    languageComboBox.SelectedIndex = 0; 
+                    break;
+                case "ua":
+                    languageComboBox.SelectedIndex = 1;
+                    break;
+                case "ru":
+                    languageComboBox.SelectedIndex = 2;
+                    break;
+            }
 
             switch (progVarStorage.PrevWindow)
             {
@@ -85,15 +79,15 @@ namespace Notebook
             switch (languageComboBox.SelectedIndex)
             {
                 case 0:
-                    progVarStorage.AppLanguage = Language.Ukraіnian;
+                    Locale.CurrentLang = "en";
                     break;
 
                 case 1:
-                    progVarStorage.AppLanguage = Language.Russian;
+                    Locale.CurrentLang = "ua";
                     break;
 
                 case 2:
-                    progVarStorage.AppLanguage = Language.English;
+                    Locale.CurrentLang = "ru";
                     break;
             }
 
