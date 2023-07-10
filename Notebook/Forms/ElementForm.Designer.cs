@@ -48,13 +48,13 @@
             this.datePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // changeElementButton
+            // editElementButton
             // 
             this.editElementButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editElementButton.Location = new System.Drawing.Point(591, 385);
+            this.editElementButton.Location = new System.Drawing.Point(579, 375);
             this.editElementButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.editElementButton.Name = "changeElementButton";
-            this.editElementButton.Size = new System.Drawing.Size(99, 34);
+            this.editElementButton.Name = "editElementButton";
+            this.editElementButton.Size = new System.Drawing.Size(111, 44);
             this.editElementButton.TabIndex = 0;
             this.editElementButton.Text = "створити";
             this.editElementButton.UseVisualStyleBackColor = true;
@@ -63,10 +63,10 @@
             // goBackButton
             // 
             this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.goBackButton.Location = new System.Drawing.Point(450, 385);
+            this.goBackButton.Location = new System.Drawing.Point(438, 375);
             this.goBackButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.goBackButton.Name = "goBackButton";
-            this.goBackButton.Size = new System.Drawing.Size(97, 34);
+            this.goBackButton.Size = new System.Drawing.Size(109, 44);
             this.goBackButton.TabIndex = 1;
             this.goBackButton.Text = "назад";
             this.goBackButton.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@
             this.infoFieldTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.infoFieldTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.infoFieldTypeComboBox.FormattingEnabled = true;
-            this.infoFieldTypeComboBox.Location = new System.Drawing.Point(521, 258);
+            this.infoFieldTypeComboBox.Location = new System.Drawing.Point(490, 258);
             this.infoFieldTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.infoFieldTypeComboBox.Name = "infoFieldTypeComboBox";
-            this.infoFieldTypeComboBox.Size = new System.Drawing.Size(163, 24);
+            this.infoFieldTypeComboBox.Size = new System.Drawing.Size(200, 24);
             this.infoFieldTypeComboBox.TabIndex = 2;
             this.infoFieldTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.InfoFieldTypeComboBoxSelectedIndexChanged);
             // 
@@ -109,13 +109,13 @@
             // dayLabel
             // 
             this.dayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dayLabel.Location = new System.Drawing.Point(28, 20);
+            this.dayLabel.Location = new System.Drawing.Point(0, 20);
             this.dayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dayLabel.Name = "dayLabel";
-            this.dayLabel.Size = new System.Drawing.Size(38, 18);
+            this.dayLabel.Size = new System.Drawing.Size(81, 18);
             this.dayLabel.TabIndex = 5;
             this.dayLabel.Text = "day:";
-            this.dayLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.dayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dayNumericUpDown
             // 
@@ -138,12 +138,13 @@
             // monthLabel
             // 
             this.monthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monthLabel.Location = new System.Drawing.Point(14, 59);
+            this.monthLabel.Location = new System.Drawing.Point(0, 59);
             this.monthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.monthLabel.Name = "monthLabel";
-            this.monthLabel.Size = new System.Drawing.Size(52, 18);
+            this.monthLabel.Size = new System.Drawing.Size(81, 18);
             this.monthLabel.TabIndex = 7;
             this.monthLabel.Text = "month:";
+            this.monthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // yearNumericUpDown
             // 
@@ -157,17 +158,18 @@
             // yearLabel
             // 
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(24, 97);
+            this.yearLabel.Location = new System.Drawing.Point(0, 97);
             this.yearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(42, 18);
+            this.yearLabel.Size = new System.Drawing.Size(81, 18);
             this.yearLabel.TabIndex = 9;
             this.yearLabel.Text = "year:";
+            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // fieldTypeLabel
             // 
             this.fieldTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fieldTypeLabel.Location = new System.Drawing.Point(442, 261);
+            this.fieldTypeLabel.Location = new System.Drawing.Point(423, 261);
             this.fieldTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fieldTypeLabel.Name = "fieldTypeLabel";
             this.fieldTypeLabel.Size = new System.Drawing.Size(59, 21);
@@ -183,10 +185,10 @@
             this.datePanel.Controls.Add(this.monthLabel);
             this.datePanel.Controls.Add(this.yearLabel);
             this.datePanel.Controls.Add(this.monthNumericUpDown);
-            this.datePanel.Location = new System.Drawing.Point(119, 143);
+            this.datePanel.Location = new System.Drawing.Point(124, 143);
             this.datePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.datePanel.Name = "datePanel";
-            this.datePanel.Size = new System.Drawing.Size(204, 139);
+            this.datePanel.Size = new System.Drawing.Size(203, 139);
             this.datePanel.TabIndex = 12;
             // 
             // ElementForm

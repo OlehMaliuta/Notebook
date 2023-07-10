@@ -7,22 +7,42 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
-using Word = Microsoft.Office.Interop.Word.Application;
 using Notebook.Classes;
+using Word = Microsoft.Office.Interop.Word.Application;
 
 namespace Notebook
 {
     public partial class ListForm : Form
     {
-        private ListsStorage listsStorage = new ListsStorage();
-        private ProgVarStorage progVarStorage = new ProgVarStorage();
-        private PeopleList reviewList = new PeopleList();
-        private string nextWindow = "";
-        private bool isClosing = false;
+        public enum NextAction
+        {
+            AppIsClosing,
+            GoToMainForm,
+            Other
+        }
 
-        public ListForm()
+        private readonly ListsStorage listsStorage;
+        private readonly PeopleList reviewList;
+        private NextAction action;
+        private int sortMode;
+        private bool sortByAsc;
+
+        public ListForm(string reviewListName)
         {
             InitializeComponent();
+
+            this.listsStorage =
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
+
+            this.reviewList = listsStorage.PeopleLists.Single(
+                item => item.ListName == reviewListName);
+
+            this.action = NextAction.GoToMainForm;
+
+            this.sortMode = 0;
+
+            this.sortByAsc = true;
         }
 
         private void ListFormLoad(object sender, EventArgs e)
@@ -32,19 +52,8 @@ namespace Notebook
             elementDataGridView.DefaultCellStyle.WrapMode = 
                 DataGridViewTriState.True;
 
-            this.listsStorage = 
-                JsonConvert.DeserializeObject<ListsStorage>(
-                    File.ReadAllText("ListsStorageInfo.json"));
-
-            this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(
-                    File.ReadAllText("ProgVarStorageInfo.json"));
-
-            reviewList = listsStorage.PeopleLists.Single(
-                item => item.ListName == progVarStorage.ReviewListName);
-
             var pl =
-                reviewList.Elements.OrderBy(item => item.Name);
+                this.reviewList.Elements.OrderBy(item => item.Name);
 
             foreach (Element el in pl)
             {
@@ -59,7 +68,7 @@ namespace Notebook
 
             // localization
 
-            this.Text = $"{Locale.Get("general.app-name")} - \"{reviewList.ListName}\"";
+            this.Text = $"{Locale.Get("general.app-name")} - \"{this.reviewList.ListName}\"";
 
             addElementButton.Text = Locale.Get("list-form.add-element-option");
             createTxtFileButton.Text = Locale.Get("list-form.save-txt-option");
@@ -72,12 +81,7 @@ namespace Notebook
             elementDataGridView.Columns[4].HeaderText = Locale.Get("list-form.column-header-5");
             elementDataGridView.Columns[5].HeaderText = Locale.Get("list-form.column-header-6");
 
-            sortLabel.Text = Locale.Get("list-form.sorting-option-title");
-
-            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-1"));
-            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-2"));
-            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-3"));
-            sortingElementsComboBox.Items.Add(Locale.Get("list-form.sort-variant-4"));
+            searchLabel.Text = Locale.Get("list-form.searching-option-title");
 
             settingsButton.Text = Locale.Get("list-form.settings-option");
             mainMenuButton.Text = Locale.Get("list-form.main-menu-option");
@@ -89,8 +93,6 @@ namespace Notebook
             createDocxTool.Text = Locale.Get("list-form.save-docx-option");
             settingsTool.Text = Locale.Get("list-form.settings-option");
             exitTool.Text = Locale.Get("list-form.exit-option");
-
-            sortingElementsComboBox.SelectedIndex = 0;
         }
 
         private void AddElementToolClick(object sender, EventArgs e)
@@ -120,16 +122,18 @@ namespace Notebook
 
         private void AddElementButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.ElementFormVariant = "create";
-            nextWindow = "ElementForm";
+            this.action = NextAction.Other;
             this.Close();
+            ElementForm elementForm = new ElementForm(this.reviewList.ListName, null);
+            elementForm.Show();
         }
 
         private void SettingsButtonClick(object sender, EventArgs e)
         {
-            progVarStorage.PrevWindow = "listForm";
-            nextWindow = "LanguageForm";
+            this.action = NextAction.Other;
             this.Close();
+            SettingsForm settingsForm = new SettingsForm(this.reviewList.ListName, SettingsForm.PrevForm.ListForm);
+            settingsForm.Show();
         }
 
         private void MainMenuButtonClick(object sender, EventArgs e)
@@ -139,12 +143,19 @@ namespace Notebook
 
         private void ExitButtonClick(object sender, EventArgs e)
         {
-            isClosing = true;
-            this.Close();
+            DialogResult result = MessageBox.Show(
+                                Locale.Get("general.exit-message"),
+                                Locale.Get("general.warning-message-title"),
+                                MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.action = NextAction.AppIsClosing;
+                this.Close();
+            }
         }
 
-        private void ElementDataGridViewCellClick(
-            object sender, DataGridViewCellEventArgs e)
+        private void ElementDataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
@@ -152,16 +163,20 @@ namespace Notebook
                 {
                     case "open":
                         {
-                            progVarStorage.ElementFormVariant = "change";
-                            progVarStorage.ReviewElementName =
+                            string elementName =
                                 elementDataGridView[0, e.RowIndex]
                                     .Value.ToString();
 
-                            nextWindow = "ElementForm";
+                            this.action = NextAction.Other;
                             this.Close();
+
+                            ElementForm elementForm = new ElementForm(
+                                    this.reviewList.ListName,
+                                    elementName);
+
+                            elementForm.Show();
                         }
                         break;
-
                     case "delete":
                         {
                             DialogResult result = MessageBox.Show(
@@ -171,8 +186,8 @@ namespace Notebook
 
                             if (result == DialogResult.Yes)
                             {
-                                reviewList.Elements.RemoveAt(
-                                    reviewList.Elements.FindIndex(
+                                this.reviewList.Elements.RemoveAt(
+                                    this.reviewList.Elements.FindIndex(
                                         item => 
                                             item.Name == 
                                             elementDataGridView[0, e.RowIndex]
@@ -186,7 +201,7 @@ namespace Notebook
                                                Rows.Count - 1]);
                                 }
 
-                                foreach (Element el in reviewList.Elements)
+                                foreach (Element el in this.reviewList.Elements)
                                 {
                                     elementDataGridView.Rows.Add
                                         (
@@ -197,7 +212,7 @@ namespace Notebook
                                         );
                                 }
 
-                                switch (sortingElementsComboBox.SelectedIndex)
+                                switch (sortMode)
                                 {
                                     case 0:
                                         elementDataGridView.Sort(
@@ -252,7 +267,7 @@ namespace Notebook
 
                 for (int i = 0; i < elementDataGridView.Rows.Count; i++)
                 {
-                    people.Add(reviewList.Elements.Single(
+                    people.Add(this.reviewList.Elements.Single(
                         p => p.Name == elementDataGridView[0, i].
                             Value.ToString()));
                 }
@@ -260,7 +275,7 @@ namespace Notebook
                 string listData = "";
                 int count1 = 1;
                 int count2 = 0;
-                listData = "\"" + reviewList.ListName + "\"\n\n";
+                listData = "\"" + this.reviewList.ListName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
@@ -278,7 +293,7 @@ namespace Notebook
                         Locale.Get("list-form.fields-for-documents-5") +
                         people[count1 - 1].Locale,
                         Locale.Get("list-form.fields-for-documents-6") +
-                        people[count1 - 1].FamilarPeoplePosition,
+                        people[count1 - 1].RelativesPosition,
                         Locale.Get("list-form.fields-for-documents-7") +
                         people[count1 - 1].FirstMeeting,
                         Locale.Get("list-form.fields-for-documents-8") +
@@ -330,14 +345,14 @@ namespace Notebook
 
                 for (int i = 0; i < elementDataGridView.Rows.Count; i++)
                 {
-                    people.Add(reviewList.Elements.Single(
+                    people.Add(this.reviewList.Elements.Single(
                         p => p.Name == elementDataGridView[0, i]
                             .Value.ToString()));
                 }
 
                 int count1 = 1;
                 int count2 = 0;
-                r.Text = "\"" + reviewList.ListName + "\"\n\n";
+                r.Text = "\"" + this.reviewList.ListName + "\"\n\n";
                 while (count1 <= people.Count)
                 {
                     count2 = 0;
@@ -355,7 +370,7 @@ namespace Notebook
                         Locale.Get("list-form.fields-for-documents-5") +
                         people[count1 - 1].Locale,
                         Locale.Get("list-form.fields-for-documents-6") +
-                        people[count1 - 1].FamilarPeoplePosition,
+                        people[count1 - 1].RelativesPosition,
                         Locale.Get("list-form.fields-for-documents-7") +
                         people[count1 - 1].FirstMeeting,
                         Locale.Get("list-form.fields-for-documents-8") +
@@ -383,138 +398,129 @@ namespace Notebook
             }
         }
 
-        private void SortingElementsComboBoxSelectedIndexChanged(
-            object sender, EventArgs e)
+        private void SearchElementTextBoxTextChanged(object sender, EventArgs e)
         {
-            switch (sortingElementsComboBox.SelectedIndex)
-            {
-                case 0:
-                    {
-                        elementDataGridView.Sort(
-                            elementDataGridView.Columns[0],
-                            ListSortDirection.Ascending);
-                    }
-                    break;
+            elementDataGridView.Rows.Clear();
 
-                case 1:
-                    {
-                        elementDataGridView.Sort(
-                            elementDataGridView.Columns[1],
-                            ListSortDirection.Ascending);
-                    }
-                    break;
-
-                case 2:
-                    {
-                        elementDataGridView.Sort(
-                            elementDataGridView.Columns[2],
-                            ListSortDirection.Ascending);
-                    }
-                    break;
-
-                case 3:
-                    {
-                        elementDataGridView.Sort(
-                            elementDataGridView.Columns[3],
-                            ListSortDirection.Ascending);
-                    }
-                    break;
-            }
-        }
-
-        private void SearchElementTextBoxTextChanged(
-            object sender, EventArgs e)
-        {
             List<Element> pl = new List<Element>();
 
-            IOrderedEnumerable<Element> persons = default;
-
-            switch (sortingElementsComboBox.SelectedIndex)
-            {
-                case 0:
-                    persons = reviewList.Elements.OrderBy(p => p.Name);
-                    break;
-
-                case 1:
-                    persons = reviewList.Elements.OrderBy(p => p.Birthday);
-                    break;
-
-                case 2:
-                    persons = reviewList.Elements.OrderBy(
-                        p => p.CreatingDate);
-                    break;
-
-                case 3:
-                    persons = reviewList.Elements.OrderBy(
-                        p => p.UpdatingDate);
-                    break;
-            }
-
-            foreach (Element el in persons)
-            {
-                pl.Add(el);
-            }
-
-            while (elementDataGridView.Rows.Count > 0)
-            {
-                elementDataGridView.Rows.Remove(
-                    elementDataGridView.Rows[
-                        elementDataGridView.Rows.Count - 1]);
-            }
-
-            List<Element> spl = new List<Element>();
-
-            spl = pl.FindAll(
+            pl = this.reviewList.Elements.FindAll(
                         item => item.Name.ToLower().Contains(
                             searchElementTextBox.Text.ToLower()));
 
-            foreach (Element el in spl)
+            foreach (Element el in pl)
             {
-                elementDataGridView.Rows.Add
-                    (
+                elementDataGridView.Rows.Add(
                     el.Name,
                     el.Birthday,
                     el.CreatingDate,
-                    el.UpdatingDate
-                    );
+                    el.UpdatingDate);
             }
         }
 
-        private void ListFormFormClosing(
-            object sender, FormClosingEventArgs e)
+        private void ElementDataGridViewColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex > 3)
+            {
+                return;
+            }
+
+            if (sortMode == e.ColumnIndex)
+            {
+                this.sortByAsc = !sortByAsc;
+            }
+            else
+            {
+                this.sortByAsc = true;
+            }
+
+            this.sortMode = e.ColumnIndex;
+
+            if (this.sortByAsc)
+            {
+                switch (this.sortMode)
+                {
+                    case 0:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderBy(p => p.Name)
+                            .ToList();
+                        break;
+                    case 1:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderBy(p => string.Join(".", p.Birthday.Split('.').Reverse().ToArray()))
+                            .ToList();
+                        break;
+                    case 2:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderBy(p => Program.MeasureTimeStr(p.CreatingDate))
+                            .ToList();
+                        break;
+                    case 3:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderBy(p => Program.MeasureTimeStr(p.UpdatingDate))
+                            .ToList();
+                        break;
+                }
+            }
+            else
+            {
+                switch (this.sortMode)
+                {
+                    case 0:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderByDescending(p => p.Name)
+                            .ToList();
+                        break;
+                    case 1:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderByDescending(p => string.Join(".", p.Birthday.Split('.').Reverse().ToArray()))
+                            .ToList();
+                        break;
+                    case 2:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderByDescending(p => Program.MeasureTimeStr(p.CreatingDate))
+                            .ToList();
+                        break;
+                    case 3:
+                        this.reviewList.Elements = this.reviewList.Elements
+                            .OrderByDescending(p => Program.MeasureTimeStr(p.UpdatingDate))
+                            .ToList();
+                        break;
+                }
+            }
+
+            elementDataGridView.Rows.Clear();
+
+            List<Element> pl = new List<Element>();
+
+            pl = this.reviewList.Elements.FindAll(
+                        item => item.Name.ToLower().Contains(
+                            searchElementTextBox.Text.ToLower()));
+
+            foreach (Element el in pl)
+            {
+                elementDataGridView.Rows.Add(
+                    el.Name,
+                    el.Birthday,
+                    el.CreatingDate,
+                    el.UpdatingDate);
+            }
+        }
+
+        private void ListFormFormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText(
                 "ListsStorageInfo.json",
                 JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText(
-                "ProgVarStorageInfo.json",
-                JsonConvert.SerializeObject(this.progVarStorage));
-
-            if (isClosing)
-                Environment.Exit(0);
-
-            switch (nextWindow)
+            switch (this.action)
             {
-                case "ElementForm":
-                    ElementForm elementForm = new ElementForm();
-                    elementForm.Show();
+                case NextAction.AppIsClosing: 
+                    Environment.Exit(0); 
                     break;
-
-                case "LanguageForm":
-                    LanguageForm languageForm = new LanguageForm();
-                    languageForm.Show();
-                    break;
-
-                case "":
+                case NextAction.GoToMainForm:
                     MainForm mainForm = new MainForm();
                     mainForm.Show();
-                    break;
-
-                default:
-                    MainForm defForm = new MainForm();
-                    defForm.Show();
-                    MessageBox.Show("ERROR");
                     break;
             }
         }

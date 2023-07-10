@@ -2,7 +2,8 @@
   "general": {
     "app-name": "Notebook",
     "warning-message-title": "Предупреждение!",
-    "normal-message-title": "Сообщение!"
+    "normal-message-title": "Сообщение!",
+    "exit-message": "Хотите закрыть приложение?"
   },
   "main-form": {
     "form-name": "Главное меню",
@@ -10,17 +11,14 @@
     "add-list-option": "Добавить список",
     "settings-option": "Настройки",
     "exit-option": "Выход",
-    "sorting-option-title": "Сортировать по:",
+    "searching-option-title": "Поиск:",
     "remove-list-message": "Вы хотите удалить список?",
     "column-header-1": "Имя списка",
     "column-header-2": "Дата создания",
     "column-header-3": "Дата обновления",
     "column-header-4": "*Открыть*",
     "column-header-5": "*Переименовать*",
-    "column-header-6": "*Удалить*",
-    "sorting-variant-1": "именем",
-    "sorting-variant-2": "датой создания",
-    "sorting-variant-3": "датой обновления"
+    "column-header-6": "*Удалить*"
   },
   "list-name-form": {
     "form-name-create": "Новий список",
@@ -41,17 +39,13 @@
     "settings-option": "Настройки",
     "main-menu-option": "Главное меню",
     "exit-option": "Выход",
-    "sorting-option-title": "Сортировать по:",
+    "searching-option-title": "Поиск:",
     "column-header-1": "Полное имя",
     "column-header-2": "Дата рождения человека",
     "column-header-3": "Дата создания",
     "column-header-4": "Дата обновления",
     "column-header-5": "*Подробнее*",
     "column-header-6": "*Удалить*",
-    "sort-variant-1": "именем",
-    "sort-variant-2": "датой рождения",
-    "sort-variant-3": "датой создания",
-    "sort-variant-4": "датой обновления",
     "remove-element-message": "Хотите ли вы удалить элемент из списка?",
     "illegal-chars-message": "Запрещается использовать точку для названия файлов.",
     "document-created-message": "Документ успешно создан.",

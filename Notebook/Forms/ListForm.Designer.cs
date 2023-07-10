@@ -32,8 +32,7 @@
             this.addElementButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.sortingElementsComboBox = new System.Windows.Forms.ComboBox();
-            this.sortLabel = new System.Windows.Forms.Label();
+            this.searchLabel = new System.Windows.Forms.Label();
             this.searchElementTextBox = new System.Windows.Forms.TextBox();
             this.mainMenuButton = new System.Windows.Forms.Button();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
@@ -94,28 +93,16 @@
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.SettingsButtonClick);
             // 
-            // sortingElementsComboBox
+            // searchLabel
             // 
-            this.sortingElementsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sortingElementsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sortingElementsComboBox.FormattingEnabled = true;
-            this.sortingElementsComboBox.Location = new System.Drawing.Point(1021, 479);
-            this.sortingElementsComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.sortingElementsComboBox.Name = "sortingElementsComboBox";
-            this.sortingElementsComboBox.Size = new System.Drawing.Size(182, 24);
-            this.sortingElementsComboBox.TabIndex = 14;
-            this.sortingElementsComboBox.SelectedIndexChanged += new System.EventHandler(this.SortingElementsComboBoxSelectedIndexChanged);
-            // 
-            // sortLabel
-            // 
-            this.sortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.sortLabel.Location = new System.Drawing.Point(848, 480);
-            this.sortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.sortLabel.Name = "sortLabel";
-            this.sortLabel.Size = new System.Drawing.Size(136, 21);
-            this.sortLabel.TabIndex = 13;
-            this.sortLabel.Text = "Сортування за:";
-            this.sortLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.searchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchLabel.Location = new System.Drawing.Point(813, 372);
+            this.searchLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(136, 21);
+            this.searchLabel.TabIndex = 13;
+            this.searchLabel.Text = "Search:";
+            this.searchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // searchElementTextBox
             // 
@@ -125,7 +112,6 @@
             this.searchElementTextBox.Name = "searchElementTextBox";
             this.searchElementTextBox.Size = new System.Drawing.Size(431, 22);
             this.searchElementTextBox.TabIndex = 12;
-            this.searchElementTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.searchElementTextBox.TextChanged += new System.EventHandler(this.SearchElementTextBoxTextChanged);
             // 
             // mainMenuButton
@@ -163,10 +149,11 @@
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
             this.elementDataGridView.RowHeadersVisible = false;
-            this.elementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.elementDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.elementDataGridView.Size = new System.Drawing.Size(766, 584);
             this.elementDataGridView.TabIndex = 21;
             this.elementDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElementDataGridViewCellClick);
+            this.elementDataGridView.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ElementDataGridViewColumnHeaderMouseClick);
             // 
             // name
             // 
@@ -338,8 +325,7 @@
             this.Controls.Add(this.mainMenuButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.sortingElementsComboBox);
-            this.Controls.Add(this.sortLabel);
+            this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.searchElementTextBox);
             this.Controls.Add(this.addElementButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -362,8 +348,7 @@
         private System.Windows.Forms.Button addElementButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button settingsButton;
-        private System.Windows.Forms.ComboBox sortingElementsComboBox;
-        private System.Windows.Forms.Label sortLabel;
+        private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.TextBox searchElementTextBox;
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.DataGridView elementDataGridView;

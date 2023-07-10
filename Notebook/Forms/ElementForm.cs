@@ -9,63 +9,73 @@ namespace Notebook
 {
     public partial class ElementForm : Form
     {
-        private ListsStorage listsStorage = new ListsStorage();
-        private ProgVarStorage progVarStorage = new ProgVarStorage();
-        private PeopleList reviewList = new PeopleList();
-        private Element reviewElement = new Element();
-        private Element newElement = new Element();
-        private string nextWindow = "";
+        private readonly ListsStorage listsStorage;
+        private readonly PeopleList reviewList;
+        private readonly Element reviewElement;
+        private readonly Element newElement;
+        private readonly bool creatingMode;
+        private bool xIsPressed;
 
-        public ElementForm()
+        public ElementForm(string reviewListName, string reviewElementName)
         {
             InitializeComponent();
+
+            this.listsStorage =
+                JsonConvert.DeserializeObject<ListsStorage>(
+                    File.ReadAllText("ListsStorageInfo.json"));
+
+            this.reviewList = this.listsStorage.PeopleLists
+                .Single(item => item.ListName == reviewListName);
+
+            if (reviewElementName != null)
+            {
+                this.reviewElement = this.reviewList.Elements.Single(
+                    p => p.Name == reviewElementName);
+
+                this.newElement = new Element(this.reviewElement);
+
+                this.creatingMode = false;
+            }
+            else
+            {
+                this.reviewElement = new Element();
+                this.newElement = new Element();
+                this.creatingMode = true;
+            }
+
+            this.xIsPressed = true;
         }
 
         private void ElementFormLoad(object sender, EventArgs e)
         {
             // form settings
 
-            this.listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(
-                    File.ReadAllText("ListsStorageInfo.json"));
-
-            this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(
-                    File.ReadAllText("ProgVarStorageInfo.json"));
-
-            this.reviewList = listsStorage.PeopleLists.Single(
-                        item => 
-                        item.ListName == progVarStorage.ReviewListName);
-
-            if (progVarStorage.ElementFormVariant == "change")
-            {
-                reviewElement = reviewList.Elements.Single(
-                    p => p.Name == progVarStorage.ReviewElementName);
-
-                newElement.CopyElement(reviewElement);
-            }
-
             fieldNameLabel.Text = infoFieldTypeComboBox.Text;
             infoTextBox.Text = newElement.Name;
 
+            string[] valuesOfDate = newElement.Birthday.Split('.');
+
             dayNumericUpDown.Maximum = int.MaxValue;
             dayNumericUpDown.Minimum = int.MinValue;
+            dayNumericUpDown.Value = int.Parse(valuesOfDate[0] == "-" ? "0" : valuesOfDate[0]);
 
             monthNumericUpDown.Maximum = int.MaxValue;
             monthNumericUpDown.Minimum = int.MinValue;
+            monthNumericUpDown.Value = int.Parse(valuesOfDate[1] == "-" ? "0" : valuesOfDate[1]);
 
             yearNumericUpDown.Maximum = int.MaxValue;
             yearNumericUpDown.Minimum = int.MinValue;
+            yearNumericUpDown.Value = int.Parse(valuesOfDate[2] == "-" ? "0" : valuesOfDate[2]);
 
             datePanel.Visible = false;
 
             // localization
 
-            this.Text = progVarStorage.ElementFormVariant == "create"
+            this.Text = this.creatingMode
                 ? $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-create")}"
                 : $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-review")}";
 
-            editElementButton.Text = progVarStorage.ElementFormVariant == "create"
+            editElementButton.Text = this.creatingMode
                 ? Locale.Get("element-form.create-element-button")
                 : Locale.Get("element-form.edit-element-button");
 
@@ -96,7 +106,7 @@ namespace Notebook
             string err = "";
 
             if (
-                progVarStorage.ElementFormVariant == "create" &&
+                this.creatingMode &&
                 reviewList.Elements.FindIndex(
                     item => item.Name == infoTextBox.Text) != -1
                 )
@@ -137,7 +147,7 @@ namespace Notebook
             newElement.Birthday =
                     $"{day}.{month}.{year}";
 
-            if (progVarStorage.ElementFormVariant == "create")
+            if (this.creatingMode)
             {
                 newElement.CreatingDate =
                     DateTime.Now.ToShortDateString() +
@@ -153,7 +163,7 @@ namespace Notebook
 
                 reviewList.Elements.Add(newElement);
             }
-            else if (progVarStorage.ElementFormVariant == "change")
+            else
             {
                 if (newElement != reviewElement)
                 {
@@ -165,17 +175,19 @@ namespace Notebook
                     DateTime.Now.ToShortDateString() +
                     "\n" + DateTime.Now.ToLongTimeString();
 
-                    reviewElement.CopyElement(newElement);
+                    reviewElement.Copy(this.newElement);
                 }
             }
 
-            nextWindow = "ListForm";
+            this.xIsPressed = false;
+
             this.Close();
+            ListForm listForm = new ListForm(this.reviewList.ListName);
+            listForm.Show();
         }
 
         private void GoBackButtonClick(object sender, EventArgs e)
         {
-            nextWindow = "ListForm";
             this.Close();
         }
 
@@ -208,7 +220,7 @@ namespace Notebook
                     break;
 
                 case 7:
-                    newElement.FamilarPeoplePosition = infoTextBox.Text;
+                    newElement.RelativesPosition = infoTextBox.Text;
                     break;
 
                 case 8:
@@ -221,8 +233,7 @@ namespace Notebook
             }
         }
 
-        private void InfoFieldTypeComboBoxSelectedIndexChanged(
-            object sender, EventArgs e)
+        private void InfoFieldTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
             fieldNameLabel.Text = infoFieldTypeComboBox.Text;
 
@@ -288,7 +299,7 @@ namespace Notebook
                 case 7:
                     infoTextBox.Visible = true;
                     datePanel.Visible = false;
-                    infoTextBox.Text = newElement.FamilarPeoplePosition;
+                    infoTextBox.Text = newElement.RelativesPosition;
                     break;
 
                 case 8:
@@ -305,34 +316,16 @@ namespace Notebook
             }
         }
 
-        private void ElementFormFormClosing(
-            object sender, FormClosingEventArgs e)
+        private void ElementFormFormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText(
                 "ListsStorageInfo.json",
                 JsonConvert.SerializeObject(this.listsStorage));
 
-            File.WriteAllText(
-                "ProgVarStorageInfo.json",
-                JsonConvert.SerializeObject(this.progVarStorage));
-
-            switch (nextWindow)
+            if (this.xIsPressed)
             {
-                case "ListForm":
-                    ListForm listForm1 = new ListForm();
-                    listForm1.Show();
-                    break;
-
-                case "":
-                    ListForm listForm2 = new ListForm();
-                    listForm2.Show();
-                    break;
-
-                default:
-                    MainForm defForm = new MainForm();
-                    defForm.Show();
-                    MessageBox.Show("ERROR");
-                    break;
+                ListForm listForm = new ListForm(this.reviewList.ListName);
+                listForm.Show();
             }
         }
     }

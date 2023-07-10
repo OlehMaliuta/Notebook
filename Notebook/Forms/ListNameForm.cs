@@ -8,40 +8,37 @@ namespace Notebook
 {
     public partial class ListNameForm : Form
     {
-        private ListsStorage listsStorage = new ListsStorage();
-        private ProgVarStorage progVarStorage = new ProgVarStorage();
-        private string variant = "";
+        private readonly ListsStorage listsStorage;
+        private readonly string reviewingList;
 
-        public ListNameForm()
+        public ListNameForm(string listName)
         {
             InitializeComponent();
-        }
-
-        private void ListNameFormLoad(object sender, EventArgs e)
-        {
-            // form settings
 
             this.listsStorage =
                 JsonConvert.DeserializeObject<ListsStorage>(
                     File.ReadAllText("ListsStorageInfo.json"));
 
-            this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(
-                    File.ReadAllText("ProgVarStorageInfo.json"));
+            this.reviewingList = listName;
+        }
 
-            this.variant = this.progVarStorage.ListNameFormVariant;
-
+        private void ListNameFormLoad(object sender, EventArgs e)
+        {
             // localization
 
-            this.Text = variant == "create"
-                    ? $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-create")}"
-                    : $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-rename")}";
+            listNameTextBox.Text = reviewingList == null
+                ? ""
+                : reviewingList;
 
-            listNameWindowLabel.Text = variant == "create"
+            this.Text = reviewingList == null
+                ? $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-create")}"
+                : $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-rename")}";
+
+            listNameWindowLabel.Text = reviewingList == null
                 ? Locale.Get("list-name-form.name-input-option-title-create")
                 : Locale.Get("list-name-form.name-input-option-title-rename");
 
-            giveListNameButton.Text = variant == "create"
+            giveListNameButton.Text = reviewingList == null
                 ? Locale.Get("list-name-form.create-button")
                 : Locale.Get("list-name-form.rename-button");
 
@@ -53,7 +50,7 @@ namespace Notebook
             if (listNameTextBox.Text == "")
             {
                 MessageBox.Show(
-                    Locale.Get("list-name-form.list-must-have-name-message"), 
+                    Locale.Get("list-name-form.list-must-have-name-message"),
                     Locale.Get("general.warning-message-title"));
             }
             else if (this.listsStorage.PeopleLists.Find
@@ -63,19 +60,19 @@ namespace Notebook
                     )
             {
                 MessageBox.Show(
-                    Locale.Get("list-name-form.same-name-message"), 
+                    Locale.Get("list-name-form.same-name-message"),
                     Locale.Get("general.warning-message-title"));
             }
             else
             {
-                if (this.variant == "rename")
+                if (this.reviewingList != null)
                 {
                     int idx = this.listsStorage.PeopleLists.FindIndex
                         (
-                        item => item.ListName == progVarStorage.Name
+                        item => item.ListName == this.reviewingList
                         );
 
-                    this.listsStorage.PeopleLists[idx].ListName = 
+                    this.listsStorage.PeopleLists[idx].ListName =
                         listNameTextBox.Text;
 
                     this.listsStorage.PeopleLists[idx].UpdatingDate =
@@ -106,16 +103,11 @@ namespace Notebook
             this.Close();
         }
 
-        private void ListNameFormFormClosing(
-            object sender, FormClosingEventArgs e)
+        private void ListNameFormFormClosing(object sender, FormClosingEventArgs e)
         {
             File.WriteAllText(
                 "ListsStorageInfo.json",
                 JsonConvert.SerializeObject(this.listsStorage));
-
-            File.WriteAllText(
-                "ProgVarStorageInfo.json",
-                JsonConvert.SerializeObject(this.progVarStorage));
 
             MainForm mainForm = new MainForm();
             mainForm.Show();

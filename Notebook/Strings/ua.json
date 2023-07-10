@@ -2,7 +2,8 @@
   "general": {
     "app-name": "Notebook",
     "warning-message-title": "Попередження!",
-    "normal-message-title": "Повідомлення!"
+    "normal-message-title": "Повідомлення!",
+    "exit-message": "Хочите закрити застосунок?"
   },
   "main-form": {
     "form-name": "Головне меню",
@@ -10,17 +11,14 @@
     "add-list-option": "Додати список",
     "settings-option": "Налаштування",
     "exit-option": "Вийти",
-    "sorting-option-title": "Сортувати за:",
+    "searching-option-title": "Пошук:",
     "remove-list-message": "Ви хочете видалити список?",
     "column-header-1": "Ім'я списку",
     "column-header-2": "Дата створення",
     "column-header-3": "Дата оновлення",
     "column-header-4": "*Відкрити*",
     "column-header-5": "*Перейменувати*",
-    "column-header-6": "*Видалити*",
-    "sorting-variant-1": "ім'ям",
-    "sorting-variant-2": "датою створення",
-    "sorting-variant-3": "датою оновлення"
+    "column-header-6": "*Видалити*"
   },
   "list-name-form": {
     "form-name-create": "Новий список",
@@ -41,17 +39,13 @@
     "settings-option": "Налаштування",
     "main-menu-option": "Головне меню",
     "exit-option": "Вийти",
-    "sorting-option-title": "Сортувати за:",
+    "searching-option-title": "Пошук:",
     "column-header-1": "Повне ім'я",
     "column-header-2": "Дата народження людини",
     "column-header-3": "Дата створення",
     "column-header-4": "Дата оновлення",
     "column-header-5": "*Детальніше*",
     "column-header-6": "*Видалити*",
-    "sort-variant-1": "ім'ям",
-    "sort-variant-2": "датою народження",
-    "sort-variant-3": "датою створення",
-    "sort-variant-4": "датою оновлення",
     "remove-element-message": "Чи хочите ви видалити елемент із списку?",
     "illegal-chars-message": "Заборонено використовувати знак крапки для іменування файлів.",
     "document-created-message": "Документ успішно створено.",

@@ -2,7 +2,8 @@
   "general": {
     "app-name": "Notebook",
     "warning-message-title": "Warning!",
-    "normal-message-title": "Message!"
+    "normal-message-title": "Message!",
+    "exit-message": "Do you want to close the app?"
   },
   "main-form": {
     "form-name": "Main menu",
@@ -10,17 +11,14 @@
     "add-list-option": "Add list",
     "settings-option": "Settings",
     "exit-option": "Exit",
-    "sorting-option-title": "Sort by:",
+    "searching-option-title": "Search:",
     "remove-list-message": "Do you want to remove the list?",
     "column-header-1": "List name",
     "column-header-2": "Creation date",
     "column-header-3": "Updating date",
     "column-header-4": "*Open*",
     "column-header-5": "*Rename*",
-    "column-header-6": "*Delete*",
-    "sorting-variant-1": "name",
-    "sorting-variant-2": "creating date",
-    "sorting-variant-3": "updating date"
+    "column-header-6": "*Delete*"
   },
   "list-name-form": {
     "form-name-create": "New list",
@@ -41,17 +39,13 @@
     "settings-option": "Settings",
     "main-menu-option": "Main menu",
     "exit-option": "Exit",
-    "sorting-option-title": "Sort by:",
+    "searching-option-title": "Search:",
     "column-header-1": "Full name",
     "column-header-2": "Person's date of birth",
     "column-header-3": "Creation date",
     "column-header-4": "Updating date",
     "column-header-5": "*More info*",
     "column-header-6": "*Delete*",
-    "sort-variant-1": "name",
-    "sort-variant-2": "date of birth",
-    "sort-variant-3": "creating date",
-    "sort-variant-4": "updating date",
     "remove-element-message": "Do you want to remove the element from the list?",
     "illegal-chars-message": "You cannot use dot character for naming a file.",
     "document-created-message": "Document has created successfully.",

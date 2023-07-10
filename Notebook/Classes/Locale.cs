@@ -29,7 +29,7 @@ namespace Notebook.Classes
             }
             set
             {
-                if (File.Exists($"Localization/{value}.json"))
+                if (File.Exists($"Strings/{value}.json"))
                 {
                     JObject obj = JObject.Parse(File.ReadAllText($"Settings.json"));
                     obj["appLanguage"] = value;
@@ -59,7 +59,7 @@ namespace Notebook.Classes
             }
 
             JObject data = JObject
-                .Parse(File.ReadAllText($"Localization/{currentLang}.json"));
+                .Parse(File.ReadAllText($"Strings/{currentLang}.json"));
 
             string value;
 

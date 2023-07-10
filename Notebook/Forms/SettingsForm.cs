@@ -6,14 +6,27 @@ using Notebook.Classes;
 
 namespace Notebook
 {
-    public partial class LanguageForm : Form
+    public partial class SettingsForm : Form
     {
-        private ProgVarStorage progVarStorage = new ProgVarStorage();
-        private string nextWindow = "";
+        public enum PrevForm
+        {
+            MainForm,
+            ListForm
+        }
 
-        public LanguageForm()
+        private readonly PrevForm prevForm;
+        private readonly string reviewListName;
+        private bool xIsPressed;
+
+        public SettingsForm(string reviewListName, PrevForm prevForm)
         {
             InitializeComponent();
+
+            this.prevForm = prevForm;
+
+            this.reviewListName = reviewListName;
+
+            this.xIsPressed = true;
         }
 
         private void LanguageFormLoad(object sender, EventArgs e)
@@ -32,10 +45,6 @@ namespace Notebook
 
             // form settings
 
-            this.progVarStorage =
-                JsonConvert.DeserializeObject<ProgVarStorage>(
-                    File.ReadAllText("ProgVarStorageInfo.json"));
-
             switch (Locale.CurrentLang)
             {
                 case "en":
@@ -48,25 +57,16 @@ namespace Notebook
                     languageComboBox.SelectedIndex = 2;
                     break;
             }
-
-            switch (progVarStorage.PrevWindow)
-            {
-                case "mainForm":
-                    {
-                        nextWindow = "";
-                    }
-                    break;
-                case "listForm":
-                    {
-                        nextWindow = "ListForm";
-                    }
-                    break;
-            }
         }
 
         private void MainMenuButtonClick(object sender, EventArgs e)
         {
+            this.xIsPressed = false;
+
             this.Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+
         }
 
         private void GoBackButtonClick(object sender, EventArgs e)
@@ -91,39 +91,28 @@ namespace Notebook
                     break;
             }
 
-            nextWindow = "LanguageForm";
+            this.xIsPressed = false;
+
             this.Close();
+            SettingsForm settingsForm = new SettingsForm(reviewListName, prevForm);
+            settingsForm.Show();
         }
 
-        private void LanguageFormFormClosing(
-            object sender, FormClosingEventArgs e)
+        private void LanguageFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(
-                "ProgVarStorageInfo.json",
-                JsonConvert.SerializeObject(this.progVarStorage));
-
-            switch (nextWindow)
+            if (xIsPressed)
             {
-                case "LanguageForm":
-                    LanguageForm languageForm = new LanguageForm();
-                    languageForm.Show();
-                    break;
-
-                case "ListForm":
-                    ListForm listForm = new ListForm();
-                    listForm.Show();
-                    break;
-
-                case "":
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    break;
-
-                default:
-                    MainForm defForm = new MainForm();
-                    defForm.Show();
-                    MessageBox.Show("ERROR");
-                    break;
+                switch (this.prevForm)
+                {
+                    case PrevForm.MainForm:
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
+                        break;
+                    case PrevForm.ListForm:
+                        ListForm listForm = new ListForm(reviewListName);
+                        listForm.Show();
+                        break;
+                }
             }
         }
     }
