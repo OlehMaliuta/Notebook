@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Element.cs" />
-    <Compile Include="Classes\Locale.cs" />
+    <Compile Include="Classes\LanguageManager.cs" />
     <Compile Include="Forms\ElementForm.cs">
       <SubType>Form</SubType>
     </Compile>

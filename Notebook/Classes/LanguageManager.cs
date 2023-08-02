@@ -4,28 +4,27 @@ using System.IO;
 
 namespace Notebook.Classes
 {
-    internal static class Locale
+    internal static class LanguageManager
     {
         private const string defaultLang = "en";
-        private static string currentLang = null;
+        private static JObject data = null;
 
         public static string CurrentLang
         {
             get
             {
-                if (currentLang == null)
+                string lang = JObject
+                    .Parse(File.ReadAllText($"Settings.json"))
+                    .SelectToken("appLanguage")
+                    ?.Value<string>();
+
+                if (data == null)
                 {
-                    JObject progStorage = JObject
-                                    .Parse(File.ReadAllText($"Settings.json"));
-
-                    string lang = progStorage
-                        .SelectToken("appLanguage")
-                        ?.Value<string>();
-
-                    currentLang = lang ?? defaultLang;
+                    data = JObject
+                        .Parse(File.ReadAllText($"Strings/{lang ?? defaultLang}.json"));
                 }
 
-                return currentLang;
+                return lang ?? defaultLang;
             }
             set
             {
@@ -33,7 +32,9 @@ namespace Notebook.Classes
                 {
                     JObject obj = JObject.Parse(File.ReadAllText($"Settings.json"));
                     obj["appLanguage"] = value;
-                    currentLang = value;
+
+                    data = JObject
+                        .Parse(File.ReadAllText($"Strings/{value}.json"));
 
                     File.WriteAllText("Settings.json", obj.ToString());
 
@@ -46,20 +47,16 @@ namespace Notebook.Classes
 
         public static string Get(string key)
         {
-            if (currentLang == null)
+            if (data == null)
             {
-                JObject progStorage = JObject
-                                .Parse(File.ReadAllText($"Settings.json"));
-
-                string lang = progStorage
+                string lang = JObject
+                    .Parse(File.ReadAllText($"Settings.json"))
                     .SelectToken("appLanguage")
                     ?.Value<string>();
 
-                currentLang = lang ?? defaultLang;
+                data = JObject
+                        .Parse(File.ReadAllText($"Strings/{lang ?? defaultLang}.json"));
             }
-
-            JObject data = JObject
-                .Parse(File.ReadAllText($"Strings/{currentLang}.json"));
 
             string value;
 

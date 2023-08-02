@@ -33,27 +33,27 @@ namespace Notebook
         {
             // localization
 
-            this.Text = $"{Locale.Get("general.app-name")} - {Locale.Get("main-form.form-name")}";
+            this.Text = $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("main-form.form-name")}";
 
-            listDataGridView.Columns[0].HeaderText = Locale.Get("main-form.column-header-1");
-            listDataGridView.Columns[1].HeaderText = Locale.Get("main-form.column-header-2");
-            listDataGridView.Columns[2].HeaderText = Locale.Get("main-form.column-header-3");
-            listDataGridView.Columns[3].HeaderText = Locale.Get("main-form.column-header-4");
-            listDataGridView.Columns[4].HeaderText = Locale.Get("main-form.column-header-5");
-            listDataGridView.Columns[5].HeaderText = Locale.Get("main-form.column-header-6");
+            listDataGridView.Columns[0].HeaderText = LanguageManager.Get("main-form.column-header-1");
+            listDataGridView.Columns[1].HeaderText = LanguageManager.Get("main-form.column-header-2");
+            listDataGridView.Columns[2].HeaderText = LanguageManager.Get("main-form.column-header-3");
+            listDataGridView.Columns[3].HeaderText = LanguageManager.Get("main-form.column-header-4");
+            listDataGridView.Columns[4].HeaderText = LanguageManager.Get("main-form.column-header-5");
+            listDataGridView.Columns[5].HeaderText = LanguageManager.Get("main-form.column-header-6");
 
-            createListButton.Text = Locale.Get("main-form.add-list-option");
+            createListButton.Text = LanguageManager.Get("main-form.add-list-option");
 
-            searchLabel.Text = Locale.Get("main-form.searching-option-title");
+            searchLabel.Text = LanguageManager.Get("main-form.searching-option-title");
 
-            settingsButton.Text = Locale.Get("main-form.settings-option");
+            settingsButton.Text = LanguageManager.Get("main-form.settings-option");
 
-            exitButton.Text = Locale.Get("main-form.exit-option");
+            exitButton.Text = LanguageManager.Get("main-form.exit-option");
 
-            fileMenuSection.Text = Locale.Get("main-form.top-menu-option-file");
-            addListTool.Text = Locale.Get("main-form.add-list-option");
-            settingsTool.Text = Locale.Get("main-form.settings-option");
-            exitTool.Text = Locale.Get("main-form.exit-option");
+            fileMenuSection.Text = LanguageManager.Get("main-form.top-menu-option-file");
+            addListTool.Text = LanguageManager.Get("main-form.add-list-option");
+            settingsTool.Text = LanguageManager.Get("main-form.settings-option");
+            exitTool.Text = LanguageManager.Get("main-form.exit-option");
 
             // form settings
 
@@ -111,8 +111,8 @@ namespace Notebook
         private void ExitButtonClick(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                Locale.Get("general.exit-message"),
-                                Locale.Get("general.warning-message-title"),
+                                LanguageManager.Get("general.exit-message"),
+                                LanguageManager.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -164,8 +164,8 @@ namespace Notebook
                     case "delete":
                         {
                             DialogResult result = MessageBox.Show(
-                                Locale.Get("main-form.remove-list-message"),
-                                Locale.Get("general.warning-message-title"),
+                                LanguageManager.Get("main-form.remove-list-message"),
+                                LanguageManager.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
                             if (result == DialogResult.Yes)

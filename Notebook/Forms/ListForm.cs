@@ -68,31 +68,31 @@ namespace Notebook
 
             // localization
 
-            this.Text = $"{Locale.Get("general.app-name")} - \"{this.reviewList.ListName}\"";
+            this.Text = $"{LanguageManager.Get("general.app-name")} - \"{this.reviewList.ListName}\"";
 
-            addElementButton.Text = Locale.Get("list-form.add-element-option");
-            createTxtFileButton.Text = Locale.Get("list-form.save-txt-option");
-            createDocxFileButton.Text = Locale.Get("list-form.save-docx-option");
+            addElementButton.Text = LanguageManager.Get("list-form.add-element-option");
+            createTxtFileButton.Text = LanguageManager.Get("list-form.save-txt-option");
+            createDocxFileButton.Text = LanguageManager.Get("list-form.save-docx-option");
 
-            elementDataGridView.Columns[0].HeaderText = Locale.Get("list-form.column-header-1");
-            elementDataGridView.Columns[1].HeaderText = Locale.Get("list-form.column-header-2");
-            elementDataGridView.Columns[2].HeaderText = Locale.Get("list-form.column-header-3");
-            elementDataGridView.Columns[3].HeaderText = Locale.Get("list-form.column-header-4");
-            elementDataGridView.Columns[4].HeaderText = Locale.Get("list-form.column-header-5");
-            elementDataGridView.Columns[5].HeaderText = Locale.Get("list-form.column-header-6");
+            elementDataGridView.Columns[0].HeaderText = LanguageManager.Get("list-form.column-header-1");
+            elementDataGridView.Columns[1].HeaderText = LanguageManager.Get("list-form.column-header-2");
+            elementDataGridView.Columns[2].HeaderText = LanguageManager.Get("list-form.column-header-3");
+            elementDataGridView.Columns[3].HeaderText = LanguageManager.Get("list-form.column-header-4");
+            elementDataGridView.Columns[4].HeaderText = LanguageManager.Get("list-form.column-header-5");
+            elementDataGridView.Columns[5].HeaderText = LanguageManager.Get("list-form.column-header-6");
 
-            searchLabel.Text = Locale.Get("list-form.searching-option-title");
+            searchLabel.Text = LanguageManager.Get("list-form.searching-option-title");
 
-            settingsButton.Text = Locale.Get("list-form.settings-option");
-            mainMenuButton.Text = Locale.Get("list-form.main-menu-option");
-            exitButton.Text = Locale.Get("list-form.exit-option");
+            settingsButton.Text = LanguageManager.Get("list-form.settings-option");
+            mainMenuButton.Text = LanguageManager.Get("list-form.main-menu-option");
+            exitButton.Text = LanguageManager.Get("list-form.exit-option");
 
-            fileMenuSection.Text = Locale.Get("list-form.top-menu-option-file");
-            addElementTool.Text = Locale.Get("list-form.add-element-option");
-            createTxtTool.Text = Locale.Get("list-form.save-txt-option");
-            createDocxTool.Text = Locale.Get("list-form.save-docx-option");
-            settingsTool.Text = Locale.Get("list-form.settings-option");
-            exitTool.Text = Locale.Get("list-form.exit-option");
+            fileMenuSection.Text = LanguageManager.Get("list-form.top-menu-option-file");
+            addElementTool.Text = LanguageManager.Get("list-form.add-element-option");
+            createTxtTool.Text = LanguageManager.Get("list-form.save-txt-option");
+            createDocxTool.Text = LanguageManager.Get("list-form.save-docx-option");
+            settingsTool.Text = LanguageManager.Get("list-form.settings-option");
+            exitTool.Text = LanguageManager.Get("list-form.exit-option");
         }
 
         private void AddElementToolClick(object sender, EventArgs e)
@@ -144,8 +144,8 @@ namespace Notebook
         private void ExitButtonClick(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                Locale.Get("general.exit-message"),
-                                Locale.Get("general.warning-message-title"),
+                                LanguageManager.Get("general.exit-message"),
+                                LanguageManager.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -180,8 +180,8 @@ namespace Notebook
                     case "delete":
                         {
                             DialogResult result = MessageBox.Show(
-                                Locale.Get("list-form.remove-element-message"),
-                                Locale.Get("general.warning-message-title"),
+                                LanguageManager.Get("list-form.remove-element-message"),
+                                LanguageManager.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
                             if (result == DialogResult.Yes)
@@ -258,8 +258,8 @@ namespace Notebook
                 if (fileDialog.FileName.Contains('.'))
                 {
                     MessageBox.Show(
-                        Locale.Get("list-form.illegal-chars-message"), 
-                        Locale.Get("general.warning-message-title"));
+                        LanguageManager.Get("list-form.illegal-chars-message"), 
+                        LanguageManager.Get("general.warning-message-title"));
                     goto p_a;
                 }
 
@@ -282,23 +282,23 @@ namespace Notebook
                     listData += $"\n{count1}. {people[count1 - 1].Name}\n";
                     List<string> fields = new List<string>
                     {
-                        Locale.Get("list-form.fields-for-documents-1") +
+                        LanguageManager.Get("list-form.fields-for-documents-1") +
                         people[count1 - 1].Birthday,
-                        Locale.Get("list-form.fields-for-documents-2") +
+                        LanguageManager.Get("list-form.fields-for-documents-2") +
                         people[count1 - 1].Phone,
-                        Locale.Get("list-form.fields-for-documents-3") +
+                        LanguageManager.Get("list-form.fields-for-documents-3") +
                         people[count1 - 1].PersonalData,
-                        Locale.Get("list-form.fields-for-documents-4") +
+                        LanguageManager.Get("list-form.fields-for-documents-4") +
                         people[count1 - 1].ResidentialAddress,
-                        Locale.Get("list-form.fields-for-documents-5") +
+                        LanguageManager.Get("list-form.fields-for-documents-5") +
                         people[count1 - 1].Locale,
-                        Locale.Get("list-form.fields-for-documents-6") +
+                        LanguageManager.Get("list-form.fields-for-documents-6") +
                         people[count1 - 1].RelativesPosition,
-                        Locale.Get("list-form.fields-for-documents-7") +
+                        LanguageManager.Get("list-form.fields-for-documents-7") +
                         people[count1 - 1].FirstMeeting,
-                        Locale.Get("list-form.fields-for-documents-8") +
+                        LanguageManager.Get("list-form.fields-for-documents-8") +
                         people[count1 - 1].Skills,
-                        Locale.Get("list-form.fields-for-documents-9") +
+                        LanguageManager.Get("list-form.fields-for-documents-9") +
                         people[count1 - 1].ExtraInfo
                     };
 
@@ -314,8 +314,8 @@ namespace Notebook
                 File.WriteAllText(fileDialog.FileName + ".txt", listData);
 
                 MessageBox.Show(
-                    Locale.Get("list-form.document-created-message"), 
-                    Locale.Get("general.normal-message-title"));
+                    LanguageManager.Get("list-form.document-created-message"), 
+                    LanguageManager.Get("general.normal-message-title"));
             }
         }
 
@@ -332,8 +332,8 @@ namespace Notebook
                 if (fileDialog.FileName.Contains('.'))
                 {
                     MessageBox.Show(
-                        Locale.Get("list-form.illegal-chars-message"),
-                        Locale.Get("general.warning-message-title"));
+                        LanguageManager.Get("list-form.illegal-chars-message"),
+                        LanguageManager.Get("general.warning-message-title"));
                     goto p_b;
                 }
 
@@ -359,23 +359,23 @@ namespace Notebook
                     r.Text += $"\n{count1}. {people[count1 - 1].Name}\n";
                     List<string> fields = new List<string>
                     {
-                        Locale.Get("list-form.fields-for-documents-1") +
+                        LanguageManager.Get("list-form.fields-for-documents-1") +
                         people[count1 - 1].Birthday,
-                        Locale.Get("list-form.fields-for-documents-2") +
+                        LanguageManager.Get("list-form.fields-for-documents-2") +
                         people[count1 - 1].Phone,
-                        Locale.Get("list-form.fields-for-documents-3") +
+                        LanguageManager.Get("list-form.fields-for-documents-3") +
                         people[count1 - 1].PersonalData,
-                        Locale.Get("list-form.fields-for-documents-4") +
+                        LanguageManager.Get("list-form.fields-for-documents-4") +
                         people[count1 - 1].ResidentialAddress,
-                        Locale.Get("list-form.fields-for-documents-5") +
+                        LanguageManager.Get("list-form.fields-for-documents-5") +
                         people[count1 - 1].Locale,
-                        Locale.Get("list-form.fields-for-documents-6") +
+                        LanguageManager.Get("list-form.fields-for-documents-6") +
                         people[count1 - 1].RelativesPosition,
-                        Locale.Get("list-form.fields-for-documents-7") +
+                        LanguageManager.Get("list-form.fields-for-documents-7") +
                         people[count1 - 1].FirstMeeting,
-                        Locale.Get("list-form.fields-for-documents-8") +
+                        LanguageManager.Get("list-form.fields-for-documents-8") +
                         people[count1 - 1].Skills,
-                        Locale.Get("list-form.fields-for-documents-9") +
+                        LanguageManager.Get("list-form.fields-for-documents-9") +
                         people[count1 - 1].ExtraInfo
                     };
 
@@ -393,8 +393,8 @@ namespace Notebook
                 app.Quit();
 
                 MessageBox.Show(
-                    Locale.Get("list-form.document-created-message"),
-                    Locale.Get("general.normal-message-title"));
+                    LanguageManager.Get("list-form.document-created-message"),
+                    LanguageManager.Get("general.normal-message-title"));
             }
         }
 

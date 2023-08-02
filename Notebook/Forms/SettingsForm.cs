@@ -33,19 +33,19 @@ namespace Notebook
         {
             // localization
 
-            this.Text = $"{Locale.Get("general.app-name")} - {Locale.Get("language-form.form-name")}";
-            languageWindowLabel.Text = Locale.Get("language-form.app-language-setting-title");
-            changeLanguageButton.Text = Locale.Get("language-form.apply-button");
-            mainMenuButton.Text = Locale.Get("language-form.main-menu-button");
-            goBackButton.Text = Locale.Get("language-form.go-back-button");
+            this.Text = $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("language-form.form-name")}";
+            languageWindowLabel.Text = LanguageManager.Get("language-form.app-language-setting-title");
+            changeLanguageButton.Text = LanguageManager.Get("language-form.apply-button");
+            mainMenuButton.Text = LanguageManager.Get("language-form.main-menu-button");
+            goBackButton.Text = LanguageManager.Get("language-form.go-back-button");
 
-            languageComboBox.Items.Add(Locale.Get("language-form.language-option-en"));
-            languageComboBox.Items.Add(Locale.Get("language-form.language-option-ua"));
-            languageComboBox.Items.Add(Locale.Get("language-form.language-option-ru"));
+            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-en"));
+            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-ua"));
+            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-ru"));
 
             // form settings
 
-            switch (Locale.CurrentLang)
+            switch (LanguageManager.CurrentLang)
             {
                 case "en":
                     languageComboBox.SelectedIndex = 0; 
@@ -79,15 +79,15 @@ namespace Notebook
             switch (languageComboBox.SelectedIndex)
             {
                 case 0:
-                    Locale.CurrentLang = "en";
+                    LanguageManager.CurrentLang = "en";
                     break;
 
                 case 1:
-                    Locale.CurrentLang = "ua";
+                    LanguageManager.CurrentLang = "ua";
                     break;
 
                 case 2:
-                    Locale.CurrentLang = "ru";
+                    LanguageManager.CurrentLang = "ru";
                     break;
             }
 

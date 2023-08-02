@@ -72,31 +72,31 @@ namespace Notebook
             // localization
 
             this.Text = this.creatingMode
-                ? $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-create")}"
-                : $"{Locale.Get("general.app-name")} - {Locale.Get("element-form.form-name-review")}";
+                ? $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("element-form.form-name-create")}"
+                : $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("element-form.form-name-review")}";
 
             editElementButton.Text = this.creatingMode
-                ? Locale.Get("element-form.create-element-button")
-                : Locale.Get("element-form.edit-element-button");
+                ? LanguageManager.Get("element-form.create-element-button")
+                : LanguageManager.Get("element-form.edit-element-button");
 
-            dayLabel.Text = Locale.Get("element-form.day-label");
-            monthLabel.Text = Locale.Get("element-form.month-label");
-            yearLabel.Text = Locale.Get("element-form.year-label");
+            dayLabel.Text = LanguageManager.Get("element-form.day-label");
+            monthLabel.Text = LanguageManager.Get("element-form.month-label");
+            yearLabel.Text = LanguageManager.Get("element-form.year-label");
 
-            goBackButton.Text = Locale.Get("element-form.go-back-button");
+            goBackButton.Text = LanguageManager.Get("element-form.go-back-button");
 
-            fieldTypeLabel.Text = Locale.Get("element-form.field-title");
+            fieldTypeLabel.Text = LanguageManager.Get("element-form.field-title");
 
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-1"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-2"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-3"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-4"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-5"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-6"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-7"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-8"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-9"));
-            infoFieldTypeComboBox.Items.Add(Locale.Get("element-form.field-type-10"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-1"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-2"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-3"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-4"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-5"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-6"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-7"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-8"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-9"));
+            infoFieldTypeComboBox.Items.Add(LanguageManager.Get("element-form.field-type-10"));
 
             infoFieldTypeComboBox.SelectedIndex = 0;
         }
@@ -110,20 +110,20 @@ namespace Notebook
                 reviewList.Elements.FindIndex(
                     item => item.Name == infoTextBox.Text) != -1
                 )
-                err += "\n" + Locale.Get("element-form.same-name-message");
+                err += "\n" + LanguageManager.Get("element-form.same-name-message");
 
             if (newElement.Name == "")
-                err += "\n" + Locale.Get("element-form.must-have-name-message");
+                err += "\n" + LanguageManager.Get("element-form.must-have-name-message");
 
             if (
                 dayNumericUpDown.Value < 0 ||
                 monthNumericUpDown.Value < 0 ||
                 yearNumericUpDown.Value < 0)
-                err += "\n" + Locale.Get("element-form.positive-values-only-message");
+                err += "\n" + LanguageManager.Get("element-form.positive-values-only-message");
 
             if (err != "")
             {
-                MessageBox.Show(err, Locale.Get("general.warning-message-title"));
+                MessageBox.Show(err, LanguageManager.Get("general.warning-message-title"));
                 return;
             }
 

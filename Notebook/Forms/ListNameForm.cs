@@ -31,18 +31,18 @@ namespace Notebook
                 : reviewingList;
 
             this.Text = reviewingList == null
-                ? $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-create")}"
-                : $"{Locale.Get("general.app-name")} - {Locale.Get("list-name-form.form-name-rename")}";
+                ? $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("list-name-form.form-name-create")}"
+                : $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("list-name-form.form-name-rename")}";
 
             listNameWindowLabel.Text = reviewingList == null
-                ? Locale.Get("list-name-form.name-input-option-title-create")
-                : Locale.Get("list-name-form.name-input-option-title-rename");
+                ? LanguageManager.Get("list-name-form.name-input-option-title-create")
+                : LanguageManager.Get("list-name-form.name-input-option-title-rename");
 
             giveListNameButton.Text = reviewingList == null
-                ? Locale.Get("list-name-form.create-button")
-                : Locale.Get("list-name-form.rename-button");
+                ? LanguageManager.Get("list-name-form.create-button")
+                : LanguageManager.Get("list-name-form.rename-button");
 
-            cancelButton.Text = Locale.Get("list-name-form.cancel-button");
+            cancelButton.Text = LanguageManager.Get("list-name-form.cancel-button");
         }
 
         private void GiveListNameButtonClick(object sender, EventArgs e)
@@ -50,8 +50,8 @@ namespace Notebook
             if (listNameTextBox.Text == "")
             {
                 MessageBox.Show(
-                    Locale.Get("list-name-form.list-must-have-name-message"),
-                    Locale.Get("general.warning-message-title"));
+                    LanguageManager.Get("list-name-form.list-must-have-name-message"),
+                    LanguageManager.Get("general.warning-message-title"));
             }
             else if (this.listsStorage.PeopleLists.Find
                         (
@@ -60,8 +60,8 @@ namespace Notebook
                     )
             {
                 MessageBox.Show(
-                    Locale.Get("list-name-form.same-name-message"),
-                    Locale.Get("general.warning-message-title"));
+                    LanguageManager.Get("list-name-form.same-name-message"),
+                    LanguageManager.Get("general.warning-message-title"));
             }
             else
             {
