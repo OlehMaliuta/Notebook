@@ -1,4 +1,4 @@
-﻿namespace Notebook
+﻿namespace MemoMates
 {
     partial class MainForm
     {
@@ -164,7 +164,7 @@
             dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
             this.open.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.open, "open");
-            this.open.Image = global::Notebook.Properties.Resources.open_list;
+            this.open.Image = global::MemoMates.Properties.Resources.open_list;
             this.open.Name = "open";
             this.open.ReadOnly = true;
             this.open.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -172,7 +172,7 @@
             // rename
             // 
             resources.ApplyResources(this.rename, "rename");
-            this.rename.Image = global::Notebook.Properties.Resources.rename;
+            this.rename.Image = global::MemoMates.Properties.Resources.rename;
             this.rename.Name = "rename";
             this.rename.ReadOnly = true;
             this.rename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -180,7 +180,7 @@
             // delete
             // 
             resources.ApplyResources(this.delete, "delete");
-            this.delete.Image = global::Notebook.Properties.Resources.remove;
+            this.delete.Image = global::MemoMates.Properties.Resources.remove;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -214,21 +214,21 @@
             // 
             // addListTool
             // 
-            this.addListTool.Image = global::Notebook.Properties.Resources.plus;
+            this.addListTool.Image = global::MemoMates.Properties.Resources.plus;
             this.addListTool.Name = "addListTool";
             resources.ApplyResources(this.addListTool, "addListTool");
             this.addListTool.Click += new System.EventHandler(this.AddListToolClick);
             // 
             // settingsTool
             // 
-            this.settingsTool.Image = global::Notebook.Properties.Resources.settings;
+            this.settingsTool.Image = global::MemoMates.Properties.Resources.settings;
             this.settingsTool.Name = "settingsTool";
             resources.ApplyResources(this.settingsTool, "settingsTool");
             this.settingsTool.Click += new System.EventHandler(this.SettingsToolClick);
             // 
             // exitTool
             // 
-            this.exitTool.Image = global::Notebook.Properties.Resources.exit;
+            this.exitTool.Image = global::MemoMates.Properties.Resources.exit;
             this.exitTool.Name = "exitTool";
             resources.ApplyResources(this.exitTool, "exitTool");
             this.exitTool.Click += new System.EventHandler(this.ExitToolClick);
@@ -240,21 +240,21 @@
             dataGridViewCellStyle4.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle4.NullValue")));
             this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
-            this.dataGridViewImageColumn2.Image = global::Notebook.Properties.Resources.open_list;
+            this.dataGridViewImageColumn2.Image = global::MemoMates.Properties.Resources.open_list;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridViewImageColumn3
             // 
             resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
-            this.dataGridViewImageColumn3.Image = global::Notebook.Properties.Resources.rename;
+            this.dataGridViewImageColumn3.Image = global::MemoMates.Properties.Resources.rename;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // dataGridViewImageColumn4
             // 
             resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
-            this.dataGridViewImageColumn4.Image = global::Notebook.Properties.Resources.remove;
+            this.dataGridViewImageColumn4.Image = global::MemoMates.Properties.Resources.remove;
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 

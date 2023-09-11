@@ -1,8 +1,8 @@
-﻿using Notebook.Classes.DB.Models;
+﻿using MemoMates.Classes.DB.Models;
 using SQLite.CodeFirst;
 using System.Data.Entity;
 
-namespace Notebook.Classes.DB
+namespace MemoMates.Classes.DB
 {
     public class DbApp : DbContext
     {

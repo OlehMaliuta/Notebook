@@ -1,8 +1,8 @@
-﻿using Notebook.Classes.DB;
+﻿using MemoMates.Classes.DB;
 using System;
 using System.Windows.Forms;
 
-namespace Notebook
+namespace MemoMates
 {
     internal static class Program
     {

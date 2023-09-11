@@ -2,11 +2,11 @@
 using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
-using Notebook.Classes;
-using Notebook.Classes.DB;
-using Notebook.Classes.DB.Models;
+using MemoMates.Classes;
+using MemoMates.Classes.DB;
+using MemoMates.Classes.DB.Models;
 
-namespace Notebook
+namespace MemoMates
 {
     public partial class SettingsForm : Form
     {

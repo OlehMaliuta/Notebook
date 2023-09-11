@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Notebook.Classes.DB.Models
+namespace MemoMates.Classes.DB.Models
 {
     [Table("People")]
     public class Person

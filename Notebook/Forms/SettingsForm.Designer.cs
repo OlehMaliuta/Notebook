@@ -1,4 +1,4 @@
-﻿namespace Notebook
+﻿namespace MemoMates
 {
     partial class SettingsForm
     {

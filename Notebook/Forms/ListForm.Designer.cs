@@ -1,4 +1,4 @@
-﻿namespace Notebook
+﻿namespace MemoMates
 {
     partial class ListForm
     {
@@ -192,7 +192,7 @@
             // open
             // 
             this.open.HeaderText = "*Детальніше*";
-            this.open.Image = global::Notebook.Properties.Resources.note;
+            this.open.Image = global::MemoMates.Properties.Resources.note;
             this.open.Name = "open";
             this.open.ReadOnly = true;
             this.open.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -201,7 +201,7 @@
             // delete
             // 
             this.delete.HeaderText = "*Видалити*";
-            this.delete.Image = global::Notebook.Properties.Resources.remove;
+            this.delete.Image = global::MemoMates.Properties.Resources.remove;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Width = 79;
@@ -260,7 +260,7 @@
             // 
             // addElementTool
             // 
-            this.addElementTool.Image = global::Notebook.Properties.Resources.plus;
+            this.addElementTool.Image = global::MemoMates.Properties.Resources.plus;
             this.addElementTool.Name = "addElementTool";
             this.addElementTool.Size = new System.Drawing.Size(268, 22);
             this.addElementTool.Text = "Додати елемент";
@@ -268,7 +268,7 @@
             // 
             // createTxtTool
             // 
-            this.createTxtTool.Image = global::Notebook.Properties.Resources.TXT;
+            this.createTxtTool.Image = global::MemoMates.Properties.Resources.TXT;
             this.createTxtTool.Name = "createTxtTool";
             this.createTxtTool.Size = new System.Drawing.Size(268, 22);
             this.createTxtTool.Text = "Зберегти список у файлі .txt";
@@ -276,7 +276,7 @@
             // 
             // createDocxTool
             // 
-            this.createDocxTool.Image = global::Notebook.Properties.Resources.DOCX;
+            this.createDocxTool.Image = global::MemoMates.Properties.Resources.DOCX;
             this.createDocxTool.Name = "createDocxTool";
             this.createDocxTool.Size = new System.Drawing.Size(268, 22);
             this.createDocxTool.Text = "Зберегти список у файлі .docx";
@@ -284,7 +284,7 @@
             // 
             // settingsTool
             // 
-            this.settingsTool.Image = global::Notebook.Properties.Resources.settings;
+            this.settingsTool.Image = global::MemoMates.Properties.Resources.settings;
             this.settingsTool.Name = "settingsTool";
             this.settingsTool.Size = new System.Drawing.Size(268, 22);
             this.settingsTool.Text = "Налаштування";
@@ -292,7 +292,7 @@
             // 
             // exitTool
             // 
-            this.exitTool.Image = global::Notebook.Properties.Resources.exit;
+            this.exitTool.Image = global::MemoMates.Properties.Resources.exit;
             this.exitTool.Name = "exitTool";
             this.exitTool.Size = new System.Drawing.Size(268, 22);
             this.exitTool.Text = "Вихід";
@@ -301,7 +301,7 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "*Детальніше*";
-            this.dataGridViewImageColumn1.Image = global::Notebook.Properties.Resources.note;
+            this.dataGridViewImageColumn1.Image = global::MemoMates.Properties.Resources.note;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn1.Width = 81;
@@ -309,7 +309,7 @@
             // dataGridViewImageColumn2
             // 
             this.dataGridViewImageColumn2.HeaderText = "*Видалити*";
-            this.dataGridViewImageColumn2.Image = global::Notebook.Properties.Resources.remove;
+            this.dataGridViewImageColumn2.Image = global::MemoMates.Properties.Resources.remove;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 69;
             // 

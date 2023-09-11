@@ -1,8 +1,8 @@
-﻿using Notebook.Classes.DB;
+﻿using MemoMates.Classes.DB;
 using System.Data.Entity.Migrations;
 using System.Data.SQLite.EF6.Migrations;
 
-namespace Notebook.Migrations
+namespace MemoMates.Migrations
 {
     internal class Configuration : DbMigrationsConfiguration<DbApp>
     {

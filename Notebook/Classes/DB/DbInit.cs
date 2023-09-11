@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notebook.Classes.DB
+namespace MemoMates.Classes.DB
 {
     internal class DbInit : SqliteDropCreateDatabaseAlways<DbApp>
     {

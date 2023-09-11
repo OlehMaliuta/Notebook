@@ -1,4 +1,4 @@
-﻿namespace Notebook.Migrations
+﻿namespace MemoMates.Migrations
 {
     using System;
     using System.Collections.Generic;

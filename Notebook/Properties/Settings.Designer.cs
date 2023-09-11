@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Notebook.Properties {
+namespace MemoMates.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

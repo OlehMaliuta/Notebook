@@ -4,7 +4,7 @@ using System.Data.Entity.Core.Common;
 using System.Data.SQLite;
 using System.Data.SQLite.EF6;
 
-namespace Notebook.Classes.DB
+namespace MemoMates.Classes.DB
 {
     internal class DbConfig : DbConfiguration
     {

@@ -7,12 +7,12 @@ using System.Windows.Forms;
 using System.IO;
 using Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
-using Notebook.Classes;
-using Notebook.Classes.DB;
-using Notebook.Classes.DB.Models;
+using MemoMates.Classes;
+using MemoMates.Classes.DB;
+using MemoMates.Classes.DB.Models;
 using Word = Microsoft.Office.Interop.Word.Application;
 
-namespace Notebook
+namespace MemoMates
 {
     public partial class ListForm : Form
     {

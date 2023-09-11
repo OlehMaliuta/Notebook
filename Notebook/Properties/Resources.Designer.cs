@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Notebook.Properties {
+namespace MemoMates.Properties {
     using System;
     
     

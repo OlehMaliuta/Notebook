@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace Notebook.Classes
+namespace MemoMates.Classes
 {
     internal static class LanguageManager
     {
