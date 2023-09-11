@@ -78,10 +78,10 @@
             this.searchListTextBox.Name = "searchListTextBox";
             this.searchListTextBox.TextChanged += new System.EventHandler(this.SearchListTextBoxTextChanged);
             // 
-            // sortLabel
+            // searchLabel
             // 
-            resources.ApplyResources(this.searchLabel, "sortLabel");
-            this.searchLabel.Name = "sortLabel";
+            resources.ApplyResources(this.searchLabel, "searchLabel");
+            this.searchLabel.Name = "searchLabel";
             // 
             // settingsButton
             // 

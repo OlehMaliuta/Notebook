@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using Notebook.Classes;
+using Notebook.Classes.DB;
+using Notebook.Classes.DB.Models;
 
 namespace Notebook
 {
@@ -14,18 +16,18 @@ namespace Notebook
             ListForm
         }
 
+        private readonly DbApp DB;
+        private readonly PersonList reviewingList;
         private readonly PrevForm prevForm;
-        private readonly string reviewListName;
         private bool xIsPressed;
 
-        public SettingsForm(string reviewListName, PrevForm prevForm)
+        public SettingsForm(DbApp db, PersonList pl, PrevForm prevForm)
         {
             InitializeComponent();
 
+            this.DB = db;
+            this.reviewingList = pl;
             this.prevForm = prevForm;
-
-            this.reviewListName = reviewListName;
-
             this.xIsPressed = true;
         }
 
@@ -64,7 +66,7 @@ namespace Notebook
             this.xIsPressed = false;
 
             this.Close();
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(this.DB);
             mainForm.Show();
 
         }
@@ -94,7 +96,7 @@ namespace Notebook
             this.xIsPressed = false;
 
             this.Close();
-            SettingsForm settingsForm = new SettingsForm(reviewListName, prevForm);
+            SettingsForm settingsForm = new SettingsForm(this.DB, this.reviewingList, this.prevForm);
             settingsForm.Show();
         }
 
@@ -105,11 +107,11 @@ namespace Notebook
                 switch (this.prevForm)
                 {
                     case PrevForm.MainForm:
-                        MainForm mainForm = new MainForm();
+                        MainForm mainForm = new MainForm(this.DB);
                         mainForm.Show();
                         break;
                     case PrevForm.ListForm:
-                        ListForm listForm = new ListForm(reviewListName);
+                        ListForm listForm = new ListForm(this.DB, this.reviewingList);
                         listForm.Show();
                         break;
                 }

@@ -31,27 +31,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElementForm));
             this.editElementButton = new System.Windows.Forms.Button();
             this.goBackButton = new System.Windows.Forms.Button();
-            this.infoFieldTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.infoTextBox = new System.Windows.Forms.TextBox();
-            this.fieldNameLabel = new System.Windows.Forms.Label();
-            this.dayLabel = new System.Windows.Forms.Label();
-            this.dayNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.monthNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.monthLabel = new System.Windows.Forms.Label();
-            this.yearNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.yearLabel = new System.Windows.Forms.Label();
-            this.fieldTypeLabel = new System.Windows.Forms.Label();
-            this.datePanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dayNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monthNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).BeginInit();
-            this.datePanel.SuspendLayout();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.middleNameLabel = new System.Windows.Forms.Label();
+            this.phoneNoTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.phoneNoLabel = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.dateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dateOfBirthLabel = new System.Windows.Forms.Label();
+            this.extraInfoTextBox = new System.Windows.Forms.TextBox();
+            this.extraInfoLabel = new System.Windows.Forms.Label();
+            this.isDateOfBirthAllowedCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // editElementButton
             // 
             this.editElementButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editElementButton.Location = new System.Drawing.Point(579, 375);
+            this.editElementButton.Location = new System.Drawing.Point(130, 411);
             this.editElementButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.editElementButton.Name = "editElementButton";
             this.editElementButton.Size = new System.Drawing.Size(111, 44);
@@ -63,7 +63,7 @@
             // goBackButton
             // 
             this.goBackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.goBackButton.Location = new System.Drawing.Point(438, 375);
+            this.goBackButton.Location = new System.Drawing.Point(13, 411);
             this.goBackButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.goBackButton.Name = "goBackButton";
             this.goBackButton.Size = new System.Drawing.Size(109, 44);
@@ -72,135 +72,164 @@
             this.goBackButton.UseVisualStyleBackColor = true;
             this.goBackButton.Click += new System.EventHandler(this.GoBackButtonClick);
             // 
-            // infoFieldTypeComboBox
+            // firstNameTextBox
             // 
-            this.infoFieldTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.infoFieldTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoFieldTypeComboBox.FormattingEnabled = true;
-            this.infoFieldTypeComboBox.Location = new System.Drawing.Point(490, 258);
-            this.infoFieldTypeComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.infoFieldTypeComboBox.Name = "infoFieldTypeComboBox";
-            this.infoFieldTypeComboBox.Size = new System.Drawing.Size(200, 24);
-            this.infoFieldTypeComboBox.TabIndex = 2;
-            this.infoFieldTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.InfoFieldTypeComboBoxSelectedIndexChanged);
+            this.firstNameTextBox.Location = new System.Drawing.Point(12, 38);
+            this.firstNameTextBox.MaxLength = 50;
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(241, 20);
+            this.firstNameTextBox.TabIndex = 2;
             // 
-            // infoTextBox
+            // lastNameTextBox
             // 
-            this.infoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.infoTextBox.Location = new System.Drawing.Point(38, 82);
-            this.infoTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.infoTextBox.Multiline = true;
-            this.infoTextBox.Name = "infoTextBox";
-            this.infoTextBox.Size = new System.Drawing.Size(377, 337);
-            this.infoTextBox.TabIndex = 3;
-            this.infoTextBox.TextChanged += new System.EventHandler(this.InfoTextBoxTextChanged);
+            this.lastNameTextBox.Location = new System.Drawing.Point(12, 88);
+            this.lastNameTextBox.MaxLength = 50;
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(241, 20);
+            this.lastNameTextBox.TabIndex = 3;
             // 
-            // fieldNameLabel
+            // middleNameTextBox
             // 
-            this.fieldNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fieldNameLabel.Location = new System.Drawing.Point(38, 36);
-            this.fieldNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fieldNameLabel.Name = "fieldNameLabel";
-            this.fieldNameLabel.Size = new System.Drawing.Size(377, 20);
-            this.fieldNameLabel.TabIndex = 4;
-            this.fieldNameLabel.Text = "label1";
-            this.fieldNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.middleNameTextBox.Location = new System.Drawing.Point(12, 138);
+            this.middleNameTextBox.MaxLength = 50;
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(241, 20);
+            this.middleNameTextBox.TabIndex = 4;
             // 
-            // dayLabel
+            // firstNameLabel
             // 
-            this.dayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dayLabel.Location = new System.Drawing.Point(0, 20);
-            this.dayLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dayLabel.Name = "dayLabel";
-            this.dayLabel.Size = new System.Drawing.Size(81, 18);
-            this.dayLabel.TabIndex = 5;
-            this.dayLabel.Text = "day:";
-            this.dayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.firstNameLabel.Location = new System.Drawing.Point(12, 19);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(89, 16);
+            this.firstNameLabel.TabIndex = 5;
+            this.firstNameLabel.Text = "First name *";
             // 
-            // dayNumericUpDown
+            // lastNameLabel
             // 
-            this.dayNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dayNumericUpDown.Location = new System.Drawing.Point(89, 18);
-            this.dayNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dayNumericUpDown.Name = "dayNumericUpDown";
-            this.dayNumericUpDown.Size = new System.Drawing.Size(94, 22);
-            this.dayNumericUpDown.TabIndex = 6;
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.lastNameLabel.Location = new System.Drawing.Point(12, 69);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(88, 16);
+            this.lastNameLabel.TabIndex = 6;
+            this.lastNameLabel.Text = "Last name *";
             // 
-            // monthNumericUpDown
+            // middleNameLabel
             // 
-            this.monthNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monthNumericUpDown.Location = new System.Drawing.Point(89, 57);
-            this.monthNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.monthNumericUpDown.Name = "monthNumericUpDown";
-            this.monthNumericUpDown.Size = new System.Drawing.Size(94, 22);
-            this.monthNumericUpDown.TabIndex = 8;
+            this.middleNameLabel.AutoSize = true;
+            this.middleNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.middleNameLabel.Location = new System.Drawing.Point(12, 119);
+            this.middleNameLabel.Name = "middleNameLabel";
+            this.middleNameLabel.Size = new System.Drawing.Size(96, 16);
+            this.middleNameLabel.TabIndex = 7;
+            this.middleNameLabel.Text = "Middle name";
             // 
-            // monthLabel
+            // phoneNoTextBox
             // 
-            this.monthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monthLabel.Location = new System.Drawing.Point(0, 59);
-            this.monthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.monthLabel.Name = "monthLabel";
-            this.monthLabel.Size = new System.Drawing.Size(81, 18);
-            this.monthLabel.TabIndex = 7;
-            this.monthLabel.Text = "month:";
-            this.monthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.phoneNoTextBox.Location = new System.Drawing.Point(15, 286);
+            this.phoneNoTextBox.MaxLength = 200;
+            this.phoneNoTextBox.Name = "phoneNoTextBox";
+            this.phoneNoTextBox.Size = new System.Drawing.Size(238, 20);
+            this.phoneNoTextBox.TabIndex = 8;
             // 
-            // yearNumericUpDown
+            // emailTextBox
             // 
-            this.yearNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearNumericUpDown.Location = new System.Drawing.Point(89, 97);
-            this.yearNumericUpDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.yearNumericUpDown.Name = "yearNumericUpDown";
-            this.yearNumericUpDown.Size = new System.Drawing.Size(94, 22);
-            this.yearNumericUpDown.TabIndex = 10;
+            this.emailTextBox.Location = new System.Drawing.Point(15, 340);
+            this.emailTextBox.MaxLength = 500;
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(238, 20);
+            this.emailTextBox.TabIndex = 9;
             // 
-            // yearLabel
+            // phoneNoLabel
             // 
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.yearLabel.Location = new System.Drawing.Point(0, 97);
-            this.yearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(81, 18);
-            this.yearLabel.TabIndex = 9;
-            this.yearLabel.Text = "year:";
-            this.yearLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.phoneNoLabel.AutoSize = true;
+            this.phoneNoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.phoneNoLabel.Location = new System.Drawing.Point(15, 267);
+            this.phoneNoLabel.Name = "phoneNoLabel";
+            this.phoneNoLabel.Size = new System.Drawing.Size(106, 16);
+            this.phoneNoLabel.TabIndex = 10;
+            this.phoneNoLabel.Text = "Phone number";
             // 
-            // fieldTypeLabel
+            // emailLabel
             // 
-            this.fieldTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fieldTypeLabel.Location = new System.Drawing.Point(423, 261);
-            this.fieldTypeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.fieldTypeLabel.Name = "fieldTypeLabel";
-            this.fieldTypeLabel.Size = new System.Drawing.Size(59, 21);
-            this.fieldTypeLabel.TabIndex = 11;
-            this.fieldTypeLabel.Text = " Поле:";
-            this.fieldTypeLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.emailLabel.Location = new System.Drawing.Point(15, 321);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(107, 16);
+            this.emailLabel.TabIndex = 11;
+            this.emailLabel.Text = "Email address";
             // 
-            // datePanel
+            // dateOfBirthDateTimePicker
             // 
-            this.datePanel.Controls.Add(this.dayLabel);
-            this.datePanel.Controls.Add(this.dayNumericUpDown);
-            this.datePanel.Controls.Add(this.yearNumericUpDown);
-            this.datePanel.Controls.Add(this.monthLabel);
-            this.datePanel.Controls.Add(this.yearLabel);
-            this.datePanel.Controls.Add(this.monthNumericUpDown);
-            this.datePanel.Location = new System.Drawing.Point(124, 143);
-            this.datePanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.datePanel.Name = "datePanel";
-            this.datePanel.Size = new System.Drawing.Size(203, 139);
-            this.datePanel.TabIndex = 12;
+            this.dateOfBirthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateOfBirthDateTimePicker.Location = new System.Drawing.Point(33, 212);
+            this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
+            this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(220, 20);
+            this.dateOfBirthDateTimePicker.TabIndex = 12;
+            // 
+            // dateOfBirthLabel
+            // 
+            this.dateOfBirthLabel.AutoSize = true;
+            this.dateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dateOfBirthLabel.Location = new System.Drawing.Point(31, 193);
+            this.dateOfBirthLabel.Name = "dateOfBirthLabel";
+            this.dateOfBirthLabel.Size = new System.Drawing.Size(91, 16);
+            this.dateOfBirthLabel.TabIndex = 13;
+            this.dateOfBirthLabel.Text = "Date of birth";
+            // 
+            // extraInfoTextBox
+            // 
+            this.extraInfoTextBox.Location = new System.Drawing.Point(283, 38);
+            this.extraInfoTextBox.MaxLength = 5000;
+            this.extraInfoTextBox.Multiline = true;
+            this.extraInfoTextBox.Name = "extraInfoTextBox";
+            this.extraInfoTextBox.Size = new System.Drawing.Size(355, 322);
+            this.extraInfoTextBox.TabIndex = 14;
+            // 
+            // extraInfoLabel
+            // 
+            this.extraInfoLabel.AutoSize = true;
+            this.extraInfoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.extraInfoLabel.Location = new System.Drawing.Point(280, 19);
+            this.extraInfoLabel.Name = "extraInfoLabel";
+            this.extraInfoLabel.Size = new System.Drawing.Size(71, 16);
+            this.extraInfoLabel.TabIndex = 15;
+            this.extraInfoLabel.Text = "Extra info";
+            // 
+            // isDateOfBirthAllowedCheckBox
+            // 
+            this.isDateOfBirthAllowedCheckBox.AutoSize = true;
+            this.isDateOfBirthAllowedCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold);
+            this.isDateOfBirthAllowedCheckBox.Location = new System.Drawing.Point(12, 215);
+            this.isDateOfBirthAllowedCheckBox.Name = "isDateOfBirthAllowedCheckBox";
+            this.isDateOfBirthAllowedCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.isDateOfBirthAllowedCheckBox.TabIndex = 16;
+            this.isDateOfBirthAllowedCheckBox.UseVisualStyleBackColor = true;
+            this.isDateOfBirthAllowedCheckBox.CheckedChanged += new System.EventHandler(this.IsDateOfBirthAllowedCheckBoxCheckedChanged);
             // 
             // ElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 450);
-            this.Controls.Add(this.datePanel);
-            this.Controls.Add(this.fieldTypeLabel);
-            this.Controls.Add(this.fieldNameLabel);
-            this.Controls.Add(this.infoTextBox);
-            this.Controls.Add(this.infoFieldTypeComboBox);
+            this.ClientSize = new System.Drawing.Size(654, 467);
+            this.Controls.Add(this.isDateOfBirthAllowedCheckBox);
+            this.Controls.Add(this.extraInfoLabel);
+            this.Controls.Add(this.extraInfoTextBox);
+            this.Controls.Add(this.dateOfBirthLabel);
+            this.Controls.Add(this.dateOfBirthDateTimePicker);
+            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.phoneNoLabel);
+            this.Controls.Add(this.emailTextBox);
+            this.Controls.Add(this.phoneNoTextBox);
+            this.Controls.Add(this.middleNameLabel);
+            this.Controls.Add(this.lastNameLabel);
+            this.Controls.Add(this.firstNameLabel);
+            this.Controls.Add(this.middleNameTextBox);
+            this.Controls.Add(this.lastNameTextBox);
+            this.Controls.Add(this.firstNameTextBox);
             this.Controls.Add(this.goBackButton);
             this.Controls.Add(this.editElementButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -211,10 +240,6 @@
             this.Text = "ElementForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ElementFormFormClosing);
             this.Load += new System.EventHandler(this.ElementFormLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.dayNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monthNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.yearNumericUpDown)).EndInit();
-            this.datePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,16 +249,20 @@
 
         private System.Windows.Forms.Button editElementButton;
         private System.Windows.Forms.Button goBackButton;
-        private System.Windows.Forms.ComboBox infoFieldTypeComboBox;
-        private System.Windows.Forms.TextBox infoTextBox;
-        private System.Windows.Forms.Label fieldNameLabel;
-        private System.Windows.Forms.Label dayLabel;
-        private System.Windows.Forms.NumericUpDown dayNumericUpDown;
-        private System.Windows.Forms.NumericUpDown monthNumericUpDown;
-        private System.Windows.Forms.Label monthLabel;
-        private System.Windows.Forms.NumericUpDown yearNumericUpDown;
-        private System.Windows.Forms.Label yearLabel;
-        private System.Windows.Forms.Label fieldTypeLabel;
-        private System.Windows.Forms.Panel datePanel;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.TextBox middleNameTextBox;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label middleNameLabel;
+        private System.Windows.Forms.TextBox phoneNoTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Label phoneNoLabel;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.DateTimePicker dateOfBirthDateTimePicker;
+        private System.Windows.Forms.Label dateOfBirthLabel;
+        private System.Windows.Forms.TextBox extraInfoTextBox;
+        private System.Windows.Forms.Label extraInfoLabel;
+        private System.Windows.Forms.CheckBox isDateOfBirthAllowedCheckBox;
     }
 }

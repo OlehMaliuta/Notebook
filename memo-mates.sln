@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notebook", "Notebook\Notebook.csproj", "{95F1B830-B60C-41FC-A473-C69DE2096132}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "memo-mates", "Notebook\memo-mates.csproj", "{95F1B830-B60C-41FC-A473-C69DE2096132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

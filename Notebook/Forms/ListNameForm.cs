@@ -3,32 +3,30 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using Notebook.Classes;
+using Notebook.Classes.DB;
+using Notebook.Classes.DB.Models;
+using System.Linq;
 
 namespace Notebook
 {
     public partial class ListNameForm : Form
     {
-        private readonly ListsStorage listsStorage;
-        private readonly string reviewingList;
+        private readonly DbApp DB;
+        private PersonList reviewingList;
 
-        public ListNameForm(string listName)
+        public ListNameForm(DbApp db, PersonList list)
         {
             InitializeComponent();
 
-            this.listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(
-                    File.ReadAllText("ListsStorageInfo.json"));
-
-            this.reviewingList = listName;
+            this.DB = db;
+            this.reviewingList = list;
         }
 
         private void ListNameFormLoad(object sender, EventArgs e)
         {
-            // localization
+            listNameTextBox.Text = reviewingList == null ? "" : reviewingList.Name;
 
-            listNameTextBox.Text = reviewingList == null
-                ? ""
-                : reviewingList;
+            // localization
 
             this.Text = reviewingList == null
                 ? $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("list-name-form.form-name-create")}"
@@ -47,17 +45,15 @@ namespace Notebook
 
         private void GiveListNameButtonClick(object sender, EventArgs e)
         {
-            if (listNameTextBox.Text == "")
+            string input = listNameTextBox.Text;
+
+            if (input == "")
             {
                 MessageBox.Show(
                     LanguageManager.Get("list-name-form.list-must-have-name-message"),
                     LanguageManager.Get("general.warning-message-title"));
             }
-            else if (this.listsStorage.PeopleLists.Find
-                        (
-                        item => item.ListName == listNameTextBox.Text
-                        ) != null
-                    )
+            else if (this.DB.PersonLists.FirstOrDefault(p => p.Name == input) != null)
             {
                 MessageBox.Show(
                     LanguageManager.Get("list-name-form.same-name-message"),
@@ -67,32 +63,15 @@ namespace Notebook
             {
                 if (this.reviewingList != null)
                 {
-                    int idx = this.listsStorage.PeopleLists.FindIndex
-                        (
-                        item => item.ListName == this.reviewingList
-                        );
-
-                    this.listsStorage.PeopleLists[idx].ListName =
-                        listNameTextBox.Text;
-
-                    this.listsStorage.PeopleLists[idx].UpdatingDate =
-                        DateTime.Now.ToShortDateString() +
-                        "\n" + DateTime.Now.ToLongTimeString();
-
+                    this.reviewingList.Name = input;
+                    this.reviewingList.UpdatedAt = DateTime.Now;
+                    this.DB.SaveChanges();
                     this.Close();
                 }
                 else
                 {
-                    string fileDate = DateTime.Now.ToShortDateString() +
-                        "\n" + DateTime.Now.ToLongTimeString();
-
-                    this.listsStorage.PeopleLists.Add(new PeopleList
-                    (
-                    listName: listNameTextBox.Text,
-                    creatingDate: fileDate,
-                    updatingDate: fileDate
-                    ));
-
+                    this.DB.PersonLists.Add(new PersonList() { Name = input });
+                    this.DB.SaveChanges();
                     this.Close();
                 }
             }
@@ -105,11 +84,7 @@ namespace Notebook
 
         private void ListNameFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(
-                "ListsStorageInfo.json",
-                JsonConvert.SerializeObject(this.listsStorage));
-
-            MainForm mainForm = new MainForm();
+            MainForm mainForm = new MainForm(this.DB);
             mainForm.Show();
         }
     }

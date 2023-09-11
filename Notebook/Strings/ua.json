@@ -1,6 +1,6 @@
 {
   "general": {
-    "app-name": "Notebook",
+    "app-name": "MemoMates",
     "warning-message-title": "Попередження!",
     "normal-message-title": "Повідомлення!",
     "exit-message": "Хочите закрити застосунок?"
@@ -51,37 +51,25 @@
     "document-created-message": "Документ успішно створено.",
     "fields-for-documents-1": "Дата народження: ",
     "fields-for-documents-2": "Номера телефонів: ",
-    "fields-for-documents-3": "Персональні дані: ",
-    "fields-for-documents-4": "Адреса проживання: ",
-    "fields-for-documents-5": "Позиції родичів: ",
-    "fields-for-documents-6": "Місце роботи / навчання: ",
-    "fields-for-documents-7": "Знайомство: ",
-    "fields-for-documents-8": "Гарні якості: ",
-    "fields-for-documents-9": "Додаткова інформація: "
+    "fields-for-documents-3": "Електронна адреса: ",
+    "fields-for-documents-4": "Додаткова інформація: ",
+    "fields-for-documents-5": "Додано: ",
+    "fields-for-documents-6": "Оновлено: "
   },
   "element-form": {
     "form-name-create": "Новий елемент",
     "form-name-review": "Огляд елементу",
-    "day-label": "День:",
-    "month-label": "Місяць:",
-    "year-label": "Рік:",
     "create-element-button": "Створити",
     "edit-element-button": "Редагувати",
     "go-back-button": "Повернутись",
-    "field-title": "Поле:",
-    "field-type-1": "Повне ім'я",
-    "field-type-2": "Дата народження",
-    "field-type-3": "Номера телефонів",
-    "field-type-4": "Персональні дані",
-    "field-type-5": "Адреса проживання",
-    "field-type-6": "Місце роботи / навчання",
-    "field-type-7": "Знайомство",
-    "field-type-8": "Позиції родичів",
-    "field-type-9": "Гарні якості",
-    "field-type-10": "Додаткова інформація",
-    "same-name-message": "Елемент з однаковим ім'ям вже існує в списку.",
-    "must-have-name-message": "У елемента повинне бути ім'я.",
-    "positive-values-only-message": "У полів дати народження повинні бути тільки позитивні значення."
+    "first-name-label": "Ім'я *",
+    "last-name-label": "Прізвище *",
+    "middle-name-label": "По батькові",
+    "date-of-birth-label": "Дата народження",
+    "phone-no-label": "Номер телефону",
+    "email-address-label": "Адреса електронної пошти",
+    "extra-info-label": "Доп. інформація",
+    "necessary-fields-message": "First name field or last name field is empty."
   },
   "language-form": {
     "form-name": "Налаштування",

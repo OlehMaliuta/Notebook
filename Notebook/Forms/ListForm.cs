@@ -8,6 +8,8 @@ using System.IO;
 using Microsoft.Office.Interop.Word;
 using Newtonsoft.Json;
 using Notebook.Classes;
+using Notebook.Classes.DB;
+using Notebook.Classes.DB.Models;
 using Word = Microsoft.Office.Interop.Word.Application;
 
 namespace Notebook
@@ -21,27 +23,22 @@ namespace Notebook
             Other
         }
 
-        private readonly ListsStorage listsStorage;
-        private readonly PeopleList reviewList;
+        private readonly DbApp DB;
+        private readonly PersonList reviewingList;
+        private List<Person> people;
         private NextAction action;
         private int sortMode;
         private bool sortByAsc;
 
-        public ListForm(string reviewListName)
+        public ListForm(DbApp db, PersonList pl)
         {
             InitializeComponent();
 
-            this.listsStorage =
-                JsonConvert.DeserializeObject<ListsStorage>(
-                    File.ReadAllText("ListsStorageInfo.json"));
-
-            this.reviewList = listsStorage.PeopleLists.Single(
-                item => item.ListName == reviewListName);
-
+            this.DB = db;
+            this.reviewingList = pl;
+            this.people = this.reviewingList.People.OrderBy(p => p.FullName()).ToList();
             this.action = NextAction.GoToMainForm;
-
             this.sortMode = 0;
-
             this.sortByAsc = true;
         }
 
@@ -49,26 +46,17 @@ namespace Notebook
         {
             // form settings
 
-            elementDataGridView.DefaultCellStyle.WrapMode = 
-                DataGridViewTriState.True;
+            elementDataGridView.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            var pl =
-                this.reviewList.Elements.OrderBy(item => item.Name);
-
-            foreach (Element el in pl)
+            foreach (Person el in this.people)
             {
                 elementDataGridView.Rows.Add
-                    (
-                    el.Name,
-                    el.Birthday,
-                    el.CreatingDate,
-                    el.UpdatingDate
-                    );
+                    (el.FullName(), el.DateOfBirth, el.CreatedAt, el.UpdatedAt);
             }
 
             // localization
 
-            this.Text = $"{LanguageManager.Get("general.app-name")} - \"{this.reviewList.ListName}\"";
+            this.Text = $"{LanguageManager.Get("general.app-name")} - \"{this.reviewingList.Name}\"";
 
             addElementButton.Text = LanguageManager.Get("list-form.add-element-option");
             createTxtFileButton.Text = LanguageManager.Get("list-form.save-txt-option");
@@ -124,7 +112,7 @@ namespace Notebook
         {
             this.action = NextAction.Other;
             this.Close();
-            ElementForm elementForm = new ElementForm(this.reviewList.ListName, null);
+            ElementForm elementForm = new ElementForm(this.DB, this.reviewingList, null);
             elementForm.Show();
         }
 
@@ -132,7 +120,7 @@ namespace Notebook
         {
             this.action = NextAction.Other;
             this.Close();
-            SettingsForm settingsForm = new SettingsForm(this.reviewList.ListName, SettingsForm.PrevForm.ListForm);
+            SettingsForm settingsForm = new SettingsForm(this.DB, this.reviewingList, SettingsForm.PrevForm.ListForm);
             settingsForm.Show();
         }
 
@@ -163,16 +151,13 @@ namespace Notebook
                 {
                     case "open":
                         {
-                            string elementName =
-                                elementDataGridView[0, e.RowIndex]
-                                    .Value.ToString();
-
                             this.action = NextAction.Other;
                             this.Close();
 
                             ElementForm elementForm = new ElementForm(
-                                    this.reviewList.ListName,
-                                    elementName);
+                                    this.DB,
+                                    this.reviewingList,
+                                    this.people[e.RowIndex]);
 
                             elementForm.Show();
                         }
@@ -186,58 +171,11 @@ namespace Notebook
 
                             if (result == DialogResult.Yes)
                             {
-                                this.reviewList.Elements.RemoveAt(
-                                    this.reviewList.Elements.FindIndex(
-                                        item => 
-                                            item.Name == 
-                                            elementDataGridView[0, e.RowIndex]
-                                            .Value.ToString()));
+                                this.DB.People.Remove(this.people[e.RowIndex]);
+                                this.people.Remove(this.people[e.RowIndex]);
+                                this.elementDataGridView.Rows.RemoveAt(e.RowIndex);
 
-                                while (elementDataGridView.Rows.Count > 0)
-                                {
-                                    elementDataGridView.Rows.Remove(
-                                        elementDataGridView.Rows[
-                                            elementDataGridView.
-                                               Rows.Count - 1]);
-                                }
-
-                                foreach (Element el in this.reviewList.Elements)
-                                {
-                                    elementDataGridView.Rows.Add
-                                        (
-                                        el.Name,
-                                        el.Birthday,
-                                        el.CreatingDate,
-                                        el.UpdatingDate
-                                        );
-                                }
-
-                                switch (sortMode)
-                                {
-                                    case 0:
-                                        elementDataGridView.Sort(
-                                            elementDataGridView.Columns[0],
-                                            ListSortDirection.Ascending);
-                                        break;
-
-                                    case 1:
-                                        elementDataGridView.Sort(
-                                            elementDataGridView.Columns[1],
-                                            ListSortDirection.Ascending);
-                                        break;
-
-                                    case 2:
-                                        elementDataGridView.Sort(
-                                            elementDataGridView.Columns[2],
-                                            ListSortDirection.Ascending);
-                                        break;
-
-                                    case 3:
-                                        elementDataGridView.Sort(
-                                            elementDataGridView.Columns[3],
-                                            ListSortDirection.Ascending);
-                                        break;
-                                }
+                                this.DB.SaveChanges();
                             }
                         }
                         break;
@@ -263,52 +201,32 @@ namespace Notebook
                     goto p_a;
                 }
 
-                List<Element> people = new List<Element>();
-
-                for (int i = 0; i < elementDataGridView.Rows.Count; i++)
+                string listData;
+                listData = "\"" + this.reviewingList.Name + "\"\n\n";
+                for (int i = 0; i < this.people.Count; i++)
                 {
-                    people.Add(this.reviewList.Elements.Single(
-                        p => p.Name == elementDataGridView[0, i].
-                            Value.ToString()));
-                }
-
-                string listData = "";
-                int count1 = 1;
-                int count2 = 0;
-                listData = "\"" + this.reviewList.ListName + "\"\n\n";
-                while (count1 <= people.Count)
-                {
-                    count2 = 0;
-                    listData += $"\n{count1}. {people[count1 - 1].Name}\n";
+                    listData += $"\n{i + 1}. {this.people[i].FullName()}\n";
                     List<string> fields = new List<string>
                     {
                         LanguageManager.Get("list-form.fields-for-documents-1") +
-                        people[count1 - 1].Birthday,
+                        this.people[i].DateOfBirth,
                         LanguageManager.Get("list-form.fields-for-documents-2") +
-                        people[count1 - 1].Phone,
+                        this.people[i].PhoneNumber,
                         LanguageManager.Get("list-form.fields-for-documents-3") +
-                        people[count1 - 1].PersonalData,
+                        this.people[i].EmailAddress,
                         LanguageManager.Get("list-form.fields-for-documents-4") +
-                        people[count1 - 1].ResidentialAddress,
+                        this.people[i].ExtraInfo,
                         LanguageManager.Get("list-form.fields-for-documents-5") +
-                        people[count1 - 1].Locale,
+                        this.people[i].CreatedAt,
                         LanguageManager.Get("list-form.fields-for-documents-6") +
-                        people[count1 - 1].RelativesPosition,
-                        LanguageManager.Get("list-form.fields-for-documents-7") +
-                        people[count1 - 1].FirstMeeting,
-                        LanguageManager.Get("list-form.fields-for-documents-8") +
-                        people[count1 - 1].Skills,
-                        LanguageManager.Get("list-form.fields-for-documents-9") +
-                        people[count1 - 1].ExtraInfo
+                        this.people[i].UpdatedAt
                     };
 
-                    while (count2 < fields.Count)
+                    for (int j = 0; j < fields.Count; j++)
                     {
-                        listData += "\n" + fields[count2] + "\n";
-                        count2++;
+                        listData += "\n" + fields[j] + "\n";
                     }
                     listData += "\n";
-                    count1++;
                 }
 
                 File.WriteAllText(fileDialog.FileName + ".txt", listData);
@@ -341,51 +259,31 @@ namespace Notebook
                 Document docx = app.Documents.Add(Visible: false);
                 Range r = docx.Range();
 
-                List<Element> people = new List<Element>();
-
-                for (int i = 0; i < elementDataGridView.Rows.Count; i++)
+                r.Text = "\"" + this.reviewingList.Name + "\"\n\n";
+                for (int i = 0; i < this.people.Count; i++)
                 {
-                    people.Add(this.reviewList.Elements.Single(
-                        p => p.Name == elementDataGridView[0, i]
-                            .Value.ToString()));
-                }
-
-                int count1 = 1;
-                int count2 = 0;
-                r.Text = "\"" + this.reviewList.ListName + "\"\n\n";
-                while (count1 <= people.Count)
-                {
-                    count2 = 0;
-                    r.Text += $"\n{count1}. {people[count1 - 1].Name}\n";
+                    r.Text += $"\n{i + 1}. {this.people[i].FullName()}\n";
                     List<string> fields = new List<string>
                     {
                         LanguageManager.Get("list-form.fields-for-documents-1") +
-                        people[count1 - 1].Birthday,
+                        this.people[i].DateOfBirth,
                         LanguageManager.Get("list-form.fields-for-documents-2") +
-                        people[count1 - 1].Phone,
+                        this.people[i].PhoneNumber,
                         LanguageManager.Get("list-form.fields-for-documents-3") +
-                        people[count1 - 1].PersonalData,
+                        this.people[i].EmailAddress,
                         LanguageManager.Get("list-form.fields-for-documents-4") +
-                        people[count1 - 1].ResidentialAddress,
+                        this.people[i].ExtraInfo,
                         LanguageManager.Get("list-form.fields-for-documents-5") +
-                        people[count1 - 1].Locale,
+                        this.people[i].CreatedAt,
                         LanguageManager.Get("list-form.fields-for-documents-6") +
-                        people[count1 - 1].RelativesPosition,
-                        LanguageManager.Get("list-form.fields-for-documents-7") +
-                        people[count1 - 1].FirstMeeting,
-                        LanguageManager.Get("list-form.fields-for-documents-8") +
-                        people[count1 - 1].Skills,
-                        LanguageManager.Get("list-form.fields-for-documents-9") +
-                        people[count1 - 1].ExtraInfo
+                        this.people[i].UpdatedAt
                     };
 
-                    while (count2 < fields.Count)
+                    for (int j = 0; j < fields.Count; j++)
                     {
-                        r.Text += "\n" + fields[count2] + "\n";
-                        count2++;
+                        r.Text += "\n" + fields[j] + "\n";
                     }
                     r.Text += "\n";
-                    count1++;
                 }
 
                 docx.SaveAs(fileDialog.FileName + ".docx");
@@ -400,21 +298,14 @@ namespace Notebook
 
         private void SearchElementTextBoxTextChanged(object sender, EventArgs e)
         {
-            elementDataGridView.Rows.Clear();
+            this.elementDataGridView.Rows.Clear();
 
-            List<Element> pl = new List<Element>();
-
-            pl = this.reviewList.Elements.FindAll(
-                        item => item.Name.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-
-            foreach (Element el in pl)
+            foreach (var el in this.people)
             {
-                elementDataGridView.Rows.Add(
-                    el.Name,
-                    el.Birthday,
-                    el.CreatingDate,
-                    el.UpdatingDate);
+                if (el.FullName().ToLower().Contains(this.searchElementTextBox.Text.ToLower()))
+                {
+                    this.elementDataGridView.Rows.Add(el.FullName(), el.DateOfBirth, el.CreatedAt, el.UpdatedAt);
+                }
             }
         }
 
@@ -425,15 +316,7 @@ namespace Notebook
                 return;
             }
 
-            if (sortMode == e.ColumnIndex)
-            {
-                this.sortByAsc = !sortByAsc;
-            }
-            else
-            {
-                this.sortByAsc = true;
-            }
-
+            this.sortByAsc = sortMode == e.ColumnIndex ? !this.sortByAsc : true;
             this.sortMode = e.ColumnIndex;
 
             if (this.sortByAsc)
@@ -441,24 +324,16 @@ namespace Notebook
                 switch (this.sortMode)
                 {
                     case 0:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderBy(p => p.Name)
-                            .ToList();
+                        this.people = this.people.OrderBy(p => p.FullName()).ToList();
                         break;
                     case 1:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderBy(p => string.Join(".", p.Birthday.Split('.').Reverse().ToArray()))
-                            .ToList();
+                        this.people = this.people.OrderBy(p => p.DateOfBirth).ToList();
                         break;
                     case 2:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderBy(p => Program.MeasureTimeStr(p.CreatingDate))
-                            .ToList();
+                        this.people = this.people.OrderBy(p => p.CreatedAt).ToList();
                         break;
                     case 3:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderBy(p => Program.MeasureTimeStr(p.UpdatingDate))
-                            .ToList();
+                        this.people = this.people.OrderBy(p => p.UpdatedAt).ToList();
                         break;
                 }
             }
@@ -467,59 +342,40 @@ namespace Notebook
                 switch (this.sortMode)
                 {
                     case 0:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderByDescending(p => p.Name)
-                            .ToList();
+                        this.people = this.people.OrderByDescending(p => p.FullName()).ToList();
                         break;
                     case 1:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderByDescending(p => string.Join(".", p.Birthday.Split('.').Reverse().ToArray()))
-                            .ToList();
+                        this.people = this.people.OrderByDescending(p => p.DateOfBirth).ToList();
                         break;
                     case 2:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderByDescending(p => Program.MeasureTimeStr(p.CreatingDate))
-                            .ToList();
+                        this.people = this.people.OrderByDescending(p => p.CreatedAt).ToList();
                         break;
                     case 3:
-                        this.reviewList.Elements = this.reviewList.Elements
-                            .OrderByDescending(p => Program.MeasureTimeStr(p.UpdatingDate))
-                            .ToList();
+                        this.people = this.people.OrderByDescending(p => p.UpdatedAt).ToList();
                         break;
                 }
             }
 
-            elementDataGridView.Rows.Clear();
+            this.elementDataGridView.Rows.Clear();
 
-            List<Element> pl = new List<Element>();
-
-            pl = this.reviewList.Elements.FindAll(
-                        item => item.Name.ToLower().Contains(
-                            searchElementTextBox.Text.ToLower()));
-
-            foreach (Element el in pl)
+            foreach (var el in this.people)
             {
-                elementDataGridView.Rows.Add(
-                    el.Name,
-                    el.Birthday,
-                    el.CreatingDate,
-                    el.UpdatingDate);
+                if (el.FullName().ToLower().Contains(this.searchElementTextBox.Text.ToLower()))
+                {
+                    this.elementDataGridView.Rows.Add(el.FullName(), el.DateOfBirth, el.CreatedAt, el.UpdatedAt);
+                }
             }
         }
 
         private void ListFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(
-                "ListsStorageInfo.json",
-                JsonConvert.SerializeObject(this.listsStorage));
-
             switch (this.action)
             {
                 case NextAction.AppIsClosing: 
                     Environment.Exit(0); 
                     break;
                 case NextAction.GoToMainForm:
-                    MainForm mainForm = new MainForm();
+                    MainForm mainForm = new MainForm(this.DB);
                     mainForm.Show();
                     break;
             }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notebook.Classes.DB;
+using System;
 using System.Windows.Forms;
 
 namespace Notebook
@@ -18,9 +19,12 @@ namespace Notebook
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            using (DbApp DB = new DbApp())
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm(DB));
+            }
         }
     }
 }

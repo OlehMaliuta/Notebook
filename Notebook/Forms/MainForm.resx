@@ -207,40 +207,40 @@
   <data name="&gt;&gt;searchListTextBox.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="sortLabel.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="searchLabel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="sortLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="searchLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="sortLabel.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="searchLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>825, 375</value>
   </data>
-  <data name="sortLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="searchLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="sortLabel.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="searchLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 18</value>
   </data>
-  <data name="sortLabel.TabIndex" type="System.Int32, mscorlib">
+  <data name="searchLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="sortLabel.Text" xml:space="preserve">
+  <data name="searchLabel.Text" xml:space="preserve">
     <value>Search:</value>
   </data>
-  <data name="sortLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="searchLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;sortLabel.Name" xml:space="preserve">
-    <value>sortLabel</value>
+  <data name="&gt;&gt;searchLabel.Name" xml:space="preserve">
+    <value>searchLabel</value>
   </data>
-  <data name="&gt;&gt;sortLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;searchLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;sortLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;searchLabel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;sortLabel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;searchLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="settingsButton.Font" type="System.Drawing.Font, System.Drawing">
@@ -414,19 +414,19 @@
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="addListTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="addListTool.Text" xml:space="preserve">
     <value>Додати список</value>
   </data>
   <data name="settingsTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="settingsTool.Text" xml:space="preserve">
     <value>Налаштування</value>
   </data>
   <data name="exitTool.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>170, 22</value>
   </data>
   <data name="exitTool.Text" xml:space="preserve">
     <value>Вихід</value>

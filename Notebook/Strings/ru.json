@@ -1,6 +1,6 @@
 {
   "general": {
-    "app-name": "Notebook",
+    "app-name": "MemoMates",
     "warning-message-title": "Предупреждение!",
     "normal-message-title": "Сообщение!",
     "exit-message": "Хотите закрыть приложение?"
@@ -51,37 +51,25 @@
     "document-created-message": "Документ успешно создан.",
     "fields-for-documents-1": "Дата рождения: ",
     "fields-for-documents-2": "Номера телефонов: ",
-    "fields-for-documents-3": "Персональные данные: ",
-    "fields-for-documents-4": "Адрес проживания: ",
-    "fields-for-documents-5": "Позиции родственников: ",
-    "fields-for-documents-6": "Место работы / обучения: ",
-    "fields-for-documents-7": "Знакомство: ",
-    "fields-for-documents-8": "Хорошие качества: ",
-    "fields-for-documents-9": "Дополнительная информация: "
+    "fields-for-documents-3": "Электронная почта: ",
+    "fields-for-documents-4": "Доп. информация: ",
+    "fields-for-documents-5": "Добавлено: ",
+    "fields-for-documents-6": "Обновлено: "
   },
   "element-form": {
     "form-name-create": "Новый элемент",
     "form-name-review": "Обзор элемента",
-    "day-label": "День:",
-    "month-label": "Месяц:",
-    "year-label": "Год:",
     "create-element-button": "Создать",
     "edit-element-button": "Редактировать",
     "go-back-button": "Вернуться",
-    "field-title": "Поле:",
-    "field-type-1": "Полное имя",
-    "field-type-2": "Дата рождения",
-    "field-type-3": "Номера телефонов",
-    "field-type-4": "Персональные данные",
-    "field-type-5": "Адрес проживания",
-    "field-type-6": "Место работы / обучения",
-    "field-type-7": "Знакомство",
-    "field-type-8": "Позиции родственников",
-    "field-type-9": "Хорошие качества",
-    "field-type-10": "Дополнительная информация",
-    "same-name-message": "Элемент с одинаковым именем уже существует в списке.",
-    "must-have-name-message": "У элемента должно быть имя.",
-    "positive-values-only-message": "У полей даты рождения должны быть только положительные значения."
+    "first-name-label": "Имя *",
+    "last-name-label": "Фамилия *",
+    "middle-name-label": "Отчество",
+    "date-of-birth-label": "Дата рождения",
+    "phone-no-label": "Номер телефона",
+    "email-address-label": "Адрес электронной почты",
+    "extra-info-label": "Доп. информация",
+    "necessary-fields-message": "Поле для ім'я або поле для прізвища пусте."
   },
   "language-form": {
     "form-name": "Настройки",

@@ -63,7 +63,7 @@
             // languageWindowLabel
             // 
             this.languageWindowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.languageWindowLabel.Location = new System.Drawing.Point(54, 92);
+            this.languageWindowLabel.Location = new System.Drawing.Point(103, 85);
             this.languageWindowLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.languageWindowLabel.Name = "languageWindowLabel";
             this.languageWindowLabel.Size = new System.Drawing.Size(149, 18);
@@ -76,7 +76,7 @@
             this.languageComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.languageComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.Location = new System.Drawing.Point(234, 89);
+            this.languageComboBox.Location = new System.Drawing.Point(260, 82);
             this.languageComboBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.languageComboBox.Name = "languageComboBox";
             this.languageComboBox.Size = new System.Drawing.Size(182, 24);
@@ -94,7 +94,7 @@
             this.goBackButton.UseVisualStyleBackColor = true;
             this.goBackButton.Click += new System.EventHandler(this.GoBackButtonClick);
             // 
-            // LanguageForm
+            // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,7 +107,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "LanguageForm";
+            this.Name = "SettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanguageForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LanguageFormFormClosing);
