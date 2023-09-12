@@ -10,7 +10,7 @@ namespace MemoMates.Classes.DB
     {
         public DbConfig()
         {
-            SetProviderFactory("System.Data.SQLite", SQLiteFactory.Instance);
+            SetProviderFactory("System.Data.SQLite", SQLiteProviderFactory.Instance);
             SetProviderFactory("System.Data.SQLite.EF6", SQLiteProviderFactory.Instance);
 
             var providerService = (DbProviderServices)SQLiteProviderFactory.Instance.GetService(typeof(DbProviderServices));
