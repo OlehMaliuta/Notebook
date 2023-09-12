@@ -36,7 +36,13 @@ namespace MemoMates
 
             this.DB = db;
             this.reviewingList = pl;
-            this.people = this.reviewingList.People.OrderBy(p => p.FullName()).ToList();
+
+            this.people = db.People
+                .Where(p => p.ListId == pl.Id)
+                .ToList()
+                .OrderBy(p => p.FullName())
+                .ToList();
+
             this.action = NextAction.GoToMainForm;
             this.sortMode = 0;
             this.sortByAsc = true;

@@ -6,16 +6,6 @@ namespace MemoMates
 {
     internal static class Program
     {
-        public static int MeasureTimeStr(string time)
-        {
-            string[] dt = time.Split('\n');
-            string[] d = dt[0].Split('.');
-            string[] t = dt[1].Split(':');
-
-            return int.Parse(d[0]) + int.Parse(d[1]) + int.Parse(d[2])
-                + int.Parse(t[0]) + int.Parse(t[1]) + int.Parse(t[2]);
-        }
-
         [STAThread]
         static void Main()
         {

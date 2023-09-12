@@ -65,27 +65,24 @@ namespace MemoMates
                 {
                     this.reviewingList.Name = input;
                     this.reviewingList.UpdatedAt = DateTime.Now;
-                    this.DB.SaveChanges();
-                    this.Close();
                 }
                 else
                 {
-                    this.DB.PersonLists.Add(new PersonList() { Name = input });
-                    this.DB.SaveChanges();
-                    this.Close();
+                    this.DB.PersonLists.Add(new PersonList() 
+                    {
+                        Name = input
+                    });
                 }
+
+                this.DB.SaveChanges();
             }
+
+            this.DialogResult = DialogResult.OK;
         }
 
         private void GoBackButtonClick(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void ListNameFormFormClosing(object sender, FormClosingEventArgs e)
-        {
-            MainForm mainForm = new MainForm(this.DB);
-            mainForm.Show();
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

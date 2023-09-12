@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{95F1B830-B60C-41FC-A473-C69DE2096132}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Notebook</RootNamespace>
-    <AssemblyName>Notebook</AssemblyName>
+    <RootNamespace>MemoMates</RootNamespace>
+    <AssemblyName>MemoMates</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -145,9 +145,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ListsStorageInfo.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Strings\en.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

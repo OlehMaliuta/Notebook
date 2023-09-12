@@ -67,12 +67,12 @@
             this.giveListNameButton.UseVisualStyleBackColor = true;
             this.giveListNameButton.Click += new System.EventHandler(this.GiveListNameButtonClick);
             // 
-            // goBackButton
+            // cancelButton
             // 
             this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancelButton.Location = new System.Drawing.Point(33, 136);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cancelButton.Name = "goBackButton";
+            this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(143, 44);
             this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "назад";
@@ -94,7 +94,6 @@
             this.Name = "ListNameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListNameForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ListNameFormFormClosing);
             this.Load += new System.EventHandler(this.ListNameFormLoad);
             this.ResumeLayout(false);
             this.PerformLayout();

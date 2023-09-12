@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
 using MemoMates.Classes;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
@@ -83,9 +80,13 @@ namespace MemoMates
 
         private void CreateListButtonClick(object sender, EventArgs e)
         {
-            this.Hide();
             ListNameForm listNameForm = new ListNameForm(this.DB, null);
-            listNameForm.Show();
+            DialogResult dialog = listNameForm.ShowDialog();
+
+            if (dialog == DialogResult.OK)
+            {
+                this.ReloadList();
+            }
         }
 
         private void SettingsButtonClick(object sender, EventArgs e)
@@ -130,8 +131,13 @@ namespace MemoMates
                         {
                             ListNameForm listNameForm = 
                                 new ListNameForm(this.DB, currentList);
-                            this.Hide();
-                            listNameForm.Show();
+
+                            DialogResult dialog = listNameForm.ShowDialog();
+
+                            if (dialog == DialogResult.OK)
+                            {
+                                this.ReloadList();
+                            }
                         }
                         break;
                     case "delete":
@@ -223,6 +229,50 @@ namespace MemoMates
         private void MainFormFormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void ReloadList()
+        {
+            if (sortByAsc)
+            {
+                switch (sortMode)
+                {
+                    case 0:
+                        this.personLists = this.DB.PersonLists.OrderBy(p => p.Name).ToList();
+                        break;
+                    case 1:
+                        this.personLists = this.DB.PersonLists.OrderBy(p => p.CreatedAt).ToList();
+                        break;
+                    case 2:
+                        this.personLists = this.DB.PersonLists.OrderBy(p => p.UpdatedAt).ToList();
+                        break;
+                }
+            }
+            else
+            {
+                switch (sortMode)
+                {
+                    case 0:
+                        this.personLists = this.DB.PersonLists.OrderByDescending(p => p.Name).ToList();
+                        break;
+                    case 1:
+                        this.personLists = this.DB.PersonLists.OrderByDescending(p => p.CreatedAt).ToList();
+                        break;
+                    case 2:
+                        this.personLists = this.DB.PersonLists.OrderByDescending(p => p.UpdatedAt).ToList();
+                        break;
+                }
+            }
+
+            listDataGridView.Rows.Clear();
+
+            foreach (var el in this.personLists)
+            {
+                if (el.Name.ToLower().Contains(this.searchListTextBox.Text.ToLower()))
+                {
+                    listDataGridView.Rows.Add(el.Name, el.CreatedAt, el.UpdatedAt);
+                }
+            }
         }
     }
 }
