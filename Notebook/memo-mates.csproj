@@ -79,7 +79,7 @@
     <Compile Include="Classes\DB\DbInit.cs" />
     <Compile Include="Classes\DB\Models\Person.cs" />
     <Compile Include="Classes\DB\Models\PersonList.cs" />
-    <Compile Include="Classes\LanguageManager.cs" />
+    <Compile Include="Tools\StringTool.cs" />
     <Compile Include="Forms\ElementForm.cs">
       <SubType>Form</SubType>
     </Compile>
