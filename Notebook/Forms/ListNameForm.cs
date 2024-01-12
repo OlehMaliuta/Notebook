@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
-using MemoMates.Classes;
+using MemoMates.Tools;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
 using System.Linq;
@@ -29,18 +27,18 @@ namespace MemoMates
             // localization
 
             this.Text = reviewingList == null
-                ? $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("list-name-form.form-name-create")}"
-                : $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("list-name-form.form-name-rename")}";
+                ? $"{StringTool.Get("general.app-name")} - {StringTool.Get("list-name-form.form-name-create")}"
+                : $"{StringTool.Get("general.app-name")} - {StringTool.Get("list-name-form.form-name-rename")}";
 
             listNameWindowLabel.Text = reviewingList == null
-                ? LanguageManager.Get("list-name-form.name-input-option-title-create")
-                : LanguageManager.Get("list-name-form.name-input-option-title-rename");
+                ? StringTool.Get("list-name-form.name-input-option-title-create")
+                : StringTool.Get("list-name-form.name-input-option-title-rename");
 
             giveListNameButton.Text = reviewingList == null
-                ? LanguageManager.Get("list-name-form.create-button")
-                : LanguageManager.Get("list-name-form.rename-button");
+                ? StringTool.Get("list-name-form.create-button")
+                : StringTool.Get("list-name-form.rename-button");
 
-            cancelButton.Text = LanguageManager.Get("list-name-form.cancel-button");
+            cancelButton.Text = StringTool.Get("list-name-form.cancel-button");
         }
 
         private void GiveListNameButtonClick(object sender, EventArgs e)
@@ -50,14 +48,14 @@ namespace MemoMates
             if (input == "")
             {
                 MessageBox.Show(
-                    LanguageManager.Get("list-name-form.list-must-have-name-message"),
-                    LanguageManager.Get("general.warning-message-title"));
+                    StringTool.Get("list-name-form.list-must-have-name-message"),
+                    StringTool.Get("general.warning-message-title"));
             }
             else if (this.DB.PersonLists.FirstOrDefault(p => p.Name == input) != null)
             {
                 MessageBox.Show(
-                    LanguageManager.Get("list-name-form.same-name-message"),
-                    LanguageManager.Get("general.warning-message-title"));
+                    StringTool.Get("list-name-form.same-name-message"),
+                    StringTool.Get("general.warning-message-title"));
             }
             else
             {

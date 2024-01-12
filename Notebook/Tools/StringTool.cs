@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 
-namespace MemoMates.Classes
+namespace MemoMates.Tools
 {
-    internal static class LanguageManager
+    internal static class StringTool
     {
         private const string defaultLang = "en";
         private static JObject data = null;

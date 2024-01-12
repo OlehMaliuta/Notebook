@@ -7,15 +7,14 @@ namespace MemoMates
 {
     internal static class Program
     {
+        public const string appName = "MemoMates";
+
         private static Mutex mutex = null;
 
         [STAThread]
         static void Main()
         {
-            const string appName = "MemoMates";
-            bool createdNew;
-
-            mutex = new Mutex(true, appName, out createdNew);
+            mutex = new Mutex(true, appName, out bool createdNew);
 
             if (!createdNew)
             {

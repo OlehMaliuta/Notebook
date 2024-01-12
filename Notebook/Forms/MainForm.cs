@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using MemoMates.Classes;
+using MemoMates.Tools;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
 
@@ -30,27 +30,27 @@ namespace MemoMates
         {
             // localization
 
-            this.Text = $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("main-form.form-name")}";
+            this.Text = $"{StringTool.Get("general.app-name")} - {StringTool.Get("main-form.form-name")}";
 
-            listDataGridView.Columns[0].HeaderText = LanguageManager.Get("main-form.column-header-1");
-            listDataGridView.Columns[1].HeaderText = LanguageManager.Get("main-form.column-header-2");
-            listDataGridView.Columns[2].HeaderText = LanguageManager.Get("main-form.column-header-3");
-            listDataGridView.Columns[3].HeaderText = LanguageManager.Get("main-form.column-header-4");
-            listDataGridView.Columns[4].HeaderText = LanguageManager.Get("main-form.column-header-5");
-            listDataGridView.Columns[5].HeaderText = LanguageManager.Get("main-form.column-header-6");
+            listDataGridView.Columns[0].HeaderText = StringTool.Get("main-form.column-header-1");
+            listDataGridView.Columns[1].HeaderText = StringTool.Get("main-form.column-header-2");
+            listDataGridView.Columns[2].HeaderText = StringTool.Get("main-form.column-header-3");
+            listDataGridView.Columns[3].HeaderText = StringTool.Get("main-form.column-header-4");
+            listDataGridView.Columns[4].HeaderText = StringTool.Get("main-form.column-header-5");
+            listDataGridView.Columns[5].HeaderText = StringTool.Get("main-form.column-header-6");
 
-            createListButton.Text = LanguageManager.Get("main-form.add-list-option");
+            createListButton.Text = StringTool.Get("main-form.add-list-option");
 
-            searchLabel.Text = LanguageManager.Get("main-form.searching-option-title");
+            searchLabel.Text = StringTool.Get("main-form.searching-option-title");
 
-            settingsButton.Text = LanguageManager.Get("main-form.settings-option");
+            settingsButton.Text = StringTool.Get("main-form.settings-option");
 
-            exitButton.Text = LanguageManager.Get("main-form.exit-option");
+            exitButton.Text = StringTool.Get("main-form.exit-option");
 
-            fileMenuSection.Text = LanguageManager.Get("main-form.top-menu-option-file");
-            addListTool.Text = LanguageManager.Get("main-form.add-list-option");
-            settingsTool.Text = LanguageManager.Get("main-form.settings-option");
-            exitTool.Text = LanguageManager.Get("main-form.exit-option");
+            fileMenuSection.Text = StringTool.Get("main-form.top-menu-option-file");
+            addListTool.Text = StringTool.Get("main-form.add-list-option");
+            settingsTool.Text = StringTool.Get("main-form.settings-option");
+            exitTool.Text = StringTool.Get("main-form.exit-option");
 
             // form settings
 
@@ -99,8 +99,8 @@ namespace MemoMates
         private void ExitButtonClick(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                LanguageManager.Get("general.exit-message"),
-                                LanguageManager.Get("general.warning-message-title"),
+                                StringTool.Get("general.exit-message"),
+                                StringTool.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -143,8 +143,8 @@ namespace MemoMates
                     case "delete":
                         {
                             DialogResult result = MessageBox.Show(
-                                LanguageManager.Get("main-form.remove-list-message"),
-                                LanguageManager.Get("general.warning-message-title"),
+                                StringTool.Get("main-form.remove-list-message"),
+                                StringTool.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
                             if (result == DialogResult.Yes)

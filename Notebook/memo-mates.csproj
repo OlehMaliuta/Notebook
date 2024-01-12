@@ -110,7 +110,7 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Migrations\202309111243273_v_1.cs" />
     <Compile Include="Migrations\202309111243273_v_1.designer.cs">
       <DependentUpon>202309111243273_v_1.cs</DependentUpon>

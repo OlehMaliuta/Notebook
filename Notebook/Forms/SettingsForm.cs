@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
-using MemoMates.Classes;
+using MemoMates.Tools;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
 
@@ -35,19 +33,19 @@ namespace MemoMates
         {
             // localization
 
-            this.Text = $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("language-form.form-name")}";
-            languageWindowLabel.Text = LanguageManager.Get("language-form.app-language-setting-title");
-            changeLanguageButton.Text = LanguageManager.Get("language-form.apply-button");
-            mainMenuButton.Text = LanguageManager.Get("language-form.main-menu-button");
-            goBackButton.Text = LanguageManager.Get("language-form.go-back-button");
+            this.Text = $"{StringTool.Get("general.app-name")} - {StringTool.Get("language-form.form-name")}";
+            languageWindowLabel.Text = StringTool.Get("language-form.app-language-setting-title");
+            changeLanguageButton.Text = StringTool.Get("language-form.apply-button");
+            mainMenuButton.Text = StringTool.Get("language-form.main-menu-button");
+            goBackButton.Text = StringTool.Get("language-form.go-back-button");
 
-            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-en"));
-            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-ua"));
-            languageComboBox.Items.Add(LanguageManager.Get("language-form.language-option-ru"));
+            languageComboBox.Items.Add(StringTool.Get("language-form.language-option-en"));
+            languageComboBox.Items.Add(StringTool.Get("language-form.language-option-ua"));
+            languageComboBox.Items.Add(StringTool.Get("language-form.language-option-ru"));
 
             // form settings
 
-            switch (LanguageManager.CurrentLang)
+            switch (StringTool.CurrentLang)
             {
                 case "en":
                     languageComboBox.SelectedIndex = 0; 
@@ -81,15 +79,15 @@ namespace MemoMates
             switch (languageComboBox.SelectedIndex)
             {
                 case 0:
-                    LanguageManager.CurrentLang = "en";
+                    StringTool.CurrentLang = "en";
                     break;
 
                 case 1:
-                    LanguageManager.CurrentLang = "ua";
+                    StringTool.CurrentLang = "ua";
                     break;
 
                 case 2:
-                    LanguageManager.CurrentLang = "ru";
+                    StringTool.CurrentLang = "ru";
                     break;
             }
 

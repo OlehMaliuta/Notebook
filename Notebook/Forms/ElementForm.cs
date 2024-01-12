@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using System.IO;
-using Newtonsoft.Json;
-using MemoMates.Classes;
+using MemoMates.Tools;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
-using System.Reflection.Emit;
 
 namespace MemoMates
 {
@@ -75,22 +71,22 @@ namespace MemoMates
             // localization
 
             this.Text = this.creatingMode
-                ? $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("element-form.form-name-create")}"
-                : $"{LanguageManager.Get("general.app-name")} - {LanguageManager.Get("element-form.form-name-review")}";
+                ? $"{StringTool.Get("general.app-name")} - {StringTool.Get("element-form.form-name-create")}"
+                : $"{StringTool.Get("general.app-name")} - {StringTool.Get("element-form.form-name-review")}";
 
             this.editElementButton.Text = this.creatingMode
-                ? LanguageManager.Get("element-form.create-element-button")
-                : LanguageManager.Get("element-form.edit-element-button");
+                ? StringTool.Get("element-form.create-element-button")
+                : StringTool.Get("element-form.edit-element-button");
 
-            this.goBackButton.Text = LanguageManager.Get("element-form.go-back-button");
+            this.goBackButton.Text = StringTool.Get("element-form.go-back-button");
 
-            this.firstNameLabel.Text = LanguageManager.Get("element-form.first-name-label");
-            this.lastNameLabel.Text = LanguageManager.Get("element-form.last-name-label");
-            this.middleNameLabel.Text = LanguageManager.Get("element-form.middle-name-label");
-            this.dateOfBirthLabel.Text = LanguageManager.Get("element-form.date-of-birth-label");
-            this.phoneNoLabel.Text = LanguageManager.Get("element-form.phone-no-label");
-            this.emailLabel.Text = LanguageManager.Get("element-form.email-address-label");
-            this.extraInfoLabel.Text = LanguageManager.Get("element-form.extra-info-label");
+            this.firstNameLabel.Text = StringTool.Get("element-form.first-name-label");
+            this.lastNameLabel.Text = StringTool.Get("element-form.last-name-label");
+            this.middleNameLabel.Text = StringTool.Get("element-form.middle-name-label");
+            this.dateOfBirthLabel.Text = StringTool.Get("element-form.date-of-birth-label");
+            this.phoneNoLabel.Text = StringTool.Get("element-form.phone-no-label");
+            this.emailLabel.Text = StringTool.Get("element-form.email-address-label");
+            this.extraInfoLabel.Text = StringTool.Get("element-form.extra-info-label");
         }
 
         private void IsDateOfBirthAllowedCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -107,8 +103,8 @@ namespace MemoMates
                 )
             {
                 MessageBox.Show(
-                    LanguageManager.Get("element-form.necessary-fields-message"), 
-                    LanguageManager.Get("general.warning-message-title"));
+                    StringTool.Get("element-form.necessary-fields-message"), 
+                    StringTool.Get("general.warning-message-title"));
 
                 return;
             }

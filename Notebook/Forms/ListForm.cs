@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
 using Microsoft.Office.Interop.Word;
-using Newtonsoft.Json;
-using MemoMates.Classes;
 using MemoMates.Classes.DB;
 using MemoMates.Classes.DB.Models;
+using MemoMates.Tools;
 using Word = Microsoft.Office.Interop.Word.Application;
 
 namespace MemoMates
@@ -62,31 +60,31 @@ namespace MemoMates
 
             // localization
 
-            this.Text = $"{LanguageManager.Get("general.app-name")} - \"{this.reviewingList.Name}\"";
+            this.Text = $"{StringTool.Get("general.app-name")} - \"{this.reviewingList.Name}\"";
 
-            addElementButton.Text = LanguageManager.Get("list-form.add-element-option");
-            createTxtFileButton.Text = LanguageManager.Get("list-form.save-txt-option");
-            createDocxFileButton.Text = LanguageManager.Get("list-form.save-docx-option");
+            addElementButton.Text = StringTool.Get("list-form.add-element-option");
+            createTxtFileButton.Text = StringTool.Get("list-form.save-txt-option");
+            createDocxFileButton.Text = StringTool.Get("list-form.save-docx-option");
 
-            elementDataGridView.Columns[0].HeaderText = LanguageManager.Get("list-form.column-header-1");
-            elementDataGridView.Columns[1].HeaderText = LanguageManager.Get("list-form.column-header-2");
-            elementDataGridView.Columns[2].HeaderText = LanguageManager.Get("list-form.column-header-3");
-            elementDataGridView.Columns[3].HeaderText = LanguageManager.Get("list-form.column-header-4");
-            elementDataGridView.Columns[4].HeaderText = LanguageManager.Get("list-form.column-header-5");
-            elementDataGridView.Columns[5].HeaderText = LanguageManager.Get("list-form.column-header-6");
+            elementDataGridView.Columns[0].HeaderText = StringTool.Get("list-form.column-header-1");
+            elementDataGridView.Columns[1].HeaderText = StringTool.Get("list-form.column-header-2");
+            elementDataGridView.Columns[2].HeaderText = StringTool.Get("list-form.column-header-3");
+            elementDataGridView.Columns[3].HeaderText = StringTool.Get("list-form.column-header-4");
+            elementDataGridView.Columns[4].HeaderText = StringTool.Get("list-form.column-header-5");
+            elementDataGridView.Columns[5].HeaderText = StringTool.Get("list-form.column-header-6");
 
-            searchLabel.Text = LanguageManager.Get("list-form.searching-option-title");
+            searchLabel.Text = StringTool.Get("list-form.searching-option-title");
 
-            settingsButton.Text = LanguageManager.Get("list-form.settings-option");
-            mainMenuButton.Text = LanguageManager.Get("list-form.main-menu-option");
-            exitButton.Text = LanguageManager.Get("list-form.exit-option");
+            settingsButton.Text = StringTool.Get("list-form.settings-option");
+            mainMenuButton.Text = StringTool.Get("list-form.main-menu-option");
+            exitButton.Text = StringTool.Get("list-form.exit-option");
 
-            fileMenuSection.Text = LanguageManager.Get("list-form.top-menu-option-file");
-            addElementTool.Text = LanguageManager.Get("list-form.add-element-option");
-            createTxtTool.Text = LanguageManager.Get("list-form.save-txt-option");
-            createDocxTool.Text = LanguageManager.Get("list-form.save-docx-option");
-            settingsTool.Text = LanguageManager.Get("list-form.settings-option");
-            exitTool.Text = LanguageManager.Get("list-form.exit-option");
+            fileMenuSection.Text = StringTool.Get("list-form.top-menu-option-file");
+            addElementTool.Text = StringTool.Get("list-form.add-element-option");
+            createTxtTool.Text = StringTool.Get("list-form.save-txt-option");
+            createDocxTool.Text = StringTool.Get("list-form.save-docx-option");
+            settingsTool.Text = StringTool.Get("list-form.settings-option");
+            exitTool.Text = StringTool.Get("list-form.exit-option");
         }
 
         private void AddElementToolClick(object sender, EventArgs e)
@@ -138,8 +136,8 @@ namespace MemoMates
         private void ExitButtonClick(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                LanguageManager.Get("general.exit-message"),
-                                LanguageManager.Get("general.warning-message-title"),
+                                StringTool.Get("general.exit-message"),
+                                StringTool.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
@@ -171,8 +169,8 @@ namespace MemoMates
                     case "delete":
                         {
                             DialogResult result = MessageBox.Show(
-                                LanguageManager.Get("list-form.remove-element-message"),
-                                LanguageManager.Get("general.warning-message-title"),
+                                StringTool.Get("list-form.remove-element-message"),
+                                StringTool.Get("general.warning-message-title"),
                                 MessageBoxButtons.YesNo);
 
                             if (result == DialogResult.Yes)
@@ -202,8 +200,8 @@ namespace MemoMates
                 if (fileDialog.FileName.Contains('.'))
                 {
                     MessageBox.Show(
-                        LanguageManager.Get("list-form.illegal-chars-message"), 
-                        LanguageManager.Get("general.warning-message-title"));
+                        StringTool.Get("list-form.illegal-chars-message"), 
+                        StringTool.Get("general.warning-message-title"));
                     goto p_a;
                 }
 
@@ -214,17 +212,17 @@ namespace MemoMates
                     listData += $"\n{i + 1}. {this.people[i].FullName()}\n";
                     List<string> fields = new List<string>
                     {
-                        LanguageManager.Get("list-form.fields-for-documents-1") +
+                        StringTool.Get("list-form.fields-for-documents-1") +
                         this.people[i].DateOfBirth,
-                        LanguageManager.Get("list-form.fields-for-documents-2") +
+                        StringTool.Get("list-form.fields-for-documents-2") +
                         this.people[i].PhoneNumber,
-                        LanguageManager.Get("list-form.fields-for-documents-3") +
+                        StringTool.Get("list-form.fields-for-documents-3") +
                         this.people[i].EmailAddress,
-                        LanguageManager.Get("list-form.fields-for-documents-4") +
+                        StringTool.Get("list-form.fields-for-documents-4") +
                         this.people[i].ExtraInfo,
-                        LanguageManager.Get("list-form.fields-for-documents-5") +
+                        StringTool.Get("list-form.fields-for-documents-5") +
                         this.people[i].CreatedAt,
-                        LanguageManager.Get("list-form.fields-for-documents-6") +
+                        StringTool.Get("list-form.fields-for-documents-6") +
                         this.people[i].UpdatedAt
                     };
 
@@ -238,8 +236,8 @@ namespace MemoMates
                 File.WriteAllText(fileDialog.FileName + ".txt", listData);
 
                 MessageBox.Show(
-                    LanguageManager.Get("list-form.document-created-message"), 
-                    LanguageManager.Get("general.normal-message-title"));
+                    StringTool.Get("list-form.document-created-message"), 
+                    StringTool.Get("general.normal-message-title"));
             }
         }
 
@@ -256,8 +254,8 @@ namespace MemoMates
                 if (fileDialog.FileName.Contains('.'))
                 {
                     MessageBox.Show(
-                        LanguageManager.Get("list-form.illegal-chars-message"),
-                        LanguageManager.Get("general.warning-message-title"));
+                        StringTool.Get("list-form.illegal-chars-message"),
+                        StringTool.Get("general.warning-message-title"));
                     goto p_b;
                 }
 
@@ -271,17 +269,17 @@ namespace MemoMates
                     r.Text += $"\n{i + 1}. {this.people[i].FullName()}\n";
                     List<string> fields = new List<string>
                     {
-                        LanguageManager.Get("list-form.fields-for-documents-1") +
+                        StringTool.Get("list-form.fields-for-documents-1") +
                         this.people[i].DateOfBirth,
-                        LanguageManager.Get("list-form.fields-for-documents-2") +
+                        StringTool.Get("list-form.fields-for-documents-2") +
                         this.people[i].PhoneNumber,
-                        LanguageManager.Get("list-form.fields-for-documents-3") +
+                        StringTool.Get("list-form.fields-for-documents-3") +
                         this.people[i].EmailAddress,
-                        LanguageManager.Get("list-form.fields-for-documents-4") +
+                        StringTool.Get("list-form.fields-for-documents-4") +
                         this.people[i].ExtraInfo,
-                        LanguageManager.Get("list-form.fields-for-documents-5") +
+                        StringTool.Get("list-form.fields-for-documents-5") +
                         this.people[i].CreatedAt,
-                        LanguageManager.Get("list-form.fields-for-documents-6") +
+                        StringTool.Get("list-form.fields-for-documents-6") +
                         this.people[i].UpdatedAt
                     };
 
@@ -297,8 +295,8 @@ namespace MemoMates
                 app.Quit();
 
                 MessageBox.Show(
-                    LanguageManager.Get("list-form.document-created-message"),
-                    LanguageManager.Get("general.normal-message-title"));
+                    StringTool.Get("list-form.document-created-message"),
+                    StringTool.Get("general.normal-message-title"));
             }
         }
 
