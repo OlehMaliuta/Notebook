@@ -31,7 +31,7 @@ This is a Windows Forms application developed using .NET Framework 4.8. The prog
 
 ## Installation
 
-1. Clone the repository to your local machine: `git clone https://github.com/OlehMaliuta/memo-mates.git`.
+1. Clone the repository to your local machine.
 2. Open the solution file (PeopleManagementProgram.sln) in Visual Studio.
 3. Build the solution to restore dependencies.
 4. Run the application.
